@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEUM Concierge — Korea, Connected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6F4EF;
+    --paper:#FCFBF8;
+    --ink:#23241F;
+    --stone:#8B8577;
+    --jade:#40685B;
+    --jade-deep:#2C463E;
+    --hairline:rgba(35,36,31,.14);
+    --display:'Cormorant Garamond',Georgia,serif;
+    --utility:'Jost',Helvetica,Arial,sans-serif;
+    --kr:'Noto Serif KR',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--jade);color:var(--paper)}
+
+  /* ---------- utilities ---------- */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
+  .eyebrow{font-family:var(--utility);font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
+  .thread{width:1px;height:56px;background:var(--jade);opacity:.45;margin:26px auto}
+  h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
+  .lede{font-family:var(--display);font-size:1.35rem;font-weight:400;line-height:1.6;color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%}
+
+  /* Photography placeholders — replace each .ph with a real photograph */
+  .ph{position:relative;overflow:hidden;background:linear-gradient(160deg,#DDD8CC 0%,#C9CFC6 45%,#9FB2A6 100%)}
+  .ph::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+  .ph span{position:absolute;bottom:14px;left:16px;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);z-index:1}
+  .ph.deep{background:linear-gradient(165deg,#54685E 0%,#33473F 55%,#22322C 100%)}
+  .ph.warm{background:linear-gradient(160deg,#E4DCCB 0%,#CBBFa5 50%,#A29273 100%)}
+  .ph.mist{background:linear-gradient(170deg,#E9EAE6 0%,#C4CCC7 50%,#8FA098 100%)}
+
+  /* ---------- nav ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;transition:background .5s,box-shadow .5s}
+  nav.solid{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--hairline)}
+  .logo{font-family:var(--display);font-size:1.15rem;letter-spacing:.34em;font-weight:400;color:var(--paper);transition:color .5s}
+  .logo small{display:block;font-family:var(--utility);font-size:.52rem;letter-spacing:.5em;color:inherit;opacity:.75;margin-top:2px}
+  nav.solid .logo{color:var(--ink)}
+  .navlinks{display:flex;gap:44px}
+  .navlinks a{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);opacity:.85;transition:color .5s,opacity .3s}
+  .navlinks a:hover{opacity:1}
+  nav.solid .navlinks a{color:var(--ink)}
+  .navlinks a.cta{border:1px solid currentColor;padding:9px 20px}
+
+  /* ---------- hero ---------- */
+  header{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--paper);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#2F423B 0%,#3C564C 45%,#57705F 100%)}
+  .hero-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,rgba(246,244,239,.22),transparent 60%)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+  .hero-inner{position:relative;z-index:2;padding:0 6vw;animation:rise 1.6s cubic-bezier(.2,.6,.2,1) both .2s}
+  .hero-kr{font-family:var(--kr);font-weight:200;font-size:clamp(3rem,7vw,5.2rem);opacity:.28;letter-spacing:.1em;margin-bottom:-1.2rem}
+  header h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:.06em}
+  .hero-sub{font-family:var(--utility);font-size:.74rem;letter-spacing:.44em;text-transform:uppercase;margin-top:28px;opacity:.85}
+  .hero-note{position:absolute;bottom:36px;left:0;right:0;text-align:center;z-index:2;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;opacity:.6;color:var(--paper)}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.hero-inner,.reveal{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+
+  /* ---------- sections ---------- */
+  section{padding:130px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 80px}
+  .section-head h2{font-size:clamp(2rem,4vw,3rem);margin-top:22px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* about */
+  #about{background:var(--paper)}
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+  .about-grid .ph{aspect-ratio:4/5}
+  .about-copy h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:20px 0 26px}
+  .about-copy p{color:#4A4A43;max-width:44ch}
+  .about-copy p + p{margin-top:18px}
+  .why{margin-top:44px;border-top:1px solid var(--hairline)}
+  .why div{display:flex;gap:26px;padding:20px 0;border-bottom:1px solid var(--hairline);align-items:baseline}
+  .why b{font-family:var(--display);font-size:1.15rem;font-weight:500;min-width:180px}
+  .why p{font-size:.86rem;color:#5A5A52;max-width:none}
+
+  /* services */
+  #services{background:var(--ivory)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline)}
+  .svc{background:var(--ivory);padding:56px 40px;text-align:center;transition:background .5s}
+  .svc:hover{background:var(--paper)}
+  .svc .num{font-family:var(--display);font-style:italic;color:var(--jade);font-size:1rem;letter-spacing:.2em}
+  .svc h3{font-size:1.6rem;margin:16px 0 16px}
+  .svc p{font-size:.86rem;color:#5A5A52}
+
+  /* themes */
+  #themes .theme{margin-bottom:84px}
+  #themes .theme:last-child{margin-bottom:0}
+  .theme-label{text-align:center;margin-bottom:30px}
+  .theme-label h3{font-size:clamp(1.5rem,2.6vw,2rem);margin-top:12px}
+  .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:880px;margin:0 auto}
+  .exp{position:relative}
+  .exp .ph{aspect-ratio:16/9;transition:transform .8s ease}
+  .exp:hover .ph{transform:scale(1.015)}
+  .exp h4{font-family:var(--display);font-weight:400;font-size:1.2rem;margin:14px 0 6px}
+  .exp p{font-size:.82rem;color:#5A5A52;max-width:48ch}
+
+  /* contact */
+  #contact{background:var(--jade-deep);color:var(--ivory)}
+  #contact .eyebrow{color:#A9C3B7}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:90px;align-items:start}
+  .contact-info h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:20px 0 26px}
+  .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
+  .contact-lines{margin-top:44px;display:grid;gap:22px}
+  .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;transition:border-color .4s}
+  .contact-lines a:hover{border-color:var(--ivory)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .field{display:grid;gap:8px}
+  .field.full{grid-column:1/-1}
+  label{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#A9C3B7}
+  input,select,textarea{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none}
+  select option{color:var(--ink)}
+  textarea{resize:vertical;min-height:90px}
+  input:focus,select:focus,textarea:focus{border-color:var(--ivory)}
+  button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 44px;cursor:pointer;transition:background .4s,color .4s;margin-top:10px}
+  button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
+  .form-done{grid-column:1/-1;font-family:var(--display);font-size:1.25rem;display:none}
+
+  footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:50px 6vw;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;border-top:1px solid rgba(246,244,239,.12)}
+  footer .mark{font-family:var(--kr);font-size:1.1rem;letter-spacing:.2em;display:block;margin-bottom:14px;color:#B9CCC1}
+
+  @media (max-width:900px){
+    nav{padding:16px 4vw}
+    .logo{font-size:.95rem;letter-spacing:.24em}
+    .navlinks{gap:16px}
+    .navlinks a{font-size:.55rem;letter-spacing:.16em}
+    .navlinks a.cta{padding:6px 10px}
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
+    .svc-grid{grid-template-columns:1fr}
+    .exp-grid{gap:14px}
+    .exp h4{font-size:1rem}
+    .exp p{font-size:.74rem}
+    form{grid-template-columns:1fr}
+    section{padding:90px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav" aria-label="Primary">
+  <a class="logo" href="#top">IEUM<small>CONCIERGE</small></a>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#themes">Experiences</a>
+    <a class="cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <!-- Replace .hero-bg with a full-bleed photograph: mountain temple mist, hanok rooflines at dusk, or a quiet hot-spring landscape -->
+  <div class="hero-inner">
+    <div class="hero-kr" aria-hidden="true">이음</div>
+    <h1>Korea, connected.</h1>
+    <p class="hero-sub">Private luxury concierge · Beauty · Wellness · Culture</p>
+  </div>
+  <p class="hero-note">Scroll</p>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="ph warm reveal" role="img" aria-label="Placeholder for brand photography"><span>Photograph</span></div>
+    <div class="about-copy reveal">
+      <p class="eyebrow">About</p>
+      <h2>The connection between you and the real Korea</h2>
+      <p>Ieum — 이음 — means connection. We are a private concierge crafting journeys through Korea's finest beauty, wellness, and cultural worlds, for travelers who have seen much of the world and want to feel something new.</p>
+      <p>One trusted point of contact. A network of vetted partners, from serene mountain temples to Seoul's most sought-after addresses. Every itinerary personally tested before it is ever recommended.</p>
+      <div class="why">
+        <div><b>Wellness-led</b><p>Restorative by design, never procedure-led.</p></div>
+        <div><b>Beyond Seoul</b><p>Jeju, Gangwon, Gyeongju — the Korea most visitors never reach.</p></div>
+        <div><b>Trend-tested</b><p>We experience everything first, so you arrive where Korea is going.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Three ways to travel with us</h2>
+    </div>
+    <div class="svc-grid reveal">
+      <div class="svc">
+        <p class="num">i.</p>
+        <h3>Private Journeys</h3>
+        <p>Fully bespoke itineraries for individual travelers and couples — beauty, wellness, and culture woven into one seamless journey, handled end to end.</p>
+      </div>
+      <div class="svc">
+        <p class="num">ii.</p>
+        <h3>Corporate &amp; Events</h3>
+        <p>Retreats, incentive trips, and private events for teams and brands seeking an elevated, distinctly Korean setting.</p>
+      </div>
+      <div class="svc">
+        <p class="num">iii.</p>
+        <h3>Consulting</h3>
+        <p>Korea market and experience consulting for hospitality brands, media, and partners entering the world of Korean wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="themes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Experiences</p>
+      <h2>A glimpse of what we curate</h2>
+    </div>
+
+    <div class="theme reveal">
+      <div class="theme-label">
+        <p class="eyebrow">Beauty</p>
+        <h3>Rejuvenation, refined</h3>
+      </div>
+      <div class="exp-grid">
+        <div class="exp">
+          <div class="ph mist" role="img" aria-label="Non-invasive treatment photograph placeholder"><span>Photograph</span></div>
+          <h4>Non-Invasive Treatments</h4>
+          <p>Gentle, restorative skin rejuvenation at Korea's leading aesthetic clinics, each one personally vetted.</p>
+        </div>
+        <div class="exp">
+          <div class="ph warm" role="img" aria-label="Makeup and styling consulting photograph placeholder"><span>Photograph</span></div>
+          <h4>Makeup &amp; Styling Consulting</h4>
+          <p>A private session with Korea's finest artists to discover the look, and the products, made for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="theme reveal">
+      <div class="theme-label">
+        <p class="eyebrow">Wellness</p>
+        <h3>Stillness, far from the city</h3>
+      </div>
+      <div class="exp-grid">
+        <div class="exp">
+          <div class="ph deep" role="img" aria-label="Mountain temple stay photograph placeholder"><span>Photograph</span></div>
+          <h4>Temple Stay in the Mountains</h4>
+          <p>A night among monks in a centuries-old mountain temple, beyond Seoul — meditation, tea, and true silence.</p>
+        </div>
+        <div class="exp">
+          <div class="ph mist" role="img" aria-label="Hot spring resort photograph placeholder"><span>Photograph</span></div>
+          <h4>Hot Spring Retreat</h4>
+          <p>Mineral-rich spring waters and slow days at Korea's most serene hot-spring resorts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="theme reveal">
+      <div class="theme-label">
+        <p class="eyebrow">Culture</p>
+        <h3>Traditions, kept alive</h3>
+      </div>
+      <div class="exp-grid">
+        <div class="exp">
+          <div class="ph warm" role="img" aria-label="Royal cuisine cooking class photograph placeholder"><span>Photograph</span></div>
+          <h4>Royal Cuisine Cooking Class</h4>
+          <p>Learn the refined dishes once served in Joseon palaces, guided by masters of Korea's royal culinary tradition.</p>
+        </div>
+        <div class="exp">
+          <div class="ph deep" role="img" aria-label="Haenyeo photograph placeholder"><span>Photograph</span></div>
+          <h4>The Haenyeo of Jeju</h4>
+          <p>Meet the legendary free-diving women of Jeju Island and hear a living heritage told firsthand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Begin your journey</h2>
+      <p>Tell us a little about the trip you have in mind. We reply personally, within two business days.</p>
+      <div class="contact-lines">
+        <a href="mailto:hello@ieumconcierge.com">hello@ieumconcierge.com</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram — @ieum.concierge</a>
+      </div>
+    </div>
+    <form id="enquiry" class="reveal" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="text" placeholder="e.g. October 2026"></div>
+      <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field full"><label for="f-interest">I'm interested in</label>
+        <select id="f-interest" name="interest">
+          <option>A private journey</option>
+          <option>Corporate or event travel</option>
+          <option>Consulting</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
+      <button type="submit">Request a consultation</button>
+      <p class="form-done" id="done">Thank you — your enquiry has been received. We'll be in touch shortly.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span class="mark">이음</span>
+  IEUM Concierge · Seoul &amp; New York · © 2026
+</footer>
+
+<script>
+  // nav background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('solid', window.scrollY > window.innerHeight - 90);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // scroll reveals
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // form (front-end demo only — connect Formspree / Tally / Calendly before launch)
+  document.getElementById('enquiry').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    if (!f.name.value || !f.email.value){ f.reportValidity(); return; }
+    f.querySelectorAll('.field, button').forEach(el => el.style.display = 'none');
+    document.getElementById('done').style.display = 'block';
+  });
+</script>
+</body>
+</html>
