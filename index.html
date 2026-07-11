@@ -127,6 +127,7 @@
   button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 44px;cursor:pointer;transition:background .4s,color .4s;margin-top:10px}
   button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
   .form-done{grid-column:1/-1;font-family:var(--display);font-size:1.25rem;display:none}
+  .form-error{grid-column:1/-1;font-size:.82rem;color:#E3A891;display:none}
 
   footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:50px 6vw;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;border-top:1px solid rgba(246,244,239,.12)}
   footer .mark{font-family:var(--kr);font-size:1.1rem;letter-spacing:.2em;display:block;margin-bottom:14px;color:#B9CCC1}
@@ -291,7 +292,7 @@
         <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram — @ieumconcierge</a>
       </div>
     </div>
-    <form id="enquiry" class="reveal" novalidate>
+    <form id="enquiry" class="reveal" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="text" placeholder="e.g. October 2026"></div>
@@ -307,6 +308,7 @@
       <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
       <button type="submit">Request a consultation</button>
       <p class="form-done" id="done">Thank you — your enquiry has been received. We'll be in touch shortly.</p>
+      <p class="form-error" id="error">Something went wrong — please try again, or email us directly at contact@ie-um.com.</p>
     </form>
   </div>
 </section>
@@ -328,13 +330,30 @@
   }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // form (front-end demo only — connect Formspree / Tally / Calendly before launch)
-  document.getElementById('enquiry').addEventListener('submit', e => {
+  // form — submits to Formspree via fetch; native action/method attrs are the no-JS fallback
+  document.getElementById('enquiry').addEventListener('submit', async e => {
     e.preventDefault();
     const f = e.target;
     if (!f.name.value || !f.email.value){ f.reportValidity(); return; }
-    f.querySelectorAll('.field, button').forEach(el => el.style.display = 'none');
-    document.getElementById('done').style.display = 'block';
+    const btn = f.querySelector('button[type="submit"]');
+    const errorMsg = document.getElementById('error');
+    errorMsg.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch(f.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(f)
+      });
+      if (!res.ok) throw new Error('Submission failed');
+      f.querySelectorAll('.field, button').forEach(el => el.style.display = 'none');
+      document.getElementById('done').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Request a consultation';
+      errorMsg.style.display = 'block';
+    }
   });
 </script>
 </body>
