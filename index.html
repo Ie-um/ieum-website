@@ -332,4 +332,9 @@
     e.preventDefault();
     const f = e.target;
     if (!f.name.value || !f.email.value){ f.reportValidity(); return; }
-    f.querySelectorAll('.field, button').forE
+    f.querySelectorAll('.field, button').forEach(el => el.style.display = 'none');
+    document.getElementById('done').style.display = 'block';
+  });
+</script>
+</body>
+</html>
