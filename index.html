@@ -295,7 +295,7 @@
     <form id="enquiry" class="reveal" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="text" placeholder="e.g. October 2026"></div>
+      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
       <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
       <div class="field full"><label for="f-interest">I'm interested in</label>
         <select id="f-interest" name="interest">
@@ -319,6 +319,13 @@
 </footer>
 
 <script>
+  // travel window: don't allow picking a month that's already passed
+  const datesInput = document.getElementById('f-dates');
+  if (datesInput) {
+    const now = new Date();
+    datesInput.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  }
+
   // nav background on scroll
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('solid', window.scrollY > window.innerHeight - 90);
