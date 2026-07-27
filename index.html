@@ -35,7 +35,7 @@
   img{display:block;width:100%}
 
   /* Photography placeholders — replace each .ph with a real photograph */
-  .ph{position:relative;overflow:hidden;background:linear-gradient(160deg,#DDD8CC 0%,#C9CFC6 45%,#9FB2A6 100%)}
+  .ph{position:relative;overflow:hidden;background:linear-gradient(160deg,#DDD8CC 0%,#C9CFC6 45%,#9FB2A6 100%);filter:saturate(.92) sepia(.05) contrast(1.04) brightness(1.02)}
   .ph::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
   .ph span{position:absolute;bottom:14px;left:16px;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);z-index:1}
   .ph.deep{background:linear-gradient(165deg,#54685E 0%,#33473F 55%,#22322C 100%)}
@@ -100,7 +100,7 @@
   #themes .theme:last-child{margin-bottom:0}
   .theme-label{text-align:center;margin-bottom:30px}
   .theme-label h3{font-size:clamp(1.5rem,2.6vw,2rem);margin-top:12px}
-  .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:880px;margin:0 auto}
+  .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;max-width:1100px;margin:0 auto}
   .exp{position:relative}
   .exp .ph{aspect-ratio:16/9;transition:transform .8s ease}
   .exp:hover .ph{transform:scale(1.015)}
@@ -142,7 +142,7 @@
     .navlinks a.cta{padding:6px 10px}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .svc-grid{grid-template-columns:1fr}
-    .exp-grid{gap:14px}
+    .exp-grid{grid-template-columns:1fr;gap:14px}
     .exp h4{font-size:1rem}
     .exp p{font-size:.74rem}
     form{grid-template-columns:1fr}
@@ -175,7 +175,7 @@
 
 <section id="about">
   <div class="wrap about-grid">
-    <div class="ph warm reveal" role="img" aria-label="Sangchonjae hanok stay" style="background-image:url('images/about-sangchonjae.jpg');background-size:cover;background-position:center"></div>
+    <div class="ph warm reveal" role="img" aria-label="Sangchonjae hanok stay" style="background-image:url('https://ie-um.com/images/about-sangchonjae.jpg');background-size:cover;background-position:center"></div>
     <div class="about-copy reveal">
       <p class="eyebrow">About</p>
       <h2>The connection between you and the real Korea</h2>
@@ -236,9 +236,14 @@
           <p>Gentle, restorative skin rejuvenation at Korea's leading aesthetic clinics — from head spa and laser lifting to hydrotherapy and PDRN.</p>
         </div>
         <div class="exp">
-          <div class="ph warm" role="img" aria-label="Beauty Town styling studio" style="background-image:url('images/beauty-town.jpg');background-size:cover;background-position:center"></div>
+          <div class="ph warm" role="img" aria-label="Beauty Town styling studio" style="background-image:url('https://ie-um.com/images/beauty-town.jpg');background-size:cover;background-position:center"></div>
           <h4>Makeup &amp; Styling Consulting</h4>
           <p>A private session with Korea's finest artists to discover the look, and the products, made for you.</p>
+        </div>
+        <div class="exp">
+          <div class="ph mist" role="img" aria-label="Eyelash extension application" style="background-image:url('https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80');background-size:cover;background-position:center"></div>
+          <h4>Beauty Enhancements</h4>
+          <p>Refined, long-lasting beauty enhancements at Korea's most in-demand studios — from lash extensions and perms to microblading, lip blushing, and silk keratin treatments.</p>
         </div>
       </div>
     </div>
@@ -250,14 +255,19 @@
       </div>
       <div class="exp-grid">
         <div class="exp">
-          <div class="ph deep" role="img" aria-label="Rainbow bridge leading to a mountain temple" style="background-image:url('images/temple-bridge.jpg');background-size:cover;background-position:center"></div>
+          <div class="ph deep" role="img" aria-label="Rainbow bridge leading to a mountain temple" style="background-image:url('https://ie-um.com/images/temple-bridge.jpg');background-size:cover;background-position:center"></div>
           <h4>Temple Stay in the Mountains</h4>
           <p>A night among monks in a centuries-old mountain temple, beyond Seoul — meditation, tea, and true silence.</p>
         </div>
         <div class="exp">
-          <div class="ph mist" role="img" aria-label="Yuwonjae hot spring retreat" style="background-image:url('images/hot-spring.jpg');background-size:cover;background-position:center"></div>
+          <div class="ph mist" role="img" aria-label="Yuwonjae hot spring retreat" style="background-image:url('https://ie-um.com/images/hot-spring.jpg');background-size:cover;background-position:center"></div>
           <h4>Hot Spring Retreat</h4>
           <p>Mineral-rich spring waters and slow days at Korea's most serene hot-spring resorts.</p>
+        </div>
+        <div class="exp">
+          <div class="ph deep" role="img" aria-label="Ulsanbawi ridgeline, Seoraksan" style="background-image:url('https://ie-um.com/images/mountain-valley.jpg');background-size:cover;background-position:center"></div>
+          <h4>Mountain &amp; Valley Hiking</h4>
+          <p>Trails that wind through Korea's most scenic valleys before rising to granite ridgelines — waterfalls, maple color, and quiet along the way.</p>
         </div>
       </div>
     </div>
@@ -269,14 +279,19 @@
       </div>
       <div class="exp-grid">
         <div class="exp">
-          <div class="ph warm" role="img" aria-label="Korean royal cuisine table" style="background-image:url('images/royal-cuisine.jpg');background-size:cover;background-position:center"></div>
+          <div class="ph warm" role="img" aria-label="Korean royal cuisine table" style="background-image:url('https://ie-um.com/images/royal-cuisine.jpg');background-size:cover;background-position:center"></div>
           <h4>Royal Cuisine Cooking Class</h4>
           <p>Learn the refined dishes once served in Joseon palaces, guided by masters of Korea's royal culinary tradition.</p>
         </div>
         <div class="exp">
-          <div class="ph deep" role="img" aria-label="Haenyeo divers on the Jeju coastline" style="background-image:url('images/haenyeo.jpg');background-size:cover;background-position:center"></div>
+          <div class="ph deep" role="img" aria-label="Haenyeo divers on the Jeju coastline" style="background-image:url('https://ie-um.com/images/haenyeo.jpg');background-size:cover;background-position:center"></div>
           <h4>The Haenyeo of Jeju</h4>
           <p>Meet the legendary free-diving women of Jeju Island and hear a living heritage told firsthand.</p>
+        </div>
+        <div class="exp">
+          <div class="ph warm" role="img" aria-label="Najeonchilgi mother-of-pearl lacquer box, Joseon dynasty" style="background-image:url('https://collectionapi.metmuseum.org/api/collection/v1/iiif/40526/1302051/main-image');background-size:cover;background-position:center"></div>
+          <h4>Traditional Craft Workshop</h4>
+          <p>Two of Korea's living crafts, yours to choose — mother-of-pearl lacquerware guided by a Living National Treasure, or a soju and makgeolli brewing class taught by the masters keeping these traditions alive.</p>
         </div>
       </div>
     </div>
