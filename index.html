@@ -118,6 +118,8 @@
   .contact-lines{margin-top:44px;display:grid;gap:22px}
   .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;transition:border-color .4s}
   .contact-lines a:hover{border-color:var(--ivory)}
+  .cal-cta{display:inline-block;margin-top:28px;padding:14px 36px;border:1px solid var(--ivory);color:var(--ivory);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;transition:background .4s,color .4s;cursor:pointer}
+  .cal-cta:hover{background:var(--ivory);color:var(--jade-deep)}
   form{display:grid;grid-template-columns:1fr 1fr;gap:26px}
   .field{display:grid;gap:8px}
   .field.full{grid-column:1/-1}
@@ -312,6 +314,7 @@
         <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
         <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram · @ieumconcierge</a>
       </div>
+      <a href="https://cal.com/ie-um/30min" target="_blank" rel="noopener" class="cal-cta" data-cal-link="ie-um/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}'>Book a 30-minute call</a>
     </div>
     <form id="enquiry" class="reveal" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -387,6 +390,36 @@
       errorMsg.style.display = 'block';
     }
   });
+</script>
+<script type="text/javascript">
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://cal.com"});
+  Cal.ns["30min"]("ui", {"styles":{"branding":{"brandColor":"#3f6b5c"}},"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 </body>
 </html>
