@@ -118,8 +118,6 @@
   .contact-lines{margin-top:44px;display:grid;gap:22px}
   .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;transition:border-color .4s}
   .contact-lines a:hover{border-color:var(--ivory)}
-  .cal-cta{display:inline-block;margin-top:28px;padding:14px 36px;border:1px solid var(--ivory);color:var(--ivory);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;transition:background .4s,color .4s;cursor:pointer}
-  .cal-cta:hover{background:var(--ivory);color:var(--jade-deep)}
   form{display:grid;grid-template-columns:1fr 1fr;gap:26px}
   .field{display:grid;gap:8px}
   .field.full{grid-column:1/-1}
@@ -130,8 +128,6 @@
   input:focus,select:focus,textarea:focus{border-color:var(--ivory)}
   button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 44px;cursor:pointer;transition:background .4s,color .4s;margin-top:10px}
   button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
-  .form-done{grid-column:1/-1;font-family:var(--display);font-size:1.25rem;display:none}
-  .form-error{grid-column:1/-1;font-size:.82rem;color:#E3A891;display:none}
 
   footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:50px 6vw;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;border-top:1px solid rgba(246,244,239,.12)}
   footer .mark{font-family:var(--kr);font-size:1.1rem;letter-spacing:.2em;display:block;margin-bottom:14px;color:#B9CCC1}
@@ -309,12 +305,11 @@
     <div class="contact-info reveal">
       <p class="eyebrow">Contact</p>
       <h2>Begin your journey</h2>
-      <p>Tell us a little about the trip you have in mind. You'll hear back personally, within two business days.</p>
+      <p>Tell us a little about the trip you have in mind, then choose your 30-minute slot.</p>
       <div class="contact-lines">
         <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
         <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram · @ieumconcierge</a>
       </div>
-      <a href="https://cal.com/ie-um/30min" target="_blank" rel="noopener" class="cal-cta" data-cal-link="ie-um/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}'>Book a 30-minute call</a>
     </div>
     <form id="enquiry" class="reveal" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -330,9 +325,7 @@
         </select>
       </div>
       <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
-      <button type="submit">Request a consultation</button>
-      <p class="form-done" id="done">Thank you. Your enquiry has been received. We'll be in touch shortly.</p>
-      <p class="form-error" id="error">Something went wrong. Please try again, or email us directly at contact@ie-um.com.</p>
+      <button type="submit">Book a Consultation</button>
     </form>
   </div>
 </section>
@@ -365,30 +358,35 @@
   }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // form — submits to Formspree via fetch; native action/method attrs are the no-JS fallback
-  document.getElementById('enquiry').addEventListener('submit', async e => {
+  // form — captures the enquiry via Formspree in the background, then opens the
+  // Cal.com scheduler pre-filled with their details so they can pick their slot directly
+  document.getElementById('enquiry').addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target;
     if (!f.name.value || !f.email.value){ f.reportValidity(); return; }
-    const btn = f.querySelector('button[type="submit"]');
-    const errorMsg = document.getElementById('error');
-    errorMsg.style.display = 'none';
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    try {
-      const res = await fetch(f.action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(f)
-      });
-      if (!res.ok) throw new Error('Submission failed');
-      f.querySelectorAll('.field, button').forEach(el => el.style.display = 'none');
-      document.getElementById('done').style.display = 'block';
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Request a consultation';
-      errorMsg.style.display = 'block';
-    }
+
+    fetch(f.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(f)
+    }).catch(() => {});
+
+    const notes = [
+      f.dates.value ? `Travel window: ${f.dates.value}` : '',
+      f.party.value ? `Travelers: ${f.party.value}` : '',
+      f.interest.value ? `Interested in: ${f.interest.value}` : '',
+      f.message.value ? `Notes: ${f.message.value}` : ''
+    ].filter(Boolean).join(' | ');
+
+    Cal('modal', {
+      calLink: 'ie-um/30min',
+      config: {
+        name: f.name.value,
+        email: f.email.value,
+        notes: notes,
+        layout: 'month_view'
+      }
+    });
   });
 </script>
 <script type="text/javascript">
@@ -418,8 +416,8 @@
       p(cal, ar);
     };
   })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", {origin:"https://cal.com"});
-  Cal.ns["30min"]("ui", {"styles":{"branding":{"brandColor":"#3f6b5c"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  Cal("init", {origin:"https://cal.com"});
+  Cal("ui", {"styles":{"branding":{"brandColor":"#3f6b5c"}},"hideEventTypeDetails":false});
 </script>
 </body>
 </html>
