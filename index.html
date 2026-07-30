@@ -107,12 +107,14 @@
   .svc .num{font-family:var(--display);font-style:italic;color:var(--jade);font-size:1rem;letter-spacing:.2em}
   .svc h3{font-size:1.6rem;margin:16px 0 16px}
   .svc p{font-size:.86rem;color:#5A5A52}
-  .offerings{margin-top:96px;max-width:820px;margin-left:auto;margin-right:auto}
-  .offerings-lead{text-align:center;font-family:var(--display);font-style:italic;font-weight:400;font-size:1.15rem;color:#5A5A52;margin-bottom:40px}
-  .offerings-list{border-top:1px solid var(--hairline)}
-  .offerings-list div{display:flex;gap:32px;padding:22px 4px;border-bottom:1px solid var(--hairline);align-items:baseline}
-  .offerings-list b{font-family:var(--display);font-weight:500;font-size:1.1rem;min-width:230px;flex-shrink:0}
-  .offerings-list p{font-size:.85rem;color:#5A5A52;max-width:46ch}
+  .offerings{margin-top:96px}
+  .offerings-lead{text-align:center;font-family:var(--display);font-style:italic;font-weight:400;font-size:1.15rem;color:#5A5A52;margin-bottom:48px}
+  .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
+  .offering{background:var(--ivory);padding:46px 32px;text-align:center;transition:background .5s}
+  .offering:hover{background:var(--paper)}
+  .offering svg{width:26px;height:26px;color:var(--jade);margin:0 auto 20px;display:block}
+  .offering h4{font-family:var(--display);font-weight:400;font-size:1.1rem;margin-bottom:10px}
+  .offering p{font-size:.8rem;color:#5A5A52;max-width:30ch;margin:0 auto}
 
   /* themes */
   #themes .theme{margin-bottom:84px}
@@ -162,8 +164,8 @@
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .svc-grid{grid-template-columns:1fr}
     .offerings{margin-top:64px}
-    .offerings-list div{flex-direction:column;gap:6px;padding:18px 2px}
-    .offerings-list b{min-width:0}
+    .offerings-grid{grid-template-columns:1fr}
+    .offering{padding:36px 24px}
     .exp-grid{grid-template-columns:1fr;gap:14px}
     .exp h4{font-size:1rem}
     .exp p{font-size:.74rem}
@@ -246,13 +248,37 @@
 
     <div class="offerings reveal">
       <p class="offerings-lead">A few of what we arrange most often, though nothing is ever off the table.</p>
-      <div class="offerings-list">
-        <div><b>Bespoke Itinerary Planning</b><p>Every detail designed around you, from arrival to departure.</p></div>
-        <div><b>Private Driver</b><p>A private luxury car with a well-mannered, professional driver, at your pace, day or night.</p></div>
-        <div><b>Personal Translator</b><p>Fluent support in Korean and English, wherever the day takes you.</p></div>
-        <div><b>Special Occasion Planning</b><p>Proposals, private parties, and milestone celebrations, staged with care.</p></div>
-        <div><b>Private Guide</b><p>A cultural expert at your side, fluent in Korea's history, art, and cuisine.</p></div>
-        <div><b>24/7 Concierge Support</b><p>One point of contact, reachable throughout your stay.</p></div>
+      <div class="offerings-grid">
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M15.3 8.7l-2.1 4.5-4.5 2.1 2.1-4.5z"/></svg>
+          <h4>Bespoke Itinerary Planning</h4>
+          <p>Every detail designed around you, from arrival to departure.</p>
+        </div>
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.4V13l1.5-4a2 2 0 011.9-1.3h9.2A2 2 0 0118.5 9l1.5 4v3.4"/><path d="M4 16.4h16M6.6 16.4v1.7M17.4 16.4v1.7"/><circle cx="7.3" cy="16.4" r="1.3"/><circle cx="16.7" cy="16.4" r="1.3"/></svg>
+          <h4>Private Driver</h4>
+          <p>A private luxury car with a well-mannered, professional driver, at your pace, day or night.</p>
+        </div>
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6h7.9A2 2 0 0119.5 6.6v4.8a2 2 0 01-2 2h-1.9l-2.2 2.2v-2.2H9.6a2 2 0 01-2-2V6.6a2 2 0 012-2z"/><path d="M6.6 9.4h-.5A2 2 0 004 11.4v4.7a2 2 0 002 2h3.1v2.1l2.1-2.1h1"/></svg>
+          <h4>Personal Translator</h4>
+          <p>Fluent support in Korean and English, wherever the day takes you.</p>
+        </div>
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.8c.45 2.8 1.85 5.1 4.6 5.6-2.75.5-4.15 2.8-4.6 5.6-.45-2.8-1.85-5.1-4.6-5.6 2.75-.5 4.15-2.8 4.6-5.6z"/><path d="M18.3 14.8c.22 1.05.8 1.75 1.85 2-1.05.25-1.63.95-1.85 2-.22-1.05-.8-1.75-1.85-2 1.05-.25 1.63-.95 1.85-2z"/></svg>
+          <h4>Special Occasion Planning</h4>
+          <p>Proposals, private parties, and milestone celebrations, staged with care.</p>
+        </div>
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.8s6.1-5.9 6.1-10.4A6.1 6.1 0 105.9 10.4c0 4.5 6.1 10.4 6.1 10.4z"/><circle cx="12" cy="10.2" r="2.15"/></svg>
+          <h4>Private Guide</h4>
+          <p>A cultural expert at your side, fluent in Korea's history, art, and cuisine.</p>
+        </div>
+        <div class="offering">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M12 7.2v5l3.4 2"/></svg>
+          <h4>24/7 Concierge Support</h4>
+          <p>One point of contact, reachable throughout your stay.</p>
+        </div>
       </div>
     </div>
   </div>
