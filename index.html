@@ -7,6 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="https://ie-um.com/images/logo/ieum-seal-jade.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ie-um.com/images/logo/favicon-32.png">
+<link rel="icon" href="https://ie-um.com/images/logo/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ie-um.com/images/logo/favicon-180.png">
 <style>
   :root{
     --ivory:#F6F4EF;
@@ -45,8 +49,14 @@
   /* ---------- nav ---------- */
   nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;transition:background .5s,box-shadow .5s}
   nav.solid{background:rgba(252,251,248,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--hairline)}
-  .logo{font-family:var(--display);font-size:1.15rem;letter-spacing:.34em;font-weight:400;color:var(--paper);transition:color .5s}
-  .logo small{display:block;font-family:var(--utility);font-size:.52rem;letter-spacing:.5em;color:inherit;opacity:.75;margin-top:2px}
+  .logo{font-family:var(--display);font-weight:400;color:var(--paper);transition:color .5s}
+  .logo-mark{position:relative;display:block;height:28px;width:65px}
+  .logo-mark img{position:absolute;top:0;left:0;height:28px;width:auto;transition:opacity .5s}
+  .logo-mark .cream{opacity:1}
+  .logo-mark .ink{opacity:0}
+  nav.solid .logo-mark .cream{opacity:0}
+  nav.solid .logo-mark .ink{opacity:1}
+  .logo small{display:block;font-family:var(--utility);font-size:.52rem;letter-spacing:.5em;color:inherit;opacity:.75;margin-top:6px}
   nav.solid .logo{color:var(--ink)}
   .navlinks{display:flex;gap:44px}
   .navlinks a{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);opacity:.85;transition:color .5s,opacity .3s}
@@ -60,7 +70,8 @@
   .hero-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,rgba(246,244,239,.22),transparent 60%)}
   .hero-bg::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
   .hero-inner{position:relative;z-index:2;padding:0 6vw;animation:rise 1.6s cubic-bezier(.2,.6,.2,1) both .2s}
-  .hero-kr{font-family:var(--kr);font-weight:200;font-size:clamp(3rem,7vw,5.2rem);opacity:.28;letter-spacing:.1em;margin-bottom:-1.2rem}
+  .hero-kr{opacity:.28;margin-bottom:-.4rem}
+  .hero-kr img{height:clamp(2.6rem,6.4vw,4.6rem);width:auto;margin:0 auto}
   header h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:.06em}
   .hero-sub{font-family:var(--utility);font-size:.74rem;letter-spacing:.44em;text-transform:uppercase;margin-top:28px;line-height:2;opacity:.85}
   .hero-note{position:absolute;bottom:36px;left:0;right:0;text-align:center;z-index:2;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;opacity:.6;color:var(--paper)}
@@ -130,7 +141,8 @@
   button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
 
   footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:50px 6vw;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;border-top:1px solid rgba(246,244,239,.12)}
-  footer .mark{font-family:var(--kr);font-size:1.1rem;letter-spacing:.2em;display:block;margin-bottom:14px;color:#B9CCC1}
+  footer .mark{display:block;margin:0 auto 14px}
+  footer .mark img{height:22px;width:auto;margin:0 auto;opacity:.85}
   footer .biz-info{margin-top:18px;padding-top:18px;border-top:1px solid rgba(246,244,239,.1);font-size:.6rem;letter-spacing:.04em;text-transform:none;color:#7A9184}
   footer .biz-info span{margin:0 10px;white-space:nowrap;display:inline-block}
   footer .photo-credit{margin-top:10px;font-size:.54rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E;opacity:.75}
@@ -154,7 +166,13 @@
 <body>
 
 <nav id="nav" aria-label="Primary">
-  <a class="logo" href="#top">IEUM<small>CONCIERGE</small></a>
+  <a class="logo" href="#top">
+    <span class="logo-mark">
+      <img class="cream" src="https://ie-um.com/images/logo/ieum-wordmark-cream-transparent.svg" alt="IEUM">
+      <img class="ink" src="https://ie-um.com/images/logo/ieum-wordmark-ink-transparent.svg" alt="IEUM">
+    </span>
+    <small>CONCIERGE</small>
+  </a>
   <div class="navlinks">
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -167,7 +185,7 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <!-- Replace .hero-bg with a full-bleed photograph: mountain temple mist, hanok rooflines at dusk, or a quiet hot-spring landscape -->
   <div class="hero-inner">
-    <div class="hero-kr" aria-hidden="true">이음</div>
+    <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-wordmark-cream-transparent.svg" alt=""></div>
     <h1>Korea, connected.</h1>
     <p class="hero-sub">Private luxury concierge<br>Beauty · Wellness · Culture</p>
     <a href="#contact" class="hero-cta">Request a Consultation</a>
@@ -331,7 +349,7 @@
 </section>
 
 <footer>
-  <span class="mark">이음</span>
+  <span class="mark"><img src="https://ie-um.com/images/logo/ieum-wordmark-cream-transparent.svg" alt="이음"></span>
   IEUM Concierge · Seoul &amp; New York · © 2026
   <div class="biz-info">
     <span>IEUM</span><span>Munsanro 61, Gwangju, South Korea</span><span>+82-10-2537-9624</span><span>Business Reg. No. 219-30-14314</span>
