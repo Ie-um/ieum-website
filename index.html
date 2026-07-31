@@ -101,12 +101,15 @@
 
   /* services */
   #services{background:var(--ivory)}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline)}
-  .svc{background:var(--ivory);padding:56px 40px;text-align:center;transition:background .5s}
+  .svc-grid{display:flex;gap:2px;background:var(--hairline);transition:max-width .7s cubic-bezier(.2,.6,.2,1)}
+  .svc{flex-grow:1;flex-shrink:1;flex-basis:0;background:var(--ivory);padding:56px 40px;text-align:center;overflow:hidden;transition:background .5s,flex-grow .7s cubic-bezier(.2,.6,.2,1),opacity .5s ease,padding .6s ease}
   .svc:hover{background:var(--paper)}
   .svc .num{font-family:var(--display);font-style:italic;color:var(--jade);font-size:1rem;letter-spacing:.2em}
   .svc h3{font-size:1.6rem;margin:16px 0 16px}
   .svc p{font-size:.86rem;color:#5A5A52}
+  .svc-grid.spotlight{max-width:640px;margin:0 auto}
+  .svc-grid.spotlight .svc:not(.svc-private){flex-grow:0;opacity:0;padding-left:0;padding-right:0;pointer-events:none}
+  .svc-grid.spotlight .svc-private{flex-grow:1;padding:64px 48px}
   .svc-toggle{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
   .svc-toggle:hover{border-color:var(--jade);background:var(--paper)}
   .svc-toggle .chev{font-size:1rem;line-height:1;color:var(--jade);transition:transform .4s}
@@ -167,7 +170,8 @@
     .navlinks a{font-size:.55rem;letter-spacing:.16em}
     .navlinks a.cta{padding:6px 10px}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-    .svc-grid{grid-template-columns:1fr}
+    .svc-grid{flex-direction:column}
+    .svc-grid.spotlight .svc:not(.svc-private){display:none}
     .offerings.open{padding-top:56px}
     .offerings-grid{grid-template-columns:1fr}
     .offering{padding:36px 24px}
@@ -233,8 +237,8 @@
       <p class="eyebrow">Services</p>
       <h2>Three ways to experience Korea</h2>
     </div>
-    <div class="svc-grid reveal">
-      <div class="svc">
+    <div class="svc-grid reveal" id="svc-grid">
+      <div class="svc svc-private">
         <p class="num">i.</p>
         <h3>Private Journeys</h3>
         <p>A fully bespoke itinerary, yours alone: beauty, wellness, and culture woven into one seamless journey, handled end to end so all you do is arrive.</p>
@@ -418,12 +422,14 @@
     datesInput.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   }
 
-  // private journeys: reveal the concierge services list on demand
+  // private journeys: spotlight the card and reveal the concierge services list on demand
   const offeringsToggle = document.getElementById('offerings-toggle');
   const offeringsPanel = document.getElementById('private-offerings');
-  if (offeringsToggle && offeringsPanel) {
+  const svcGrid = document.getElementById('svc-grid');
+  if (offeringsToggle && offeringsPanel && svcGrid) {
     offeringsToggle.addEventListener('click', () => {
       const open = offeringsPanel.classList.toggle('open');
+      svcGrid.classList.toggle('spotlight', open);
       offeringsToggle.setAttribute('aria-expanded', open);
       offeringsToggle.querySelector('.label').textContent = open ? "Hide What's Possible" : "See What's Possible";
     });
