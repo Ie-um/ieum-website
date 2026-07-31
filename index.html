@@ -102,13 +102,13 @@
   /* services */
   #services{background:var(--ivory)}
   .svc-grid{display:flex;gap:2px;background:var(--hairline);transition:max-width .7s cubic-bezier(.2,.6,.2,1)}
-  .svc{flex-grow:1;flex-shrink:1;flex-basis:0;background:var(--ivory);padding:56px 40px;text-align:center;overflow:hidden;transition:background .5s,flex-grow .7s cubic-bezier(.2,.6,.2,1),opacity .5s ease,padding .6s ease}
+  .svc{flex-grow:1;flex-shrink:1;flex-basis:0;min-width:0;max-height:1000px;background:var(--ivory);padding:56px 40px;text-align:center;overflow:hidden;transition:background .5s,flex-grow .7s cubic-bezier(.2,.6,.2,1),opacity .5s ease,padding .6s ease,max-width .6s ease,max-height .6s ease}
   .svc:hover{background:var(--paper)}
   .svc .num{font-family:var(--display);font-style:italic;color:var(--jade);font-size:1rem;letter-spacing:.2em}
   .svc h3{font-size:1.6rem;margin:16px 0 16px}
   .svc p{font-size:.86rem;color:#5A5A52}
   .svc-grid.spotlight{max-width:640px;margin:0 auto}
-  .svc-grid.spotlight .svc:not(.svc-private){flex-grow:0;opacity:0;padding-left:0;padding-right:0;pointer-events:none}
+  .svc-grid.spotlight .svc:not(.svc-private){flex-grow:0;max-width:0;max-height:0;opacity:0;padding:0;pointer-events:none}
   .svc-grid.spotlight .svc-private{flex-grow:1;padding:64px 48px}
   .svc-toggle{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
   .svc-toggle:hover{border-color:var(--jade);background:var(--paper)}
