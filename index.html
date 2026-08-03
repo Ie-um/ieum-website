@@ -63,6 +63,13 @@
   .navlinks a:hover{opacity:1}
   nav.solid .navlinks a{color:var(--ink)}
   .navlinks a.cta{border:1px solid currentColor;padding:9px 20px}
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:26px;height:20px;background:none;border:0;padding:0;cursor:pointer;z-index:60}
+  .nav-toggle span{display:block;height:1px;width:100%;background:var(--paper);transition:transform .35s ease,opacity .35s ease,background .5s}
+  nav.solid .nav-toggle span{background:var(--ink)}
+  .nav-toggle[aria-expanded="true"] span{background:var(--ivory)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
   /* ---------- hero ---------- */
   header{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--paper);overflow:hidden}
@@ -166,10 +173,13 @@
 
   @media (max-width:900px){
     nav{padding:16px 4vw}
-    .logo{font-size:.95rem;letter-spacing:.24em}
-    .navlinks{gap:16px}
-    .navlinks a{font-size:.55rem;letter-spacing:.16em}
-    .navlinks a.cta{padding:6px 10px}
+    .logo-mark{height:27px;width:70px}
+    .logo-mark img{height:27px}
+    .nav-toggle{display:flex}
+    .navlinks{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:34px;background:var(--jade-deep);opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .4s ease,transform .4s ease}
+    .navlinks.open{opacity:1;transform:translateY(0);pointer-events:auto}
+    .navlinks a{color:var(--ivory);opacity:1;font-size:.85rem;letter-spacing:.32em}
+    .navlinks a.cta{padding:14px 34px}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .svc-grid{flex-direction:column}
     .svc-grid.spotlight .svc:not(.svc-active){display:none}
@@ -193,7 +203,10 @@
       <img class="ink" src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge">
     </span>
   </a>
-  <div class="navlinks">
+  <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="navlinks" id="navlinks">
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#themes">Experiences</a>
@@ -486,6 +499,24 @@
   }
   setupOfferingsToggle('offerings-toggle', 'private-offerings');
   setupOfferingsToggle('corporate-offerings-toggle', 'corporate-offerings');
+
+  // mobile nav: hamburger toggle opens a full-screen menu
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinksEl = document.getElementById('navlinks');
+  if (navToggle && navLinksEl) {
+    const closeMenu = () => {
+      navLinksEl.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    navToggle.addEventListener('click', () => {
+      const opening = !navLinksEl.classList.contains('open');
+      navLinksEl.classList.toggle('open', opening);
+      navToggle.setAttribute('aria-expanded', opening);
+      document.body.style.overflow = opening ? 'hidden' : '';
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
 
   // nav background on scroll
   const nav = document.getElementById('nav');
