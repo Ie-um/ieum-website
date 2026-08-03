@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IEUM Concierge | Luxury Travel Concierge in Korea</title>
 <meta name="description" content="IEUM is a private luxury travel concierge in Korea, crafting bespoke beauty, wellness, and cultural journeys with access to what money alone can't book. Seoul, Jeju, and beyond.">
-<meta name="keywords" content="Korea travel concierge, luxury Korea concierge, private Korea trip planner, Seoul concierge service, bespoke Korea travel, Korea beauty tourism, Korea wellness travel, Korea corporate travel">
+<meta name="keywords" content="Korea travel concierge, luxury Korea concierge, private Korea trip planner, Seoul concierge service, bespoke Korea travel, Korea beauty tourism, Korea wellness travel, Korea corporate travel, Korean brand consulting, Korea branding marketing operations consulting EU US">
 <link rel="canonical" href="https://ie-um.com/">
 
 <meta property="og:type" content="website">
@@ -48,7 +48,7 @@
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private Journeys", "description": "Fully bespoke luxury itineraries across Korea's beauty, wellness, and cultural worlds." } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Events", "description": "Corporate retreats, incentive trips, and off-sites planned and staged in Korea." } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulting", "description": "Introducing Korean brands and craftsmanship to luxury consumers in Europe and America." } }
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulting", "description": "Brand consulting for Korean companies expanding into Europe and the United States, covering branding, marketing, and operations.", "areaServed": [{ "@type": "Place", "name": "European Union" }, { "@type": "Place", "name": "United States" }] } }
   ]
 }
 </script>
@@ -189,6 +189,30 @@
   .offering svg{width:26px;height:26px;color:var(--jade);margin:0 auto 20px;display:block}
   .offering h4{font-family:var(--display);font-weight:400;font-size:1.1rem;margin-bottom:10px}
   .offering p{font-size:.8rem;color:#5A5A52;max-width:30ch;margin:0 auto}
+
+  /* consulting modal */
+  .modal-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(35,36,31,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .4s ease}
+  .modal-overlay.open{opacity:1;pointer-events:auto}
+  .modal-box{position:relative;background:var(--paper);max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:56px 44px;border:1px solid var(--hairline);box-shadow:0 30px 70px rgba(35,36,31,.25);transform:translateY(14px) scale(.97);transition:transform .45s cubic-bezier(.2,.6,.2,1)}
+  .modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
+  .modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--hairline);color:var(--ink);font-size:1.1rem;line-height:1;cursor:pointer;padding:0;transition:border-color .4s,background .4s}
+  .modal-close:hover{border-color:var(--jade);background:var(--ivory)}
+  .modal-box .eyebrow{display:block}
+  .modal-box h3{font-size:1.5rem;margin:14px 0 4px}
+  .modal-box .modal-kr-title{font-family:var(--kr);font-weight:200;font-size:1.05rem;color:#5A5A52;margin:0 0 22px}
+  .modal-box .modal-intro{font-size:.88rem;color:#5A5A52;margin-bottom:6px}
+  .modal-box .modal-intro-kr{font-family:var(--kr);font-weight:200;font-size:.84rem;color:#8B8577;margin-bottom:24px}
+  .modal-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
+  .modal-list li{display:flex;align-items:baseline;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--hairline)}
+  .modal-list li:last-child{border-bottom:0;padding-bottom:0}
+  .modal-list .en{font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--jade-deep);min-width:100px}
+  .modal-list .kr{font-family:var(--kr);font-weight:200;color:#5A5A52;font-size:.86rem}
+  .modal-note{margin-top:8px;padding-top:22px;border-top:1px solid var(--hairline);font-size:.82rem;color:#5A5A52;line-height:1.8}
+  .modal-note .kr-line{display:block;font-family:var(--kr);font-weight:200;font-size:.8rem;color:#8B8577;margin-top:6px}
+  .modal-note a{color:var(--jade);border-bottom:1px solid var(--jade);text-decoration:none}
+  @media (max-width:600px){
+    .modal-box{padding:44px 26px}
+  }
 
   /* themes */
   #themes .theme{margin-bottom:84px}
@@ -361,6 +385,7 @@
         <p class="num">iii.</p>
         <h3>Consulting</h3>
         <p>Your brand, introduced to luxury consumers across Europe and America: homegrown Korean craftsmanship, positioned for the world's most discerning audience.</p>
+        <button type="button" class="svc-toggle" id="consulting-toggle" aria-haspopup="dialog" aria-controls="consulting-modal" aria-expanded="false"><span class="label">See What We Offer</span><span class="chev" aria-hidden="true">+</span></button>
       </div>
     </div>
 
@@ -558,6 +583,23 @@
   <p class="photo-credit">사진 출처 ⓒ한국관광콘텐츠랩 · ⓒ한국관광공사</p>
 </footer>
 
+<div class="modal-overlay" id="consulting-modal" role="dialog" aria-modal="true" aria-labelledby="consulting-modal-title" aria-hidden="true">
+  <div class="modal-box">
+    <button type="button" class="modal-close" aria-label="Close">&times;</button>
+    <p class="eyebrow">Consulting</p>
+    <h3 id="consulting-modal-title">What We Offer</h3>
+    <p class="modal-kr-title">컨설팅 서비스</p>
+    <p class="modal-intro">For Korean brands entering Europe and the United States, we offer:</p>
+    <p class="modal-intro-kr">유럽 및 미국 시장 진출을 준비하는 한국 브랜드를 위해 다음 서비스를 제공합니다:</p>
+    <ul class="modal-list">
+      <li><span class="en">Branding</span><span class="kr">브랜딩</span></li>
+      <li><span class="en">Marketing</span><span class="kr">마케팅</span></li>
+      <li><span class="en">Operations</span><span class="kr">운영</span></li>
+    </ul>
+    <p class="modal-note">For business inquiries, please reach out to <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>.<span class="kr-line">비즈니스 문의는 <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>으로 연락 주시기 바랍니다.</span></p>
+  </div>
+</div>
+
 <script>
   // travel window: don't allow picking a month that's already passed
   const datesInput = document.getElementById('f-dates');
@@ -593,6 +635,31 @@
   }
   setupOfferingsToggle('offerings-toggle', 'private-offerings');
   setupOfferingsToggle('corporate-offerings-toggle', 'corporate-offerings');
+
+  // consulting: quick pop-up listing services + contact
+  const consultingToggle = document.getElementById('consulting-toggle');
+  const consultingModal = document.getElementById('consulting-modal');
+  if (consultingToggle && consultingModal) {
+    const closeBtn = consultingModal.querySelector('.modal-close');
+    const openModal = () => {
+      consultingModal.classList.add('open');
+      consultingModal.setAttribute('aria-hidden', 'false');
+      consultingToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+    const closeModal = () => {
+      consultingModal.classList.remove('open');
+      consultingModal.setAttribute('aria-hidden', 'true');
+      consultingToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      consultingToggle.focus();
+    };
+    consultingToggle.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    consultingModal.addEventListener('click', e => { if (e.target === consultingModal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && consultingModal.classList.contains('open')) closeModal(); });
+  }
 
   // mobile nav: hamburger toggle opens a full-screen menu
   const navToggle = document.getElementById('nav-toggle');
