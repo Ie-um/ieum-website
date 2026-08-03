@@ -309,7 +309,7 @@
     <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt=""></div>
     <h1>Korea, connected.</h1>
     <p class="hero-sub">Private luxury concierge<br>Beauty · Wellness · Culture</p>
-    <a href="#contact" class="hero-cta">Request a Consultation</a>
+    <a href="#contact" class="hero-cta">Book a Consultation</a>
   </div>
   <p class="hero-note">Scroll</p>
 </header>
@@ -665,16 +665,30 @@
   const navToggle = document.getElementById('nav-toggle');
   const navLinksEl = document.getElementById('navlinks');
   if (navToggle && navLinksEl) {
+    let savedScrollY = 0;
+    const openMenu = () => {
+      savedScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      navLinksEl.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+    };
     const closeMenu = () => {
       navLinksEl.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      window.scrollTo(0, savedScrollY);
     };
     navToggle.addEventListener('click', () => {
       const opening = !navLinksEl.classList.contains('open');
-      navLinksEl.classList.toggle('open', opening);
-      navToggle.setAttribute('aria-expanded', opening);
-      document.body.style.overflow = opening ? 'hidden' : '';
+      if (opening) openMenu(); else closeMenu();
     });
     navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
