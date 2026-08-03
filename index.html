@@ -111,7 +111,7 @@
   .navlinks a{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper);opacity:.85;transition:color .5s,opacity .3s}
   .navlinks a:hover{opacity:1}
   nav.solid .navlinks a{color:var(--ink)}
-  .navlinks a.cta{border:1px solid currentColor;padding:9px 20px}
+  .navlinks a.cta{padding:9px 20px}
   .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:26px;height:20px;background:none;border:0;padding:0;cursor:pointer;z-index:60}
   .nav-toggle span{display:block;height:1px;width:100%;background:var(--paper);transition:transform .35s ease,opacity .35s ease,background .5s}
   nav.solid .nav-toggle span{background:var(--ink)}
@@ -243,8 +243,8 @@
   select option{color:var(--ink)}
   textarea{resize:vertical;min-height:90px}
   input:focus,select:focus,textarea:focus{border-color:var(--ivory)}
-  button{grid-column:1/-1;justify-self:start;background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:14px 2px;cursor:pointer;transition:color .4s,border-color .4s;margin-top:10px}
-  button:hover,button:focus-visible{border-color:var(--ivory)}
+  button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 44px;cursor:pointer;transition:background .4s,color .4s;margin-top:10px}
+  button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
 
   footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:50px 6vw;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;border-top:1px solid rgba(246,244,239,.12)}
   footer .mark{display:block;margin:0 auto 14px}
@@ -261,10 +261,8 @@
     .navlinks{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:34px;background:var(--jade-deep);opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .4s ease,transform .4s ease}
     .navlinks.open{opacity:1;transform:translateY(0);pointer-events:auto}
     .navlinks a{color:var(--ivory);opacity:1;font-size:.85rem;letter-spacing:.32em}
-    .navlinks a.cta{padding:14px 34px}
+    .navlinks a.cta{border:1px solid currentColor;padding:14px 34px}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
-    button{border:1px solid var(--ivory);padding:16px 44px}
-    button:hover,button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
     .why-row{grid-template-columns:1fr;gap:10px;padding:38px 0;text-align:center}
     .why-num{font-size:2.6rem;opacity:.3;order:1}
     .why-photo{order:0;width:64px;height:64px;margin:0 auto 6px}
