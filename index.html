@@ -114,8 +114,7 @@
   .nav-toggle{position:relative;display:none;flex-direction:column;justify-content:center;gap:6px;width:30px;height:22px;background:none;border:0;padding:0;cursor:pointer;z-index:60}
   .nav-toggle span{display:block;height:1px;width:100%;background:var(--paper);transition:transform .35s ease,opacity .35s ease,background .5s}
   nav.solid .nav-toggle span{background:var(--ink)}
-  .nav-toggle[aria-expanded="true"] span{background:var(--ivory)}
-  nav.solid .nav-toggle[aria-expanded="true"] span{background:var(--ivory)}
+  .nav-toggle[aria-expanded="true"] span{background:var(--ivory) !important}
   .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
   .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -255,7 +254,6 @@
   footer .photo-credit{margin-top:10px;font-size:.54rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E;opacity:.75}
 
   @media (max-width:900px){
-    .hero-video{display:none}
     nav{padding:16px 4vw}
     .logo-mark{height:34px;width:88px}
     .logo-mark img{height:34px}
@@ -606,15 +604,15 @@
 </div>
 
 <script>
-  // hero video: only fetch it on wider screens so mobile visitors aren't stuck downloading
-  // a large video over cellular data — mobile keeps the static poster frame instead
+  // hero video: load and play on all screen sizes, including mobile
   const heroVideo = document.getElementById('hero-video');
-  if (heroVideo && window.matchMedia('(min-width: 901px)').matches) {
+  if (heroVideo) {
     const heroSource = document.createElement('source');
     heroSource.src = 'https://videos.pexels.com/video-files/6120136/6120136-uhd_2732_1440_24fps.mp4';
     heroSource.type = 'video/mp4';
     heroVideo.appendChild(heroSource);
     heroVideo.load();
+    heroVideo.play().catch(() => {});
   }
 
   // travel window: don't allow picking a month that's already passed
