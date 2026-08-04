@@ -122,9 +122,9 @@
 
   /* ---------- hero ---------- */
   header{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--paper);overflow:hidden}
-  .hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#2F423B 0%,#3C564C 45%,#57705F 100%)}
-  .hero-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,rgba(246,244,239,.22),transparent 60%)}
-  .hero-bg::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
+  .hero-bg{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#2F423B 0%,#3C564C 45%,#57705F 100%)}
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;filter:saturate(.78) contrast(1.1) brightness(.8) sepia(.05) hue-rotate(-6deg)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(30,45,39,.62) 0%,rgba(30,45,39,.34) 38%,rgba(30,45,39,.36) 62%,rgba(24,34,29,.68) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E")}
   .hero-inner{position:relative;z-index:2;padding:0 6vw;animation:rise 1.6s cubic-bezier(.2,.6,.2,1) both .2s}
   .hero-kr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1;opacity:.09;width:100%;display:flex;justify-content:center;pointer-events:none}
   .hero-kr img{width:clamp(16rem,70vw,44rem);height:auto}
@@ -255,6 +255,7 @@
   footer .photo-credit{margin-top:10px;font-size:.54rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E;opacity:.75}
 
   @media (max-width:900px){
+    .hero-video{display:none}
     nav{padding:16px 4vw}
     .logo-mark{height:27px;width:70px}
     .logo-mark img{height:27px}
@@ -305,8 +306,9 @@
 </nav>
 
 <header id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <!-- Replace .hero-bg with a full-bleed photograph: mountain temple mist, hanok rooflines at dusk, or a quiet hot-spring landscape -->
+  <div class="hero-bg" aria-hidden="true">
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none" poster="https://images.pexels.com/videos/6120136/pexels-photo-6120136.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920"></video>
+  </div>
   <div class="hero-inner">
     <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt=""></div>
     <h1>Korea, connected.</h1>
@@ -604,6 +606,17 @@
 </div>
 
 <script>
+  // hero video: only fetch it on wider screens so mobile visitors aren't stuck downloading
+  // a large video over cellular data — mobile keeps the static poster frame instead
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo && window.matchMedia('(min-width: 901px)').matches) {
+    const heroSource = document.createElement('source');
+    heroSource.src = 'https://videos.pexels.com/video-files/6120136/6120136-uhd_2732_1440_24fps.mp4';
+    heroSource.type = 'video/mp4';
+    heroVideo.appendChild(heroSource);
+    heroVideo.load();
+  }
+
   // travel window: don't allow picking a month that's already passed
   const datesInput = document.getElementById('f-dates');
   if (datesInput) {
