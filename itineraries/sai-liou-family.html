@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>A Sample Journey, Prepared for Sai Liou | IEUM Concierge</title>
+<style>
+  :root{
+    --ivory:#F6F4EF;
+    --paper:#FCFBF8;
+    --ink:#23241F;
+    --stone:#8B8577;
+    --jade:#40685B;
+    --jade-deep:#2C463E;
+    --hairline:rgba(35,36,31,.14);
+    --display:'Cormorant Garamond',Georgia,serif;
+    --utility:'Jost',Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
+  .wrap{max-width:900px;margin:0 auto;padding:0 6vw}
+  .eyebrow{font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
+
+  header.brand{padding:34px 6vw;text-align:center;border-bottom:1px solid var(--hairline)}
+  header.brand .name{font-family:var(--display);font-size:1.5rem;letter-spacing:.08em;color:var(--jade-deep)}
+
+  /* ---------- password gate ---------- */
+  #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--jade-deep);padding:24px}
+  #gate .box{max-width:380px;width:100%;text-align:center;color:var(--ivory)}
+  #gate .eyebrow{color:#A9C3B7;display:block;margin-bottom:14px}
+  #gate h1{font-size:1.9rem;color:var(--ivory);margin-bottom:18px}
+  #gate p{font-size:.88rem;color:#C9D5CD;margin-bottom:30px}
+  #gate input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.4);color:var(--ivory);font-family:var(--utility);font-size:1rem;letter-spacing:.1em;text-align:center;padding:12px 4px;outline:none}
+  #gate input:focus{border-color:var(--ivory)}
+  #gate button{margin-top:26px;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;padding:14px 40px;cursor:pointer;transition:background .35s,color .35s}
+  #gate button:hover{background:var(--ivory);color:var(--jade-deep)}
+  #gate .error{margin-top:16px;font-size:.78rem;color:#E3B9AE;opacity:0;transition:opacity .3s}
+  #gate .error.show{opacity:1}
+  #content{display:none}
+
+  /* ---------- itinerary content ---------- */
+  .intro{padding:90px 0 60px;text-align:center}
+  .intro .eyebrow{display:block;margin-bottom:18px}
+  .intro h1{font-size:clamp(2.2rem,4.6vw,3.2rem)}
+  .intro p.lede{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#5A5A52;max-width:520px;margin:22px auto 0}
+  .intro .meta{margin-top:34px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
+
+  .day{padding:70px 0;border-top:1px solid var(--hairline)}
+  .day:nth-child(even){background:var(--ivory)}
+  .day-head{margin-bottom:44px}
+  .day-head .eyebrow{display:block;margin-bottom:10px}
+  .day-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .day-head p{font-family:var(--display);font-style:italic;color:#5A5A52;font-size:1.05rem;margin-top:10px}
+
+  .moments{max-width:760px}
+  .moment{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--hairline)}
+  .moment:last-child{border-bottom:0}
+  .moment time{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);padding-top:4px}
+  .moment h3{font-size:1.2rem;font-weight:400;margin-bottom:8px}
+  .moment p{font-size:.9rem;color:#4A4A43;max-width:56ch}
+
+  .note{max-width:760px;margin-top:40px;padding-top:24px;border-top:1px dashed var(--hairline);font-size:.84rem;color:var(--jade-deep);font-style:italic}
+
+  #closing{background:var(--jade-deep);color:var(--ivory);padding:100px 0;text-align:center}
+  #closing .eyebrow{color:#A9C3B7}
+  #closing h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin:18px 0 20px;color:var(--ivory)}
+  #closing p{color:#C9D5CD;font-size:.95rem;max-width:520px;margin:0 auto 34px}
+  #closing a.btn{display:inline-block;padding:17px 46px;border:1px solid var(--ivory);color:var(--ivory);font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:background .4s,color .4s}
+  #closing a.btn:hover{background:var(--ivory);color:var(--jade-deep)}
+
+  footer{text-align:center;padding:40px 6vw;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+
+  @media (max-width:640px){
+    .moment{grid-template-columns:1fr;gap:8px}
+    .day{padding:50px 0}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <span class="eyebrow">IEUM Concierge</span>
+    <h1>A Journey, Prepared for You</h1>
+    <p>This page has been prepared privately for Sai Liou. Please enter the password shared with you to continue.</p>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
+    <div><button type="button" id="gate-submit">Enter</button></div>
+    <p class="error" id="gate-error">That password doesn't match, please try again.</p>
+  </div>
+</div>
+
+<div id="content">
+  <header class="brand"><span class="name">IEUM</span></header>
+
+  <section class="intro">
+    <div class="wrap">
+      <span class="eyebrow">A Sample Journey</span>
+      <h1>Two Days in Seoul, for Sai and Family</h1>
+      <p class="lede">A first glimpse of how we would shape your December stay, beginning where you land, at the Grand Hyatt Seoul.</p>
+      <div class="meta">
+        <span>December 2026</span>
+        <span>Sai Liou, with two children</span>
+        <span>Private driver throughout</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Day One</span>
+        <h2>Arrival, and Hannam-dong at Your Own Pace</h2>
+        <p>Nothing far from the hotel, nothing rushed. A day meant for settling in.</p>
+      </div>
+      <div class="moments">
+        <div class="moment">
+          <time>Morning</time>
+          <div>
+            <h3>Private Airport Transfer &amp; Check-In</h3>
+            <p>Your driver meets you on arrival and brings you directly to the Grand Hyatt Seoul, in Hannam-dong, where the whole trip begins without a single logistic left for you to think about.</p>
+          </div>
+        </div>
+        <div class="moment">
+          <time>Afternoon</time>
+          <div>
+            <h3>Banyan Tree Club &amp; Spa Seoul</h3>
+            <p>A short private drive to Banyan Tree Club &amp; Spa, ten minutes from the hotel, where a dedicated kids' pool and kids' club give the children their own afternoon, while you slip into the spa for a quiet hour of your own. A rare kind of afternoon where everyone in the family is happy at once.</p>
+          </div>
+        </div>
+        <div class="moment">
+          <time>Evening</time>
+          <div>
+            <h3>Namsan, and a Welcome Dinner</h3>
+            <p>Up to Namsan as the sky turns, for the kind of skyline view that makes a first evening in Seoul feel like it was worth the flight, followed by a relaxed family dinner nearby in Hannam-dong.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">A note from Doha, this first day is intentionally unhurried. Families arriving from long flights do best with a light landing, not a packed one.</p>
+    </div>
+  </section>
+
+  <section class="day">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Day Two</span>
+        <h2>Hanbok at the Palace</h2>
+        <p>One signature morning, given the room to be fully savored.</p>
+      </div>
+      <div class="moments">
+        <div class="moment">
+          <time>Morning</time>
+          <div>
+            <h3>Private Hanbok Fitting</h3>
+            <p>Your driver brings the family to a hanbok house near the palace, where you and the children are fitted for traditional Korean dress, chosen together, colors and all.</p>
+          </div>
+        </div>
+        <div class="moment">
+          <time>Late Morning</time>
+          <div>
+            <h3>Gyeongbokgung Palace</h3>
+            <p>In hanbok, through Korea's grandest palace, its courtyards and gates a backdrop few travelers ever get to walk through dressed as part of the scene rather than simply visiting it.</p>
+          </div>
+        </div>
+        <div class="moment">
+          <time>1 Hour</time>
+          <div>
+            <h3>Private Snap Photography</h3>
+            <p>A professional photographer joins for one hour within the palace grounds, so the day becomes something you carry home, not just something you remember.</p>
+          </div>
+        </div>
+      </div>
+      <p class="note">A note from Doha, this is only the beginning of what your five days could hold. The remaining three days, I would shape entirely around what you and the children love most, whether that's more culture, more wellness, or simply more time to breathe.</p>
+    </div>
+  </section>
+
+  <section id="closing">
+    <div class="wrap">
+      <span class="eyebrow">Let's Continue This</span>
+      <h2>This Was Only a Glimpse</h2>
+      <p>If this feels like the beginning of your trip, I would love to sit down and design the remaining days together, built entirely around your family.</p>
+      <a href="mailto:contact@ie-um.com" class="btn">Continue the Conversation</a>
+    </div>
+  </section>
+
+  <footer>IEUM Concierge &middot; Prepared privately for Sai Liou &middot; Not for distribution</footer>
+</div>
+
+<script>
+  const PASSWORD = 'IEUMSAI2026';
+  const gate = document.getElementById('gate');
+  const content = document.getElementById('content');
+  const input = document.getElementById('gate-input');
+  const submit = document.getElementById('gate-submit');
+  const error = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.style.display = 'none';
+    content.style.display = 'block';
+    sessionStorage.setItem('ieum-sai-unlocked', '1');
+  }
+
+  if (sessionStorage.getItem('ieum-sai-unlocked') === '1') {
+    unlock();
+  }
+
+  function tryUnlock() {
+    if (input.value.trim().toUpperCase() === PASSWORD) {
+      unlock();
+    } else {
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  submit.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+</script>
+</body>
+</html>
