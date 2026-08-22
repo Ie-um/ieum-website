@@ -64,6 +64,15 @@
 
   .note{max-width:760px;margin-top:40px;padding-top:24px;border-top:1px dashed var(--hairline);font-size:.84rem;color:var(--jade-deep);font-style:italic}
 
+  .day-photo{width:100%;max-width:900px;height:min(52vw,420px);object-fit:cover;border-radius:2px;margin-bottom:48px;display:block}
+  .photo-grid{max-width:760px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+  .photo-grid img{width:100%;height:230px;object-fit:cover;border-radius:2px;display:block}
+  .photo-grid figcaption{margin-top:8px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone)}
+  @media (max-width:640px){
+    .photo-grid{grid-template-columns:1fr}
+    .day-photo{height:56vw}
+  }
+
   #closing{background:var(--jade-deep);color:var(--ivory);padding:100px 0;text-align:center}
   #closing .eyebrow{color:#A9C3B7}
   #closing h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin:18px 0 20px;color:var(--ivory)}
@@ -105,6 +114,7 @@
         <span>Sai Liou, with two children</span>
         <span>Private driver throughout</span>
       </div>
+      <p class="note" style="margin:44px auto 0;text-align:left">It was such a pleasure speaking with you. Below is a small taste of what your December in Seoul could look like, one morning built entirely around you, one built around your family together in hanbok. I have included a few real images of each place so you can start to picture yourself there, not just read about it. Everything here can move, nothing is fixed until you tell me what you love.</p>
     </div>
   </section>
 
@@ -115,6 +125,7 @@
         <h2>Myeongdong, Beauty and a Little Chaos for Everyone</h2>
         <p>A morning for you, an afternoon for all of you together.</p>
       </div>
+      <img class="day-photo" src="https://images.pexels.com/photos/32014922/pexels-photo-32014922.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Myeongdong shopping street in Seoul, lined with signs and storefronts">
       <div class="moments">
         <div class="moment">
           <time>Morning</time>
@@ -145,6 +156,16 @@
           </div>
         </div>
       </div>
+      <div class="photo-grid">
+        <figure>
+          <img src="https://images.pexels.com/photos/6187305/pexels-photo-6187305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A calming facial massage in a tranquil Seoul spa">
+          <figcaption>A morning at O HUI&amp;WHOO Spa</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/11121053/pexels-photo-11121053.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A cat lounging in a cozy Myeongdong cat cafe">
+          <figcaption>Roof Cat Me Caf&eacute;, with the kids</figcaption>
+        </figure>
+      </div>
       <p class="note">A note from Doha, this spa morning is placed before your photography day on purpose. Skin settles beautifully in the day after a facial, so by the time you're in hanbok at the palace, you'll look and feel your very best.</p>
     </div>
   </section>
@@ -156,6 +177,7 @@
         <h2>Hanbok at the Palace</h2>
         <p>One signature morning, given the room to be fully savored.</p>
       </div>
+      <img class="day-photo" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
       <div class="moments">
         <div class="moment">
           <time>Morning</time>
@@ -192,6 +214,16 @@
             <p>Narrow hanok alleys just west of the palace, small galleries, quiet cafes, and the city's oldest bookstore tucked among them. Easy walking, still in hanbok if you like, no fixed stops, just time to drift.</p>
           </div>
         </div>
+      </div>
+      <div class="photo-grid">
+        <figure>
+          <img src="https://images.pexels.com/photos/21938179/pexels-photo-21938179.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A warming bowl of traditional Korean chicken soup with chestnuts">
+          <figcaption>Lunch, near Gyeongbokgung</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.pexels.com/photos/6896969/pexels-photo-6896969.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A quiet hanok alley in Seochon, near Gyeongbokgung Palace">
+          <figcaption>Seochon's hanok alleys</figcaption>
+        </figure>
       </div>
       <p class="note">A note from Doha, these are two days from within your five, not your arrival or departure day. I would shape those, along with your remaining time, entirely around your flights and whatever you and the children want more of, culture, wellness, or simply room to breathe.</p>
     </div>
