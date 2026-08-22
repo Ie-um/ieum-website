@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>A Sample Journey, Prepared for Sai Liou | IEUM Concierge</title>
+<title>A Sample Journey | IEUM Concierge</title>
 <style>
   :root{
     --ivory:#F6F4EF;
@@ -21,16 +21,16 @@
   body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
   a{color:inherit}
   h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
-  .wrap{max-width:900px;margin:0 auto;padding:0 6vw}
+  .wrap{max-width:960px;margin:0 auto;padding:0 6vw}
   .eyebrow{font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
 
-  header.brand{padding:34px 6vw;text-align:center;border-bottom:1px solid var(--hairline)}
-  header.brand .name{font-family:var(--display);font-size:1.5rem;letter-spacing:.08em;color:var(--jade-deep)}
+  header.brand{padding:30px 6vw;text-align:center;border-bottom:1px solid var(--hairline)}
+  header.brand img{height:40px;width:auto;display:inline-block}
 
   /* ---------- password gate ---------- */
   #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--jade-deep);padding:24px}
   #gate .box{max-width:380px;width:100%;text-align:center;color:var(--ivory)}
-  #gate .eyebrow{color:#A9C3B7;display:block;margin-bottom:14px}
+  #gate .gate-logo{height:38px;width:auto;margin-bottom:26px}
   #gate h1{font-size:1.9rem;color:var(--ivory);margin-bottom:18px}
   #gate p{font-size:.88rem;color:#C9D5CD;margin-bottom:30px}
   #gate input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.4);color:var(--ivory);font-family:var(--utility);font-size:1rem;letter-spacing:.1em;text-align:center;padding:12px 4px;outline:none}
@@ -41,38 +41,42 @@
   #gate .error.show{opacity:1}
   #content{display:none}
 
-  /* ---------- itinerary content ---------- */
+  /* ---------- intro ---------- */
   .intro{padding:90px 0 60px;text-align:center}
   .intro .eyebrow{display:block;margin-bottom:18px}
   .intro h1{font-size:clamp(2.2rem,4.6vw,3.2rem)}
-  .intro p.lede{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#5A5A52;max-width:520px;margin:22px auto 0}
+  .intro p.lede{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#5A5A52;max-width:540px;margin:22px auto 0}
   .intro .meta{margin-top:34px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
 
+  /* ---------- days ---------- */
   .day{padding:70px 0;border-top:1px solid var(--hairline)}
-  .day:nth-child(even){background:var(--ivory)}
-  .day-head{margin-bottom:44px}
+  .day:nth-of-type(even){background:var(--ivory)}
+  .day-head{margin-bottom:40px}
   .day-head .eyebrow{display:block;margin-bottom:10px}
   .day-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
   .day-head p{font-family:var(--display);font-style:italic;color:#5A5A52;font-size:1.05rem;margin-top:10px}
 
-  .moments{max-width:760px}
-  .moment{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:26px 0;border-bottom:1px solid var(--hairline)}
+  .moment{display:grid;grid-template-columns:112px 1fr 210px;gap:28px;padding:30px 0;border-bottom:1px solid var(--hairline);align-items:start}
   .moment:last-child{border-bottom:0}
-  .moment time{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);padding-top:4px}
+  .moment time{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);padding-top:5px}
   .moment h3{font-size:1.2rem;font-weight:400;margin-bottom:8px}
-  .moment p{font-size:.9rem;color:#4A4A43;max-width:56ch}
+  .moment p{font-size:.9rem;color:#4A4A43}
+  .moment .shot{width:210px;height:150px;object-fit:cover;border-radius:2px;display:block}
+  .moment.no-shot{grid-template-columns:112px 1fr}
 
-  .note{max-width:760px;margin-top:40px;padding-top:24px;border-top:1px dashed var(--hairline);font-size:.84rem;color:var(--jade-deep);font-style:italic}
+  .note{max-width:820px;margin-top:38px;padding-top:24px;border-top:1px dashed var(--hairline);font-size:.84rem;color:var(--jade-deep);font-style:italic}
 
-  .day-photo{width:100%;max-width:900px;height:min(52vw,420px);object-fit:cover;border-radius:2px;margin-bottom:48px;display:block}
-  .photo-grid{max-width:760px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
-  .photo-grid img{width:100%;height:230px;object-fit:cover;border-radius:2px;display:block}
-  .photo-grid figcaption{margin-top:8px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone)}
-  @media (max-width:640px){
-    .photo-grid{grid-template-columns:1fr}
-    .day-photo{height:56vw}
-  }
+  /* ---------- rest of journey ---------- */
+  #rest{padding:80px 0;border-top:1px solid var(--hairline)}
+  #rest .head{text-align:center;margin-bottom:46px}
+  #rest .head h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:10px}
+  #rest .head p{font-family:var(--display);font-style:italic;color:#5A5A52;font-size:1.05rem;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto}
+  .rest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1000px;margin:0 auto}
+  .rest-item{background:var(--paper);padding:42px 30px;text-align:center}
+  .rest-item h4{font-family:var(--display);font-weight:400;font-size:1.05rem;margin-bottom:8px}
+  .rest-item p{font-size:.8rem;color:#5A5A52;max-width:28ch;margin:0 auto}
 
+  /* ---------- included ---------- */
   #included{padding:80px 0;border-top:1px solid var(--hairline);background:var(--ivory)}
   #included .head{text-align:center;margin-bottom:48px}
   #included .head h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:10px}
@@ -82,20 +86,38 @@
   .included-item svg{width:24px;height:24px;color:var(--jade);margin:0 auto 18px;display:block}
   .included-item h4{font-family:var(--display);font-weight:400;font-size:1.05rem;margin-bottom:8px}
   .included-item p{font-size:.8rem;color:#5A5A52;max-width:26ch;margin:0 auto}
-  @media (max-width:760px){.included-grid{grid-template-columns:1fr}}
 
+  /* ---------- next steps ---------- */
+  #next{padding:80px 0;border-top:1px solid var(--hairline)}
+  #next .head{text-align:center;margin-bottom:48px}
+  #next .head h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:10px}
+  .steps{max-width:680px;margin:0 auto;display:grid;gap:30px}
+  .step{display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start}
+  .step .num{font-family:var(--display);font-size:1.6rem;color:var(--jade);line-height:1;padding-top:2px}
+  .step h4{font-family:var(--display);font-weight:400;font-size:1.15rem;margin-bottom:6px}
+  .step p{font-size:.88rem;color:#4A4A43}
+  .fee{max-width:680px;margin:44px auto 0;padding:26px 30px;border:1px solid var(--hairline);background:var(--ivory);text-align:center}
+  .fee .amount{font-family:var(--display);font-size:1.8rem;color:var(--jade-deep);display:block;margin-bottom:6px}
+  .fee p{font-size:.85rem;color:#5A5A52}
+
+  /* ---------- closing ---------- */
   #closing{background:var(--jade-deep);color:var(--ivory);padding:100px 0;text-align:center}
   #closing .eyebrow{color:#A9C3B7}
   #closing h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin:18px 0 20px;color:var(--ivory)}
   #closing p{color:#C9D5CD;font-size:.95rem;max-width:520px;margin:0 auto 34px}
-  #closing a.btn{display:inline-block;padding:17px 46px;border:1px solid var(--ivory);color:var(--ivory);font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;transition:background .4s,color .4s}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  #closing a.btn{display:inline-block;padding:17px 42px;border:1px solid var(--ivory);color:var(--ivory);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:background .4s,color .4s}
   #closing a.btn:hover{background:var(--ivory);color:var(--jade-deep)}
+  #closing a.btn.solid{background:var(--ivory);color:var(--jade-deep)}
+  #closing a.btn.solid:hover{background:transparent;color:var(--ivory)}
 
   footer{text-align:center;padding:40px 6vw;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
 
-  @media (max-width:640px){
-    .moment{grid-template-columns:1fr;gap:8px}
-    .day{padding:50px 0}
+  @media (max-width:860px){
+    .moment,.moment.no-shot{grid-template-columns:1fr;gap:10px}
+    .moment .shot{width:100%;height:200px;margin-top:6px}
+    .rest-grid,.included-grid{grid-template-columns:1fr}
+    .day{padding:52px 0}
   }
 </style>
 </head>
@@ -103,9 +125,9 @@
 
 <div id="gate">
   <div class="box">
-    <span class="eyebrow">IEUM Concierge</span>
+    <img class="gate-logo" src="https://ie-um.com/images/logo/ieum-logo-cream.svg" alt="IEUM Concierge">
     <h1>A Journey, Prepared for You</h1>
-    <p>This page has been prepared privately for Sai Liou. Please enter the password shared with you to continue.</p>
+    <p>Please enter the password shared with you to continue.</p>
     <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
     <div><button type="button" id="gate-submit">Enter</button></div>
     <p class="error" id="gate-error">That password doesn't match, please try again.</p>
@@ -113,19 +135,18 @@
 </div>
 
 <div id="content">
-  <header class="brand"><span class="name">IEUM</span></header>
+  <header class="brand"><img src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge"></header>
 
   <section class="intro">
     <div class="wrap">
       <span class="eyebrow">A Sample Journey</span>
-      <h1>Two Days in Seoul, for Sai and Family</h1>
-      <p class="lede">A glimpse of two days within your December stay, not your arrival or departure day, those we will shape precisely once your flights are set.</p>
+      <h1>Two Days in Seoul</h1>
+      <p class="lede">A glimpse of two days within your December stay, shaped around beauty, culture, and a pace that works for everyone.</p>
       <div class="meta">
+        <span>A Sample Journey</span>
         <span>December 2026</span>
-        <span>Sai Liou, with two children</span>
-        <span>Private driver throughout</span>
+        <span>Family of Four</span>
       </div>
-      <p class="note" style="margin:44px auto 0;text-align:left">It was such a pleasure speaking with you. Below is a small taste of what your December in Seoul could look like, one morning built entirely around you, one built around your family together in hanbok. I have included a few real images of each place so you can start to picture yourself there, not just read about it. Everything here can move, nothing is fixed until you tell me what you love.</p>
     </div>
   </section>
 
@@ -133,65 +154,64 @@
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Day One</span>
-        <h2>Namsan, Skincare, and a Little Chaos for Everyone</h2>
+        <h2>Namsan, Skincare, and Myeongdong</h2>
         <p>A morning together, an afternoon apart, an evening together again.</p>
       </div>
-      <img class="day-photo" src="images/bibimbap.jpg" alt="A traditional bibimbap spread at a Michelin Guide recommended restaurant near Namsan">
-      <div class="moments">
-        <div class="moment">
-          <time>Morning</time>
-          <div>
-            <h3>Up to Namsan</h3>
-            <p>While the city is still cool and the light is clearest, up to Namsan for the view that makes Seoul feel like a single, sweeping thing rather than a hundred separate neighborhoods. An easy, unhurried way to begin the day together.</p>
-          </div>
+
+      <div class="moment">
+        <time>Morning</time>
+        <div>
+          <h3>Up to Namsan Tower</h3>
+          <p>While the city is still cool and the light is clearest, up to Namsan Tower for the view that makes Seoul feel like a single, sweeping thing rather than a hundred separate neighborhoods.</p>
         </div>
-        <div class="moment">
-          <time>Midday</time>
-          <div>
-            <h3>Bibimbap, All Together</h3>
-            <p>Lunch nearby, at a small Michelin Guide recommended bibimbap house near Namsan, warm rice and vegetables everyone builds their own way, easy for the kids and satisfying for you and your husband too, no unfamiliar flavors to talk anyone into.</p>
-          </div>
+        <img class="shot" src="https://images.pexels.com/photos/32124434/pexels-photo-32124434.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Namsan Seoul Tower framed by winter trees">
+      </div>
+
+      <div class="moment">
+        <time>Lunch</time>
+        <div>
+          <h3>Bibimbap</h3>
+          <p>At a small Michelin Guide recommended bibimbap house near Namsan.</p>
         </div>
-        <div class="moment">
-          <time>Afternoon</time>
-          <div>
-            <h3>A Morning of Skincare, Your Choice</h3>
-            <p>Two directions, and we'll pick whichever speaks to you more closer to your trip. Either a facial rooted in traditional hanbang medicine, at one of Seoul's well regarded Korean herbal skincare houses, or something more targeted, a non invasive treatment for hyperpigmentation at a dermatology clinic. Either way, an hour set aside just for you.</p>
-          </div>
+        <img class="shot" src="images/bibimbap.jpg" alt="A traditional bibimbap spread at a Michelin Guide recommended restaurant near Namsan">
+      </div>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>Facial Treatment</h3>
+          <p>Two directions, and we'll choose whichever suits you closer to the trip. Either a facial rooted in traditional hanbang medicine, at one of Seoul's well regarded Korean herbal skincare houses, or something more targeted, a non invasive treatment for hyperpigmentation at a dermatology clinic.</p>
         </div>
-        <div class="moment">
-          <time>Afternoon, in Parallel</time>
-          <div>
-            <h3>The Kids Meet the Cats</h3>
-            <p>Meanwhile, your husband and children settle into a Myeongdong cat cafe, home to dozens of resident cats and an open afternoon of coffee, treats, and no itinerary of their own to keep to.</p>
-          </div>
+        <img class="shot" src="https://images.pexels.com/photos/6187305/pexels-photo-6187305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A calming facial treatment in a tranquil Seoul spa setting">
+      </div>
+
+      <div class="moment">
+        <time>In Parallel</time>
+        <div>
+          <h3>Animal Cafe, for the Family</h3>
+          <p>Meanwhile, the rest of the family settles into a Myeongdong animal cafe, an open afternoon of coffee, treats, and no itinerary of their own to keep to.</p>
         </div>
-        <div class="moment">
-          <time>Late Afternoon</time>
-          <div>
-            <h3>Myeongdong, Together Again</h3>
-            <p>The family reunites along Myeongdong's shopping streets, Korean cosmetics, fashion, and street snacks at every turn, easy to wander with kids since there's always something new a few steps ahead.</p>
-          </div>
+        <img class="shot" src="https://images.pexels.com/photos/11121053/pexels-photo-11121053.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A cat lounging in a cozy Myeongdong animal cafe">
+      </div>
+
+      <div class="moment">
+        <time>Late Afternoon</time>
+        <div>
+          <h3>Myeongdong, Together Again</h3>
+          <p>The family reunites along Myeongdong's shopping streets, Korean cosmetics, fashion, and street snacks at every turn, easy to wander with children since there's always something new a few steps ahead.</p>
         </div>
-        <div class="moment">
-          <time>Evening</time>
-          <div>
-            <h3>Cheese Dakgalbi, to Close the Day</h3>
-            <p>Dinner together, spicy stir fried chicken pulled through melted cheese at the table, the kind of hands on, slightly messy meal that tends to be everyone's favorite of the whole trip.</p>
-          </div>
+        <img class="shot" src="https://images.pexels.com/photos/32014922/pexels-photo-32014922.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Myeongdong shopping street in Seoul, lined with signs and storefronts">
+      </div>
+
+      <div class="moment no-shot">
+        <time>Evening</time>
+        <div>
+          <h3>Cheese Dakgalbi</h3>
+          <p>Dinner together, spicy stir fried chicken pulled through melted cheese at the table, the kind of hands on, slightly messy meal that tends to be everyone's favorite of the whole trip.</p>
         </div>
       </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="https://images.pexels.com/photos/6187305/pexels-photo-6187305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A calming facial treatment in a tranquil Seoul spa setting">
-          <figcaption>A quiet hour of skincare</figcaption>
-        </figure>
-        <figure>
-          <img src="https://images.pexels.com/photos/11121053/pexels-photo-11121053.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A cat lounging in a cozy Myeongdong cat cafe">
-          <figcaption>A cat cafe, with the kids</figcaption>
-        </figure>
-      </div>
-      <p class="note">A note from Doha, this skincare hour is placed before your photography day on purpose. Skin settles beautifully in the day after a treatment, so by the time you're in hanbok at the palace, you'll look and feel your very best.</p>
+
+      <p class="note">A note from Doha, this skincare afternoon is placed before your photography day on purpose. Skin settles beautifully in the day after a treatment, so by the time you're in hanbok at the palace, you'll look and feel your very best.</p>
     </div>
   </section>
 
@@ -199,58 +219,76 @@
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Day Two</span>
-        <h2>Hanbok at the Palace</h2>
-        <p>One signature morning, given the room to be fully savored.</p>
+        <h2>Hanbok, the Palace, and the Old City</h2>
+        <p>A day inside Korean tradition, from what you wear to where you walk.</p>
       </div>
-      <img class="day-photo" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
-      <div class="moments">
-        <div class="moment">
-          <time>Morning</time>
-          <div>
-            <h3>Private Hanbok Fitting</h3>
-            <p>Your driver brings the family to a hanbok house near the palace, where you and the children are fitted for traditional Korean dress, chosen together, colors and all.</p>
-          </div>
-        </div>
-        <div class="moment">
-          <time>Late Morning</time>
-          <div>
-            <h3>Gyeongbokgung Palace</h3>
-            <p>In hanbok, through Korea's grandest palace, its courtyards and gates a backdrop few travelers ever get to walk through dressed as part of the scene rather than simply visiting it.</p>
-          </div>
-        </div>
-        <div class="moment">
-          <time>1 Hour</time>
-          <div>
-            <h3>Private Snap Photography</h3>
-            <p>A professional photographer joins for one hour within the palace grounds, so the day becomes something you carry home, not just something you remember.</p>
-          </div>
-        </div>
-        <div class="moment">
-          <time>Midday</time>
-          <div>
-            <h3>Traditional Korean Lunch, Near the Palace</h3>
-            <p>A quiet, family run restaurant tucked into a hanok not far from the palace, known for one dish alone, samgyetang, whole ginseng chicken simmered until it falls off the bone. A gentle, warming introduction to Korean food that tends to win kids over as easily as adults.</p>
-          </div>
-        </div>
-        <div class="moment">
-          <time>Afternoon</time>
-          <div>
-            <h3>A Wander Through Seochon</h3>
-            <p>Narrow hanok alleys just west of the palace, small galleries, quiet cafes, and the city's oldest bookstore tucked among them. Easy walking, still in hanbok if you like, no fixed stops, just time to drift.</p>
-          </div>
+
+      <div class="moment no-shot">
+        <time>Morning</time>
+        <div>
+          <h3>Private Hanbok Fitting</h3>
+          <p>Your driver brings the family to a hanbok house near the palace, where you and the children are fitted for traditional Korean dress, chosen together, colors and all.</p>
         </div>
       </div>
-      <div class="photo-grid">
-        <figure>
-          <img src="images/hanok-courtyard.jpg" alt="A quiet hanok restaurant courtyard near Gyeongbokgung Palace">
-          <figcaption>Lunch, in a hanok courtyard</figcaption>
-        </figure>
-        <figure>
-          <img src="images/samgyetang.jpg" alt="A bowl of samgyetang, whole ginseng chicken soup with pine nuts and scallion">
-          <figcaption>Samgyetang, table side</figcaption>
-        </figure>
+
+      <div class="moment">
+        <time>Lunch</time>
+        <div>
+          <h3>Samgyetang</h3>
+          <p>At a quiet, family run restaurant tucked into a hanok near the palace, known for one dish alone, whole ginseng chicken simmered until it falls off the bone.</p>
+        </div>
+        <img class="shot" src="images/samgyetang.jpg" alt="A bowl of samgyetang, whole ginseng chicken soup">
       </div>
-      <p class="note">A note from Doha, these are two days from within your five, not your arrival or departure day. I would shape those, along with your remaining time, entirely around your flights and whatever you and the children want more of, culture, wellness, or simply room to breathe.</p>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>Gyeongbokgung Palace</h3>
+          <p>In hanbok, through Korea's grandest palace, its courtyards and gates a backdrop few travelers ever get to walk through dressed as part of the scene rather than simply visiting it. A private photographer can join for an hour within the grounds, should you like the day to become something you carry home.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
+      </div>
+
+      <div class="moment">
+        <time>Late Afternoon</time>
+        <div>
+          <h3>Bukchon Hanok Village, and a Traditional Tea House</h3>
+          <p>Narrow lanes of preserved hanok just above the palace, then a traditional tea house for sweet rice desserts and warm barley tea, exactly the kind of pause a December afternoon in Seoul asks for.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/6896969/pexels-photo-6896969.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A quiet hanok alley in Bukchon, Seoul">
+      </div>
+
+      <div class="moment no-shot">
+        <time>Evening</time>
+        <div>
+          <h3>Hanwoo Korean Barbecue</h3>
+          <p>Dinner nearby, Korean beef grilled at your own table, wrapped in lettuce leaf by leaf. Interactive enough to keep the children busy and fine enough to still feel like an occasion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rest">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">And Beyond</span>
+        <h2>What the Rest Could Look Like</h2>
+        <p>Three more days, shaped entirely around what your family enjoys most. A few directions I would suggest.</p>
+      </div>
+      <div class="rest-grid">
+        <div class="rest-item">
+          <h4>A Theme Park Day</h4>
+          <p>Largely indoors, so a cold December day never becomes the reason to cut it short.</p>
+        </div>
+        <div class="rest-item">
+          <h4>A Museum, Privately Guided</h4>
+          <p>An English speaking guide who knows how to hold a child's attention as well as yours.</p>
+        </div>
+        <div class="rest-item">
+          <h4>Wellness, and Slower Hours</h4>
+          <p>A spa afternoon, a quiet neighborhood, or simply nothing at all, whichever the week calls for.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -289,8 +327,44 @@
         <div class="included-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h10.5A1.5 1.5 0 0118 6v13.5L14.5 17 11 19.5 7.5 17 4 19.5V6A1.5 1.5 0 016 4.5z"/><path d="M7.5 8.5h7M7.5 11.5h7M7.5 14.5h4"/></svg>
           <h4>Journey Briefing</h4>
-          <p>Each evening, a full briefing for the next day, sent exactly how you prefer it, by text or email, with a map of every location if you'd like one. Every stop planned, every reservation confirmed.</p>
+          <p>Each evening, a full briefing for the next day, sent exactly how you prefer it, by text or email, with a map of every location if you'd like one.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">If You'd Like to Continue</span>
+        <h2>The Next Steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">1</span>
+          <div>
+            <h4>Confirm Your Flights</h4>
+            <p>Once I have your arrival and departure times, I can shape your first and last days properly rather than leaving them open.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <div>
+            <h4>Choose How You'd Like Dining Handled</h4>
+            <p>I can reserve every restaurant on your behalf, or simply send you recommendations and let your family decide each day. Both work beautifully, it's a question of how much spontaneity you want.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <div>
+            <h4>Confirm Your Journey</h4>
+            <p>From there I begin the full itinerary, securing every reservation, driver, and experience across your five days.</p>
+          </div>
+        </div>
+      </div>
+      <div class="fee">
+        <span class="amount">$450</span>
+        <p>Itinerary design and planning fee, due to begin your full journey.</p>
       </div>
     </div>
   </section>
@@ -299,12 +373,15 @@
     <div class="wrap">
       <span class="eyebrow">Let's Continue This</span>
       <h2>This Was Only a Glimpse</h2>
-      <p>If this feels like the beginning of your trip, I would love to sit down and design the remaining days together, built entirely around your family.</p>
-      <a href="mailto:contact@ie-um.com" class="btn">Continue the Conversation</a>
+      <p>If this feels like the beginning of your trip, I would love to design the remaining days together, built entirely around your family.</p>
+      <div class="cta-row">
+        <a href="https://cal.com/ie-um/30min" target="_blank" rel="noopener" class="btn solid">Book a Call</a>
+        <a href="mailto:contact@ie-um.com" class="btn">Reply by Email</a>
+      </div>
     </div>
   </section>
 
-  <footer>IEUM Concierge &middot; Prepared privately for Sai Liou &middot; Not for distribution</footer>
+  <footer>IEUM Concierge &middot; Prepared privately &middot; Not for distribution</footer>
 </div>
 
 <script>
