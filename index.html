@@ -111,11 +111,12 @@
   .has-sub{position:relative;padding-bottom:22px;margin-bottom:-22px}
   .subnav{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:230px;background:rgba(252,251,248,.98);backdrop-filter:blur(8px);border:1px solid var(--hairline);padding:12px 0;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease}
   .has-sub:hover .subnav,.has-sub:focus-within .subnav{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-  .subnav a{display:block;padding:11px 26px;font-size:.66rem;letter-spacing:.2em;white-space:nowrap;color:var(--ink);opacity:.75}
-  .subnav a:hover{opacity:1;color:var(--jade)}
   .navlinks a{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper);opacity:.85;transition:color .5s,opacity .3s}
   .navlinks a:hover{opacity:1}
   nav.solid .navlinks a{color:var(--ink)}
+  /* subnav sits on a light panel, so it always uses ink regardless of nav state */
+  nav .navlinks .subnav a{display:block;padding:11px 26px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;color:var(--ink);opacity:.75}
+  nav .navlinks .subnav a:hover{opacity:1;color:var(--jade)}
   .nav-toggle{position:relative;display:none;flex-direction:column;justify-content:center;gap:6px;width:30px;height:22px;background:none;border:0;padding:0;cursor:pointer;z-index:60}
   .nav-toggle:hover,.nav-toggle:focus,.nav-toggle:focus-visible{background:none;color:inherit}
   .nav-toggle span{display:block;height:1px;width:100%;background:var(--paper);transition:transform .35s ease,opacity .35s ease,background .5s}
@@ -234,7 +235,7 @@
     .navlinks{overflow-y:auto;padding:80px 20px;gap:30px}
     .has-sub{padding-bottom:0;margin-bottom:0;display:flex;flex-direction:column;align-items:center;gap:16px}
     .subnav{position:static;transform:none;opacity:1;pointer-events:auto;background:none;backdrop-filter:none;border:0;padding:0;display:flex;flex-direction:column;gap:14px;min-width:0}
-    .subnav a{padding:0;font-size:.68rem;letter-spacing:.24em;opacity:.7;color:var(--ivory)}
+    nav .navlinks .subnav a{padding:0;font-size:.68rem;letter-spacing:.24em;opacity:.7;color:var(--ivory)}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .why-row{grid-template-columns:1fr;gap:10px;padding:38px 0;text-align:center}
     .why-num{font-size:2.6rem;opacity:.3;order:1}
