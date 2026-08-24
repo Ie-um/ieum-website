@@ -107,7 +107,12 @@
   nav.solid .logo-mark .ink{opacity:1}
   .logo small{display:block;font-family:var(--utility);font-size:.52rem;letter-spacing:.5em;color:inherit;opacity:.75;margin-top:6px}
   nav.solid .logo{color:var(--ink)}
-  .navlinks{display:flex;gap:44px}
+  .navlinks{display:flex;gap:44px;align-items:center}
+  .has-sub{position:relative;padding-bottom:22px;margin-bottom:-22px}
+  .subnav{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:230px;background:rgba(252,251,248,.98);backdrop-filter:blur(8px);border:1px solid var(--hairline);padding:12px 0;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+  .has-sub:hover .subnav,.has-sub:focus-within .subnav{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .subnav a{display:block;padding:11px 26px;font-size:.66rem;letter-spacing:.2em;white-space:nowrap;color:var(--ink);opacity:.75}
+  .subnav a:hover{opacity:1;color:var(--jade)}
   .navlinks a{font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--paper);opacity:.85;transition:color .5s,opacity .3s}
   .navlinks a:hover{opacity:1}
   nav.solid .navlinks a{color:var(--ink)}
@@ -173,46 +178,9 @@
   .svc .num{font-family:var(--display);font-style:italic;color:var(--jade);font-size:1rem;letter-spacing:.2em}
   .svc h3{font-size:1.6rem;margin:16px 0 16px}
   .svc p{font-size:.86rem;color:#5A5A52}
-  .svc-grid.spotlight{max-width:640px;margin:0 auto}
-  .svc-grid.spotlight .svc:not(.svc-active){flex-grow:0;max-width:0;max-height:0;opacity:0;padding:0;pointer-events:none}
-  .svc-grid.spotlight .svc-active{flex-grow:1;padding:64px 48px}
-  .svc.is-hidden{display:none}
   .svc-toggle{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
   .svc-toggle:hover{border-color:var(--jade);background:var(--paper)}
   .svc-toggle .chev{font-size:1rem;line-height:1;color:var(--jade);transition:transform .4s}
-  .svc-toggle[aria-expanded="true"] .chev{transform:rotate(45deg)}
-  .offerings{max-height:0;opacity:0;overflow:hidden;padding-top:0;transition:max-height .6s cubic-bezier(.2,.6,.2,1),opacity .5s ease,padding-top .6s ease}
-  .offerings.open{max-height:1700px;opacity:1;padding-top:80px}
-  .offerings-lead{text-align:center;font-family:var(--display);font-style:italic;font-weight:400;font-size:1.15rem;color:#5A5A52;margin-bottom:48px}
-  .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
-  .offering{background:var(--ivory);padding:46px 32px;text-align:center;transition:background .5s}
-  .offering:hover{background:var(--paper)}
-  .offering svg{width:26px;height:26px;color:var(--jade);margin:0 auto 20px;display:block}
-  .offering h4{font-family:var(--display);font-weight:400;font-size:1.1rem;margin-bottom:10px}
-  .offering p{font-size:.8rem;color:#5A5A52;max-width:30ch;margin:0 auto}
-
-  /* consulting modal */
-  .modal-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(35,36,31,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .4s ease}
-  .modal-overlay.open{opacity:1;pointer-events:auto}
-  .modal-box{position:relative;background:var(--paper);max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:56px 44px;border:1px solid var(--hairline);box-shadow:0 30px 70px rgba(35,36,31,.25);transform:translateY(14px) scale(.97);transition:transform .45s cubic-bezier(.2,.6,.2,1)}
-  .modal-overlay.open .modal-box{transform:translateY(0) scale(1)}
-  .modal-close{position:absolute;top:18px;right:18px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--hairline);color:var(--ink);font-size:1.1rem;line-height:1;cursor:pointer;padding:0;transition:border-color .4s,background .4s}
-  .modal-close:hover{border-color:var(--jade);background:var(--ivory)}
-  .modal-box .eyebrow{display:block}
-  .modal-box h3{font-size:1.5rem;margin:14px 0 4px}
-  .modal-box .modal-kr-title{font-family:var(--kr);font-weight:200;font-size:1.05rem;color:#5A5A52;margin:0 0 22px}
-  .modal-box .modal-intro{font-size:.88rem;color:#5A5A52;margin-bottom:6px}
-  .modal-box .modal-intro-kr{font-family:var(--kr);font-weight:200;font-size:.84rem;color:#8B8577;margin-bottom:24px}
-  .modal-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:16px}
-  .modal-list li{padding-bottom:16px;border-bottom:1px solid var(--hairline)}
-  .modal-list li:last-child{border-bottom:0;padding-bottom:0}
-  .modal-list .en{display:block;font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--jade-deep)}
-  .modal-list .kr{display:block;font-family:var(--kr);font-weight:200;color:#5A5A52;font-size:.84rem;margin-top:4px}
-  .modal-note{margin-top:8px;padding-top:22px;border-top:1px solid var(--hairline);font-size:.82rem;color:#5A5A52;line-height:1.8}
-  .modal-note .kr-line{display:block;font-family:var(--kr);font-weight:200;font-size:.8rem;color:#8B8577;margin-top:6px}
-  .modal-note a{color:var(--jade);border-bottom:1px solid var(--jade);text-decoration:none}
-  @media (max-width:600px){
-    .modal-box{padding:44px 26px}
   }
 
   /* themes */
@@ -263,6 +231,10 @@
     .navlinks.open{opacity:1;transform:translateY(0);pointer-events:auto}
     .navlinks a{color:var(--ivory);opacity:1;font-size:.85rem;letter-spacing:.32em}
     .navlinks a.cta{border:1px solid currentColor;padding:14px 34px}
+    .navlinks{overflow-y:auto;padding:80px 20px;gap:30px}
+    .has-sub{padding-bottom:0;margin-bottom:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+    .subnav{position:static;transform:none;opacity:1;pointer-events:auto;background:none;backdrop-filter:none;border:0;padding:0;display:flex;flex-direction:column;gap:14px;min-width:0}
+    .subnav a{padding:0;font-size:.68rem;letter-spacing:.24em;opacity:.7;color:var(--ivory)}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .why-row{grid-template-columns:1fr;gap:10px;padding:38px 0;text-align:center}
     .why-num{font-size:2.6rem;opacity:.3;order:1}
@@ -270,11 +242,6 @@
     .why-copy{order:2}
     .svc-grid{flex-direction:column}
     .svc{flex-grow:0;flex-shrink:0;flex-basis:auto;max-height:none}
-    .svc-grid.spotlight .svc:not(.svc-active){display:none}
-    .svc-grid.spotlight .svc-active{padding:56px 32px}
-    .offerings.open{padding-top:56px}
-    .offerings-grid{grid-template-columns:1fr}
-    .offering{padding:36px 24px}
     .exp-grid{grid-template-columns:1fr;gap:14px}
     .exp h4{font-size:1rem}
     .exp p{font-size:.74rem}
@@ -298,7 +265,14 @@
   <div class="navlinks" id="navlinks">
     <a href="#about">About</a>
     <a href="#why">Difference</a>
-    <a href="#services">Services</a>
+    <span class="has-sub">
+      <a href="#services">Services</a>
+      <span class="subnav">
+        <a href="private-journeys.html">Private Journeys</a>
+        <a href="corporate-events.html">Corporate Events</a>
+        <a href="consulting.html">Consulting</a>
+      </span>
+    </span>
     <a href="#themes">Experiences</a>
     <a href="faq.html">FAQ</a>
     <a class="cta" href="#contact">Contact</a>
@@ -378,93 +352,25 @@
         <p class="num">i.</p>
         <h3>Private Journeys</h3>
         <p>A fully bespoke itinerary, yours alone: beauty, wellness, and culture woven into one seamless journey, handled end to end so all you do is arrive.</p>
-        <button type="button" class="svc-toggle" id="offerings-toggle" aria-expanded="false" aria-controls="private-offerings"><span class="label">See What's Possible</span><span class="chev" aria-hidden="true">+</span></button>
+        <a class="svc-toggle" href="private-journeys.html"><span class="label">Explore Private Journeys</span><span class="chev" aria-hidden="true">&rsaquo;</span></a>
       </div>
       <div class="svc svc-corporate">
         <p class="num">ii.</p>
         <h3>Corporate Events</h3>
         <p>Your team or brand's next milestone, staged against an elevated, distinctly Korean setting: retreats, incentive trips, and off-sites planned down to the last detail.</p>
-        <button type="button" class="svc-toggle" id="corporate-offerings-toggle" aria-expanded="false" aria-controls="corporate-offerings"><span class="label">See What's Possible</span><span class="chev" aria-hidden="true">+</span></button>
+        <a class="svc-toggle" href="corporate-events.html"><span class="label">Explore Corporate Events</span><span class="chev" aria-hidden="true">&rsaquo;</span></a>
       </div>
       <div class="svc">
         <p class="num">iii.</p>
         <h3>Consulting</h3>
         <p>Your brand, introduced to luxury consumers across Europe and America: homegrown Korean craftsmanship, positioned for the world's most discerning audience.</p>
-        <button type="button" class="svc-toggle" id="consulting-toggle" aria-haspopup="dialog" aria-controls="consulting-modal" aria-expanded="false"><span class="label">See What We Offer</span><span class="chev" aria-hidden="true">+</span></button>
+        <a class="svc-toggle" href="consulting.html"><span class="label">Explore Consulting</span><span class="chev" aria-hidden="true">&rsaquo;</span></a>
       </div>
     </div>
 
-    <div class="offerings" id="private-offerings">
-      <p class="offerings-lead">A few of what we arrange most often for Private Journeys, though nothing is ever off the table.</p>
-      <div class="offerings-grid">
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M15.3 8.7l-2.1 4.5-4.5 2.1 2.1-4.5z"/></svg>
-          <h4>Itinerary Planning &amp; Booking</h4>
-          <p>Every detail designed around you and booked at Korea's most sought-after spots, from arrival to departure.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.4V13l1.5-4a2 2 0 011.9-1.3h9.2A2 2 0 0118.5 9l1.5 4v3.4"/><path d="M4 16.4h16M6.6 16.4v1.7M17.4 16.4v1.7"/><circle cx="7.3" cy="16.4" r="1.3"/><circle cx="16.7" cy="16.4" r="1.3"/></svg>
-          <h4>Private Driver</h4>
-          <p>A private luxury car with a well-mannered, professional driver, at your pace, day or night.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6h7.9A2 2 0 0119.5 6.6v4.8a2 2 0 01-2 2h-1.9l-2.2 2.2v-2.2H9.6a2 2 0 01-2-2V6.6a2 2 0 012-2z"/><path d="M6.6 9.4h-.5A2 2 0 004 11.4v4.7a2 2 0 002 2h3.1v2.1l2.1-2.1h1"/></svg>
-          <h4>Personal Translator</h4>
-          <p>Fluent support in Korean and English, wherever the day takes you.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.8c.45 2.8 1.85 5.1 4.6 5.6-2.75.5-4.15 2.8-4.6 5.6-.45-2.8-1.85-5.1-4.6-5.6 2.75-.5 4.15-2.8 4.6-5.6z"/><path d="M18.3 14.8c.22 1.05.8 1.75 1.85 2-1.05.25-1.63.95-1.85 2-.22-1.05-.8-1.75-1.85-2 1.05-.25 1.63-.95 1.85-2z"/></svg>
-          <h4>Special Occasion Planning</h4>
-          <p>Proposals, private parties, and milestone celebrations, staged with care.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.8s6.1-5.9 6.1-10.4A6.1 6.1 0 105.9 10.4c0 4.5 6.1 10.4 6.1 10.4z"/><circle cx="12" cy="10.2" r="2.15"/></svg>
-          <h4>Private Guide</h4>
-          <p>A cultural expert at your side, fluent in Korea's history, art, and cuisine.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M12 7.2v5l3.4 2"/></svg>
-          <h4>24/7 Concierge Support</h4>
-          <p>One point of contact, reachable throughout your stay.</p>
-        </div>
-      </div>
-    </div>
+    
 
-    <div class="offerings" id="corporate-offerings">
-      <p class="offerings-lead">A few of what we arrange most often for Corporate Events, though nothing is ever off the table.</p>
-      <div class="offerings-grid">
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20.3V7.1L12 3.5l7 3.6v13.2"/><path d="M5 20.3h14"/><path d="M9.5 20.3v-5.1h5v5.1"/><path d="M9.7 9.4h1.2M13.1 9.4h1.2M9.7 12.2h1.2M13.1 12.2h1.2"/></svg>
-          <h4>Venue Sourcing &amp; Booking</h4>
-          <p>The right space for the moment, from boardrooms to private estates, sourced and secured on your behalf.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 18.3v-7.8a2 2 0 012-2h5a2 2 0 012 2v1.9"/><path d="M3.5 14.4h17v3.9"/><path d="M12.5 12.5h6a2 2 0 012 2v1.9"/><circle cx="6.5" cy="10.7" r="1.25"/><path d="M3.5 18.3v1.6M20.5 18.3v1.6"/></svg>
-          <h4>Group Accommodation Booking</h4>
-          <p>Negotiated room blocks at Korea's leading hotels, held and managed for your full group.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.4V13l1.5-4a2 2 0 011.9-1.3h9.2A2 2 0 0118.5 9l1.5 4v3.4"/><path d="M4 16.4h16M6.6 16.4v1.7M17.4 16.4v1.7"/><circle cx="7.3" cy="16.4" r="1.3"/><circle cx="16.7" cy="16.4" r="1.3"/></svg>
-          <h4>Transport Support</h4>
-          <p>Cars, trains, or private flights, arranged to match your group's size and schedule.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4.7h8a1 1 0 011 1v14a1 1 0 01-1 1H8a1 1 0 01-1-1v-14a1 1 0 011-1z"/><path d="M9.5 4.7V4a1.5 1.5 0 011.5-1.5h2A1.5 1.5 0 0114.5 4v.7"/><path d="M9 10.4l1.6 1.6 3.9-3.6M9 15.9h6"/></svg>
-          <h4>On-Site Event Coordination</h4>
-          <p>A dedicated team on the ground, managing every detail so nothing falls to your staff.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6h7.9A2 2 0 0119.5 6.6v4.8a2 2 0 01-2 2h-1.9l-2.2 2.2v-2.2H9.6a2 2 0 01-2-2V6.6a2 2 0 012-2z"/><path d="M6.6 9.4h-.5A2 2 0 004 11.4v4.7a2 2 0 002 2h3.1v2.1l2.1-2.1h1"/></svg>
-          <h4>Professional Translator</h4>
-          <p>Fluent support in Korean and English, for meetings, tours, and everything between.</p>
-        </div>
-        <div class="offering">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.8c.45 2.8 1.85 5.1 4.6 5.6-2.75.5-4.15 2.8-4.6 5.6-.45-2.8-1.85-5.1-4.6-5.6 2.75-.5 4.15-2.8 4.6-5.6z"/><path d="M18.3 14.8c.22 1.05.8 1.75 1.85 2-1.05.25-1.63.95-1.85 2-.22-1.05-.8-1.75-1.85-2 1.05-.25 1.63-.95 1.85-2z"/></svg>
-          <h4>Themed Events</h4>
-          <p>Private dinners, workshops, and team experiences, staged to fit the occasion.</p>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -588,22 +494,7 @@
   <p class="photo-credit">사진 출처 ⓒ한국관광콘텐츠랩 · ⓒ한국관광공사</p>
 </footer>
 
-<div class="modal-overlay" id="consulting-modal" role="dialog" aria-modal="true" aria-labelledby="consulting-modal-title" aria-hidden="true">
-  <div class="modal-box">
-    <button type="button" class="modal-close" aria-label="Close">&times;</button>
-    <p class="eyebrow">Consulting</p>
-    <h3 id="consulting-modal-title">What We Offer</h3>
-    <p class="modal-kr-title">컨설팅 서비스</p>
-    <p class="modal-intro">For Korean brands entering Europe and the United States, we offer:</p>
-    <p class="modal-intro-kr">유럽 및 미국 시장 진출을 준비하는 한국 브랜드를 위해 다음 서비스를 제공합니다:</p>
-    <ul class="modal-list">
-      <li><span class="en">Branding &amp; Marketing Strategy</span><span class="kr">브랜딩 및 마케팅 전략</span></li>
-      <li><span class="en">Go-to-Market Strategy &amp; Planning</span><span class="kr">시장 진출 전략 및 기획</span></li>
-      <li><span class="en">Local Operations &amp; Recruitment</span><span class="kr">현지 운영 및 채용</span></li>
-    </ul>
-    <p class="modal-note">For business inquiries, please reach out to <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>.<span class="kr-line">비즈니스 문의는 <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>으로 연락 주시기 바랍니다.</span></p>
-  </div>
-</div>
+
 
 <script>
   // hero video: load and play on all screen sizes, including mobile
@@ -624,58 +515,6 @@
     datesInput.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   }
 
-  // service cards: spotlight the clicked card and reveal its concierge services list on demand
-  const svcGrid = document.getElementById('svc-grid');
-  function setupOfferingsToggle(toggleId, panelId) {
-    const toggle = document.getElementById(toggleId);
-    const panel = document.getElementById(panelId);
-    if (!toggle || !panel || !svcGrid) return;
-    const card = toggle.closest('.svc');
-    const others = Array.from(svcGrid.querySelectorAll('.svc')).filter(el => el !== card);
-    toggle.addEventListener('click', () => {
-      const opening = !panel.classList.contains('open');
-      if (opening) {
-        card.classList.add('svc-active');
-        svcGrid.classList.add('spotlight');
-        panel.classList.add('open');
-        setTimeout(() => others.forEach(el => el.classList.add('is-hidden')), 650);
-      } else {
-        others.forEach(el => el.classList.remove('is-hidden'));
-        svcGrid.classList.remove('spotlight');
-        panel.classList.remove('open');
-        card.classList.remove('svc-active');
-      }
-      toggle.setAttribute('aria-expanded', opening);
-      toggle.querySelector('.label').textContent = opening ? "Hide What's Possible" : "See What's Possible";
-    });
-  }
-  setupOfferingsToggle('offerings-toggle', 'private-offerings');
-  setupOfferingsToggle('corporate-offerings-toggle', 'corporate-offerings');
-
-  // consulting: quick pop-up listing services + contact
-  const consultingToggle = document.getElementById('consulting-toggle');
-  const consultingModal = document.getElementById('consulting-modal');
-  if (consultingToggle && consultingModal) {
-    const closeBtn = consultingModal.querySelector('.modal-close');
-    const openModal = () => {
-      consultingModal.classList.add('open');
-      consultingModal.setAttribute('aria-hidden', 'false');
-      consultingToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    };
-    const closeModal = () => {
-      consultingModal.classList.remove('open');
-      consultingModal.setAttribute('aria-hidden', 'true');
-      consultingToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      consultingToggle.focus();
-    };
-    consultingToggle.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-    consultingModal.addEventListener('click', e => { if (e.target === consultingModal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && consultingModal.classList.contains('open')) closeModal(); });
-  }
 
   // mobile nav: hamburger toggle opens a full-screen menu
   const navToggle = document.getElementById('nav-toggle');
