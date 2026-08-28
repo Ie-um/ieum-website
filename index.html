@@ -41,12 +41,29 @@
     "@type": "Country",
     "name": "South Korea"
   },
+  "audience": {
+    "@type": "Audience",
+    "name": "Luxury travelers from Europe, the United States, and Latin America",
+    "geographicArea": [
+      { "@type": "Place", "name": "Europe" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Place", "name": "Latin America" }
+    ]
+  },
+  "availableLanguage": ["English", "Korean", "French", "Spanish"],
+  "knowsAbout": [
+    "Korean beauty travel",
+    "Korean wellness and temple stays",
+    "Korean cultural experiences",
+    "Family travel in Korea",
+    "Korean culinary travel"
+  ],
   "priceRange": "$$$$",
   "sameAs": [
     "https://www.instagram.com/ieumconcierge/"
   ],
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private Journeys", "description": "Fully bespoke luxury itineraries across Korea's beauty, wellness, and cultural worlds." } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private Journeys", "description": "Fully bespoke luxury itineraries across Korea's beauty, wellness, and cultural worlds, including beauty, wellness, cultural, family, culinary, and milestone journeys." } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Events", "description": "Corporate retreats, incentive trips, and off-sites planned and staged in Korea." } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulting", "description": "Brand consulting for Korean companies expanding into Europe and the United States, covering branding & marketing strategy, go-to-market strategy and planning, and local operations and recruitment.", "areaServed": [{ "@type": "Place", "name": "European Union" }, { "@type": "Place", "name": "United States" }] } }
   ]
@@ -134,7 +151,7 @@
   .hero-inner{position:relative;z-index:2;padding:0 6vw;animation:rise 1.6s cubic-bezier(.2,.6,.2,1) both .2s}
   .hero-kr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1;opacity:.09;width:100%;display:flex;justify-content:center;pointer-events:none}
   .hero-kr img{width:clamp(16rem,70vw,44rem);height:auto}
-  header h1{font-size:clamp(3rem,7vw,5.4rem);letter-spacing:.06em}
+  header h1{font-size:clamp(2.1rem,4.8vw,3.9rem);letter-spacing:.02em;line-height:1.14;max-width:17ch;margin:0 auto;text-wrap:balance}
   .hero-sub{font-family:var(--utility);font-size:.86rem;letter-spacing:.4em;text-transform:uppercase;margin-top:28px;line-height:2;opacity:.85}
   .hero-note{position:absolute;bottom:36px;left:0;right:0;text-align:center;z-index:2;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;opacity:.6;color:var(--paper)}
   .hero-cta{display:inline-block;margin-top:40px;padding:18px 48px;border:1px solid var(--paper);color:var(--paper);font-size:.82rem;letter-spacing:.36em;text-transform:uppercase;transition:background .4s,color .4s}
@@ -289,8 +306,8 @@
   </div>
   <div class="hero-inner">
     <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt=""></div>
-    <h1>Korea, connected.</h1>
-    <p class="hero-sub">Private luxury concierge<br>Beauty · Wellness · Culture</p>
+    <h1>Private luxury travel in Korea, designed around you.</h1>
+    <p class="hero-sub">Beauty &middot; Wellness &middot; Culture<br>Europe &middot; The Americas &middot; Worldwide</p>
     <a href="#contact" class="hero-cta">Book a Consultation</a>
     <p class="hero-cta-note">Your first consultation is complimentary.</p>
   </div>

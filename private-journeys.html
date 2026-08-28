@@ -36,11 +36,27 @@
     "email": "contact@ie-um.com"
   },
   "areaServed": { "@type": "Country", "name": "South Korea" },
+  "audience": {
+    "@type": "Audience",
+    "name": "Luxury travelers from Europe, the United States, and Latin America",
+    "geographicArea": [
+      { "@type": "Place", "name": "Europe" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Place", "name": "Latin America" }
+    ]
+  },
+  "availableLanguage": ["English", "Korean", "French", "Spanish"],
   "url": "https://ie-um.com/private-journeys.html",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "What every private journey includes",
+    "name": "Themed private journeys in Korea",
     "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beauty Journeys in Korea", "description": "Hanbang facials, dermatology clinics for non invasive treatment, and Seoul styling studios, arranged with a translator present." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wellness Journeys in Korea", "description": "Temple stays, hot spring towns, jjimjilbang bathhouse traditions, and quieter regions beyond Seoul." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cultural Journeys in Korea", "description": "Hanbok at the palaces, artisan workshops, and private museum visits with an expert guide." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Family Journeys in Korea", "description": "Itineraries built for travelling with children, including dietary needs, accessibility, and split day planning." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Culinary Journeys in Korea", "description": "Restaurants that do not take online reservations, royal cuisine cooking classes, and market mornings." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Milestone Journeys in Korea", "description": "Proposals, anniversaries, and celebrations, with photography and private dining arranged." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Itinerary Planning and Booking" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private Driver" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personal Translator" } },
@@ -134,6 +150,15 @@
 
   /* ---------- offerings grid ---------- */
   #includes{background:var(--ivory)}
+  #themes{background:var(--ivory)}
+  .theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
+  .theme-card{background:var(--ivory);padding:46px 32px;transition:background .5s}
+  .theme-card:hover{background:var(--paper)}
+  .theme-card .n{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--jade);letter-spacing:.18em;display:block;margin-bottom:14px}
+  .theme-card h3{font-family:var(--display);font-weight:400;font-size:1.25rem;margin-bottom:10px}
+  .theme-card p{font-size:.85rem;color:#5A5A52}
+  .audience{max-width:760px;margin:56px auto 0;padding-top:30px;border-top:1px solid var(--hairline);text-align:center;font-size:.92rem;color:#4A4A43}
+  @media (max-width:900px){.theme-grid{grid-template-columns:1fr}.theme-card{padding:34px 24px}}
   .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
   .offering{background:var(--ivory);padding:46px 32px;text-align:center;transition:background .5s}
   .offering:hover{background:var(--paper)}
@@ -266,7 +291,7 @@
       <div class="offering">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6h7.9A2 2 0 0119.5 6.6v4.8a2 2 0 01-2 2h-1.9l-2.2 2.2v-2.2H9.6a2 2 0 01-2-2V6.6a2 2 0 012-2z"/><path d="M6.6 9.4h-.5A2 2 0 004 11.4v4.7a2 2 0 002 2h3.1v2.1l2.1-2.1h1"/></svg>
         <h3>Personal Translator</h3>
-        <p>Fluent support in Korean and English, wherever the day takes you.</p>
+        <p>Fluent support in Korean and English throughout. French and Spanish speaking guides arranged on request.</p>
       </div>
       <div class="offering">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.8s6.1-5.9 6.1-10.4A6.1 6.1 0 105.9 10.4c0 4.5 6.1 10.4 6.1 10.4z"/><circle cx="12" cy="10.2" r="2.15"/></svg>
@@ -284,6 +309,49 @@
         <p>One point of contact in Korea, reachable throughout your stay.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="themes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Themed Journeys</p>
+      <h2>Five ways a journey takes shape</h2>
+      <p>Most itineraries draw on more than one of these. They are a starting point, never a fixed menu.</p>
+    </div>
+    <div class="theme-grid reveal">
+      <div class="theme-card">
+        <span class="n">i.</span>
+        <h3>Beauty Journeys</h3>
+        <p>Hanbang facials rooted in Korean herbal medicine, dermatology clinics for non invasive treatment, and the styling studios behind Korea's best known faces.</p>
+      </div>
+      <div class="theme-card">
+        <span class="n">ii.</span>
+        <h3>Wellness Journeys</h3>
+        <p>Temple stays in the mountains, hot spring towns, jjimjilbang bathhouse traditions, and the quieter regions where Koreans themselves go to rest.</p>
+      </div>
+      <div class="theme-card">
+        <span class="n">iii.</span>
+        <h3>Cultural Journeys</h3>
+        <p>Hanbok at the palaces, artisan workshops with makers still practising inherited techniques, and private museum visits with an expert guide.</p>
+      </div>
+      <div class="theme-card">
+        <span class="n">iv.</span>
+        <h3>Family Journeys</h3>
+        <p>Built for travelling with children, including days that split so parents and children each get their own, and everything from dietary needs to pace handled in advance.</p>
+      </div>
+      <div class="theme-card">
+        <span class="n">v.</span>
+        <h3>Culinary Journeys</h3>
+        <p>Tables that do not take online reservations, royal cuisine cooking classes, market mornings, and the restaurants Koreans book months ahead.</p>
+      </div>
+      <div class="theme-card">
+        <span class="n">vi.</span>
+        <h3>Milestone Journeys</h3>
+        <p>Proposals, anniversaries, and birthdays. Photographers, private dining, and the staging that turns an occasion into something recorded.</p>
+      </div>
+    </div>
+    <p class="audience reveal">We work most often with travelers from Europe, the United States, and Latin America. Everything is delivered in English and Korean, with French and Spanish speaking guides arranged on request.</p>
   </div>
 </section>
 
