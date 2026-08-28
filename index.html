@@ -151,11 +151,12 @@
   .hero-inner{position:relative;z-index:2;padding:0 6vw;animation:rise 1.6s cubic-bezier(.2,.6,.2,1) both .2s}
   .hero-kr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1;opacity:.09;width:100%;display:flex;justify-content:center;pointer-events:none}
   .hero-kr img{width:clamp(16rem,70vw,44rem);height:auto}
-  header h1{font-size:clamp(2.1rem,4.8vw,3.9rem);letter-spacing:.02em;line-height:1.14;max-width:17ch;margin:0 auto;text-wrap:balance}
+  header h1{margin:0}
+  .h1-kicker{display:block;font-family:var(--utility);font-weight:400;font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--paper);opacity:.72;margin-bottom:22px;line-height:1.8}
+  .h1-display{display:block;font-family:var(--display);font-weight:300;font-size:clamp(3rem,7vw,5.4rem);letter-spacing:.06em;line-height:1.1}
   .hero-sub{font-family:var(--utility);font-size:.86rem;letter-spacing:.4em;text-transform:uppercase;margin-top:28px;line-height:2;opacity:.85}
   .hero-note{position:absolute;bottom:36px;left:0;right:0;text-align:center;z-index:2;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;opacity:.6;color:var(--paper)}
   .hero-cta{display:inline-block;margin-top:40px;padding:18px 48px;border:1px solid var(--paper);color:var(--paper);font-size:.82rem;letter-spacing:.36em;text-transform:uppercase;transition:background .4s,color .4s}
-  .hero-cta-note{display:block;margin-top:16px;font-family:var(--display);font-style:italic;font-size:.98rem;color:var(--paper);opacity:.7}
   .hero-cta:hover{background:var(--paper);color:var(--jade-deep)}
   @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.hero-inner,.reveal{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
@@ -257,6 +258,7 @@
     .subnav{position:static;transform:none;opacity:1;pointer-events:auto;background:none;backdrop-filter:none;border:0;padding:0;display:flex;flex-direction:column;gap:14px;min-width:0}
     nav .navlinks .subnav a{padding:0;font-size:.68rem;letter-spacing:.24em;opacity:.7;color:var(--ivory)}
     .hero-sub{font-size:.72rem;letter-spacing:.26em;line-height:2.2}
+    .h1-kicker{font-size:.62rem;letter-spacing:.24em;margin-bottom:16px}
     .about-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
     .why-row{grid-template-columns:1fr;gap:10px;padding:38px 0;text-align:center}
     .why-num{font-size:2.6rem;opacity:.3;order:1}
@@ -307,10 +309,9 @@
   </div>
   <div class="hero-inner">
     <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt=""></div>
-    <h1>Private luxury wellness travel in Korea, designed around you.</h1>
+    <h1><span class="h1-kicker">Private luxury wellness travel in Korea</span><span class="h1-display">Korea, connected.</span></h1>
     <p class="hero-sub">Wellness &middot; Culture &middot; Beauty<br>Europe &middot; United States &middot; Latin America</p>
     <a href="#contact" class="hero-cta">Book a Consultation</a>
-    <p class="hero-cta-note">Your first consultation is complimentary.</p>
   </div>
   <p class="hero-note">Scroll</p>
 </header>
