@@ -51,6 +51,15 @@
   .intro p.lede{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#5A5A52;max-width:540px;margin:22px auto 0}
   .intro .meta{margin-top:34px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
 
+  /* ---------- day nav ---------- */
+  .daynav{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+  .daynav a{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:96px;padding:13px 16px;border:1px solid var(--hairline);text-decoration:none;background:var(--paper);transition:background .35s,border-color .35s,color .35s}
+  .daynav a:hover{background:var(--jade-deep);border-color:var(--jade-deep);color:var(--ivory)}
+  .daynav .dn-date{font-family:var(--display);font-size:1.05rem;line-height:1}
+  .daynav .dn-label{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);transition:color .35s}
+  .daynav a:hover .dn-label{color:#A9C3B7}
+  .day{scroll-margin-top:20px}
+
   /* ---------- days ---------- */
   .day{padding:70px 0;border-top:1px solid var(--hairline)}
   .day:nth-of-type(even){background:var(--ivory)}
@@ -110,6 +119,7 @@
     .moment .shot{width:100%;height:200px;margin-top:6px}
     .included-grid{grid-template-columns:1fr}
     .day{padding:52px 0}
+    .daynav a{min-width:0;flex:1 1 28%;padding:11px 8px}
   }
 </style>
 </head>
@@ -139,10 +149,18 @@
         <span>Park Hyatt Seoul</span>
         <span>Two Adults, Two Children</span>
       </div>
+      <nav class="daynav" aria-label="Jump to a day">
+        <a href="#d18"><span class="dn-date">18 Dec</span><span class="dn-label">Arrival</span></a>
+        <a href="#d19"><span class="dn-date">19 Dec</span><span class="dn-label">Day One</span></a>
+        <a href="#d20"><span class="dn-date">20 Dec</span><span class="dn-label">Day Two</span></a>
+        <a href="#d21"><span class="dn-date">21 Dec</span><span class="dn-label">Day Three</span></a>
+        <a href="#d22"><span class="dn-date">22 Dec</span><span class="dn-label">Day Four</span></a>
+        <a href="#d23"><span class="dn-date">23 Dec</span><span class="dn-label">Departure</span></a>
+      </nav>
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" id="d18">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Friday 18 December &middot; Arrival</span>
@@ -176,7 +194,7 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" id="d19">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Saturday 19 December &middot; Day One</span>
@@ -242,7 +260,7 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" id="d20">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Sunday 20 December &middot; Day Two</span>
@@ -263,7 +281,7 @@
         <time>Late Morning</time>
         <div>
           <h3>Gyeongbokgung Palace</h3>
-          <p>In hanbok, through Korea's grandest palace, dressed as part of the scene. A private photographer can join for an hour within the grounds, should you like the day to become something you carry home.</p>
+          <p>In hanbok, through Korea's grandest palace, dressed as part of the scene. You arrive for the changing of the guard at 10:00, then have the grounds at the quietest hour of a December morning.</p>
         </div>
         <img class="shot" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
       </div>
@@ -299,7 +317,7 @@
       <p class="note">A note on why this day runs in this order. Gyeongbokgung closes at 17:00 in December, and Bukchon's residential lanes are now closed to visitors after 17:00 under the city's new rules, with a fine attached. So the palace comes before lunch and Bukchon straight after, which also places you in both for the best of the short winter light. The changing of the guard falls at 10:00, and you will be there for it.</p>
   </section>
 
-  <section class="day">
+  <section class="day" id="d21">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Monday 21 December &middot; Day Three</span>
@@ -312,6 +330,14 @@
         <div>
           <h3>Lotte World, at Opening</h3>
           <p>Fifteen minutes from your hotel, and through the gates as they open, which is the single thing that changes this day most. The main park sits under an enormous glass dome, warm and bright whatever December is doing outside. Your driver stays with the car for the whole day, so coats, bags, and anything bought along the way go straight back to the car.</p>
+        </div>
+      </div>
+
+      <div class="moment no-shot">
+        <time>Optional</time>
+        <div>
+          <h3>A Private Photographer, for an Hour</h3>
+          <p>A photographer who shoots inside the palace grounds regularly and knows exactly where the light falls at that hour, joining you for an hour while you are all in hanbok, with the edited images sent to you afterwards. Of everything across these six days, this is the one thing you cannot recreate later. It needs booking well ahead, so tell me either way and I will hold the slot.</p>
         </div>
       </div>
 
@@ -349,43 +375,43 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" id="d22">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Tuesday 22 December &middot; Day Four</span>
-        <h2>A Day of Rest, at a Jjimjilbang</h2>
-        <p>The last full day, given entirely to doing very little.</p>
+        <h2>The Museum, Then Nothing At All</h2>
+        <p>One guided morning, and an afternoon given entirely to doing very little.</p>
       </div>
 
       <div class="moment no-shot">
-        <time>No Early Start</time>
+        <time>Morning</time>
         <div>
-          <h3>This Day Begins When You Wake</h3>
-          <p>Nothing is booked for the morning. After three full days and with a flight to Japan tomorrow, this is the day the whole trip has been arranged around. Your driver comes whenever you are ready.</p>
-        </div>
-      </div>
-
-      <div class="moment no-shot">
-        <time>Midday</time>
-        <div>
-          <h3>Into the Baths</h3>
-          <p>A jjimjilbang is Korea's bathhouse tradition, and the good ones are a small world in themselves: hot mineral pools, cold plunges, kiln saunas lined with salt and charcoal at different heats, and floor after floor of rooms simply for lying down. I will take you to one that welcomes families and is used by Koreans, never a tourist version of it.</p>
+          <h3>The National Museum of Korea, Privately Guided</h3>
+          <p>An English speaking guide who works this museum often, for a couple of hours across the collections that actually reward a visit, at a pace set by the children. Not the whole building, which would defeat the point. There is also a dedicated Children's Museum inside, hands on and reservation only, which I will book ahead if you would like it.</p>
         </div>
       </div>
 
       <div class="moment no-shot">
         <time>Lunch</time>
         <div>
-          <h3>Eaten Without Getting Dressed</h3>
-          <p>Part of the ritual, and the part visitors never expect. You stay in the cotton robe the bathhouse gives you and eat at a counter inside: eggs baked slowly in the sauna, cold sweet rice punch, hand cut noodles. The children will remember this more than any restaurant.</p>
+          <h3>Close By</h3>
+          <p>Something quick and warm within a few minutes, because the afternoon is where this day is really going.</p>
         </div>
       </div>
 
       <div class="moment no-shot">
-        <time>Afternoon</time>
+        <time>Early Afternoon</time>
+        <div>
+          <h3>Into the Baths</h3>
+          <p>A jjimjilbang is Korea's bathhouse tradition, and the good ones are a small world in themselves: hot mineral pools, cold plunges, kiln saunas lined with salt and charcoal at different heats, and floor after floor of rooms simply for lying down. I will take you to one that welcomes families and is used by Koreans, never a tourist version of it. It sits in the same district as the museum, so there is no crossing the city in between.</p>
+        </div>
+      </div>
+
+      <div class="moment no-shot">
+        <time>Then</time>
         <div>
           <h3>Nothing At All</h3>
-          <p>Sleeping rooms with heated floors, a play area for the children, and no reason to leave until you want to. This is where the trip catches up with you in the best way.</p>
+          <p>Sleeping rooms with heated floors, a play area for the children, and no reason to leave until you want to. Part of the ritual is eating without getting dressed, still in the cotton robe the bathhouse gives you: eggs baked slowly in the sauna, cold sweet rice punch, hand cut noodles. The children will remember this more than any restaurant.</p>
         </div>
       </div>
 
@@ -399,7 +425,7 @@
     </div>
   </section>
 
-  <section class="day">
+  <section class="day" id="d23">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Wednesday 23 December &middot; Departure</span>
@@ -497,8 +523,8 @@
         <div class="step">
           <span class="num">4</span>
           <div>
-            <h4>One Open Question</h4>
-            <p>We had discussed a privately guided visit to the National Museum with an English speaking guide, and it does not currently sit anywhere in these four days. It would fit best on the morning of the 22nd, though that would take the edge off the rest day. Say the word and I will place it, or leave it out.</p>
+            <h4>The Photographer at the Palace</h4>
+            <p>An hour inside Gyeongbokgung while you are all in hanbok, marked optional on the 20th. It books up further ahead than anything else here, so a yes or no from you is the last thing I need.</p>
           </div>
         </div>
       </div>
