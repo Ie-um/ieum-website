@@ -77,6 +77,7 @@
   .moment .shot.top{object-position:center 18%}
   /* photo-free rows keep the photo column reserved so text stays aligned down the day */
   .moment.no-shot{grid-template-columns:112px 1fr 210px}
+  .moment .stack{display:grid;gap:8px;align-content:start}
   /* days with no photographs at all use the full width */
   .day.textonly .moment.no-shot{grid-template-columns:112px 1fr}
 
@@ -110,6 +111,7 @@
   @media (max-width:860px){
     .moment,.moment.no-shot,.day.textonly .moment.no-shot{grid-template-columns:1fr;gap:10px}
     .moment .shot{width:100%;height:200px;margin-top:6px}
+    .moment .stack .shot{margin-top:0}
     .included-grid{grid-template-columns:1fr}
     .day{padding:52px 0}
     .daynav a{min-width:0;flex:1 1 28%;padding:11px 8px}
@@ -368,7 +370,7 @@
           <h3>Anything Else in the Tower</h3>
           <p>If a formal dinner is the last thing anyone wants after a day of rides, the floors below hold dozens of places to eat, casual and quick and easy with children. A bowl of hot noodle soup. Or Korean fried chicken, which is a category of its own here and the thing children tend to ask for twice. You will not be short of choice, and you still never put a coat on. Tell me if you would like me to pick a few out for you.</p>
         </div>
-        <img class="shot" src="images/fried-chicken.jpg" alt="A plate of Korean fried chicken, plain and sweet chilli">
+        <img class="shot" src="images/chicken-and-noodles.jpg" alt="Korean fried chicken and a bowl of kalguksu noodle soup">
       </div>
 
     </div>
@@ -406,7 +408,10 @@
           <p>The one I would take you to is a hybrid. Baths and saunas on one side for the adults, a full indoor water park on the other for the children, so nobody spends the afternoon waiting for anyone else to finish.</p>
           <p>One thing to know first. The bathing pools are separated by men and women, and inside them everyone is undressed. Nobody there gives it a second thought, but it is not for everyone. The water park, the robed floors, the saunas and the food are all mixed and clothed.</p>
         </div>
-        <img class="shot" src="images/jjimjilbang.jpg" alt="The indoor water park side of a Korean spa">
+        <div class="stack">
+          <img class="shot" src="images/jjimjilbang-water.jpg" alt="The indoor water park side of a Korean spa">
+          <img class="shot" src="images/jjimjilbang-sauna.jpg" alt="A traditional stone kiln sauna inside a Korean jjimjilbang">
+        </div>
       </div>
 
       <div class="moment">
@@ -493,7 +498,7 @@
           <p>Each evening, a full briefing for the next day, sent exactly how you prefer it, by text or email, with a map of every location if you'd like one.</p>
         </div>
       </div>
-      <p class="note">On your daughter's nut allergy. If you would like me to take the restaurant bookings on, I will put it to every kitchen in writing and in Korean well before you arrive, and I will choose places and dishes where nuts are not part of the cooking. I would also like to be straight with you. Pine nuts appear in more Korean dishes than a menu will ever say, and sesame oil is in very nearly everything, so how freely we can move depends on where her tolerance actually sits.</p>
+      <p class="note">On your daughter's nut allergy. If you would like me to take the restaurant bookings on, I will put it to every kitchen in writing and in Korean well before you arrive, and I will choose places and dishes where nuts are not a big part of the cooking. I would also like to be straight with you. Pine nuts appear in more Korean dishes than a menu will ever say, and sesame oil is in very nearly everything, so how freely we can move depends on where her tolerance actually sits.</p>
     </div>
   </section>
 
