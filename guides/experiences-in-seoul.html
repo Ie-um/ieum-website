@@ -239,7 +239,7 @@
 
 <section>
   <div class="wrap">
-    <div class="article reveal">
+    <div class="article">
       <div class="grp">
         <div class="entry"><h3>Temple stay</h3><p>A night among monks in a centuries old temple. Early mornings, simple meals, quiet reflection. Unlike anything else on a typical itinerary, and one of the most requested experiences among our travelers.</p></div>
         <div class="entry"><h3>Jjimjilbang, the Korean spa</h3><p>Closer to a wellness complex than a spa in the Western sense. A full circuit of saunas, communal soaking, and quiet corners to rest, arranged with privacy and comfort in mind.</p></div>
@@ -303,10 +303,14 @@
     });
     navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
+  const revealAll = () => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
   }), {threshold:0, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  /* failsafe: never leave content hidden if the observer does not fire */
+  setTimeout(revealAll, 2000);
+  window.addEventListener('load', () => setTimeout(revealAll, 400));
 </script>
 </body>
 </html>
