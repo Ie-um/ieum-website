@@ -167,6 +167,16 @@
   .entry h3{font-size:1.22rem;font-weight:400;margin-bottom:8px}
   .entry p{font-size:.94rem;color:#4A4A43;max-width:64ch}
   .article > p.body{font-size:.96rem;color:#4A4A43;margin-top:22px;max-width:64ch}
+  details.entry{padding:0}
+  details.entry > summary{list-style:none;cursor:pointer;display:block;padding:22px 40px 22px 0;position:relative;outline:none}
+  details.entry > summary::-webkit-details-marker{display:none}
+  details.entry > summary h3{margin:0;transition:color .3s}
+  details.entry > summary:hover h3,details.entry > summary:focus-visible h3{color:var(--jade)}
+  details.entry > summary::after{content:'';position:absolute;right:8px;top:50%;width:8px;height:8px;margin-top:-7px;border-right:1px solid var(--stone);border-bottom:1px solid var(--stone);transform:rotate(45deg);transition:transform .35s ease,border-color .35s}
+  details.entry[open] > summary::after{transform:rotate(-135deg);margin-top:-2px}
+  details.entry > summary:hover::after{border-color:var(--jade)}
+  details.entry > p{margin:0;padding:0 0 26px}
+  .grp-hint{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:18px}
 
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
   .card{background:var(--ivory);padding:48px 34px;transition:background .5s;display:block}
@@ -185,7 +195,7 @@
   .cta-btn:hover{background:var(--ivory);color:var(--jade-deep)}
 
   footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:38px 6vw 58px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase}
-  footer .fthread{display:block;width:1px;height:44px;background:rgba(169,195,183,.3);margin:0 auto 34px}
+  footer .fthread{display:block;width:56px;height:1px;background:rgba(169,195,183,.32);margin:0 auto 34px}
   footer .mark{display:block;margin:0 auto 16px}
   footer .mark img{height:30px;width:auto;margin:0 auto;opacity:.85}
   footer .biz-info{margin-top:32px;font-size:.58rem;letter-spacing:.06em;text-transform:none;color:#5F7A6E}
@@ -220,7 +230,7 @@
 
   @media (max-width:560px){
     footer{padding:30px 6vw 46px}
-    footer .fthread{height:32px;margin-bottom:26px}
+    footer .fthread{width:40px;margin-bottom:26px}
     footer .biz-info{margin-top:26px;line-height:2}
     footer .biz-info span{display:block;margin:3px 0}
   }
@@ -265,7 +275,7 @@
     <p class="crumbs"><a href="../">IEUM</a> &nbsp;/&nbsp; <a href="./">Guides</a></p>
     <p class="eyebrow">Shopping in Seoul</p>
     <h1>Luxury Shopping in Seoul</h1>
-    <p class="lede">Seoul is one of the great shopping cities, and almost none of what makes it so is obvious from outside. The flagships are concentrated in three districts, the department stores are unlike department stores anywhere else, and the things genuinely worth carrying home are rarely the things visitors come looking for.</p>
+    <p class="lede">Seoul is one of the great shopping cities, and almost none of what makes it so is obvious from outside. The flagships are concentrated in a handful of districts, the department stores are unlike department stores anywhere else, and the things genuinely worth carrying home are rarely the things visitors come looking for.</p>
     <div class="thread" aria-hidden="true"></div>
   </div>
 </header>
@@ -276,52 +286,54 @@
 
       <div class="grp">
         <h2>Where to shop, district by district</h2>
-        <div class="entry"><h3>Cheongdam</h3><p>The international flagships, almost all of them, along a single stretch of Cheongdam-ro. Architecturally the most interesting retail in the city, since the houses treat their Seoul stores as showpieces. Quiet during the week and best visited by appointment.</p></div>
-        <div class="entry"><h3>Apgujeong Rodeo</h3><p>Immediately west of Cheongdam and a little less formal. Korean contemporary labels, concept stores, and the hair and nail studios the city's own actors use.</p></div>
-        <div class="entry"><h3>Hannam-dong</h3><p>Seoul's quiet luxury district and the one we send most clients to first. Wooyoungmi, Ader Error, Gentle Monster and Tamburins keep flagships here among galleries and small restaurants. Less crowded than Gangnam and considerably better for Korean design.</p></div>
-        <div class="entry"><h3>Seongsu</h3><p>Old factory buildings turned into concept stores and pop ups. This is where new Korean labels open first and where the city's attention currently sits. Worth an afternoon if you want to see what will be exported in two years.</p></div>
-        <div class="entry"><h3>Myeongdong</h3><p>Beauty, primarily, and at volume. Every Korean skincare house has a store within a few streets, and the tax refund kiosks are on the same blocks. Busy, bright, and better with someone who knows which of the hundred shops are worth entering.</p></div>
-        <div class="entry"><h3>Insadong and Ikseondong</h3><p>Craft. Ceramics, hanji paper, mother of pearl, tea ware, and hanbok ateliers, in lanes narrow enough to walk in an afternoon.</p></div>
-      </div>
+        <p class="body">Four districts carry almost all of it, and they are not interchangeable. Open any of them below.</p>
+        <details class="entry"><summary><h3>Cheongdam</h3></summary><p>The international flagships, almost all of them, along a single stretch of Cheongdam-ro. Architecturally the most interesting retail in the city, since the houses treat their Seoul stores as showpieces. Quiet during the week and best visited by appointment.</p></details>
+        <details class="entry"><summary><h3>Apgujeong Rodeo</h3></summary><p>Immediately west of Cheongdam and a little less formal. Korean contemporary labels, concept stores, and the hair and nail studios the city's own actors use.</p></details>
+        <details class="entry"><summary><h3>Hannam-dong</h3></summary><p>Seoul's quiet luxury district and the one we send most clients to first. Wooyoungmi, Ader Error, Gentle Monster and Tamburins keep flagships here among galleries and small restaurants. Less crowded than Gangnam and considerably better for Korean design.</p></details>
+        <details class="entry"><summary><h3>Seongsu</h3></summary><p>Old factory buildings turned into concept stores and pop ups. This is where new Korean labels open first and where the city's attention currently sits. Worth an afternoon if you want to see what will be exported in two years.</p></details>
+                      </div>
 
       <div class="grp">
         <h2>The department stores, which matter here</h2>
         <p class="body">Korean department stores are not what the phrase suggests elsewhere. They are closer to small cities: several floors of luxury houses, a food hall in the basement worth a meal in its own right, a rooftop garden, and a tax refund counter inside the building. On a cold December afternoon or a wet July one, a department store is often the most pleasant way to shop in Seoul.</p>
-        <div class="entry"><h3>Shinsegae Gangnam</h3><p>The highest grossing single department store in the world outside Japan and Britain, and the one number in this guide worth knowing. It passed 3 trillion won in annual sales in 2023, the first single store in Korea to do so, and took roughly 3.67 trillion won in 2025, around 2.6 billion dollars. That places it in the same conversation as Isetan Shinjuku and Harrods. Nine floors, and the luxury floors are genuinely complete.</p></div>
-        <div class="entry"><h3>Galleria, Apgujeong</h3><p>The oldest luxury address in Korea. It opened in 1990 and invented the Korean idea of a 명품관, a dedicated luxury hall, carrying Cartier and Gucci from the beginning, Louis Vuitton from 1995, and Chanel and Hermes from 1997, the first Korean department store to hold all three of the houses Koreans call 에루샤. Global maisons still tend to open their first Korean boutique here. Two buildings facing each other across the street, womenswear in one and menswear in the other.</p></div>
-        <div class="entry"><h3>The Hyundai Seoul, Yeouido</h3><p>The newest and the most pleasant to spend time in, built around a five storey indoor garden with real trees and no windowless corridors anywhere. It reached 100 million cumulative visitors within 30 months of opening in February 2021, the fastest of any single retail building in Korea, and passed 1 trillion won in annual sales in 33 months, also a national record. Visitors from 182 countries have been through it. The easiest of the three with children, and it stages a Christmas market on its upper floor each December.</p></div>
+        <details class="entry"><summary><h3>Shinsegae Gangnam</h3></summary><p>The highest grossing single department store in the world outside Japan and Britain, and the one number in this guide worth knowing. It passed 3 trillion won in annual sales in 2023, the first single store in Korea to do so, and took roughly 3.67 trillion won in 2025, around 2.6 billion dollars. That places it in the same conversation as Isetan Shinjuku and Harrods. Nine floors, and the luxury floors are genuinely complete.</p></details>
+        <details class="entry"><summary><h3>Galleria, Apgujeong</h3></summary><p>The oldest luxury address in Korea. It opened in 1990 and invented the Korean idea of a 명품관, a dedicated luxury hall, carrying Cartier and Gucci from the beginning, Louis Vuitton from 1995, and Chanel and Hermes from 1997, the first Korean department store to hold all three of the houses Koreans call 에루샤. Global maisons still tend to open their first Korean boutique here. Two buildings facing each other across the street, womenswear in one and menswear in the other.</p></details>
+        <details class="entry"><summary><h3>The Hyundai Seoul, Yeouido</h3></summary><p>The newest and the most pleasant to spend time in, built around a five storey indoor garden with real trees and no windowless corridors anywhere. It reached 100 million cumulative visitors within 30 months of opening in February 2021, the fastest of any single retail building in Korea, and passed 1 trillion won in annual sales in 33 months, also a national record. Visitors from 182 countries have been through it. The easiest of the three with children, and it stages a Christmas market on its upper floor each December.</p></details>
+      </div>
+
+      <div class="grp">
+        <h2>Hanbok, made to order</h2>
+        <p class="body">A hanbok atelier will take your measurements, cut to them, and ship the finished piece to you once it is done, so nothing travels in your luggage. Ten days is not unusual for a jeogori alone, since the work is done by hand. It is the only garment in this guide you cannot buy in another country, and the single thing worth planning a shopping day around.</p>
+        <details class="entry"><summary><h3>Danha Seoul</h3></summary><p>Founded by Kim Dan-ha, and the house that made the hanbok Jennie and Ros&eacute; wore in BLACKPINK's How You Like That, with a pattern drawn from a royal wrapping cloth held by the National Palace Museum. Global searches for the word hanbok hit a twelve month high the week the video appeared. Danha works in upcycled and modern cuts and will make to order.</p></details>
+        <details class="entry"><summary><h3>Tchai Kim</h3></summary><p>Kim Young-jin took the cheollik, a military officer's robe, and turned it into a women's dress. The house runs a made to measure traditional line alongside its ready to wear, so it suits both a commission and a piece taken home the same week.</p></details>
+        <details class="entry"><summary><h3>Leesle</h3></summary><p>Founded by Hwang Yi-seul, and hanbok cut for an ordinary day, not a ceremonial one. The easiest of the three to take home and actually use.</p></details>
+        <details class="entry"><summary><h3>A wedding dress, in the hanbok line</h3></summary><p>Korea's traditional ateliers will cut a wedding gown in the hanbok line, and this is a genuinely unusual commission worth knowing about. Park Sul-nyeo is the best known of the masters still working in the lineage of Lee Young-hee, whose backless hanbok dress shown in Paris in 1993 was called the dress of wind. These are bridal houses first, so the lead time runs to months and the commission begins with a conversation, not a shop visit. We arrange the introduction and the fittings.</p></details>
       </div>
 
       <div class="grp">
         <h2>The Korean designers worth knowing</h2>
-        <p class="body">This is the part most visitors miss. Korea exports a fraction of what it makes, so a flagship in Seoul will carry pieces that never reach a stockist abroad. And one category exists nowhere else at all.</p>
-        <div class="entry"><h3>Hanbok, made to order</h3><p>The single thing worth planning a shopping day around, and the only garment in this guide you cannot buy in another country. A hanbok atelier will take your measurements, cut to them, and ship the finished piece to you. Ten days is not unusual for a jeogori alone, since the work is done by hand.</p></div>
-        <div class="entry"><h3>Danha, and modern hanbok</h3><p>Danha Seoul, founded by Kim Dan-ha, made the hanbok Jennie and Rosé wore in BLACKPINK's How You Like That, with a pattern drawn from a royal wrapping cloth held by the National Palace Museum. Global searches for the word hanbok hit a twelve month high the week the video appeared. The house works in upcycled and modern cuts and will make to order.</p></div>
-        <div class="entry"><h3>Tchai Kim and Leesle</h3><p>Two houses that show where contemporary hanbok now sits. Kim Young-jin of Tchai Kim took the cheollik, a military officer's robe, and turned it into a women's dress, and runs a made to measure traditional line alongside the ready to wear. Leesle, founded by Hwang Yi-seul, makes hanbok cut to be worn on an ordinary day, and is the easiest of the two to take home and actually use.</p></div>
-        <div class="entry"><h3>A wedding dress, in hanbok</h3><p>Korea's traditional ateliers will cut a wedding gown in the hanbok line, and this is a genuinely unusual commission worth knowing about. Park Sul-nyeo is the best known of the masters still working in the lineage of Lee Young-hee, whose backless hanbok dress shown in Paris in 1993 was called the dress of wind. These are bridal houses first, so the lead time is months and the commission begins with a conversation, not a shop visit. We arrange the introduction and the fittings.</p></div>
-        <div class="entry"><h3>Wooyoungmi</h3><p>Korean menswear shown in Paris for two decades, and the house that made Korean tailoring legible to the rest of the world.</p></div>
-        <div class="entry"><h3>Gentle Monster and Tamburins</h3><p>Eyewear and fragrance from the same group, and the reason Korean retail design is studied elsewhere. The stores are closer to installations than shops.</p></div>
-        <div class="entry"><h3>Ader Error</h3><p>Streetwear with an architectural streak, and a Hannam-dong flagship that rewards a visit even without buying.</p></div>
-        <div class="entry"><h3>Andersson Bell and Low Classic</h3><p>Two labels that explain where Korean contemporary fashion sits at the moment, one experimental, one restrained.</p></div>
+        <p class="body">Korea exports a fraction of what it makes, so a flagship in Seoul will carry pieces that never reach a stockist abroad.</p>
+        <details class="entry"><summary><h3>Wooyoungmi</h3></summary><p>Korean menswear shown in Paris for two decades, and the house that made Korean tailoring legible to the rest of the world.</p></details>
+        <details class="entry"><summary><h3>Gentle Monster and Tamburins</h3></summary><p>Eyewear and fragrance from the same group, and the reason Korean retail design is studied elsewhere. The stores are closer to installations than shops.</p></details>
+        <details class="entry"><summary><h3>Ader Error</h3></summary><p>Streetwear with an architectural streak, and a Hannam-dong flagship that rewards a visit even without buying.</p></details>
+        <details class="entry"><summary><h3>Andersson Bell and Low Classic</h3></summary><p>Two labels that explain where Korean contemporary fashion sits at the moment, one experimental, one restrained.</p></details>
       </div>
 
       <div class="grp">
         <h2>Beauty, and what is actually worth carrying home</h2>
         <p class="body">Korean skincare moves more quickly than anywhere in the world, and what is worth buying changes within months. A list written a year ago is already wrong. We send clients a current one before they fly, and it is different every season.</p>
-        <div class="entry"><h3>Olive Young</h3><p>The default, and the fastest way to see what the country is actually using. The Myeongdong flagship carries the widest range and processes the tax refund in store. Staff will speak enough English.</p></div>
-        <div class="entry"><h3>Daiso</h3><p>Not a joke. Korean Daiso stocks a serious beauty range at a few thousand won a piece, some of it made by the same manufacturers who produce for the larger houses, and Koreans buy it in quantity. The best value in this guide by a distance.</p></div>
-        <div class="entry"><h3>Musinsa</h3><p>Began online and now holds physical stores, and its beauty floors carry the newer independent labels before the chains pick them up. Where to look if you want something your friends will not already have.</p></div>
-        <div class="entry"><h3>Pharmacies</h3><p>The one visitors never think of. Korean pharmacies carry dermatological lines that never reach the beauty chains, sold without a prescription, and a pharmacist will tell you plainly whether something suits your skin. We take clients here more often than to any beauty flagship.</p></div>
-        <div class="entry"><h3>The department store halls</h3><p>For the houses that do not stock in the chains, and for the counters where you can be matched properly in good light.</p></div>
-        <div class="entry"><h3>What to skip</h3><p>Most of what is marketed to visitors in Myeongdong. The sets stacked by the door are rarely what Koreans themselves buy.</p></div>
-      </div>
+        <details class="entry"><summary><h3>Olive Young</h3></summary><p>The default, and the fastest way to see what the country is actually using. The Myeongdong flagship carries the widest range and processes the tax refund in store. Staff will speak enough English.</p></details>
+        <details class="entry"><summary><h3>Daiso</h3></summary><p>Not a joke. Korean Daiso stocks a serious beauty range at a few thousand won a piece, some of it made by the same manufacturers who produce for the larger houses, and Koreans buy it in quantity. The best value in this guide by a distance.</p></details>
+        <details class="entry"><summary><h3>Musinsa</h3></summary><p>Began online and now holds physical stores, and its beauty floors carry the newer independent labels before the chains pick them up. Where to look if you want something your friends will not already have.</p></details>
+        <details class="entry"><summary><h3>Pharmacies</h3></summary><p>The one visitors never think of. Korean pharmacies carry dermatological lines that never reach the beauty chains, sold without a prescription, and a pharmacist will tell you plainly whether something suits your skin. We take clients here more often than to any beauty flagship.</p></details>
+                      </div>
 
       <div class="grp">
         <h2>How the tax refund works</h2>
         <p class="body">Korea charges ten percent VAT and refunds it to foreign visitors. It is simpler than most countries, and worth understanding before you spend.</p>
-        <div class="entry"><h3>At the register</h3><p>Purchases between 15,000 and 1,000,000 won on a single receipt can be refunded on the spot at participating stores, up to a total of 5,000,000 won across your whole stay. You need your passport, so carry it whenever you intend to shop.</p></div>
-        <div class="entry"><h3>Everything above that</h3><p>Larger purchases are refunded at a downtown kiosk, found in Myeongdong, Dongdaemun and inside the major department stores, or at the airport when you leave. The downtown kiosks are far quicker than the airport queue.</p></div>
-        <div class="entry"><h3>The rule that catches people</h3><p>You must leave Korea within three months of the purchase date for the refund to stand. Keep the receipts together, and keep anything unopened if it is going through the airport counter.</p></div>
+        <details class="entry"><summary><h3>At the register</h3></summary><p>Purchases between 15,000 and 1,000,000 won on a single receipt can be refunded on the spot at participating stores, up to a total of 5,000,000 won across your whole stay. You need your passport, so carry it whenever you intend to shop.</p></details>
+        <details class="entry"><summary><h3>Everything above that</h3></summary><p>Larger purchases are refunded at a downtown kiosk, found in Myeongdong, Dongdaemun and inside the major department stores, or at the airport when you leave. The downtown kiosks are far quicker than the airport queue.</p></details>
+        <details class="entry"><summary><h3>The rule that catches people</h3></summary><p>You must leave Korea within three months of the purchase date for the refund to stand. Keep the receipts together, and keep anything unopened if it is going through the airport counter.</p></details>
       </div>
 
       <div class="grp">
