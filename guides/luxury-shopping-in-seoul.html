@@ -178,6 +178,21 @@
   details.entry > p{margin:0;padding:0 0 26px}
   .grp-hint{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:18px}
 
+  .section-head{text-align:center;max-width:680px;margin:0 auto 60px}
+  .section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin-top:18px;text-wrap:balance}
+  .section-head p{margin-top:20px;color:#4A4A43;font-size:.98rem}
+  .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
+  .offering{background:var(--ivory);padding:46px 32px;text-align:center;transition:background .5s}
+  .offering:hover{background:var(--paper)}
+  .offering svg{width:26px;height:26px;color:var(--jade);margin:0 auto 20px;display:block}
+  .offering h3{font-family:var(--display);font-weight:400;font-size:1.1rem;margin-bottom:10px}
+  .offering p{font-size:.82rem;color:#5A5A52;max-width:32ch;margin:0 auto}
+  @media (max-width:900px){
+    .offerings-grid{grid-template-columns:1fr}
+    .offering{padding:36px 24px}
+    .section-head{margin-bottom:44px}
+  }
+
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
   .card{background:var(--ivory);padding:48px 34px;transition:background .5s;display:block}
   .card:hover{background:var(--paper)}
@@ -336,15 +351,49 @@
         <details class="entry"><summary><h3>The rule that catches people</h3></summary><p>You must leave Korea within three months of the purchase date for the refund to stand. Keep the receipts together, and keep anything unopened if it is going through the airport counter.</p></details>
       </div>
 
-      <div class="grp">
-        <h2>A personal shopper in Seoul</h2>
-        <p class="body">Shopping well in a city you do not know is mostly a problem of access and information, and both are solvable. IEUM arranges a private personal shopper who works alongside you for a half day or a full day.</p>
-        <div class="entry"><h3>Appointments, arranged in advance</h3><p>Flagships and showrooms hold appointments, and an appointment changes the experience entirely: a room, an assistant who has pulled pieces for you already, and no queue. This is ordinary practice in Seoul and almost impossible to organise from abroad in a language you do not read.</p></div>
-        <div class="entry"><h3>Someone who speaks both languages</h3><p>Sizing is the practical reason. Korean sizing runs small and is cut differently, and the conversation about alterations is not one to have through a translation app.</p></div>
-        <div class="entry"><h3>The paperwork and the shipping</h3><p>Tax refund forms handled for you, and anything bulky shipped home so it does not travel in your luggage. For clients continuing to another country, this is usually the deciding detail.</p></div>
-        <div class="entry"><h3>Told honestly</h3><p>A personal shopper who is paid by you and not by the stores can say that something is not worth it. That is most of the value.</p></div>
-      </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="personal-shopper">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Personal Shopper</p>
+      <h2>A personal shopper in Seoul</h2>
+      <p>Shopping well in a city you do not know is a problem of access and information, and both are solvable. IEUM arranges a private personal shopper who works alongside you for a half day or a full day.</p>
+    </div>
+    <div class="offerings-grid">
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.2" y="5.6" width="15.6" height="14.2" rx="1.6"/><path d="M4.2 10.2h15.6M8.4 3.9v3.4M15.6 3.9v3.4"/></svg>
+        <h3>Appointments in Advance</h3>
+        <p>Flagships and showrooms hold private appointments. A room, pieces pulled for you already, and no queue.</p>
+      </div>
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6h7.9A2 2 0 0119.5 6.6v4.8a2 2 0 01-2 2h-1.9l-2.2 2.2v-2.2H9.6a2 2 0 01-2-2V6.6a2 2 0 012-2z"/><path d="M6.6 9.4h-.5A2 2 0 004 11.4v4.7a2 2 0 002 2h3.1v2.1l2.1-2.1h1"/></svg>
+        <h3>Both Languages</h3>
+        <p>Someone beside you who reads the room and the label, so nothing is settled through a translation app.</p>
+      </div>
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.2" y="8.6" width="17.6" height="6.8" rx="1.4"/><path d="M7.4 8.6v3M10.8 8.6v2M14.2 8.6v3M17.6 8.6v2"/></svg>
+        <h3>Sizing and Alterations</h3>
+        <p>Korean sizing runs small and is cut differently. The fitting is handled properly, in person.</p>
+      </div>
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 3.8h11.6v16.4l-2.3-1.5-2.3 1.5-2.3-1.5-2.3 1.5-2.4-1.5z"/><path d="M9.2 8.6h5.6M9.2 12.2h5.6"/></svg>
+        <h3>Tax Refund Handled</h3>
+        <p>The paperwork completed at the register, and the downtown kiosk used instead of the airport queue.</p>
+      </div>
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 8.2l-8-4.4-8 4.4v7.6l8 4.4 8-4.4z"/><path d="M4 8.2l8 4.4 8-4.4M12 12.6v7.6"/></svg>
+        <h3>Shipped Home</h3>
+        <p>Anything bulky sent on for you, so it never travels in your luggage to the next country.</p>
+      </div>
+      <div class="offering">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.8v15M7.2 19.8h9.6M4.6 8.2h14.8"/><path d="M4.6 8.2l-2.2 4.9h4.4zM19.4 8.2l-2.2 4.9h4.4z"/></svg>
+        <h3>Told Honestly</h3>
+        <p>A shopper paid by you and not by the stores can say a piece is not worth it. That is most of the value.</p>
+      </div>
     </div>
   </div>
 </section>
