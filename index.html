@@ -340,6 +340,27 @@
     .cc-btn{flex:1 1 auto;text-align:center}
     .cc-panel{padding:28px 24px}
   }
+
+  #inspired{padding-bottom:20px}
+  .insp-head{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:60px;align-items:start;max-width:1280px;margin:0 auto 54px;padding:0 6vw;text-align:left}
+  .insp-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:300;margin:0;text-wrap:balance}
+  .insp-head p{margin:0;color:#4A4A43;font-size:.95rem;max-width:52ch;padding-top:6px}
+  .insp-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:34px;max-width:1280px;margin:0 auto;padding:0 6vw 10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .insp-rail::-webkit-scrollbar{display:none}
+  .insp{scroll-snap-align:start;text-align:left;text-decoration:none;display:block;color:inherit}
+  .insp-img{aspect-ratio:1/1;background-size:cover;background-position:center;background-color:var(--ivory);margin-bottom:22px;transition:opacity .5s}
+  .insp:hover .insp-img{opacity:.86}
+  .insp-img.type{display:flex;align-items:center;justify-content:center;background:var(--jade-deep);padding:0 12%}
+  .insp-img.type span{font-family:var(--display);font-weight:300;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.35;color:var(--ivory);text-align:center}
+  .insp .eyebrow{display:block;margin-bottom:12px}
+  .insp h3{font-family:var(--display);font-weight:400;font-size:1.35rem;margin:0 0 12px;color:var(--ink)}
+  .insp p{font-size:.88rem;color:#4A4A43;margin:0;line-height:1.75}
+  .insp .more{display:inline-block;margin-top:20px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid rgba(35,36,31,.3);padding-bottom:4px;transition:color .35s,border-color .35s}
+  .insp:hover .more{color:var(--jade);border-color:var(--jade)}
+  @media (max-width:900px){
+    .insp-head{grid-template-columns:1fr;gap:18px;margin-bottom:38px}
+    .insp-rail{grid-auto-columns:minmax(78vw,78vw);gap:22px}
+  }
 </style>
 </head>
 <body>
@@ -463,6 +484,41 @@
     
 
     
+  </div>
+</section>
+
+<section id="inspired">
+  <div class="insp-head reveal">
+    <h2>Get inspired</h2>
+    <p>Three journeys we build most often, each shaped around a single idea and run end to end by us. None of them is a package, and all of them bend to the traveller.</p>
+  </div>
+
+  <div class="insp-rail reveal">
+
+    <a class="insp" href="journeys/temple-cuisine">
+      <div class="insp-img" role="img" aria-label="An overhead spread of Korean temple cuisine in small bowls" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Korean%20temple%20cuisine-Sanchon-01.jpg?width=900')"></div>
+      <span class="eyebrow">Plant-Based</span>
+      <h3>Korean Temple Cuisine</h3>
+      <p>A thousand year old plant based kitchen, cooked by monks in mountain temples and built around keeping the mind clear. No meat, no garlic, and fermentation aged in courtyard jars for decades.</p>
+      <span class="more">Discover more</span>
+    </a>
+
+    <a class="insp" href="journeys/autumn-foliage">
+      <div class="insp-img" role="img" aria-label="Bulguksa temple framed by red autumn maple" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Bulguksa%20in%20Autumn.jpg?width=900')"></div>
+      <span class="eyebrow">Autumn</span>
+      <h3>Korea in Autumn</h3>
+      <p>The colour begins in the northern ridges in late September and reaches the palace gardens of Seoul by November. We track the front and move you with it, adjusting while you travel.</p>
+      <span class="more">Discover more</span>
+    </a>
+
+    <a class="insp" href="journeys/sound-and-craft">
+      <div class="insp-img type" role="img" aria-label="Sound and the making of it"><span>An hour that is<br>only sound</span></div>
+      <span class="eyebrow">Sound</span>
+      <h3>Sound, and the Making of It</h3>
+      <p>Instruments still cut and strung by hand, a circle dance held under a full moon, and an hour flat on your back while a geomungo is played above you. Heritage, arranged as rest.</p>
+      <span class="more">Discover more</span>
+    </a>
+
   </div>
 </section>
 
