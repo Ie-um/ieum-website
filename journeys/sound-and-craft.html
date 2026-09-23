@@ -205,12 +205,19 @@
   .ebleed{width:100%;height:clamp(320px,56vh,620px);background-size:cover;background-position:center}
   .epair{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 14px}
   .epair div{height:clamp(260px,44vh,520px);background-size:cover;background-position:center}
-  .ehigh{padding:70px 0 30px}
-  .ehigh .wrap{max-width:820px}
-  .ehigh h2{text-align:center;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:300;margin-bottom:44px}
-  .ehigh dl{display:grid;gap:30px;margin:0}
-  .ehigh dt{font-family:var(--display);font-size:1.15rem;font-weight:400;color:var(--ink);margin-bottom:7px}
-  .ehigh dd{margin:0;font-size:.95rem;color:#4A4A43;line-height:1.85}
+  .ehigh{padding:84px 0 40px}
+  .ehigh .wrap{max-width:1200px}
+  .ehigh-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+  .ehigh h2{text-align:left;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:300;margin:0 0 34px}
+  .ehigh dl{display:grid;gap:26px;margin:0}
+  .ehigh dt{font-family:var(--display);font-size:1.12rem;font-weight:400;color:var(--ink);margin-bottom:6px}
+  .ehigh dd{margin:0;font-size:.93rem;color:#4A4A43;line-height:1.85}
+  .ehigh-shot{aspect-ratio:4/5;background-size:cover;background-position:center;background-color:var(--ivory)}
+  @media (max-width:900px){
+    .ehigh{padding:60px 0 30px}
+    .ehigh-grid{grid-template-columns:1fr;gap:38px}
+    .ehigh-shot{aspect-ratio:4/3;order:-1}
+  }
   .ecap{max-width:1180px;margin:14px auto 0;padding:0 6vw;font-size:.6rem;letter-spacing:.06em;color:var(--stone);text-align:center}
   #contact{background:var(--jade-deep);color:var(--ivory);padding:96px 0}
   #contact .eyebrow{color:#A9C3B7}
@@ -328,13 +335,18 @@
 
 <section class="ehigh">
   <div class="wrap">
-    <h2>What the journey holds</h2>
-    <dl>
+    <div class="ehigh-grid">
+      <div>
+        <h2>What the journey holds</h2>
+        <dl>
       <div><dt>The makers</dt><dd>An instrument is cut, hollowed, strung and lacquered by hand over months. You handle the wood before you hear it, which changes what it sounds like. Reliably, in every group we have taken.</dd></div>
       <div><dt>Ganggangsullae</dt><dd>A circle dance from the southwestern coast, sung in call and response and danced under a full moon at harvest. Held hands, a slow circle that gradually speeds up until people are laughing.</dd></div>
       <div><dt>The sound bath</dt><dd>An hour, lying down, in a room chosen for how it carries. No screen and no talking. Most people fall asleep at some point and do not mind.</dd></div>
       <div><dt>Where it happens</dt><dd>A courtyard hanok in Seoul, taken privately. A temple hall in the mountains for those staying overnight.</dd></div>
     </dl>
+      </div>
+      <div class="ehigh-shot" role="img" aria-label="The bridges and silk tassels of a geomungo, close" style="background-image:url('../images/sound-tassels.jpg')"></div>
+    </div>
   </div>
 </section>
 

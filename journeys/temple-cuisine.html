@@ -205,12 +205,19 @@
   .ebleed{width:100%;height:clamp(320px,56vh,620px);background-size:cover;background-position:center}
   .epair{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 14px}
   .epair div{height:clamp(260px,44vh,520px);background-size:cover;background-position:center}
-  .ehigh{padding:70px 0 30px}
-  .ehigh .wrap{max-width:820px}
-  .ehigh h2{text-align:center;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:300;margin-bottom:44px}
-  .ehigh dl{display:grid;gap:30px;margin:0}
-  .ehigh dt{font-family:var(--display);font-size:1.15rem;font-weight:400;color:var(--ink);margin-bottom:7px}
-  .ehigh dd{margin:0;font-size:.95rem;color:#4A4A43;line-height:1.85}
+  .ehigh{padding:84px 0 40px}
+  .ehigh .wrap{max-width:1200px}
+  .ehigh-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+  .ehigh h2{text-align:left;font-size:clamp(1.5rem,2.8vw,2rem);font-weight:300;margin:0 0 34px}
+  .ehigh dl{display:grid;gap:26px;margin:0}
+  .ehigh dt{font-family:var(--display);font-size:1.12rem;font-weight:400;color:var(--ink);margin-bottom:6px}
+  .ehigh dd{margin:0;font-size:.93rem;color:#4A4A43;line-height:1.85}
+  .ehigh-shot{aspect-ratio:4/5;background-size:cover;background-position:center;background-color:var(--ivory)}
+  @media (max-width:900px){
+    .ehigh{padding:60px 0 30px}
+    .ehigh-grid{grid-template-columns:1fr;gap:38px}
+    .ehigh-shot{aspect-ratio:4/3;order:-1}
+  }
   .ecap{max-width:1180px;margin:14px auto 0;padding:0 6vw;font-size:.6rem;letter-spacing:.06em;color:var(--stone);text-align:center}
   #contact{background:var(--jade-deep);color:var(--ivory);padding:96px 0}
   #contact .eyebrow{color:#A9C3B7}
@@ -312,7 +319,7 @@
   </div>
 </section>
 
-<div class="ebleed" role="img" aria-label="A temple cuisine dish plated as a lotus flower on red lacquer" style="background-image:url('../images/temple-cuisine-wide.jpg')"></div>
+<div class="ebleed" role="img" aria-label="A full temple meal laid out on a wooden table, seen from above" style="background-image:url('../images/tc-spread.jpg')"></div>
 
 <section class="eprose">
   <div class="wrap">
@@ -325,13 +332,18 @@
 
 <section class="ehigh">
   <div class="wrap">
-    <h2>What the journey holds</h2>
-    <dl>
+    <div class="ehigh-grid">
+      <div>
+        <h2>What the journey holds</h2>
+        <dl>
       <div><dt>Cooking with a monastic chef</dt><dd>A short session in a temple kitchen, working with whatever the season has given. Very little equipment, almost no technique, which unsettles people first and then becomes the point.</dd></div>
       <div><dt>A meal in the room where it was made</dt><dd>Eaten in silence, or close to it.</dd></div>
       <div><dt>The temples themselves</dt><dd>Baekyangsa in Jangseong, where Jeong Kwan is abbess of the Cheonjinam hermitage. Jingwansa inside Bukhansan, close enough to Seoul to reach before the day warms.</dd></div>
       <div><dt>Nothing stacked on top</dt><dd>We do not put anything else in these days. That is deliberate.</dd></div>
     </dl>
+      </div>
+      <div class="ehigh-shot" role="img" aria-label="A dark bowl and spoon on a red lacquer tray" style="background-image:url('../images/tc-tray.jpg')"></div>
+    </div>
   </div>
 </section>
 
