@@ -341,26 +341,30 @@
     .cc-panel{padding:28px 24px}
   }
 
-  #inspired{padding-bottom:20px}
-  .insp-head{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:60px;align-items:start;max-width:1280px;margin:0 auto 54px;padding:0 6vw;text-align:left}
-  .insp-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:300;margin:0;text-wrap:balance}
-  .insp-head p{margin:0;color:#4A4A43;font-size:.95rem;max-width:52ch;padding-top:6px}
-  .insp-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:34px;max-width:1280px;margin:0 auto;padding:0 6vw 10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  #inspired{padding-bottom:26px;overflow:hidden}
+  .insp-lay{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:56px;max-width:1440px;margin:0 auto;padding-left:6vw;align-items:start}
+  .insp-head{text-align:left;padding-top:6px}
+  .insp-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:300;margin:0;text-wrap:balance}
+  .insp-head p{margin:22px 0 0;color:#4A4A43;font-size:.95rem;max-width:44ch}
+  .insp-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(330px,360px);gap:32px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 6vw 6px 0}
   .insp-rail::-webkit-scrollbar{display:none}
   .insp{scroll-snap-align:start;text-align:left;text-decoration:none;display:block;color:inherit}
   .insp-img{aspect-ratio:1/1;background-size:cover;background-position:center;background-color:var(--ivory);margin-bottom:22px;transition:opacity .5s}
-  .insp:hover .insp-img{opacity:.86}
-  .insp-img.type{display:flex;align-items:center;justify-content:center;background:var(--jade-deep);padding:0 12%}
-  .insp-img.type span{font-family:var(--display);font-weight:300;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.35;color:var(--ivory);text-align:center}
-  .insp .eyebrow{display:block;margin-bottom:12px}
-  .insp h3{font-family:var(--display);font-weight:400;font-size:1.35rem;margin:0 0 12px;color:var(--ink)}
-  .insp p{font-size:.88rem;color:#4A4A43;margin:0;line-height:1.75}
-  .insp-credit{max-width:1280px;margin:26px auto 0;padding:0 6vw;font-size:.62rem;letter-spacing:.06em;color:var(--stone);text-align:left}
-  .insp .more{display:inline-block;margin-top:20px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid rgba(35,36,31,.3);padding-bottom:4px;transition:color .35s,border-color .35s}
+  .insp:hover .insp-img{opacity:.88}
+  .insp .eyebrow{display:block;margin-bottom:11px}
+  .insp h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 11px;color:var(--ink)}
+  .insp p{font-size:.86rem;color:#4A4A43;margin:0;line-height:1.75}
+  .insp .more{display:inline-block;margin-top:18px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid rgba(35,36,31,.3);padding-bottom:4px;transition:color .35s,border-color .35s}
   .insp:hover .more{color:var(--jade);border-color:var(--jade)}
+  .insp-nav{display:flex;gap:10px;margin-top:38px}
+  .insp-nav button{width:44px;height:44px;border:1px solid rgba(35,36,31,.25);background:none;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .35s,border-color .35s,opacity .35s;padding:0}
+  .insp-nav button:hover{background:rgba(35,36,31,.05);border-color:var(--jade)}
+  .insp-nav button[disabled]{opacity:.3;cursor:default}
+  .insp-nav svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
   @media (max-width:900px){
-    .insp-head{grid-template-columns:1fr;gap:18px;margin-bottom:38px}
-    .insp-rail{grid-auto-columns:minmax(78vw,78vw);gap:22px}
+    .insp-lay{grid-template-columns:1fr;gap:30px;padding-left:6vw;padding-right:6vw}
+    .insp-rail{grid-auto-columns:minmax(78vw,78vw);gap:20px;padding-right:0}
+    .insp-nav{display:none}
   }
 </style>
 </head>
@@ -489,40 +493,43 @@
 </section>
 
 <section id="inspired">
-  <div class="insp-head reveal">
-    <h2>Get inspired</h2>
-    <p>Three journeys we build most often, each shaped around a single idea and run end to end by us. None of them is a package, and all of them bend to the traveller.</p>
-  </div>
+  <div class="insp-lay">
+    <div class="insp-head reveal">
+      <h2>Get inspired</h2>
+      <p>Across Korea, discover journeys built around the wellness and heritage of the country, and the quieter places most visitors never reach.</p>
+      <div class="insp-nav">
+        <button type="button" id="insp-prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8"/></svg></button>
+        <button type="button" id="insp-next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg></button>
+      </div>
+    </div>
+    <div class="insp-rail reveal" id="insp-rail">
 
-  <div class="insp-rail reveal">
-
-    <a class="insp" href="journeys/temple-cuisine">
-      <div class="insp-img" role="img" aria-label="A temple cuisine dish plated as a lotus flower on red lacquer" style="background-image:url('images/temple-cuisine-lotus.jpg')"></div>
-      <span class="eyebrow">Plant-Based</span>
-      <h3>Korean Temple Cuisine</h3>
-      <p>A thousand year old plant based kitchen, cooked by monks in mountain temples and built around keeping the mind clear. No meat, no garlic, and fermentation aged in courtyard jars for decades.</p>
+      <a class="insp" href="journeys/temple-cuisine">
+      <div class="insp-img" role="img" aria-label="A full temple meal laid out on a wooden table, seen from above" style="background-image:url('images/tc-spread.jpg')"></div>
+      <span class="eyebrow">Temple Cuisine</span>
+      <h3>Plant-Based Culinary Tour</h3>
+      <p>For travellers drawn to longevity cooking and heritage food. A thousand year old plant based kitchen, no meat and no garlic, built around keeping the mind clear.</p>
       <span class="more">Discover more</span>
     </a>
 
-    <a class="insp" href="journeys/autumn-foliage">
-      <div class="insp-img" role="img" aria-label="The pavilion and pond at Baekyangsa, framed by red autumn maple" style="background-image:url('images/autumn-baekyangsa.jpg')"></div>
-      <span class="eyebrow">Autumn</span>
-      <h3>Korea in Autumn</h3>
-      <p>The colour begins in the northern ridges in late September and reaches the palace gardens of Seoul by November. We track the front and move you with it, adjusting while you travel.</p>
+      <a class="insp" href="journeys/autumn-foliage">
+      <div class="insp-img" role="img" aria-label="A painted temple eave and bell against red maple at Baekyangsa" style="background-image:url('images/au-bell.jpg')"></div>
+      <span class="eyebrow">Seoraksan to Seoul</span>
+      <h3>Autumn Foliage Tour</h3>
+      <p>For travellers who come for the landscape. The colour begins on the northern ridges in September and reaches Seoul in November, and we move you with it.</p>
       <span class="more">Discover more</span>
     </a>
 
-    <a class="insp" href="journeys/sound-and-craft">
+      <a class="insp" href="journeys/sound-and-craft">
       <div class="insp-img" role="img" aria-label="Two hands playing a gayageum, close on the strings" style="background-image:url('images/sound-gayageum.jpg')"></div>
-      <span class="eyebrow">Sound</span>
-      <h3>Sound, and the Making of It</h3>
-      <p>Instruments still cut and strung by hand, a circle dance held under a full moon, and an hour flat on your back while a geomungo is played above you. Heritage, arranged as rest.</p>
+      <span class="eyebrow">Sound &amp; Stillness</span>
+      <h3>Restorative Sound Tour</h3>
+      <p>For travellers who arrived through Korean music and want the root of it, and for anyone worn out by noise. Breath, low light, and an hour that is only sound.</p>
       <span class="more">Discover more</span>
     </a>
 
+    </div>
   </div>
-
-  <p class="insp-credit">Photographs by Kim Yun-jung, Frame Studio and the Korea Tourism Organization, Photo Korea, KOGL Type 1.</p>
 </section>
 
 <section id="themes">
@@ -976,6 +983,27 @@
       if (g.consentRequired) { showBar(); }
       else { commit({ analytics: true, marketing: true }); }
     });
+})();
+</script>
+<script>
+(function () {
+  var rail = document.getElementById('insp-rail');
+  if (!rail) return;
+  var prev = document.getElementById('insp-prev'), next = document.getElementById('insp-next');
+  function step() {
+    var card = rail.querySelector('.insp');
+    return card ? card.getBoundingClientRect().width + 32 : 380;
+  }
+  function sync() {
+    var max = rail.scrollWidth - rail.clientWidth - 2;
+    prev.disabled = rail.scrollLeft <= 2;
+    next.disabled = rail.scrollLeft >= max;
+  }
+  prev.addEventListener('click', function () { rail.scrollBy({left: -step(), behavior: 'smooth'}); });
+  next.addEventListener('click', function () { rail.scrollBy({left:  step(), behavior: 'smooth'}); });
+  rail.addEventListener('scroll', sync, {passive: true});
+  window.addEventListener('resize', sync);
+  sync();
 })();
 </script>
 </body>
