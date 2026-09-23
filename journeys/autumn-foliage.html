@@ -187,6 +187,17 @@
     .cc-btn{flex:1 1 auto;text-align:center}
     .cc-panel{padding:28px 24px}
   }
+
+  .ig-band{background:var(--ivory);padding:80px 0}
+  .ig-band .section-head{text-align:center;max-width:680px;margin:0 auto 46px}
+  .ig-band .section-head h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:300;margin-top:14px}
+  .ig-grid2{display:grid;gap:22px;max-width:1080px;margin:0 auto;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+  .ig-card{background:var(--paper);border:1px solid var(--hairline);min-height:210px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:34px 26px;text-align:center;text-decoration:none;transition:border-color .35s}
+  .ig-card:hover{border-color:var(--jade)}
+  .ig-card .ig-k{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
+  .ig-card .ig-h{font-family:var(--display);font-weight:300;font-size:1.15rem;color:var(--ink);line-height:1.4}
+  .ig-card .ig-m{margin-top:18px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
+  .instagram-media{margin:0 auto !important;min-width:0 !important}
 </style>
 <script type="application/ld+json">
 {
@@ -531,6 +542,29 @@
       if (g.consentRequired) { showBar(); }
       else { commit({ analytics: true, marketing: true }); }
     });
+})();
+</script>
+<script>
+/* Instagram embeds upgrade themselves only once marketing consent is given.
+   Without it the cards stay as plain links and Instagram is never contacted. */
+(function () {
+  function load() {
+    if (document.getElementById('ig-embed-js')) return;
+    var s = document.createElement('script');
+    s.id = 'ig-embed-js';
+    s.async = true;
+    s.src = 'https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }
+  function check() {
+    try {
+      var c = JSON.parse(localStorage.getItem('ieum-consent-v1'));
+      if (c && c.marketing) load();
+    } catch (e) {}
+  }
+  check();
+  window.addEventListener('storage', check);
+  document.addEventListener('click', function () { setTimeout(check, 300); });
 })();
 </script>
 </body>
