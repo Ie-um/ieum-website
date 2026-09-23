@@ -346,9 +346,9 @@
   .insp-head{text-align:left;padding-top:6px}
   .insp-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:300;margin:0;text-wrap:balance}
   .insp-head p{margin:22px 0 0;color:#4A4A43;font-size:.95rem;max-width:44ch}
-  .insp-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(330px,360px);gap:32px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 6vw 6px 0}
+  .insp-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(400px,430px);gap:34px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 6vw 6px 0}
   .insp-rail::-webkit-scrollbar{display:none}
-  .insp{scroll-snap-align:start;text-align:left;text-decoration:none;display:block;color:inherit}
+  .insp{text-align:left;text-decoration:none;display:block;color:inherit}
   .insp-img{aspect-ratio:1/1;background-size:cover;background-position:center;background-color:var(--ivory);margin-bottom:22px;transition:opacity .5s}
   .insp:hover .insp-img{opacity:.88}
   .insp .eyebrow{display:block;margin-bottom:11px}
@@ -363,7 +363,8 @@
   .insp-nav svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.2}
   @media (max-width:900px){
     .insp-lay{grid-template-columns:1fr;gap:30px;padding-left:6vw;padding-right:6vw}
-    .insp-rail{grid-auto-columns:minmax(78vw,78vw);gap:20px;padding-right:0}
+    .insp-rail{grid-auto-columns:minmax(78vw,78vw);gap:20px;padding-right:0;scroll-snap-type:x mandatory}
+    .insp{scroll-snap-align:start}
     .insp-nav{display:none}
   }
 </style>
@@ -992,7 +993,7 @@
   var prev = document.getElementById('insp-prev'), next = document.getElementById('insp-next');
   function step() {
     var card = rail.querySelector('.insp');
-    return card ? card.getBoundingClientRect().width + 32 : 380;
+    return card ? card.getBoundingClientRect().width + 34 : 430;
   }
   function sync() {
     var max = rail.scrollWidth - rail.clientWidth - 2;
