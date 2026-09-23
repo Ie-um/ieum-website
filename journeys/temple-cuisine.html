@@ -198,6 +198,23 @@
   .ig-card .ig-h{font-family:var(--display);font-weight:300;font-size:1.15rem;color:var(--ink);line-height:1.4}
   .ig-card .ig-m{margin-top:18px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
   .instagram-media{margin:0 auto !important;min-width:0 !important}
+
+  .vhero{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--jade-deep)}
+  .vhero video,.vhero iframe,.vhero .vposter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;object-fit:cover;border:0}
+  .vhero iframe{width:100vw;height:56.25vw;min-height:100%;min-width:177.77vh;pointer-events:none}
+  .vhero .vposter{background-size:cover;background-position:center}
+  .vhero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,28,25,.74),rgba(22,28,25,.18) 52%,rgba(22,28,25,.42));z-index:1}
+  .vhero-in{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:180px 6vw 62px;text-align:left}
+  .vhero-in .crumbs{color:rgba(246,244,239,.72);padding-bottom:10px}
+  .vhero-in .crumbs a{color:rgba(246,244,239,.86)}
+  .vhero-in .eyebrow{color:#A9C3B7}
+  .vhero-in h1{color:var(--ivory);margin-top:14px}
+  .vhero-in .lede{color:rgba(246,244,239,.88);max-width:54ch;margin-top:20px}
+  @media (max-width:760px){
+    .vhero{min-height:64vh}
+    .vhero-in{padding:150px 6vw 46px}
+  }
+  @media (prefers-reduced-motion:reduce){.vhero video{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -281,15 +298,19 @@
 </nav>
 
 
-<header class="page-head">
-  <div class="wrap">
+<header class="vhero">
+  <div class="vposter" style="background-image:url('../images/temple-cuisine-hero.jpg')" aria-hidden="true"></div>
+  <video id="vh" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+  <div class="vhero-in">
+
     <p class="crumbs"><a href="../">IEUM</a> &nbsp;/&nbsp; <a href="../#inspired">Journeys</a></p>
     <p class="eyebrow">Plant-Based Journeys</p>
     <h1>Korean Temple Cuisine</h1>
     <p class="lede">Korea has had a complete plant based cuisine for more than a thousand years, cooked by monks in mountain temples and shaped entirely around keeping the mind clear. It is the oldest wellness food in the country, and almost none of it is on a menu.</p>
-    <div class="thread" aria-hidden="true"></div>
   </div>
 </header>
+
+
 
 <section>
   <div class="wrap">
@@ -589,6 +610,20 @@
   check();
   window.addEventListener('storage', check);
   document.addEventListener('click', function () { setTimeout(check, 300); });
+})();
+</script>
+<script>
+/* Hero video. Held back on reduced motion; the lighter file on small screens. */
+(function () {
+  var v = document.getElementById('vh');
+  if (!v) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  v.src = window.innerWidth < 900
+    ? '../images/temple-cuisine-hero-720.mp4'
+    : '../images/temple-cuisine-hero.mp4';
+  v.load();
+  var go = v.play();
+  if (go && go.catch) go.catch(function () {});
 })();
 </script>
 </body>

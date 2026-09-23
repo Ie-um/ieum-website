@@ -198,6 +198,23 @@
   .ig-card .ig-h{font-family:var(--display);font-weight:300;font-size:1.15rem;color:var(--ink);line-height:1.4}
   .ig-card .ig-m{margin-top:18px;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
   .instagram-media{margin:0 auto !important;min-width:0 !important}
+
+  .vhero{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--jade-deep)}
+  .vhero video,.vhero iframe,.vhero .vposter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;object-fit:cover;border:0}
+  .vhero iframe{width:100vw;height:56.25vw;min-height:100%;min-width:177.77vh;pointer-events:none}
+  .vhero .vposter{background-size:cover;background-position:center}
+  .vhero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,28,25,.74),rgba(22,28,25,.18) 52%,rgba(22,28,25,.42));z-index:1}
+  .vhero-in{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:180px 6vw 62px;text-align:left}
+  .vhero-in .crumbs{color:rgba(246,244,239,.72);padding-bottom:10px}
+  .vhero-in .crumbs a{color:rgba(246,244,239,.86)}
+  .vhero-in .eyebrow{color:#A9C3B7}
+  .vhero-in h1{color:var(--ivory);margin-top:14px}
+  .vhero-in .lede{color:rgba(246,244,239,.88);max-width:54ch;margin-top:20px}
+  @media (max-width:760px){
+    .vhero{min-height:64vh}
+    .vhero-in{padding:150px 6vw 46px}
+  }
+  @media (prefers-reduced-motion:reduce){.vhero video{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -281,15 +298,19 @@
 </nav>
 
 
-<header class="page-head">
-  <div class="wrap">
+<header class="vhero">
+  <div class="vposter" style="background-image:url('../images/autumn-hero.jpg')" aria-hidden="true"></div>
+  <div id="ythero" aria-hidden="true"></div>
+  <div class="vhero-in">
+
     <p class="crumbs"><a href="../">IEUM</a> &nbsp;/&nbsp; <a href="../#inspired">Journeys</a></p>
     <p class="eyebrow">Autumn Journeys</p>
     <h1>Korea in Autumn</h1>
     <p class="lede">For about six weeks a year the whole country turns, beginning in the northern ridges and finishing in the palace gardens of Seoul. Being in the right valley in the right week is the entire trip, and it is not something you can plan from a calendar.</p>
-    <div class="thread" aria-hidden="true"></div>
   </div>
 </header>
+
+
 
 <section>
   <div class="wrap">
@@ -594,6 +615,52 @@
       if (c && c.marketing) load();
     } catch (e) {}
   }
+  check();
+  window.addEventListener('storage', check);
+  document.addEventListener('click', function () { setTimeout(check, 300); });
+})();
+</script>
+<script>
+/* Hyangiram hermitage, from the Korea Tourism Organization's Photo Korea channel.
+   Embedded, never downloaded, and only once marketing consent has been given.
+   Without consent the poster stays and YouTube is never contacted.
+   The IFrame API is used so the ten to fifteen second segment loops cleanly,
+   which the start and end parameters alone do not do reliably. */
+(function () {
+  var ID = 'RHKz9CTTkEE', FROM = 10, TO = 15, player = null;
+  function consented() {
+    try { var c = JSON.parse(localStorage.getItem('ieum-consent-v1')); return !!(c && c.marketing); }
+    catch (e) { return false; }
+  }
+  function start() {
+    if (player || !document.getElementById('ythero')) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth < 760) return;
+    if (!window.YT || !window.YT.Player) { loadApi(); return; }
+    player = new YT.Player('ythero', {
+      videoId: ID,
+      playerVars: {autoplay: 1, mute: 1, controls: 0, modestbranding: 1, rel: 0,
+                   playsinline: 1, disablekb: 1, fs: 0, start: FROM},
+      events: {
+        onReady: function (e) { e.target.mute(); e.target.playVideo(); watch(e.target); },
+        onStateChange: function (e) { if (e.data === YT.PlayerState.ENDED) e.target.seekTo(FROM); }
+      }
+    });
+  }
+  function watch(p) {
+    setInterval(function () {
+      try { if (p.getCurrentTime() >= TO) p.seekTo(FROM); } catch (e) {}
+    }, 250);
+  }
+  function loadApi() {
+    if (document.getElementById('yt-api')) return;
+    var s = document.createElement('script');
+    s.id = 'yt-api';
+    s.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(s);
+    window.onYouTubeIframeAPIReady = start;
+  }
+  function check() { if (consented()) start(); }
   check();
   window.addEventListener('storage', check);
   document.addEventListener('click', function () { setTimeout(check, 300); });
