@@ -317,13 +317,45 @@
     footer .guides-link a{display:inline-block;padding:8px 10px 6px}
     .crumbs a{display:inline-block;padding:6px 2px}
   }
+
+  .cc-bar{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--jade-deep);color:#D6DFDA;padding:22px 6vw;display:flex;align-items:center;gap:24px;flex-wrap:wrap;transform:translateY(100%);transition:transform .5s cubic-bezier(.4,0,.2,1)}
+  .cc-bar.in{transform:translateY(0)}
+  .cc-bar p{margin:0;flex:1 1 320px;font-size:.8rem;line-height:1.7;max-width:74ch}
+  .cc-bar a{color:#A9C3B7;border-bottom:1px solid rgba(169,195,183,.4)}
+  .cc-acts{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+  .cc-btn{font-family:var(--utility);font-weight:300;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:12px 20px;border:1px solid #7A9184;background:none;color:#D6DFDA;cursor:pointer;transition:background .35s,color .35s,border-color .35s}
+  .cc-btn:hover{background:rgba(169,195,183,.12)}
+  .cc-btn.solid{background:var(--ivory);border-color:var(--ivory);color:var(--jade-deep)}
+  .cc-btn.solid:hover{background:#fff}
+  .cc-veil{position:fixed;inset:0;z-index:210;background:rgba(35,36,31,.5);display:flex;align-items:center;justify-content:center;padding:6vw;opacity:0;transition:opacity .35s}
+  .cc-veil.in{opacity:1}
+  .cc-panel{background:var(--paper);max-width:560px;width:100%;max-height:82vh;overflow-y:auto;padding:36px 38px;text-align:left}
+  .cc-panel h2{font-family:var(--display);font-weight:300;font-size:1.5rem;margin:0 0 6px;color:var(--ink)}
+  .cc-panel .cc-intro{font-size:.84rem;color:#5A5A52;margin:0 0 18px;line-height:1.7}
+  .cc-row{border-top:1px solid var(--hairline);padding:18px 0;display:flex;gap:20px;align-items:flex-start}
+  .cc-row:last-of-type{border-bottom:1px solid var(--hairline)}
+  .cc-row .cc-txt{flex:1}
+  .cc-row h3{font-size:.95rem;font-weight:400;margin:0 0 5px;color:var(--ink)}
+  .cc-row p{font-size:.78rem;color:#5A5A52;margin:0;line-height:1.65}
+  .cc-lock{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);padding-top:4px;white-space:nowrap}
+  .cc-tog{width:42px;height:23px;border-radius:12px;border:0;background:#D3D1C7;position:relative;flex-shrink:0;margin-top:2px;cursor:pointer;transition:background .3s;padding:0}
+  .cc-tog::after{content:'';position:absolute;top:3px;left:3px;width:17px;height:17px;border-radius:50%;background:var(--paper);transition:transform .3s}
+  .cc-tog[aria-checked="true"]{background:var(--jade)}
+  .cc-tog[aria-checked="true"]::after{transform:translateX(19px)}
+  .cc-panel .cc-acts{margin-top:26px}
+  .cc-panel .cc-btn{border-color:rgba(35,36,31,.25);color:var(--ink)}
+  .cc-panel .cc-btn:hover{background:rgba(35,36,31,.05)}
+  .cc-panel .cc-btn.solid{background:var(--jade-deep);border-color:var(--jade-deep);color:var(--ivory)}
+  .cc-panel .cc-btn.solid:hover{background:var(--jade)}
+  @media (max-width:640px){
+    .cc-bar{padding:20px 6vw 24px;gap:16px}
+    .cc-acts{width:100%}
+    .cc-btn{flex:1 1 auto;text-align:center}
+    .cc-panel{padding:28px 24px}
+  }
 </style>
-<!-- Meta Pixel Code -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '1700290421749654'); fbq('track', 'PageView');</script>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1700290421749654&amp;ev=PageView&amp;noscript=1"></noscript>
 
 <nav id="nav" aria-label="Primary">
   <a class="logo" href="/">
@@ -525,7 +557,7 @@
   <span class="fthread" aria-hidden="true"></span>
   <span class="mark"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge"></span>
   IEUM Concierge &middot; Seoul &amp; New York &middot; &copy; 2026
-  <div class="guides-link"><a href="guides/">Guides</a></div>
+  <div class="guides-link"><a href="guides/">Guides</a> &nbsp;&middot;&nbsp; <a href="cookie-policy">Cookies</a></div>
   <div class="biz-info">
     <span>IEUM</span><span>Munsanro 61, Gwangju, South Korea</span><span>Business Reg. No. 219-30-14314</span>
   </div>
@@ -571,6 +603,138 @@
   /* failsafe: never leave content hidden if the observer does not fire */
   setTimeout(revealAll, 2000);
   window.addEventListener('load', () => setTimeout(revealAll, 400));
+</script>
+<script>
+/* Consent. Nothing non essential loads until it is granted.
+   EU, EEA, UK and Switzerland are asked. Elsewhere consent is implied.
+   Country comes from Cloudflare at the edge, so no third party lookup. */
+(function () {
+  var PIXEL_ID = '1700290421749654';
+  var GA4_ID   = '';
+  var KEY      = 'ieum-consent-v1';
+  var state    = { analytics: false, marketing: false };
+
+  function read() {
+    try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+  function write(c) {
+    try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {}
+  }
+
+  function startAnalytics() {
+    if (!GA4_ID || window.gtag) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID, { anonymize_ip: true });
+  }
+
+  function startMarketing() {
+    if (window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', PIXEL_ID);
+    window.fbq('track', 'PageView');
+  }
+
+  function apply(c) {
+    state = c;
+    if (c.analytics) startAnalytics();
+    if (c.marketing) startMarketing();
+  }
+  function commit(c) { write(c); apply(c); closeAll(); }
+
+  window.ieumConsent = {
+    get: function () { return state; },
+    reopen: function () { openPanel(); }
+  };
+
+  var bar = null, veil = null;
+
+  function closeAll() {
+    if (bar) { bar.classList.remove('in'); setTimeout(function () { if (bar) { bar.remove(); bar = null; } }, 500); }
+    if (veil) { veil.classList.remove('in'); setTimeout(function () { if (veil) { veil.remove(); veil = null; } }, 350); }
+  }
+
+  function showBar() {
+    bar = document.createElement('div');
+    bar.className = 'cc-bar';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Cookie notice');
+    bar.innerHTML =
+      '<p>IEUM uses necessary cookies for website functionality. We may also use cookies to enhance and personalise your browsing experience. ' +
+      'Click Accept all to accept all cookies, or Cookie settings to set your preferences. View our <a href="/cookie-policy">cookie policy here</a>.</p>' +
+      '<div class="cc-acts">' +
+      '<button type="button" class="cc-btn" data-cc="settings">Cookie settings</button>' +
+      '<button type="button" class="cc-btn solid" data-cc="all">Accept all</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+    requestAnimationFrame(function () { bar.classList.add('in'); });
+    bar.addEventListener('click', function (e) {
+      var a = e.target.getAttribute && e.target.getAttribute('data-cc');
+      if (a === 'all') commit({ analytics: true, marketing: true });
+      if (a === 'settings') openPanel();
+    });
+  }
+
+  function openPanel() {
+    if (veil) return;
+    var cur = read() || state;
+    veil = document.createElement('div');
+    veil.className = 'cc-veil';
+    veil.innerHTML =
+      '<div class="cc-panel" role="dialog" aria-modal="true" aria-label="Cookie settings">' +
+      '<h2>Cookie settings</h2>' +
+      '<p class="cc-intro">Necessary cookies keep the site working and cannot be switched off. Everything else is your choice, and you can change it at any time.</p>' +
+      '<div class="cc-row"><div class="cc-txt"><h3>Strictly necessary</h3>' +
+      '<p>Required for the site to function and to remember this choice. No tracking.</p></div>' +
+      '<span class="cc-lock">Always on</span></div>' +
+      '<div class="cc-row"><div class="cc-txt"><h3>Analytics</h3>' +
+      '<p>Helps us understand which pages are useful and where visitors arrive from.</p></div>' +
+      '<button type="button" class="cc-tog" role="switch" data-k="analytics" aria-checked="' + (cur.analytics ? 'true' : 'false') + '" aria-label="Analytics cookies"></button></div>' +
+      '<div class="cc-row"><div class="cc-txt"><h3>Marketing</h3>' +
+      '<p>Lets us show relevant advertising and measure whether it works.</p></div>' +
+      '<button type="button" class="cc-tog" role="switch" data-k="marketing" aria-checked="' + (cur.marketing ? 'true' : 'false') + '" aria-label="Marketing cookies"></button></div>' +
+      '<div class="cc-acts">' +
+      '<button type="button" class="cc-btn solid" data-cc="save">Save preferences</button>' +
+      '<button type="button" class="cc-btn" data-cc="all">Accept all</button>' +
+      '<button type="button" class="cc-btn" data-cc="none">Decline all</button>' +
+      '</div></div>';
+    document.body.appendChild(veil);
+    requestAnimationFrame(function () { veil.classList.add('in'); });
+    veil.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t.classList && t.classList.contains('cc-tog')) {
+        t.setAttribute('aria-checked', t.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+        return;
+      }
+      var a = t.getAttribute && t.getAttribute('data-cc');
+      if (a === 'all')  return commit({ analytics: true, marketing: true });
+      if (a === 'none') return commit({ analytics: false, marketing: false });
+      if (a === 'save') {
+        var out = { analytics: false, marketing: false };
+        veil.querySelectorAll('.cc-tog').forEach(function (b) {
+          out[b.getAttribute('data-k')] = b.getAttribute('aria-checked') === 'true';
+        });
+        return commit(out);
+      }
+    });
+  }
+
+  var saved = read();
+  if (saved && typeof saved.marketing === 'boolean') { apply(saved); return; }
+
+  fetch('/api/geo', { headers: { accept: 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : { consentRequired: true }; })
+    .catch(function () { return { consentRequired: true }; })
+    .then(function (g) {
+      if (g.consentRequired) { showBar(); }
+      else { commit({ analytics: true, marketing: true }); }
+    });
+})();
 </script>
 </body>
 </html>
