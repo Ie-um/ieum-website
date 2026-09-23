@@ -398,12 +398,32 @@
     window.fbq('track', 'PageView');
   }
 
+  /* Withdrawing consent should also remove what was already set. */
+  function drop(name) {
+    var host = location.hostname;
+    var paths = ['/', location.pathname];
+    var hosts = [host, '.' + host, host.replace(/^www\./, ''), '.' + host.replace(/^www\./, '')];
+    paths.forEach(function (p) {
+      document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=' + p;
+      hosts.forEach(function (h) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=' + p + '; domain=' + h;
+      });
+    });
+  }
+  function clearFor(c) {
+    var names = document.cookie.split(';').map(function (s) { return s.split('=')[0].trim(); });
+    names.forEach(function (n) {
+      if (!c.marketing && (n === '_fbp' || n === '_fbc')) drop(n);
+      if (!c.analytics && (n === '_ga' || n.indexOf('_ga_') === 0 || n === '_gid')) drop(n);
+    });
+  }
+
   function apply(c) {
     state = c;
     if (c.analytics) startAnalytics();
     if (c.marketing) startMarketing();
   }
-  function commit(c) { write(c); apply(c); closeAll(); }
+  function commit(c) { write(c); clearFor(c); apply(c); closeAll(); }
 
   window.ieumConsent = {
     get: function () { return state; },
