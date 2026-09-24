@@ -993,17 +993,38 @@
   var rail = document.getElementById('insp-rail');
   if (!rail) return;
   var prev = document.getElementById('insp-prev'), next = document.getElementById('insp-next');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var busy = false;
+
   function step() {
     var card = rail.querySelector('.insp');
-    return card ? card.getBoundingClientRect().width + 34 : 430;
+    return card ? card.getBoundingClientRect().width + 34 : 434;
   }
+  function max() { return rail.scrollWidth - rail.clientWidth; }
   function sync() {
-    var max = rail.scrollWidth - rail.clientWidth - 2;
     prev.disabled = rail.scrollLeft <= 2;
-    next.disabled = rail.scrollLeft >= max;
+    next.disabled = rail.scrollLeft >= max() - 2;
   }
-  prev.addEventListener('click', function () { rail.scrollBy({left: -step(), behavior: 'smooth'}); });
-  next.addEventListener('click', function () { rail.scrollBy({left:  step(), behavior: 'smooth'}); });
+  /* Animated by hand. scrollBy with behavior smooth is ignored in some
+     browsers and under reduced motion, which left the arrows doing nothing. */
+  function glide(to) {
+    to = Math.max(0, Math.min(to, max()));
+    if (still) { rail.scrollLeft = to; sync(); return; }
+    if (busy) return;
+    busy = true;
+    var from = rail.scrollLeft, span = to - from, t0 = null, ms = 420;
+    function frame(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / ms);
+      var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      rail.scrollLeft = from + span * e;
+      if (p < 1) { requestAnimationFrame(frame); } else { busy = false; sync(); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  prev.addEventListener('click', function () { glide(rail.scrollLeft - step()); });
+  next.addEventListener('click', function () { glide(rail.scrollLeft + step()); });
   rail.addEventListener('scroll', sync, {passive: true});
   window.addEventListener('resize', sync);
   sync();
