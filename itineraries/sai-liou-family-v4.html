@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sai's Family &middot; Seoul, December 2026 | IEUM Concierge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400&family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6F4EF;
+    --paper:#FCFBF8;
+    --ink:#23241F;
+    --stone:#8B8577;
+    --jade:#40685B;
+    --jade-deep:#2C463E;
+    --hairline:rgba(35,36,31,.14);
+    --display:'Cormorant Garamond',Georgia,serif;
+    --utility:'Jost',Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
+  .wrap{max-width:960px;margin:0 auto;padding:0 6vw}
+  .eyebrow{font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
+
+  header.brand{padding:30px 6vw;text-align:center;border-bottom:1px solid var(--hairline)}
+  header.brand img{height:40px;width:auto;display:inline-block}
+
+  /* ---------- password gate ---------- */
+  #gate{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:var(--jade-deep);padding:24px}
+  #gate .box{max-width:380px;width:100%;text-align:center;color:var(--ivory)}
+  #gate .gate-logo{height:38px;width:auto;margin-bottom:26px}
+  #gate h1{font-size:1.9rem;color:var(--ivory);margin-bottom:18px}
+  #gate p{font-size:.88rem;color:#C9D5CD;margin-bottom:30px}
+  #gate input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.4);color:var(--ivory);font-family:var(--utility);font-size:1rem;letter-spacing:.1em;text-align:center;padding:12px 4px;outline:none}
+  #gate input:focus{border-color:var(--ivory)}
+  #gate button{margin-top:26px;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;padding:14px 40px;cursor:pointer;transition:background .35s,color .35s}
+  #gate button:hover{background:var(--ivory);color:var(--jade-deep)}
+  #gate .error{margin-top:16px;font-size:.78rem;color:#E3B9AE;opacity:0;transition:opacity .3s}
+  #gate .error.show{opacity:1}
+  #content{display:none}
+
+  /* ---------- intro ---------- */
+  .intro{padding:90px 0 60px;text-align:center}
+  .intro .eyebrow{display:block;margin-bottom:18px}
+  .intro h1{font-size:clamp(2.2rem,4.6vw,3.2rem)}
+  .intro p.lede{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#5A5A52;max-width:540px;margin:22px auto 0}
+  .intro .meta{margin-top:34px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
+
+  /* ---------- day nav ---------- */
+  .daynav{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+  .daynav a{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:96px;padding:13px 16px;border:1px solid var(--hairline);text-decoration:none;background:var(--paper);transition:background .35s,border-color .35s,color .35s}
+  .daynav a:hover{background:var(--jade-deep);border-color:var(--jade-deep);color:var(--ivory)}
+  .daynav .dn-date{font-family:var(--display);font-size:1.05rem;line-height:1}
+  .daynav .dn-label{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade);transition:color .35s}
+  .daynav a:hover .dn-label{color:#A9C3B7}
+  .day{scroll-margin-top:20px}
+
+  /* ---------- days ---------- */
+  .day{padding:70px 0;border-top:1px solid var(--hairline)}
+  .day:nth-of-type(even){background:var(--ivory)}
+  .day-head{margin-bottom:40px}
+  .day-head .eyebrow{display:block;margin-bottom:10px}
+  .day-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .day-head p{font-family:var(--display);font-style:italic;color:#5A5A52;font-size:1.05rem;margin-top:10px}
+
+  .moment{display:grid;grid-template-columns:112px 1fr 210px;gap:28px;padding:30px 0;border-bottom:1px solid var(--hairline);align-items:start}
+  .moment:last-child{border-bottom:0}
+  .moment time{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);padding-top:5px}
+  .moment h3{font-size:1.2rem;font-weight:400;margin-bottom:8px}
+  .moment p{font-size:.9rem;color:#4A4A43}
+  .moment p a{color:var(--jade);text-decoration:none;border-bottom:1px solid rgba(64,104,91,.38);transition:border-color .35s}
+  .moment p a:hover{border-color:var(--jade)}
+  .moment .shot{width:210px;height:150px;object-fit:cover;object-position:center;border-radius:2px;display:block}
+  .moment .shot.top{object-position:center 18%}
+  /* photo-free rows keep the photo column reserved so text stays aligned down the day */
+  .moment.no-shot{grid-template-columns:112px 1fr 210px}
+  .moment .stack{display:grid;gap:8px;align-content:start}
+  /* days with no photographs at all use the full width */
+  .day.textonly .moment.no-shot{grid-template-columns:112px 1fr}
+
+  .note{max-width:820px;margin:38px auto 0;padding-top:24px;border-top:1px dashed var(--hairline);font-size:.84rem;color:var(--jade-deep);font-style:italic}
+
+  /* ---------- included ---------- */
+  #included{padding:80px 0;border-top:1px solid var(--hairline);background:var(--ivory)}
+  #included .head{text-align:center;margin-bottom:48px}
+  #included .head h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:10px}
+  .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1000px;margin:0 auto}
+  .included-item{background:var(--ivory);padding:44px 30px;text-align:center;transition:background .5s}
+  .included-item:hover{background:var(--paper)}
+  .included-item svg{width:24px;height:24px;color:var(--jade);margin:0 auto 18px;display:block}
+  .included-item h4{font-family:var(--display);font-weight:400;font-size:1.05rem;margin-bottom:8px}
+  .included-item p{font-size:.8rem;color:#5A5A52;max-width:26ch;margin:0 auto}
+
+
+  /* ---------- closing ---------- */
+  #closing{background:var(--jade-deep);color:var(--ivory);padding:100px 0;text-align:center}
+  #closing .eyebrow{color:#A9C3B7}
+  #closing h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin:18px 0 20px;color:var(--ivory)}
+  #closing p{color:#C9D5CD;font-size:.95rem;max-width:520px;margin:0 auto 34px}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  #closing a.btn{display:inline-block;padding:17px 42px;border:1px solid var(--ivory);color:var(--ivory);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;transition:background .4s,color .4s}
+  #closing a.btn:hover{background:var(--ivory);color:var(--jade-deep)}
+  #closing a.btn.solid{background:var(--ivory);color:var(--jade-deep)}
+  #closing a.btn.solid:hover{background:transparent;color:var(--ivory)}
+
+  footer{text-align:center;padding:40px 6vw;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+
+  @media (max-width:860px){
+    .moment,.moment.no-shot,.day.textonly .moment.no-shot{grid-template-columns:1fr;gap:10px}
+    .moment .shot{width:100%;height:200px;margin-top:6px}
+    .moment .stack .shot{margin-top:0}
+    .included-grid{grid-template-columns:1fr}
+    .day{padding:52px 0}
+    .daynav a{min-width:0;flex:1 1 28%;padding:11px 8px}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="box">
+    <img class="gate-logo" src="https://ie-um.com/images/logo/ieum-logo-cream.svg" alt="IEUM Concierge">
+    <h1>A Journey, Prepared for You</h1>
+    <p>Please enter the password shared with you to continue.</p>
+    <input type="password" id="gate-input" placeholder="Password" autocomplete="off">
+    <div><button type="button" id="gate-submit">Enter</button></div>
+    <p class="error" id="gate-error">That password does not match. Please try again.</p>
+  </div>
+</div>
+
+<div id="content">
+  <header class="brand"><img src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge"></header>
+
+  <section class="intro">
+    <div class="wrap">
+      <span class="eyebrow">A Private Journey &middot; Family of Four</span>
+      <h1>Six Days in Seoul, for Sai's Family</h1>
+      <p class="lede">An arrival that asks nothing of you, and four days shaped around wellness, culture, and the children.</p>
+      <div class="meta">
+        <span>18 to 23 December 2026</span>
+        <span>Park Hyatt Seoul</span>
+        <span>Two Adults, Two Children</span>
+      </div>
+      <nav class="daynav" aria-label="Jump to a day">
+        <a href="#d18"><span class="dn-date">18 Dec</span><span class="dn-label">Arrival</span></a>
+        <a href="#d19"><span class="dn-date">19 Dec</span><span class="dn-label">Day One</span></a>
+        <a href="#d20"><span class="dn-date">20 Dec</span><span class="dn-label">Day Two</span></a>
+        <a href="#d21"><span class="dn-date">21 Dec</span><span class="dn-label">Day Three</span></a>
+        <a href="#d22"><span class="dn-date">22 Dec</span><span class="dn-label">Day Four</span></a>
+        <a href="#d23"><span class="dn-date">23 Dec</span><span class="dn-label">Departure</span></a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="day textonly" id="d18">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Friday 18 December &middot; Arrival</span>
+        <h2>Landing, and Welcome to Korea</h2>
+      </div>
+
+      <div class="moment no-shot">
+        <time>17:10</time>
+        <div>
+          <h3>Incheon International</h3>
+          <p>Your driver is waiting in the arrivals hall before you land, holding a card with your name.</p>
+        </div>
+      </div>
+
+      <div class="moment no-shot">
+        <time>Evening</time>
+        <div>
+          <h3>To Park Hyatt Seoul</h3>
+          <p>A little under an hour into the city in a Mercedes-Benz limousine, with water, warm blankets and chargers already waiting in the car, and then check in at the hotel.</p>
+          <p>The remainder of the evening I have deliberately left open, as much depends upon the hour you clear the airport and how the family is faring after the flight. Should you wish for a restaurant near the Park Hyatt, or something quiet sent up to the room, you need only say and it will be arranged.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="day" id="d19">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Saturday 19 December &middot; Day One</span>
+        <h2>Namsan and Myeongdong, All Together</h2>
+      </div>
+
+      <div class="moment">
+        <time>Morning</time>
+        <div>
+          <h3>Up to Namsan Tower</h3>
+          <p>While the city is still cool and the light at its clearest, up to Namsan Tower, and the view that gathers the whole of Seoul into a single horizon.</p>
+        </div>
+        <img class="shot" src="images/namsan.jpg" alt="Namsan Seoul Tower against a bright sky">
+      </div>
+
+      <div class="moment">
+        <time>Lunch</time>
+        <div>
+          <h3>Bibimbap</h3>
+          <p>At a small Michelin Guide recommended bibimbap house near Namsan.</p>
+        </div>
+        <img class="shot" src="images/bibimbap.jpg" alt="A traditional bibimbap spread at a Michelin Guide recommended restaurant near Namsan">
+      </div>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>Myeongdong, and Glasses for Your Daughter</h3>
+          <p>From lunch, out along the streets of Myeongdong, where Korean cosmetics, fashion and street food appear at every turn.</p>
+          <p>This is also where your daughter's glasses will be arranged. A full eye examination, frames chosen at her own pace, and the lenses cut and fitted within half an hour, with English spoken throughout.</p>
+        </div>
+        <img class="shot" src="images/myeongdong.jpg" alt="Myeongdong shopping street in Seoul, lined with signs and storefronts">
+      </div>
+
+      <div class="moment">
+        <time>Late Afternoon</time>
+        <div>
+          <h3>Animal Cafe, for the Family</h3>
+          <p>All four of you together, at an animal cafe close by, with coffee, something sweet, and an unhurried hour before dinner.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/11121053/pexels-photo-11121053.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A cat lounging in a cozy Myeongdong animal cafe">
+      </div>
+
+      <div class="moment">
+        <time>Evening</time>
+        <div>
+          <h3>Cheese Dakgalbi</h3>
+          <p>Dinner together, chicken stir fried at the table and drawn through a ring of melted cheese. It is a meal made with the hands and shared between everyone, and it is often the one families remember most.</p>
+        </div>
+        <img class="shot" src="images/dakgalbi.jpg" alt="Cheese dakgalbi, stir fried chicken ringed with melted cheese">
+      </div>
+
+      <p class="note">Namsan and Myeongdong sit close to one another, so once your driver sets you down the whole day is walkable, and the four of you stay together from morning to dinner.</p>
+    </div>
+  </section>
+
+  <section class="day" id="d20">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Sunday 20 December &middot; Day Two</span>
+        <h2>Hanbok, the Palace, and the Old City</h2>
+      </div>
+
+      <div class="moment">
+        <time>Morning</time>
+        <div>
+          <h3>Private Hanbok Fitting</h3>
+          <p>Your driver brings the family to a hanbok house beside the palace, where each of you is fitted for traditional Korean dress, the colours chosen together.</p>
+        </div>
+        <img class="shot top" src="images/hanbok-family.jpg" alt="A family of four in traditional hanbok at a Korean palace">
+      </div>
+
+      <div class="moment">
+        <time>Late Morning</time>
+        <div>
+          <h3>Gyeongbokgung Palace</h3>
+          <p>In hanbok, through Korea's grandest palace, dressed as part of the scene. You arrive for the changing of the guard at ten, and afterwards have the grounds at the quietest hour of a December morning.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
+      </div>
+
+      <div class="moment no-shot">
+        <time>Optional</time>
+        <div>
+          <h3>A Private Photographer, for an Hour</h3>
+          <p>A photographer who works within the palace grounds often and knows precisely where the light falls at that time of morning, accompanying the family while you are in hanbok. The edited images follow afterwards.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <time>Lunch</time>
+        <div>
+          <h3>Sotbap</h3>
+          <p>Rice cooked to order in its own iron pot and brought to the table still steaming, with side dishes set around it. A short walk from the palace. Most places serve grilled meat alongside, bulgogi among them, so your son can choose what he wants, and I will send you a few options.</p>
+        </div>
+        <img class="shot" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sotbap.jpg?width=900" alt="Sotbap, rice cooked and served in its own iron pot with side dishes">
+      </div>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>Ikseondong, and a Traditional Tea House</h3>
+          <p>Narrow hanok lanes a few minutes east of the palace, now given over to tea rooms and small bakeries. We settle into a traditional tea house for sweet rice confections and warm barley tea, and <a href="https://maps.app.goo.gl/3NRRFsLaXopwXd3K7" target="_blank" rel="noopener">the salt bread your friends recommended</a> is made a few doors along, so you can have both without walking far.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/6896969/pexels-photo-6896969.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Narrow hanok lanes in central Seoul">
+      </div>
+
+      <div class="moment">
+        <time>Evening</time>
+        <div>
+          <h3>Korean Barbecue, Hanwoo</h3>
+          <p>Grilled at your own table and wrapped, leaf by leaf, in lettuce. Hanwoo is Korea's native breed of cattle, raised in small numbers and prized for its marbling, and this is the refined version of the meal: beef only, in a quiet room, cut and turned for you as it cooks. It is what I would choose for an occasion, and it asks nothing of the children beyond sitting down.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/18426526/pexels-photo-18426526.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Korean barbecue grilling at the center of the table">
+      </div>
+
+      <p class="note">A note on the order of this day. Gyeongbokgung closes at five in December, so the palace comes before lunch while the light is still good. Ikseondong sits a few minutes east and your dinner is there as well, so the whole afternoon and evening belong to one neighbourhood and you walk between everything. The changing of the guard falls at ten, and you will be there for it. I build each day around a single area for this reason, to keep you out of traffic. If you would prefer to split a day differently, an outdoor morning and an indoor afternoon, tell me and I will rearrange it.</p>
+    </div>
+  </section>
+
+  <section class="day" id="d21">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Monday 21 December &middot; Day Three</span>
+        <h2>A Day That Belongs to the Children</h2>
+      </div>
+
+      <div class="moment">
+        <time>10:00</time>
+        <div>
+          <h3>Through the Gates as They Open</h3>
+          <p>Lotte World opens at ten and stands fifteen minutes from your hotel, so you are inside before the queues gather, which does more for this day than anything else I could arrange. The park sits beneath an immense glass dome, warm and full of light whatever December is doing outside.</p>
+        </div>
+        <img class="shot" src="images/lotte-world.jpg" alt="The glass domed indoor park at Lotte World, with the ice rink below">
+      </div>
+
+      <div class="moment">
+        <time>11:00</time>
+        <div>
+          <h3>Onto the Ice</h3>
+          <p>A full ice rink lies three floors below, opening at eleven on a December weekday. Skates are hired there, and with the glass dome directly overhead you have the daylight of an outdoor rink and none of the cold.</p>
+        </div>
+        <img class="shot" src="images/ice-rink.jpg" alt="The indoor ice rink at Lotte World">
+      </div>
+
+      <div class="moment no-shot">
+        <time>Lunch</time>
+        <div>
+          <h3>Inside the Park</h3>
+          <p>The park holds no shortage of places to eat, from snack counters to proper restaurants, and my recommendation is to leave this one unreserved. Stop wherever suits the children at the moment they are hungry, which on a day such as this is rarely the hour one anticipates.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>Indoors, All of It</h3>
+          <p>There is an outdoor section, Magic Island, set out on the lake with the castle and the larger rides. I would leave it aside. Seoul in late December sits below freezing most days, and queueing in that with two children brings a good day to an early close. Everything worth your time is beneath the dome.</p>
+          <p>Should time and energy allow, everything else sits within the same complex and requires no step outdoors. The aquarium, entirely indoors. And in the mall alongside, the <a href="https://maps.app.goo.gl/2UySLmNGKeV7TfPP6" target="_blank" rel="noopener">indoor sports arcade</a> and the <a href="https://maps.app.goo.gl/MNFvvkYgwxBPWoQMA" target="_blank" rel="noopener">children's cafe</a> your friends recommended, both a few minutes from the park gates.</p>
+        </div>
+        <img class="shot" src="images/aquarium-capybara.jpg" alt="A capybara swimming at Lotte World Aquarium">
+      </div>
+
+      <div class="moment">
+        <time>Evening</time>
+        <div>
+          <h3>A Casual Dinner in the Tower</h3>
+          <p>After a day of rides, something easy. The floors of Lotte World Tower hold a great many relaxed places to eat, and you never need to put on a coat. Korean fried chicken is the obvious answer and a very good one, double fried so the skin stays crisp under the glaze, and the dish children tend to ask for twice. I will send you a few to choose from.</p>
+        </div>
+        <img class="shot" src="images/fried-chicken.jpg" alt="Korean fried chicken, double fried and glazed">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="day" id="d22">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Tuesday 22 December &middot; Day Four</span>
+        <h2>The Museum, a Market, and an Afternoon for You</h2>
+      </div>
+
+      <div class="moment">
+        <time>Morning</time>
+        <div>
+          <h3>The National Museum of Korea, Privately Guided</h3>
+          <p>An English speaking guide who knows this museum well, for two hours or so across the collections that most reward a visit, at a pace set by the children.</p>
+        </div>
+        <img class="shot" src="images/national-museum.jpg" alt="The National Museum of Korea at dusk, seen across the reflecting pool">
+      </div>
+
+      <div class="moment">
+        <time>Lunch</time>
+        <div>
+          <h3>Gwangjang Market</h3>
+          <p>One of the oldest markets in Seoul and still a working one, with a covered food alley at its centre where the stalls have been run by the same families for generations. It is loud, warm and entirely indoors, and it is the most Korean hour of the week.</p>
+          <p>The stalls change hands and hours often enough that the best way in is to know what to look for, then sit wherever looks good. Bindaetteok, the mung bean pancake ground and fried in front of you, is the one the market is known for. Mayak gimbap, small rolls with a mustard dipping sauce, are easy for children. Mandu and tteokbokki are close by, and yukhoe, seasoned raw beef, is the local favourite for the adults.</p>
+        </div>
+        <img class="shot" src="https://commons.wikimedia.org/wiki/Special:FilePath/Korean%20pancakes%20and%20pan-fried%20foods%20at%20Gwangjang%20Market.jpg?width=900" alt="Trays of Korean pancakes and pan fried foods at a Gwangjang Market stall">
+      </div>
+
+      <div class="moment">
+        <time>Afternoon</time>
+        <div>
+          <h3>A K-Beauty Facial, Close to the Hotel</h3>
+          <p>While the children rest at the hotel, a facial at a Gangnam salon a short drive from the Park Hyatt, so there is no need to go back across the city. Aqua peel, a calming mask, LED and lymphatic drainage. Doug is very welcome to come with you.</p>
+        </div>
+        <img class="shot" src="https://images.pexels.com/photos/6187305/pexels-photo-6187305.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A calming facial treatment in a tranquil Seoul salon">
+      </div>
+
+      <div class="moment">
+        <time>Evening</time>
+        <div>
+          <h3>COEX, the Starfield Library, and Dinner</h3>
+          <p>You meet the family at COEX, five minutes from the hotel and entirely indoors. At its centre sits the Starfield Library, an open hall with bookshelves rising the full height of it and reading tables beneath. It costs nothing to walk in, it is warm, and it is the most photographed room in Gangnam for good reason. A quarter of an hour there before dinner is enough, and the children will want the photograph.</p>
+          <p>Dinner is Korean barbecue, inside the same complex, so the evening ends without anyone putting on a coat again. There are a good many options here at quite different levels, and I will send you a short list to choose from nearer the time, with one held as the default so that nothing is left undecided.</p>
+          <p>If the final skincare shopping is still outstanding, this is the easiest place in the city to finish it, and I will send a current list before you fly.</p>
+        </div>
+        <img class="shot" src="https://commons.wikimedia.org/wiki/Special:FilePath/Starfield_Library_COEX_20240218.jpg?width=900" alt="The Starfield Library at COEX, its shelves rising the full height of the hall">
+      </div>
+
+      <p class="note">This day is deliberately the gentlest of the four. The museum is warm and unhurried, Gwangjang is ten minutes from it, and everything after lunch sits within a short drive of your hotel. The salon is close enough that the afternoon costs you very little travelling, and the children are never far away.</p>
+    </div>
+  </section>
+
+  <section class="day textonly" id="d23">
+    <div class="wrap">
+      <div class="day-head">
+        <span class="eyebrow">Wednesday 23 December &middot; Departure</span>
+        <h2>On to Japan</h2>
+      </div>
+
+      <div class="moment no-shot">
+        <time>To Incheon</time>
+        <div>
+          <h3>Airport Drop Off</h3>
+          <p>Korean Air KE769, departing Incheon at 1:00 in the afternoon and arriving in Sapporo New Chitose at 3:45. Your driver collects you from the hotel and takes you to Incheon with time held in hand, and I will confirm the collection time with you closer to the date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="included">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Every Day, Included</span>
+        <h2>What Travels With You</h2>
+      </div>
+      <div class="included-grid">
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.4V13l1.5-4a2 2 0 011.9-1.3h9.2A2 2 0 0118.5 9l1.5 4v3.4"/><path d="M4 16.4h16M6.6 16.4v1.7M17.4 16.4v1.7"/><circle cx="7.3" cy="16.4" r="1.3"/><circle cx="16.7" cy="16.4" r="1.3"/></svg>
+          <h4>Private Driver</h4>
+          <p>One of Seoul's most highly rated chauffeurs, in a Mercedes-Benz limousine, with you throughout your stay, day or night.</p>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M12 7.2v5l3.4 2"/></svg>
+          <h4>24 Hour Concierge</h4>
+          <p>A single point of contact in Korea, reachable by message or call at any hour, for whatever may arise.</p>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3v6.5a1.5 1.5 0 003 0V3M9 3v18"/><path d="M16.5 3c-1.6 0-2.5 1.6-2.5 4s.9 4 2.5 4V21"/></svg>
+          <h4>Restaurant Recommendations</h4>
+          <p>Chosen and tailored to your family's journey as it unfolds.</p>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12.5l19-8-8 19-2.6-8.4z"/></svg>
+          <h4>Airport Pickup &amp; Drop Off</h4>
+          <p>So that the journey begins and ends without a single arrangement left to you.</p>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.7C5 7 7 5 9.6 5c1.4 0 2.7.7 3.4 1.9A4 4 0 0116.4 5C19 5 21 7 21 10.3 21 15.6 12 20 12 20z"/></svg>
+          <h4>A Bespoke Itinerary</h4>
+          <p>Designed entirely around a family travelling with two children.</p>
+        </div>
+        <div class="included-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h10.5A1.5 1.5 0 0118 6v13.5L14.5 17 11 19.5 7.5 17 4 19.5V6A1.5 1.5 0 016 4.5z"/><path d="M7.5 8.5h7M7.5 11.5h7M7.5 14.5h4"/></svg>
+          <h4>Journey Briefing</h4>
+          <p>Each evening, a full briefing for the day to come, sent however you prefer it, by message or email, with a map of every location should you wish.</p>
+        </div>
+      </div>
+      <p class="note">On your daughter's nut allergy. Should you wish me to take on the restaurant reservations, I will put it to every kitchen in writing and in Korean well before you arrive, and I will choose places and dishes in which nuts play little part. I should also be candid with you. Pine nuts appear in more Korean dishes than any menu will declare, and sesame oil is present in very nearly everything, so how freely we are able to move will depend upon where her tolerance sits.</p>
+    </div>
+  </section>
+
+  <section id="closing">
+    <div class="wrap">
+      <span class="eyebrow">Your December in Seoul</span>
+      <h2>Tell Me What You Would Change</h2>
+      <p>Nothing here is fixed. Move a day, remove something, add whatever the children have been asking for, and I will reshape the rest around it.</p>
+      <div class="cta-row">
+        <a href="https://cal.com/ie-um/30min" target="_blank" rel="noopener" class="btn solid">Book a Call</a>
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=contact@ie-um.com&amp;su=Our%20Seoul%20Journey" target="_blank" rel="noopener" class="btn">Reply by Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>IEUM Concierge &middot; Prepared privately &middot; Not for distribution</footer>
+</div>
+
+<script>
+  const PASSWORD = 'IEUMSAI2026';
+  const gate = document.getElementById('gate');
+  const content = document.getElementById('content');
+  const input = document.getElementById('gate-input');
+  const submit = document.getElementById('gate-submit');
+  const error = document.getElementById('gate-error');
+
+  function unlock() {
+    gate.style.display = 'none';
+    content.style.display = 'block';
+    sessionStorage.setItem('ieum-sai-v4-unlocked', '1');
+  }
+
+  if (sessionStorage.getItem('ieum-sai-v4-unlocked') === '1') {
+    unlock();
+  }
+
+  function tryUnlock() {
+    if (input.value.trim().toUpperCase() === PASSWORD) {
+      unlock();
+    } else {
+      error.classList.add('show');
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  submit.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+</script>
+</body>
+</html>
