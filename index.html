@@ -1005,22 +1005,26 @@
     prev.disabled = rail.scrollLeft <= 2;
     next.disabled = rail.scrollLeft >= max() - 2;
   }
-  /* Animated by hand. scrollBy with behavior smooth is ignored in some
-     browsers and under reduced motion, which left the arrows doing nothing. */
+  /* Animated by hand: scrollBy with behavior smooth is ignored under reduced
+     motion and in some environments. A timer backstop sets the final position
+     outright if requestAnimationFrame never runs, so the arrows cannot no-op. */
   function glide(to) {
     to = Math.max(0, Math.min(to, max()));
     if (still) { rail.scrollLeft = to; sync(); return; }
     if (busy) return;
     busy = true;
-    var from = rail.scrollLeft, span = to - from, t0 = null, ms = 420;
+    var from = rail.scrollLeft, span = to - from, t0 = null, ms = 420, done = false;
+    function finish() { if (done) return; done = true; busy = false; rail.scrollLeft = to; sync(); }
     function frame(t) {
+      if (done) return;
       if (t0 === null) t0 = t;
       var p = Math.min(1, (t - t0) / ms);
       var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
       rail.scrollLeft = from + span * e;
-      if (p < 1) { requestAnimationFrame(frame); } else { busy = false; sync(); }
+      if (p < 1) requestAnimationFrame(frame); else finish();
     }
     requestAnimationFrame(frame);
+    setTimeout(finish, ms + 120);
   }
 
   prev.addEventListener('click', function () { glide(rail.scrollLeft - step()); });
