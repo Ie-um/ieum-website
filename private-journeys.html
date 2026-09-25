@@ -356,6 +356,41 @@
     .cc-btn{flex:1 1 auto;text-align:center}
     .cc-panel{padding:28px 24px}
   }
+
+  /* photo-led layout */
+  .pj-band{width:100%;height:clamp(300px,52vh,560px);background-size:cover;background-position:center 60%}
+  .pj-split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto}
+  .pj-split .pj-txt h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin:16px 0 22px;text-wrap:balance}
+  .pj-split .pj-txt p{font-size:.98rem;color:#4A4A43;margin-bottom:18px}
+  .pj-split .pj-txt p:last-child{margin-bottom:0}
+  .pj-split .pj-txt strong{font-weight:400;color:var(--ink)}
+  .pj-shot{aspect-ratio:4/5;background-size:cover;background-position:center;background-color:var(--ivory)}
+  .pcards{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1100px;margin:0 auto}
+  .pcards.three{grid-template-columns:repeat(3,1fr)}
+  .pcard{display:block;color:inherit}
+  .pcard .pimg{aspect-ratio:4/5;background-size:cover;background-position:center;background-color:var(--paper);transition:opacity .5s}
+  .pcards.three .pimg{aspect-ratio:3/2}
+  a.pcard:hover .pimg{opacity:.88}
+  .pcard .n{display:block;margin-top:18px;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--jade)}
+  .pcard h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:8px 0 8px}
+  .pcard p{font-size:.86rem;color:#5A5A52;line-height:1.7}
+  .pcard .more{display:inline-block;margin-top:12px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
+  #occasions{background:var(--paper)}
+  #retreats{background:var(--ivory)}
+  .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;max-width:1100px;margin:0 auto}
+  .steps4 .n{font-family:var(--display);font-style:italic;font-size:1.9rem;color:var(--jade);opacity:.5;line-height:1}
+  .steps4 h3{font-family:var(--display);font-weight:400;font-size:1.25rem;margin:14px 0 10px}
+  .steps4 p{font-size:.88rem;color:#4A4A43}
+  footer .photo-credit{margin-top:14px;font-size:.52rem;letter-spacing:.22em;color:#6F887C;text-transform:none}
+  @media (max-width:900px){
+    .pj-split{grid-template-columns:1fr;gap:36px}
+    .pcards,.pcards.three{grid-template-columns:1fr 1fr;gap:22px}
+    .steps4{grid-template-columns:1fr 1fr;gap:28px}
+  }
+  @media (max-width:560px){
+    .pcards,.pcards.three,.steps4{grid-template-columns:1fr}
+    .pcard .pimg,.pcards.three .pimg{aspect-ratio:3/2}
+  }
 </style>
 </head>
 <body>
@@ -395,17 +430,20 @@
   </div>
 </header>
 
+<div class="pj-band" role="img" aria-label="Autumn mountains and granite peaks in Korea" style="background-image:url('images/mountain-valley.jpg')"></div>
+
 <section id="intro">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">The Idea</p>
-      <h2>What a private journey with IEUM actually means</h2>
-    </div>
-    <div class="prose reveal">
-      <p>Most travel to Korea follows the same handful of paths. The palaces, the shopping districts, the restaurants that appear on every list. Those places are worth seeing, and we will take you to them. But a private journey is built the other way around, starting with you.</p>
-      <p>Before anything is booked, we want to understand how you travel. Whether mornings are for slow breakfasts or early starts. Whether you want a skincare clinic in Gangnam or a temple stay in the mountains. Whether you are traveling with children, with a partner, or entirely alone and glad of it. Every itinerary we design begins with that conversation, and nothing is copied from the last one.</p>
-      <p>What follows is a journey where the logistics disappear. A driver who knows where to be. A table held at a restaurant that does not take online reservations. A guide who can explain why a particular hanok was built facing that direction. And a single point of contact who answers when something changes, because something always does.</p>
-      <p><strong>We work across the whole of Korea, not only Seoul</strong>, in every season, for stays from a few days to a few weeks.</p>
+    <div class="pj-split reveal">
+      <div class="pj-txt">
+        <p class="eyebrow">The Idea</p>
+        <h2>A journey that is yours alone</h2>
+        <p>Most travel to Korea follows the same few paths. We will take you to the places worth seeing, and then further, to the Korea most visitors never reach.</p>
+        <p>Before anything is booked, we learn how you travel: slow mornings or early starts, a skincare clinic in Gangnam or a temple in the mountains, a first visit or a return.</p>
+        <p>Then the logistics disappear. A driver who knows where to be, a table that does not take online reservations, a guide who explains what you are looking at.</p>
+        <p><strong>Across the whole of Korea, not only Seoul</strong>, in every season, for a few days or a few weeks.</p>
+      </div>
+      <div class="pj-shot" role="img" aria-label="A restored hanok with tiled roofs and wooden doors" style="background-image:url('images/about-sangchonjae.jpg')"></div>
     </div>
   </div>
 </section>
@@ -457,56 +495,45 @@
     <div class="section-head reveal">
       <p class="eyebrow">Themed Journeys</p>
       <h2>Wellness at the centre, always</h2>
-      <p>Every journey is built around rest. These are the worlds we weave through it, in whatever combination suits you.</p>
+      <p>Every journey is built around rest, woven through the worlds below in whatever combination suits you.</p>
     </div>
-    <div class="theme-grid pair reveal">
-      <div class="theme-card">
-        <span class="n">i.</span>
-        <h3>Wellness</h3>
-        <p>Temple stays in the mountains, hot spring towns, jjimjilbang bathhouse traditions, and the quieter regions where Koreans themselves go to rest, from Seoraksan to Jeju.</p>
-      </div>
-      <div class="theme-card">
-        <span class="n">ii.</span>
-        <h3>Culture</h3>
-        <p>Hanbok at the palaces, artisan workshops with makers still practising inherited techniques, and private museum visits with an expert guide.</p>
-      </div>
-      <div class="theme-card">
-        <span class="n">iii.</span>
-        <h3>Beauty</h3>
-        <p>Hanbang facials rooted in Korean herbal medicine, dermatology clinics for non invasive treatment, and the styling studios behind Korea's best known faces. See also our <a href="guides/luxury-shopping-in-seoul">guide to luxury shopping in Seoul</a>.</p>
-      </div>
-      <div class="theme-card">
-        <span class="n">iv.</span>
-        <h3>Cuisine</h3>
-        <p>Tables that do not take online reservations, royal cuisine cooking classes, market mornings, and the restaurants Koreans book months ahead.</p>
-      </div>
+    <div class="pcards reveal">
+      <div class="pcard"><div class="pimg" role="img" aria-label="An outdoor hot spring pool among trees and mountains" style="background-image:url('images/hot-spring.jpg')"></div><span class="n">i.</span><h3>Wellness</h3><p>Temple stays, hot spring towns, bathhouse traditions and the quiet regions where Koreans go to rest.</p></div>
+      <div class="pcard"><div class="pimg" role="img" aria-label="Hands inlaying mother of pearl in a traditional craft workshop" style="background-image:url('images/pj-craft.jpg')"></div><span class="n">ii.</span><h3>Culture</h3><p>Hanbok at the palaces, workshops with master artisans and private museum visits with an expert guide.</p></div>
+      <div class="pcard"><div class="pimg" role="img" aria-label="A Seoul beauty studio lit by rows of round bulbs" style="background-image:url('images/beauty-town.jpg')"></div><span class="n">iii.</span><h3>Beauty</h3><p>Hanbang facials, dermatology clinics for non invasive care and the styling studios behind Korea's best known faces. See our <a href="guides/luxury-shopping-in-seoul">Seoul shopping guide</a>.</p></div>
+      <div class="pcard"><div class="pimg" role="img" aria-label="A traditional Korean table set with brass bowls and side dishes" style="background-image:url('images/pj-table.jpg')"></div><span class="n">iv.</span><h3>Cuisine</h3><p>Tables that do not take online reservations, royal cuisine classes, market mornings and restaurants booked months ahead.</p></div>
     </div>
+  </div>
+</section>
 
-    <div class="section-head sub reveal">
+<section id="occasions">
+  <div class="wrap">
+    <div class="section-head reveal">
       <p class="eyebrow">Occasions</p>
       <h2>Whatever shape your trip takes</h2>
       <p>Who you travel with changes the pacing and the planning. It never changes the principle.</p>
     </div>
-    <div class="theme-grid reveal">
-      <div class="theme-card">
-        <span class="n">i.</span>
-        <h3><a href="journeys/family-travel">Family Journeys</a></h3>
-        <p>Built for traveling with children, including days that split so parents and children each get their own, and everything from dietary needs to pace handled in advance.</p>
-        <a class="card-more" href="journeys/family-travel">Explore family journeys</a>
-      </div>
-      <div class="theme-card">
-        <span class="n">ii.</span>
-        <h3><a href="journeys/milestone-journeys">Milestone Journeys</a></h3>
-        <p>Proposals, anniversaries, and birthdays. Photographers, private dining, and the staging that turns an occasion into something recorded.</p>
-        <a class="card-more" href="journeys/milestone-journeys">Explore milestone journeys</a>
-      </div>
-      <div class="theme-card">
-        <span class="n">iii.</span>
-        <h3>Solo and Couple Journeys</h3>
-        <p>Time away with no schedule to negotiate. Days that stay open, meals taken slowly, and the freedom to change your mind on the morning.</p>
-      </div>
+    <div class="pcards three reveal">
+      <a class="pcard" href="journeys/family-travel"><div class="pimg" role="img" aria-label="A family of four in hanbok at a Korean palace" style="background-image:url('images/fam-hanbok.jpg');background-position:center 25%"></div><span class="n">i.</span><h3>Family Journeys</h3><p>Planned around children and grandparents, with dietary needs and pace handled in advance.</p><span class="more">Explore family journeys</span></a>
+      <a class="pcard" href="journeys/milestone-journeys"><div class="pimg" role="img" aria-label="A couple in hanbok walking down a traditional street" style="background-image:url('https://images.unsplash.com/photo-1766662538843-09bd927536ce?w=900&h=1100&q=80&fm=jpg&fit=crop')"></div><span class="n">ii.</span><h3>Milestone Journeys</h3><p>Proposals, anniversaries, honeymoons and birthdays, staged with care and kept discreet.</p><span class="more">Explore milestone journeys</span></a>
+      <div class="pcard"><div class="pimg" role="img" aria-label="An old stone bridge framing a pavilion in autumn" style="background-image:url('images/temple-bridge.jpg')"></div><span class="n">iii.</span><h3>Solo and Couple Journeys</h3><p>Time away with no schedule to negotiate. Open days, slow meals and the freedom to change your mind.</p></div>
     </div>
     <p class="audience reveal">We work most often with travelers from Europe, the United States, and Latin America. Everything is delivered in English and Korean, with French and Spanish speaking guides arranged on request.</p>
+  </div>
+</section>
+
+<section id="retreats">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Signature Journeys</p>
+      <h2>Curated seasonal retreats</h2>
+      <p>Three journeys we return to, each one a starting point to shape around you.</p>
+    </div>
+    <div class="pcards three reveal">
+      <a class="pcard" href="journeys/temple-cuisine"><div class="pimg" role="img" aria-label="A full temple meal laid out on a wooden table" style="background-image:url('images/tc-spread.jpg')"></div><span class="n">Taste</span><h3>Plant-Based Culinary Retreat</h3><p>Korean temple cuisine in the mountain temples where it is made.</p><span class="more">Explore</span></a>
+      <a class="pcard" href="journeys/autumn-foliage"><div class="pimg" role="img" aria-label="A temple bell pavilion among autumn maples" style="background-image:url('images/au-bell.jpg')"></div><span class="n">See</span><h3>Autumn Foliage Retreat</h3><p>Mountain hiking, forest therapy and hot springs as the leaves turn.</p><span class="more">Explore</span></a>
+      <a class="pcard" href="journeys/sound-and-craft"><div class="pimg" role="img" aria-label="A gayageum being played" style="background-image:url('images/sound-gayageum.jpg')"></div><span class="n">Hear</span><h3>Restorative Sound Retreat</h3><p>Traditional instruments, stillness and rest for tired ears.</p><span class="more">Explore</span></a>
+    </div>
   </div>
 </section>
 
@@ -516,35 +543,11 @@
       <p class="eyebrow">The Process</p>
       <h2>How your journey comes together</h2>
     </div>
-    <div class="steps reveal">
-      <div class="step">
-        <span class="n">i.</span>
-        <div>
-          <h3>A conversation</h3>
-          <p>We begin with a call, usually half an hour. We ask about the trip you have in mind, who is traveling, what you have already seen of Korea, and what you would rather avoid. Most of the useful detail comes out of what people mention in passing.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="n">ii.</span>
-        <div>
-          <h3>A designed itinerary</h3>
-          <p>We build your journey day by day and send it to you as a private page, with each day laid out, the reasoning behind the pacing explained, and photographs of the places you will actually go. You see exactly what your trip will feel like before you commit to any of it.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="n">iii.</span>
-        <div>
-          <h3>Refinement</h3>
-          <p>Nothing is fixed on the first draft. You tell us what you love and what you would change, and we rebuild around it. This usually takes a round or two, and we would rather you say so now than be politely disappointed later.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="n">iv.</span>
-        <div>
-          <h3>Your journey</h3>
-          <p>Once confirmed, we secure every reservation, driver, and experience. Each evening of your trip you receive a briefing for the following day, sent however you prefer, and we remain reachable throughout your stay.</p>
-        </div>
-      </div>
+    <div class="steps4 reveal">
+      <div><span class="n">i.</span><h3>A conversation</h3><p>A short call about the trip you have in mind, who is traveling, and what you would rather avoid.</p></div>
+      <div><span class="n">ii.</span><h3>A designed itinerary</h3><p>Your journey day by day, as a private page with the reasoning behind the pacing and photographs of each place.</p></div>
+      <div><span class="n">iii.</span><h3>Refinement</h3><p>You tell us what you love and what you would change, and we rebuild around it, usually in a round or two.</p></div>
+      <div><span class="n">iv.</span><h3>Your journey</h3><p>Every reservation, driver and experience secured, a briefing each evening, and one contact reachable throughout.</p></div>
     </div>
   </div>
 </section>
@@ -566,6 +569,7 @@
   <div class="biz-info">
     <span>IEUM</span><span>Munsanro 61, Gwangju, South Korea</span><span>Business Reg. No. 219-30-14314</span>
   </div>
+  <p class="photo-credit">사진 출처 &copy;한국관광공사 &middot; Unsplash</p>
 </footer>
 
 <script>
