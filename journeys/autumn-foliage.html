@@ -293,8 +293,8 @@
 
 
 <section class="ehero">
-  <div class="eposter" style="background-image:url('../images/autumn-hero.jpg')" aria-hidden="true"></div>
-  <div id="ythero" aria-hidden="true"></div>
+  <div class="eposter" style="background-image:url('../images/autumn-hero-video.jpg')" aria-hidden="true"></div>
+  <video id="vh" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
 </section>
 
 <section class="etitle">
@@ -595,26 +595,13 @@
 })();
 </script>
 <script>
-/* Hyangiram hermitage, Korea Tourism Organization. Embedded, never downloaded,
-   and only once marketing consent is given. */
+/* Hyangiram hermitage, Yeosu. Footage ⓒKorea Tourism Organization. */
 (function () {
-  var ID='RHKz9CTTkEE', FROM=10, TO=15, player=null;
-  function consented(){try{var c=JSON.parse(localStorage.getItem('ieum-consent-v1'));return !!(c&&c.marketing);}catch(e){return false;}}
-  function start(){
-    if(player||!document.getElementById('ythero'))return;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    if(window.innerWidth<760)return;
-    if(!window.YT||!window.YT.Player){loadApi();return;}
-    player=new YT.Player('ythero',{videoId:ID,
-      playerVars:{autoplay:1,mute:1,controls:0,modestbranding:1,rel:0,playsinline:1,disablekb:1,fs:0,start:FROM},
-      events:{onReady:function(e){e.target.mute();e.target.playVideo();watch(e.target);},
-              onStateChange:function(e){if(e.data===YT.PlayerState.ENDED)e.target.seekTo(FROM);}}});
-  }
-  function watch(p){setInterval(function(){try{if(p.getCurrentTime()>=TO)p.seekTo(FROM);}catch(e){}},250);}
-  function loadApi(){if(document.getElementById('yt-api'))return;var s=document.createElement('script');s.id='yt-api';s.src='https://www.youtube.com/iframe_api';document.body.appendChild(s);window.onYouTubeIframeAPIReady=start;}
-  function check(){if(consented())start();}
-  check(); window.addEventListener('storage',check);
-  document.addEventListener('click',function(){setTimeout(check,300);});
+  var v = document.getElementById('vh');
+  if (!v) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  v.src = window.innerWidth < 900 ? '../images/autumn-hero-720.mp4' : '../images/autumn-hero.mp4';
+  v.load(); var g = v.play(); if (g && g.catch) g.catch(function(){});
 })();
 </script>
 </body>
