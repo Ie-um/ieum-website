@@ -182,8 +182,9 @@
   .why-copy p{font-size:.9rem;color:#4A4A43;max-width:58ch}
   .why-photo{width:108px;height:108px;border-radius:50%;flex-shrink:0;transition:transform .5s ease}
   .why-row:hover .why-photo{transform:scale(1.06)}
-  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
-  .about-grid .ph{aspect-ratio:4/5}
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:stretch}
+  .about-grid .ph{min-height:560px;height:100%}
+  @media (max-width:900px){.about-grid .ph{height:auto;min-height:0;aspect-ratio:4/5}}
   .about-copy h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:20px 0 26px}
   .about-copy p{color:#4A4A43;max-width:44ch}
   .about-copy p + p{margin-top:18px}
