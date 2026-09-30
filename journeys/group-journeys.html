@@ -241,6 +241,14 @@
   .sent.on{display:block}
   footer .photo-credit{margin-top:20px;font-size:.55rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E}
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
+  .esplit.wall .esplit-grid{align-items:stretch}
+  .ewall{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.2fr 1fr 1fr;gap:10px;min-height:560px}
+  .ewall div{background-size:cover;background-position:center;background-color:var(--ivory)}
+  .ewall .w1{grid-column:1;grid-row:1/3}
+  .ewall .w2{grid-column:2;grid-row:1}
+  .ewall .w3{grid-column:2;grid-row:2/4}
+  .ewall .w4{grid-column:1;grid-row:3}
+  @media (max-width:900px){.ewall{min-height:0;height:520px}}
 </style>
 <script type="application/ld+json">
 {
@@ -337,7 +345,7 @@
   </div>
 </section>
 
-<section class="esplit">
+<section class="esplit wall">
   <div class="wrap">
     <div class="esplit-grid">
       <div class="esplit-txt">
@@ -350,7 +358,12 @@
           <div><dt>For the occasion</dt><dd>A <a href="milestone-journeys" style="color:var(--jade)">milestone</a> birthday, an anniversary shared with friends, or a reunion years in the making, marked with a private dinner or an evening arranged for the group alone.</dd></div>
         </dl>
       </div>
-      <div class="eshot" role="img" aria-label="Cherry blossom in front of the painted eaves of a traditional Korean building in Seoul" style="background-image:url('https://images.unsplash.com/photo-1702738951020-9976bb22c576?w=1200&q=80&fm=jpg&fit=crop')"></div>
+      <div class="ewall">
+        <div class="w1" role="img" aria-label="Cherry blossom in front of the painted eaves of a traditional Korean building in Seoul" style="background-image:url('https://images.unsplash.com/photo-1702738951020-9976bb22c576?w=900&q=80&fm=jpg&fit=crop')"></div>
+        <div class="w2" role="img" aria-label="A Korean temple cuisine table set with seasonal dishes" style="background-image:url('../images/tc-spread.jpg')"></div>
+        <div class="w3" role="img" aria-label="A green golf course above the ocean on a bright day" style="background-image:url('https://images.unsplash.com/photo-1672825952732-ecef34882416?w=900&q=80&fm=jpg&fit=crop');background-position:center 70%"></div>
+        <div class="w4" role="img" aria-label="A tennis court seen from above among green trees" style="background-image:url('https://images.unsplash.com/photo-1499510318569-1a3d67dc3976?w=800&q=80&fm=jpg&fit=crop')"></div>
+      </div>
     </div>
   </div>
 </section>
