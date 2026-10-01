@@ -769,18 +769,24 @@
     if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
   }
   function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
-  var els=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
-  var vh=window.innerHeight||800;
-  var rest=[];
-  els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<vh*1.5 && r.bottom>-vh) load(el); else rest.push(el); });
-  if(!('IntersectionObserver' in window)){ rest.forEach(load); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'800px 0px 800px 800px'});
-  var groups=[];
-  rest.forEach(function(el){
-    var g=el.closest('.insp-rail');
-    if(g){ if(groups.indexOf(g)<0){ groups.push(g); var gio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ [].slice.call(g.querySelectorAll('[data-bg],[data-bgu]')).forEach(load); gio.disconnect(); } },{rootMargin:'800px 0px'}); gio.observe(g); } }
-    else io.observe(el);
-  });
+  var rest=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
+  var ticking=false;
+  function check(){
+    ticking=false;
+    var vh=window.innerHeight||800, ahead=Math.max(900,vh*1.2);
+    rest=rest.filter(function(el){
+      var box=el.closest('.insp-rail')||el;
+      var r=box.getBoundingClientRect();
+      if(r.top<vh+ahead && r.bottom>-ahead){ load(el); return false; }
+      return true;
+    });
+    if(!rest.length){ window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
+  }
+  function onScroll(){ if(!ticking){ ticking=true; setTimeout(check,60); } }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  window.addEventListener('load',check);
+  check();
 })();
 </script>
 </body>
