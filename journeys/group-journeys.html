@@ -305,7 +305,7 @@
 
 
 <section class="ehero">
-  <div class="eposter" role="img" aria-label="A royal pavilion on a pond at Gyeongbokgung Palace in Seoul under a clear autumn sky" style="background-image:url('https://images.unsplash.com/photo-1666670750287-176e3218ce12?w=2000&q=80&fm=jpg&fit=crop');background-position:center 55%"></div>
+  <div class="eposter" role="img" aria-label="A royal pavilion on a pond at Gyeongbokgung Palace in Seoul under a clear autumn sky" style="background-position:center 55%" data-bgu="https://images.unsplash.com/photo-1666670750287-176e3218ce12?w=2000&q=80&fm=jpg&fit=crop"></div>
 </section>
 
 <section class="etitle">
@@ -325,12 +325,12 @@
         <p>Every group journey is planned from the beginning around who is coming. Rooms are arranged together, private transport waits at every stage, and private dining rooms are reserved for the evenings that bring everyone back to the same table.</p>
         <p>One point of contact looks after the whole group before and during the journey, so no one has to be the organizer while you travel.</p>
       </div>
-      <div class="eshot" role="img" aria-label="Friends raising glasses of soju over a Korean dinner table" style="background-image:url('https://images.unsplash.com/photo-1590189182193-1fd44f2b4048?w=1400&q=80&fm=jpg&fit=crop');background-position:35% center"></div>
+      <div class="eshot" role="img" aria-label="Friends raising glasses of soju over a Korean dinner table" style="background-position:35% center" data-bgu="https://images.unsplash.com/photo-1590189182193-1fd44f2b4048?w=1400&q=80&fm=jpg&fit=crop"></div>
     </div>
   </div>
 </section>
 
-<div class="ebleed" role="img" aria-label="Haedong Yonggungsa temple on the rocky seaside of Busan under a bright sky" style="background-image:url('../images/busan-yonggungsa.jpg');background-position:center 60%"></div>
+<div class="ebleed" role="img" aria-label="Haedong Yonggungsa temple on the rocky seaside of Busan under a bright sky" style="background-position:center 60%" data-bg="../images/w/busan-yonggungsa"></div>
 
 <section class="esplit flip">
   <div class="wrap">
@@ -344,7 +344,7 @@
           <div><dt>A route of your own</dt><dd>Hot spring towns, mountain temples or a region your group has always wanted to see. Each route is drawn around the group, never taken from a template.</dd></div>
         </dl>
       </div>
-      <div class="eshot" role="img" aria-label="A waterfall pouring over dark volcanic cliffs on Jeju Island" style="background-image:url('https://images.unsplash.com/photo-1578112539335-1f41767fdbfc?w=1200&q=80&fm=jpg&fit=crop');background-position:center 40%"></div>
+      <div class="eshot" role="img" aria-label="A waterfall pouring over dark volcanic cliffs on Jeju Island" style="background-position:center 40%" data-bgu="https://images.unsplash.com/photo-1578112539335-1f41767fdbfc?w=1200&q=80&fm=jpg&fit=crop"></div>
     </div>
   </div>
 </section>
@@ -362,9 +362,9 @@
         </dl>
     </div>
     <div class="gallery">
-      <div class="sq" role="img" aria-label="Cherry blossom in front of the painted eaves of a traditional Korean building in Seoul" style="background-image:url('https://images.unsplash.com/photo-1702738951020-9976bb22c576?w=900&q=80&fm=jpg&fit=crop')"></div>
-      <div class="tall" role="img" aria-label="A Korean temple cuisine table set with seasonal dishes" style="background-image:url('../images/tc-spread.jpg')"></div>
-      <div class="sq" role="img" aria-label="A green golf course above the ocean on a bright day" style="background-image:url('https://images.unsplash.com/photo-1672825952732-ecef34882416?w=900&q=80&fm=jpg&fit=crop');background-position:center 70%"></div>
+      <div class="sq" role="img" aria-label="Cherry blossom in front of the painted eaves of a traditional Korean building in Seoul" data-bgu="https://images.unsplash.com/photo-1702738951020-9976bb22c576?w=900&q=80&fm=jpg&fit=crop"></div>
+      <div class="tall" role="img" aria-label="A Korean temple cuisine table set with seasonal dishes" data-bg="../images/w/tc-spread"></div>
+      <div class="sq" role="img" aria-label="A green golf course above the ocean on a bright day" style="background-position:center 70%" data-bgu="https://images.unsplash.com/photo-1672825952732-ecef34882416?w=900&q=80&fm=jpg&fit=crop"></div>
     </div>
   </div>
 </section>
@@ -377,7 +377,7 @@
         <p>Korea and Japan sit a short flight apart, and many groups choose to end their journey with a week across the sea. Korea remains the heart of the journey, and we can arrange a Japan extension to follow it, with the same care over transfers, stays and tables.</p>
         <p>Popular pairings include Tokyo and Kyoto, for temples, gardens and the old wooden streets of the former capital, or Tokyo and Osaka, for a livelier week built around food and the city at night.</p>
       </div>
-      <div class="eshot" role="img" aria-label="A five storied pagoda above a traditional street in Kyoto at sunset" style="background-image:url('https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?w=1200&q=80&fm=jpg&fit=crop')"></div>
+      <div class="eshot" role="img" aria-label="A five storied pagoda above a traditional street in Kyoto at sunset" data-bgu="https://images.unsplash.com/photo-1624253321171-1be53e12f5f4?w=1200&q=80&fm=jpg&fit=crop"></div>
     </div>
   </div>
 </section>
@@ -623,6 +623,31 @@
       f.querySelectorAll('.field, button').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
+  });
+})();
+</script>
+<script>
+/* Responsive, lazy background images: small WebP on phones, larger on desktop, loaded as they approach the screen. */
+(function(){
+  var mob=window.innerWidth<=900;
+  function src(el){
+    var b=el.getAttribute('data-bg');
+    if(b) return b+(mob?'-1000.webp':'-1800.webp');
+    var u=el.getAttribute('data-bgu');
+    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
+  }
+  function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
+  var els=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
+  var vh=window.innerHeight||800;
+  var rest=[];
+  els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<vh*1.5 && r.bottom>-vh) load(el); else rest.push(el); });
+  if(!('IntersectionObserver' in window)){ rest.forEach(load); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'800px 0px 800px 800px'});
+  var groups=[];
+  rest.forEach(function(el){
+    var g=el.closest('.insp-rail');
+    if(g){ if(groups.indexOf(g)<0){ groups.push(g); var gio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ [].slice.call(g.querySelectorAll('[data-bg],[data-bgu]')).forEach(load); gio.disconnect(); } },{rootMargin:'800px 0px'}); gio.observe(g); } }
+    else io.observe(el);
   });
 })();
 </script>

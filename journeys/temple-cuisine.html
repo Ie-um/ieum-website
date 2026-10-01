@@ -293,7 +293,7 @@
 
 
 <section class="ehero">
-  <div class="eposter" style="background-image:url('../images/tc-hero-poster.jpg')" aria-hidden="true"></div>
+  <div class="eposter" data-bg="../images/w/tc-hero-poster" aria-hidden="true"></div>
   <video id="vh" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
 </section>
 
@@ -314,12 +314,12 @@
         <p>This is a journey into that kitchen, to learn how it is made and to taste it where it is made. The food is extraordinary long before anyone explains why.</p>
         <p>For vegetarian and vegan travelers, it is also one of the best ways to eat in Korea, where so much of the everyday table is built on meat, fish sauce and anchovy broth.</p>
       </div>
-      <div class="eshot" role="img" aria-label="A dark bowl and spoon on a red lacquer tray" style="background-image:url('../images/tc-tray.jpg')"></div>
+      <div class="eshot" role="img" aria-label="A dark bowl and spoon on a red lacquer tray" data-bg="../images/w/tc-tray"></div>
     </div>
   </div>
 </section>
 
-<div class="ebleed" role="img" aria-label="A full temple meal laid out on a wooden table, seen from above" style="background-image:url('../images/tc-spread.jpg')"></div>
+<div class="ebleed" role="img" aria-label="A full temple meal laid out on a wooden table, seen from above" data-bg="../images/w/tc-spread"></div>
 
 <section class="esplit flip">
   <div class="wrap">
@@ -330,7 +330,7 @@
         <p>There is no meat and no fish. There is also no garlic, no onion, no spring onion and no chive, the five pungent vegetables held to stir appetite and agitation. Take all of that away and what remains has to carry the meal alone: mountain vegetables picked that week, and soy sauce, doenjang and gochujang fermented in earthenware jars in the temple courtyard, some of them older than the cook.</p>
         <p>A spoonful of a twenty year old soy sauce carries more depth than a modern kitchen can build in a day. Most people find they eat less than usual and feel better for longer.</p>
       </div>
-      <div class="eshot" role="img" aria-label="A temple cuisine dish plated as a lotus flower on red lacquer" style="background-image:url('../images/temple-cuisine-lotus.jpg')"></div>
+      <div class="eshot" role="img" aria-label="A temple cuisine dish plated as a lotus flower on red lacquer" data-bg="../images/w/temple-cuisine-lotus"></div>
     </div>
   </div>
 </section>
@@ -347,7 +347,7 @@
           <div><dt>Meditation and breath</dt><dd>A guided sitting and breathing practice, the discipline this cuisine was first made to serve, so the meal that follows is tasted with a settled mind.</dd></div>
         </dl>
       </div>
-      <div class="eshot" role="img" aria-label="Tea and small temple sweets on a low wooden table" style="background-image:url('../images/tc-tea.jpg')"></div>
+      <div class="eshot" role="img" aria-label="Tea and small temple sweets on a low wooden table" data-bg="../images/w/tc-tea"></div>
     </div>
   </div>
 </section>
@@ -603,6 +603,31 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   v.src = window.innerWidth < 900 ? '../images/tc-hero-720.mp4' : '../images/tc-hero.mp4';
   v.load(); var g = v.play(); if (g && g.catch) g.catch(function(){});
+})();
+</script>
+<script>
+/* Responsive, lazy background images: small WebP on phones, larger on desktop, loaded as they approach the screen. */
+(function(){
+  var mob=window.innerWidth<=900;
+  function src(el){
+    var b=el.getAttribute('data-bg');
+    if(b) return b+(mob?'-1000.webp':'-1800.webp');
+    var u=el.getAttribute('data-bgu');
+    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
+  }
+  function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
+  var els=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
+  var vh=window.innerHeight||800;
+  var rest=[];
+  els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<vh*1.5 && r.bottom>-vh) load(el); else rest.push(el); });
+  if(!('IntersectionObserver' in window)){ rest.forEach(load); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'800px 0px 800px 800px'});
+  var groups=[];
+  rest.forEach(function(el){
+    var g=el.closest('.insp-rail');
+    if(g){ if(groups.indexOf(g)<0){ groups.push(g); var gio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ [].slice.call(g.querySelectorAll('[data-bg],[data-bgu]')).forEach(load); gio.disconnect(); } },{rootMargin:'800px 0px'}); gio.observe(g); } }
+    else io.observe(el);
+  });
 })();
 </script>
 </body>

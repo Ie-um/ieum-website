@@ -293,7 +293,7 @@
 
 
 <section class="ehero">
-  <div class="eposter" style="background-image:url('../images/autumn-hero-video.jpg')" aria-hidden="true"></div>
+  <div class="eposter" data-bg="../images/w/autumn-hero-video" aria-hidden="true"></div>
   <video id="vh" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
 </section>
 
@@ -313,12 +313,12 @@
         <p>Korea's landscape is among the least known in Asia and among the most generous. For six weeks each autumn the mountains turn, valley by valley, and the best of it is found on foot in the early morning, then from a pavilion or a bench beside still water with nothing to do but look.</p>
         <p>The days are shaped around exactly that. A long walk while the light is low, and an unhurried afternoon given over to the view, with somewhere comfortable waiting at the end of it.</p>
       </div>
-      <div class="eshot" role="img" aria-label="A painted temple eave and bell against red maple at Baekyangsa" style="background-image:url('../images/au-bell.jpg')"></div>
+      <div class="eshot" role="img" aria-label="A painted temple eave and bell against red maple at Baekyangsa" data-bg="../images/w/au-bell"></div>
     </div>
   </div>
 </section>
 
-<div class="ebleed" role="img" aria-label="Low sun through orange maple, mirrored in still water at Baekyangsa" style="background-image:url('../images/au-sunburst.jpg')"></div>
+<div class="ebleed" role="img" aria-label="Low sun through orange maple, mirrored in still water at Baekyangsa" data-bg="../images/w/au-sunburst"></div>
 
 <section class="esplit flip">
   <div class="wrap">
@@ -328,7 +328,7 @@
         <p>For about six weeks a year the whole country turns, beginning on the northern ridges at the end of September and finishing in the palace gardens of Seoul in November. The colour travels south at its own pace and waits for nobody.</p>
         <p>So this journey is built to move. We watch the front from September, and the route approved in summer is not quite the route travelled. Being in the right valley in the right week is the entire trip, and it is the part that cannot be arranged from abroad.</p>
       </div>
-      <div class="eshot" role="img" aria-label="Two people on a bench beneath red maple, beside the still pond at Baekyangsa" style="background-image:url('../images/au-bench.jpg')"></div>
+      <div class="eshot" role="img" aria-label="Two people on a bench beneath red maple, beside the still pond at Baekyangsa" data-bg="../images/w/au-bench"></div>
     </div>
   </div>
 </section>
@@ -345,7 +345,7 @@
           <div><dt>Hot spring evenings</dt><dd>A long soak in mineral waters after a day in the mountains, at springs such as Cheoksan near Seoraksan or Onyang, among the oldest in Korea.</dd></div>
         </dl>
       </div>
-      <div class="eshot wide" role="img" aria-label="The crag above Baekyangsa framed by red and orange maple" style="background-image:url('../images/au-crag.jpg')"></div>
+      <div class="eshot wide" role="img" aria-label="The crag above Baekyangsa framed by red and orange maple" data-bg="../images/w/au-crag"></div>
     </div>
   </div>
 </section>
@@ -602,6 +602,31 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   v.src = window.innerWidth < 900 ? '../images/autumn-hero-720.mp4' : '../images/autumn-hero.mp4';
   v.load(); var g = v.play(); if (g && g.catch) g.catch(function(){});
+})();
+</script>
+<script>
+/* Responsive, lazy background images: small WebP on phones, larger on desktop, loaded as they approach the screen. */
+(function(){
+  var mob=window.innerWidth<=900;
+  function src(el){
+    var b=el.getAttribute('data-bg');
+    if(b) return b+(mob?'-1000.webp':'-1800.webp');
+    var u=el.getAttribute('data-bgu');
+    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
+  }
+  function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
+  var els=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
+  var vh=window.innerHeight||800;
+  var rest=[];
+  els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<vh*1.5 && r.bottom>-vh) load(el); else rest.push(el); });
+  if(!('IntersectionObserver' in window)){ rest.forEach(load); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'800px 0px 800px 800px'});
+  var groups=[];
+  rest.forEach(function(el){
+    var g=el.closest('.insp-rail');
+    if(g){ if(groups.indexOf(g)<0){ groups.push(g); var gio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ [].slice.call(g.querySelectorAll('[data-bg],[data-bgu]')).forEach(load); gio.disconnect(); } },{rootMargin:'800px 0px'}); gio.observe(g); } }
+    else io.observe(el);
+  });
 })();
 </script>
 </body>

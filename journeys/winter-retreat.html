@@ -305,7 +305,7 @@
 
 
 <section class="ehero">
-  <div class="eposter" role="img" aria-label="Baekhakbong peak glowing at sunrise above a snow covered temple pavilion and its reflection at Baekyangsa" style="background-image:url('../images/winter-hero.jpg');background-position:center 45%"></div>
+  <div class="eposter" role="img" aria-label="Baekhakbong peak glowing at sunrise above a snow covered temple pavilion and its reflection at Baekyangsa" style="background-position:center 45%" data-bg="../images/w/winter-hero"></div>
 </section>
 
 <section class="etitle">
@@ -325,12 +325,12 @@
         <p>The days are shaped around that rhythm. Crisp mornings outdoors in the snow, and long, warm afternoons indoors, in a hot spring, a hanok with heated ondol floors, or a kitchen where the year's kimchi is being made.</p>
         <p>From December through February, every journey is planned around the weather and the light, so each day meets the season at its best.</p>
       </div>
-      <div class="eshot" role="img" aria-label="A hanok village under the first snow of the year, seen from above" style="background-image:url('../images/winter-hanok.jpg');background-position:55% center"></div>
+      <div class="eshot" role="img" aria-label="A hanok village under the first snow of the year, seen from above" style="background-position:55% center" data-bg="../images/w/winter-hanok"></div>
     </div>
   </div>
 </section>
 
-<div class="ebleed" role="img" aria-label="Ulsanbawi rock and the snow covered ridges of Seoraksan under a clear blue sky" style="background-image:url('../images/winter-seorak.jpg');background-position:center 40%"></div>
+<div class="ebleed" role="img" aria-label="Ulsanbawi rock and the snow covered ridges of Seoraksan under a clear blue sky" style="background-position:center 40%" data-bg="../images/w/winter-seorak"></div>
 
 <section class="esplit flip">
   <div class="wrap">
@@ -340,7 +340,7 @@
         <p>The province of Gangwon holds the deepest snow in Korea and some of its finest winter days. Ski and snowboard at resorts such as Yongpyong, which hosted events at the 2018 Winter Olympics, or High1, or walk quieter trails in snowshoes with a private guide.</p>
         <p>Between runs there are high meadows such as those at Daegwallyeong, where sheep graze under the snow, and a hot meal waiting in a mountain town at the end of the day.</p>
       </div>
-      <div class="eshot" role="img" aria-label="Sheep on a snowy hillside at a ranch in Daegwallyeong under a bright blue sky" style="background-image:url('../images/winter-farm.jpg');background-position:40% center"></div>
+      <div class="eshot" role="img" aria-label="Sheep on a snowy hillside at a ranch in Daegwallyeong under a bright blue sky" style="background-position:40% center" data-bg="../images/w/winter-farm"></div>
     </div>
   </div>
 </section>
@@ -358,9 +358,9 @@
         </dl>
     </div>
     <div class="gallery">
-      <div class="sq" role="img" aria-label="Rows of earthenware sauce jars under snow at a historic house in Nonsan" style="background-image:url('../images/winter-jangdok.jpg')"></div>
-      <div class="tall" role="img" aria-label="Freshly made cabbage kimchi in a bowl" style="background-image:url('../images/winter-kimchi.jpg');background-position:center 60%"></div>
-      <div class="sq" role="img" aria-label="A maker tying blocks of meju in a traditional fermentation room" style="background-image:url('../images/winter-meju.jpg');background-position:70% center"></div>
+      <div class="sq" role="img" aria-label="Rows of earthenware sauce jars under snow at a historic house in Nonsan" data-bg="../images/w/winter-jangdok"></div>
+      <div class="tall" role="img" aria-label="Freshly made cabbage kimchi in a bowl" style="background-position:center 60%" data-bg="../images/w/winter-kimchi"></div>
+      <div class="sq" role="img" aria-label="A maker tying blocks of meju in a traditional fermentation room" style="background-position:70% center" data-bg="../images/w/winter-meju"></div>
     </div>
   </div>
 </section>
@@ -377,7 +377,7 @@
           <div><dt>The year turns in Seoul</dt><dd>The last nights of December in the city, from the bells rung at midnight on New Year's Eve to the first sunrise of the year watched from a mountain or the coast.</dd></div>
         </dl>
       </div>
-      <div class="eshot wide" role="img" aria-label="Snow covered granite peaks glowing pink above a sea of cloud at dawn" style="background-image:url('../images/winter-peaks.jpg')"></div>
+      <div class="eshot wide" role="img" aria-label="Snow covered granite peaks glowing pink above a sea of cloud at dawn" data-bg="../images/w/winter-peaks"></div>
     </div>
   </div>
 </section>
@@ -623,6 +623,31 @@
       f.querySelectorAll('.field, button').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
+  });
+})();
+</script>
+<script>
+/* Responsive, lazy background images: small WebP on phones, larger on desktop, loaded as they approach the screen. */
+(function(){
+  var mob=window.innerWidth<=900;
+  function src(el){
+    var b=el.getAttribute('data-bg');
+    if(b) return b+(mob?'-1000.webp':'-1800.webp');
+    var u=el.getAttribute('data-bgu');
+    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
+  }
+  function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
+  var els=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
+  var vh=window.innerHeight||800;
+  var rest=[];
+  els.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top<vh*1.5 && r.bottom>-vh) load(el); else rest.push(el); });
+  if(!('IntersectionObserver' in window)){ rest.forEach(load); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ load(e.target); io.unobserve(e.target); } }); },{rootMargin:'800px 0px 800px 800px'});
+  var groups=[];
+  rest.forEach(function(el){
+    var g=el.closest('.insp-rail');
+    if(g){ if(groups.indexOf(g)<0){ groups.push(g); var gio=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ [].slice.call(g.querySelectorAll('[data-bg],[data-bgu]')).forEach(load); gio.disconnect(); } },{rootMargin:'800px 0px'}); gio.observe(g); } }
+    else io.observe(el);
   });
 })();
 </script>
