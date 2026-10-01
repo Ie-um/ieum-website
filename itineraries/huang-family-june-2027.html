@@ -90,6 +90,12 @@
     .ideas{columns:1}
   }
   @media (max-width:560px){.steps,.cards,.chapters{grid-template-columns:1fr}}
+  .qs{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;counter-reset:q}
+  .qs div{padding:22px 0;border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:44px 1fr;gap:6px 0}
+  .qs .n{font-family:var(--display);font-size:1.7rem;color:var(--jade);line-height:1.1;grid-row:1/3}
+  .qs h3{font-size:1.25rem;font-weight:400}
+  .qs p{font-size:.9rem;color:#4A4A43}
+  @media (max-width:900px){.qs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -98,6 +104,7 @@
   <img src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge">
   <nav>
     <a href="#how">How we work</a>
+    <a href="#you">About you</a>
     <a href="#arrive">Arrival</a>
     <a href="#stay">Where to stay</a>
     <a href="#month">The month</a>
@@ -125,6 +132,24 @@
       <div class="step"><span class="n">02</span><h3>Design</h3><p>A proposal for the month: where to stay, the shape of each week, and the moments worth planning.</p></div>
       <div class="step"><span class="n">03</span><h3>Arrange</h3><p>Flights, suites, drivers, guides and the reservations Koreans book weeks ahead, all secured for you.</p></div>
       <div class="step"><span class="n">04</span><h3>Accompany</h3><p>We stay with you through the journey, adjusting plans on the ground whenever the family needs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="you">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Getting to know you</p>
+      <h2>A few questions to shape the month</h2>
+      <p>Everything that follows is a starting point. Your answers today decide the suites, the pace and the experiences we propose.</p>
+    </div>
+    <div class="qs">
+      <div><span class="n">1</span><h3>Who will be joining you?</h3><p>A sense of everyone's ages helps us choose the right suites and experiences for each of you.</p></div>
+      <div><span class="n">2</span><h3>Where will you fly from, and when?</h3><p>Your city and preferred dates in June tell us which first class suites fly your route.</p></div>
+      <div><span class="n">3</span><h3>Seoul for the month, or a few nights away?</h3><p>Some families stay in one home base; others enjoy a chapter in Jeju, Busan or the mountains.</p></div>
+      <div><span class="n">4</span><h3>A journey your family remembers fondly</h3><p>What made it special tells us a great deal about the pace and the places you enjoy.</p></div>
+      <div><span class="n">5</span><h3>How would you like us to help?</h3><p>Every day planned in detail, or the essentials taken care of with room for spontaneity.</p></div>
+      <div><span class="n">6</span><h3>Anything we should know?</h3><p>Dietary needs, mobility, or a nanny or assistant travelling with you.</p></div>
     </div>
   </div>
 </section>
