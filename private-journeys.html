@@ -764,9 +764,10 @@
   var mob=window.innerWidth<=900;
   function src(el){
     var b=el.getAttribute('data-bg');
-    if(b) return b+(mob?'-1000.webp':'-1800.webp');
+    if(b){ var r=el.getBoundingClientRect(), need=Math.max(r.width,r.height*1.5)*Math.min(window.devicePixelRatio||1,2);
+      return b+(need<=1000?'-1000.webp':need<=1800?'-1800.webp':'-2800.webp'); }
     var u=el.getAttribute('data-bgu');
-    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1000'); return u; }
+    if(u){ u=u.replace(/([?&])fm=jpg/,'$1fm=webp'); if(mob) u=u.replace(/([?&])w=\d+/,'$1w=1200'); return u; }
   }
   function load(el){ var s=src(el); if(s){ el.style.backgroundImage="url('"+s+"')"; } el.removeAttribute('data-bg'); el.removeAttribute('data-bgu'); }
   var rest=[].slice.call(document.querySelectorAll('[data-bg],[data-bgu]'));
