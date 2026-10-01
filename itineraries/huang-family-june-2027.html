@@ -83,7 +83,9 @@
   .cols3 .eyebrow{display:block;margin-bottom:12px}
 
   .hotels{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .hotel .img{aspect-ratio:4/3;background:var(--ivory) center/cover no-repeat;margin-bottom:18px}
+  .hotel .imgs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:18px}
+  .hotel .img{aspect-ratio:4/5;background:var(--ivory) center/cover no-repeat}
+  .hotel .cap{display:flex;justify-content:space-between;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin:-12px 0 14px}
   .hotel .eyebrow{display:block;margin-bottom:8px}
   .hotel h3{font-size:1.5rem;margin-bottom:8px}
   .hotel p{font-size:.9rem;color:#4A4A43}
@@ -223,9 +225,9 @@
         <p>For a month, space matters as much as service. Each offers suites large enough for five and a pool for warm June afternoons. We would request long stay rates and confirm June availability.</p>
       </div>
       <div class="hotels">
-        <div class="hotel"><div class="img" role="img" aria-label="Lotte World Tower rising above green trees in Jamsil" style="background-image:url('https://images.unsplash.com/photo-1662075434933-6ed176123190?w=1200&q=85&fm=webp&fit=crop')"></div><span class="eyebrow">Jamsil</span><h3>Signiel Seoul</h3><p>High in Lotte World Tower, with spacious suites and sweeping city views. Lotte World and its aquarium are steps away, a gift for younger travelers.</p></div>
-        <div class="hotel"><div class="img" role="img" aria-label="Gwanghwamun Gate under a bright blue sky in central Seoul" style="background-image:url('https://images.unsplash.com/photo-1719323934437-97f34a3a1d34?w=1200&q=85&fm=webp&fit=crop')"></div><span class="eyebrow">Gwanghwamun</span><h3>Four Seasons Seoul</h3><p>In the historic heart of the city, a short walk from Gyeongbokgung Palace, with an indoor pool and some of Seoul's best restaurants under one roof.</p></div>
-        <div class="hotel"><div class="img" role="img" aria-label="N Seoul Tower above the green slopes of Namsan" style="background-image:url('https://images.unsplash.com/photo-1627912814756-f2f9ab3d8cd1?w=1200&q=85&fm=webp&fit=crop');background-position:center 70%"></div><span class="eyebrow">Namsan</span><h3>Grand Hyatt Seoul</h3><p>On the green slopes of Namsan, with an outdoor pool in summer, generous suites and space to breathe above the city.</p></div>
+        <div class="hotel"><div class="imgs"><div class="img" role="img" aria-label="The indoor pool at Signiel Seoul with city views" style="background-image:url('https://img.lottehotel.com/cms/asset/2025/01/31/472/180708-25-2000-fac-seoul-signiel.webp')"></div><div class="img" role="img" aria-label="A suite at Signiel Seoul with a seating area and city views" style="background-image:url('https://img.lottehotel.com/cms/asset/2025/01/31/362/180708-55-2000-acc-seoul-signiel.webp')"></div></div><p class="cap"><span>Pool</span><span>Suite</span></p><span class="eyebrow">Jamsil</span><h3>Signiel Seoul</h3><p>High in Lotte World Tower, with spacious suites and sweeping city views. Lotte World and its aquarium are steps away, a gift for younger travelers.</p></div>
+        <div class="hotel"><div class="imgs"><div class="img" role="img" aria-label="Four Seasons Hotel Seoul exterior lit at dusk" style="background-image:url('https://www.fourseasons.com/alt/img-opt/~70.1530.0,0000-157,2500-3000,0000-1687,5000/publish/content/dam/fourseasons/images/web/SKO/SKO_142_original.jpg')"></div><div class="img" role="img" aria-label="A Four Seasons Seoul room prepared for children, with soft toys on the sofa bed" style="background-image:url('https://www.fourseasons.com/alt/img-opt/~70.1530.0,0000-156,7500-3000,0000-1687,5000/publish/content/dam/fourseasons/images/web/SKO/SKO_744_original.jpg')"></div></div><p class="cap"><span>The hotel</span><span>Family room</span></p><span class="eyebrow">Gwanghwamun</span><h3>Four Seasons Seoul</h3><p>In the historic heart of the city, a short walk from Gyeongbokgung Palace, with an indoor pool and some of Seoul's best restaurants under one roof.</p></div>
+        <div class="hotel"><div class="imgs"><div class="img" role="img" aria-label="The outdoor pool at Grand Hyatt Seoul in summer" style="background-image:url('https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/02/12/0842/Grand-Hyatt-Seoul-P1039-Swimming-Pool-Parasol.jpg/Grand-Hyatt-Seoul-P1039-Swimming-Pool-Parasol.16x9.jpg')"></div><div class="img" role="img" aria-label="The living room of an Executive Suite at Grand Hyatt Seoul at sunset" style="background-image:url('https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2019/01/07/1413/Grand-Hyatt-Seoul-P1242-Executive-Suite-Living-Room-Sunset.jpg/Grand-Hyatt-Seoul-P1242-Executive-Suite-Living-Room-Sunset.16x9.jpg')"></div></div><p class="cap"><span>Outdoor pool</span><span>Executive suite</span></p><span class="eyebrow">Namsan</span><h3>Grand Hyatt Seoul</h3><p>On the green slopes of Namsan, with an outdoor pool in summer, generous suites and space to breathe above the city.</p></div>
       </div>
     </div>
   </section>
@@ -302,7 +304,7 @@
       <p class="contact"><a href="mailto:contact@ie-um.com">contact@ie-um.com</a> &nbsp;&middot;&nbsp; <a href="https://ie-um.com">ie-um.com</a></p>
       <img class="mark" src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge">
     </div>
-    <p class="credit">사진 출처 &copy;한국관광공사 &middot; Unsplash</p>
+    <p class="credit">사진 출처 &copy;한국관광공사 &middot; Unsplash &middot; hotel images &copy; the respective hotels</p>
   </section>
 
 </main>
