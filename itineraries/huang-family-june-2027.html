@@ -8,241 +8,361 @@
 <link rel="icon" type="image/svg+xml" href="https://ie-um.com/images/logo/ieum-favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&family=Noto+Serif+KR:wght@300&display=swap" rel="stylesheet">
 <style>
   :root{--ivory:#F6F4EF;--paper:#FCFBF8;--ink:#23241F;--stone:#8B8577;--jade:#40685B;--jade-deep:#2C463E;--hairline:rgba(35,36,31,.14);--display:'Cormorant Garamond',Georgia,serif;--utility:'Jost',Helvetica,Arial,sans-serif}
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+  html,body{height:100%;overflow:hidden}
+  body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
   h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
   a{color:var(--jade)}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 6vw}
-  .eyebrow{font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
+  .eyebrow{font-size:.66rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
 
-  .top{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;background:rgba(252,251,248,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--hairline)}
-  .top img{height:36px;width:auto;display:block}
-  .top nav{display:flex;gap:26px}
-  .top nav a{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.75}
-  .top nav a:hover{opacity:1}
+  /* top bar */
+  .top{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;background:rgba(252,251,248,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--hairline);transition:background .4s}
+  .top img{height:32px;width:auto;display:block}
+  .top nav{display:flex;gap:22px}
+  .top nav button{background:none;border:0;cursor:pointer;font-family:var(--utility);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);opacity:.55;padding:4px 0;border-bottom:1px solid transparent;transition:opacity .3s,border-color .3s}
+  .top nav button:hover{opacity:1}
+  .top nav button.on{opacity:1;border-color:var(--jade)}
 
-  .hero{position:relative;height:88vh;min-height:520px;display:flex;align-items:flex-end;background:var(--jade-deep) center 60%/cover no-repeat}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,34,29,.15) 30%,rgba(24,34,29,.72))}
-  .hero .wrap{position:relative;z-index:1;padding-bottom:9vh;color:var(--paper);width:100%}
-  .hero .eyebrow{color:#C9D5CD}
-  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:16px 0 14px;color:var(--paper)}
-  .hero p{font-family:var(--display);font-style:italic;font-size:1.35rem;color:#E4EAE6;max-width:40ch}
-
-  section{padding:96px 0;border-bottom:1px solid var(--hairline)}
-  section:nth-of-type(even){background:var(--ivory)}
-  .head{max-width:720px;margin-bottom:48px}
-  .head h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:14px 0 16px}
+  /* deck */
+  .deck{position:fixed;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
+  .deck::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 100vw;height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow-y:auto;overflow-x:hidden;background:var(--paper)}
+  .slide.alt{background:var(--ivory)}
+  .inner{min-height:100%;display:flex;flex-direction:column;justify-content:center;padding:110px 7vw 110px;max-width:1280px;margin:0 auto}
+  .head{max-width:760px;margin-bottom:40px}
+  .head h2{font-size:clamp(2rem,3.6vw,3rem);margin:14px 0 14px}
   .head p{font-size:1rem;color:#4A4A43;max-width:62ch}
+
+  /* controls */
+  .ctrl{position:fixed;right:4vw;bottom:28px;z-index:30;display:flex;align-items:center;gap:14px}
+  .ctrl .count{font-size:.7rem;letter-spacing:.24em;color:var(--stone);min-width:70px;text-align:right}
+  .ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(35,36,31,.25);background:rgba(252,251,248,.9);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s}
+  .ctrl button:hover{background:var(--jade-deep);border-color:var(--jade-deep)}
+  .ctrl button:hover svg{stroke:var(--paper)}
+  .ctrl svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:1.4}
+  .ctrl button:disabled{opacity:.3;pointer-events:none}
+  .progress{position:fixed;left:0;bottom:0;height:2px;background:var(--jade);z-index:31;transition:width .5s ease}
+
+  /* cover */
+  .cover{background:var(--jade-deep) center 60%/cover no-repeat}
+  .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,34,29,.1) 35%,rgba(24,34,29,.72))}
+  .cover .inner{justify-content:flex-end;position:relative;z-index:1;color:var(--paper);padding-bottom:16vh}
+  .cover .eyebrow{color:#C9D5CD}
+  .cover h1{font-size:clamp(2.8rem,6.4vw,5rem);margin:16px 0 14px;color:var(--paper)}
+  .cover p{font-family:var(--display);font-style:italic;font-size:1.4rem;color:#E4EAE6;max-width:40ch}
+  .cover .hint{margin-top:34px;font-family:var(--utility);font-style:normal;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:#C9D5CD}
+
+  /* split */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .split.flip{grid-template-columns:.95fr 1.05fr}
+  .shot{aspect-ratio:4/5;max-height:70vh;width:100%;background:var(--ivory) center/cover no-repeat}
+  .kr{font-family:'Noto Serif KR',serif;font-weight:300}
+  .lede{font-family:var(--display);font-style:italic;font-size:1.3rem;color:#4A4A43;margin:6px 0 22px}
+  .body p{font-size:.98rem;color:#4A4A43;margin-bottom:14px;max-width:58ch}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px;border-top:1px solid var(--hairline);padding-top:22px}
+  .pillars h3{font-size:1.15rem;font-weight:400;margin-bottom:4px}
+  .pillars p{font-size:.84rem;color:#4A4A43}
 
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
   .step .n{font-family:var(--display);font-size:2.4rem;color:var(--jade);line-height:1}
   .step h3{font-size:1.35rem;margin:12px 0 8px}
   .step p{font-size:.92rem;color:#4A4A43}
 
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .shot{aspect-ratio:4/5;background:var(--ivory) center/cover no-repeat}
-  .shot.wide{aspect-ratio:4/3}
-  .list{display:grid;gap:22px;margin-top:8px}
-  .list h3{font-size:1.25rem;font-weight:400;margin-bottom:4px}
-  .list p{font-size:.94rem;color:#4A4A43}
+  .qs{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .qs div{padding:18px 0;border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:44px 1fr;gap:4px 0}
+  .qs .n{font-family:var(--display);font-size:1.7rem;color:var(--jade);line-height:1.1;grid-row:1/3}
+  .qs h3{font-size:1.22rem;font-weight:400}
+  .qs p{font-size:.88rem;color:#4A4A43}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .card{background:var(--paper);border:1px solid var(--hairline);padding:34px 30px}
-  section:nth-of-type(odd) .card{background:var(--ivory)}
-  .card .eyebrow{display:block;margin-bottom:12px}
-  .card h3{font-size:1.5rem;margin-bottom:10px}
-  .card p{font-size:.92rem;color:#4A4A43}
+  .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .cols3 h3{font-size:1.4rem;margin-bottom:8px}
+  .cols3 p{font-size:.92rem;color:#4A4A43}
+  .cols3 .eyebrow{display:block;margin-bottom:12px}
+
+  .hotels{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .hotel .img{aspect-ratio:4/3;background:var(--ivory) center/cover no-repeat;margin-bottom:18px}
+  .hotel .eyebrow{display:block;margin-bottom:8px}
+  .hotel h3{font-size:1.5rem;margin-bottom:8px}
+  .hotel p{font-size:.9rem;color:#4A4A43}
 
   .chapters{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .chap .img{aspect-ratio:1/1;background:var(--ivory) center/cover no-repeat;margin-bottom:16px}
-  .chap h3{font-size:1.3rem;margin-bottom:6px}
-  .chap p{font-size:.88rem;color:#4A4A43}
+  .chap .img{aspect-ratio:4/5;background:var(--ivory) center/cover no-repeat;margin-bottom:14px}
+  .chap h3{font-size:1.3rem;margin-bottom:4px}
+  .chap p{font-size:.86rem;color:#4A4A43}
+  .note{margin-top:26px;padding:16px 22px;border-left:2px solid var(--jade);background:var(--paper);font-size:.9rem;color:#4A4A43;max-width:780px}
 
-  .ideas{columns:2;column-gap:64px}
-  .ideas div{break-inside:avoid;padding:16px 0;border-bottom:1px solid var(--hairline)}
-  .ideas h3{font-size:1.18rem;font-weight:400;margin-bottom:2px}
-  .ideas p{font-size:.9rem;color:#4A4A43}
+  .well{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .well .list{display:grid;gap:20px}
+  .well h3{font-size:1.25rem;font-weight:400;margin-bottom:3px}
+  .well p{font-size:.9rem;color:#4A4A43}
+  .well .feature{padding:20px 22px;background:var(--paper);border-left:2px solid var(--jade)}
+  .well .gal{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center}
+  .well .gal div{background:var(--ivory) center/cover no-repeat}
+  .well .gal .t{aspect-ratio:3/4}
+  .well .gal .s{aspect-ratio:1/1}
 
-  .note{margin-top:34px;padding:22px 26px;border-left:2px solid var(--jade);background:var(--paper);font-size:.94rem;color:#4A4A43;max-width:760px}
+  .ideas{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+  .ideas div{padding:15px 0;border-bottom:1px solid var(--hairline)}
+  .ideas h3{font-size:1.16rem;font-weight:400;margin-bottom:2px}
+  .ideas p{font-size:.88rem;color:#4A4A43}
 
-  .next{background:var(--jade-deep)!important;color:var(--ivory);border:0}
+  .next{background:var(--jade-deep)!important;color:var(--ivory)}
   .next .eyebrow{color:#A9C3B7}
   .next h2{color:var(--ivory)}
-  .next .head p{color:#C9D5CD}
-  .next .steps p{color:#C9D5CD}
   .next .step .n{color:#A9C3B7}
-  .next .contact{margin-top:56px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory)}
+  .next .step p{color:#C9D5CD}
+  .next .contact{margin-top:48px;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase}
   .next .contact a{color:var(--ivory)}
+  .next .mark{height:30px;opacity:.8;margin-top:40px}
+  .credit{position:absolute;left:7vw;bottom:24px;font-size:.55rem;color:#5F7A6E}
 
-  footer{background:var(--jade-deep);color:#8FA79B;text-align:center;padding:0 6vw 48px;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase}
-  footer img{height:28px;opacity:.85;margin-bottom:12px}
-  .credit{margin-top:10px;font-size:.55rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E}
-
-  @media (max-width:900px){
+  @media (max-width:1000px){
     .top nav{display:none}
-    section{padding:64px 0}
-    .steps,.cards,.chapters{grid-template-columns:1fr 1fr}
-    .split{grid-template-columns:1fr;gap:34px}
-    .ideas{columns:1}
+    .inner{padding:90px 6vw 100px;justify-content:flex-start}
+    .split,.split.flip,.well{grid-template-columns:1fr;gap:28px}
+    .shot{aspect-ratio:16/10}
+    .steps,.chapters{grid-template-columns:1fr 1fr;gap:22px}
+    .qs,.ideas,.cols3,.hotels,.pillars{grid-template-columns:1fr}
+    .cover .inner{justify-content:flex-end}
   }
-  @media (max-width:560px){.steps,.cards,.chapters{grid-template-columns:1fr}}
-  .qs{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;counter-reset:q}
-  .qs div{padding:22px 0;border-bottom:1px solid var(--hairline);display:grid;grid-template-columns:44px 1fr;gap:6px 0}
-  .qs .n{font-family:var(--display);font-size:1.7rem;color:var(--jade);line-height:1.1;grid-row:1/3}
-  .qs h3{font-size:1.25rem;font-weight:400}
-  .qs p{font-size:.9rem;color:#4A4A43}
-  @media (max-width:900px){.qs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <header class="top">
   <img src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge">
-  <nav>
-    <a href="#how">How we work</a>
-    <a href="#you">About you</a>
-    <a href="#arrive">Arrival</a>
-    <a href="#stay">Where to stay</a>
-    <a href="#month">The month</a>
-    <a href="#next">Next steps</a>
-  </nav>
+  <nav id="tabs"></nav>
 </header>
 
-<div class="hero" role="img" aria-label="Haedong Yonggungsa temple on the rocky coast of Busan under a bright summer sky" style="background-image:url('../images/w/busan-yonggungsa-2800.webp')">
-  <div class="wrap">
-    <p class="eyebrow">Prepared for the Huang family</p>
-    <h1>A month in Korea, June 2027</h1>
-    <p>Early summer in Korea, planned around your family and handled for you from the moment you land.</p>
-  </div>
-</div>
+<main class="deck" id="deck">
 
-<section id="how">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">How we work</p>
-      <h2>One point of contact, from the first idea to the flight home</h2>
-      <p>IEUM is a luxury travel concierge for Korea. We plan, book and run private journeys end to end, with 24 hour support while you are in the country.</p>
+  <section class="slide cover" data-title="Welcome" style="background-image:url('../images/w/busan-yonggungsa-2800.webp')" role="img" aria-label="Haedong Yonggungsa temple on the rocky coast of Busan under a bright summer sky">
+    <div class="inner">
+      <p class="eyebrow">Prepared for the Huang family</p>
+      <h1>A month in Korea, June 2027</h1>
+      <p>Early summer in Korea, planned around your family and handled for you from the moment you land.</p>
+      <p class="hint">Use the arrows or swipe to continue</p>
     </div>
-    <div class="steps">
-      <div class="step"><span class="n">01</span><h3>Listen</h3><p>Who is travelling, the pace you enjoy, and what would make this month unforgettable.</p></div>
-      <div class="step"><span class="n">02</span><h3>Design</h3><p>A proposal for the month: where to stay, the shape of each week, and the moments worth planning.</p></div>
-      <div class="step"><span class="n">03</span><h3>Arrange</h3><p>Flights, suites, drivers, guides and the reservations Koreans book weeks ahead, all secured for you.</p></div>
-      <div class="step"><span class="n">04</span><h3>Accompany</h3><p>We stay with you through the journey, adjusting plans on the ground whenever the family needs.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="you">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Getting to know you</p>
-      <h2>A few questions to shape the month</h2>
-      <p>Everything that follows is a starting point. Your answers today decide the suites, the pace and the experiences we propose.</p>
+  <section class="slide" data-title="IEUM">
+    <div class="inner">
+      <div class="split">
+        <div class="body">
+          <p class="eyebrow">Welcome to IEUM</p>
+          <div class="head" style="margin-bottom:10px"><h2>The connection between you and the real Korea</h2></div>
+          <p class="lede">Ieum, <span class="kr">이음</span>, means connection.</p>
+          <p>IEUM is a luxury travel concierge for Korea, based between Seoul and New York. We plan, book and run private journeys end to end for families and travelers from the United States, Europe and Latin America.</p>
+          <p>Wellness sits at the centre of every journey we design, woven through Korea's culture, beauty and cuisine. The result is a true holiday: no researching, no chasing reservations, every day planned around you and handled for you.</p>
+          <div class="pillars">
+            <div><h3>Access</h3><p>The tables, ateliers and experiences Koreans book months ahead, secured through relationships.</p></div>
+            <div><h3>Care</h3><p>One trusted point of contact, and 24 hour support while you are in Korea.</p></div>
+            <div><h3>Craft</h3><p>Every itinerary designed from the beginning, never taken from a template.</p></div>
+          </div>
+        </div>
+        <div class="shot" role="img" aria-label="A traditional hanok guesthouse in Seoul" style="background-image:url('../images/w/about-sangchonjae-1800.webp')"></div>
+      </div>
     </div>
-    <div class="qs">
-      <div><span class="n">1</span><h3>Who will be joining you?</h3><p>A sense of everyone's ages helps us choose the right suites and experiences for each of you.</p></div>
-      <div><span class="n">2</span><h3>Where will you fly from, and when?</h3><p>Your city and preferred dates in June tell us which first class suites fly your route.</p></div>
-      <div><span class="n">3</span><h3>Seoul for the month, or a few nights away?</h3><p>Some families stay in one home base; others enjoy a chapter in Jeju, Busan or the mountains.</p></div>
-      <div><span class="n">4</span><h3>A journey your family remembers fondly</h3><p>What made it special tells us a great deal about the pace and the places you enjoy.</p></div>
-      <div><span class="n">5</span><h3>How would you like us to help?</h3><p>Every day planned in detail, or the essentials taken care of with room for spontaneity.</p></div>
-      <div><span class="n">6</span><h3>Anything we should know?</h3><p>Dietary needs, mobility, or a nanny or assistant travelling with you.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="arrive">
-  <div class="wrap split">
-    <div>
-      <div class="head" style="margin-bottom:28px">
+  <section class="slide alt" data-title="How we work">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">How we work</p>
+        <h2>One point of contact, from the first idea to the flight home</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3>Listen</h3><p>Who is travelling, the pace you enjoy, and what would make this month unforgettable.</p></div>
+        <div class="step"><span class="n">02</span><h3>Design</h3><p>A proposal for the month: where to stay, the shape of each week, and the moments worth planning.</p></div>
+        <div class="step"><span class="n">03</span><h3>Arrange</h3><p>Flights, suites, drivers, guides and the reservations Koreans book weeks ahead, all secured for you.</p></div>
+        <div class="step"><span class="n">04</span><h3>Accompany</h3><p>We stay with you through the journey, adjusting plans on the ground whenever the family needs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="About you">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Getting to know you</p>
+        <h2>A few questions to shape the month</h2>
+        <p>Everything that follows is a starting point. Your answers today decide the suites, the pace and the experiences we propose.</p>
+      </div>
+      <div class="qs">
+        <div><span class="n">1</span><h3>Who will be joining you?</h3><p>A sense of everyone's ages helps us choose the right suites and experiences for each of you.</p></div>
+        <div><span class="n">2</span><h3>Where will you fly from, and when?</h3><p>Your city and preferred dates in June tell us which first class suites fly your route.</p></div>
+        <div><span class="n">3</span><h3>Seoul for the month, or a few nights away?</h3><p>Some families stay in one home base; others enjoy a chapter in Jeju, Busan or the mountains.</p></div>
+        <div><span class="n">4</span><h3>A journey your family remembers fondly</h3><p>What made it special tells us a great deal about the pace and the places you enjoy.</p></div>
+        <div><span class="n">5</span><h3>How would you like us to help?</h3><p>Every day planned in detail, or the essentials taken care of with room for spontaneity.</p></div>
+        <div><span class="n">6</span><h3>Anything we should know?</h3><p>Dietary needs, mobility, or a nanny or assistant travelling with you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide alt" data-title="Arrival">
+    <div class="inner">
+      <div class="head">
         <p class="eyebrow">Arrival</p>
         <h2>Arrive rested, and be met at the door</h2>
       </div>
-      <div class="list">
-        <div><h3>First class suites to Seoul</h3><p>Korean Air's first class is a private suite with a sliding door, a fully flat bed and dining on your own schedule. It flies nonstop to Seoul from major cities in the United States and Europe, such as New York, Los Angeles and Chicago.</p></div>
-        <div><h3>Booking early matters</h3><p>First class has only a handful of seats on each aircraft, so seating five together means reserving well ahead. June 2027 flights are already open for booking.</p></div>
-        <div><h3>A private Sprinter from Incheon</h3><p>Your chauffeur meets you in arrivals and takes the whole family and your luggage straight to the hotel in one spacious van, with child seats arranged if needed.</p></div>
+      <div class="cols3">
+        <div><span class="eyebrow">In the air</span><h3>First class suites to Seoul</h3><p>Korean Air's first class is a private suite with a sliding door, a fully flat bed and dining on your own schedule. It flies nonstop to Seoul from major cities in the United States and Europe, such as New York, Los Angeles and Chicago.</p></div>
+        <div><span class="eyebrow">Plan ahead</span><h3>Five seats together</h3><p>First class has only a handful of seats on each aircraft, so seating five together means reserving well ahead. June 2027 flights are already open for booking.</p></div>
+        <div><span class="eyebrow">On the ground</span><h3>A private Sprinter from Incheon</h3><p>Your chauffeur meets you in arrivals and takes the whole family and your luggage straight to the hotel in one spacious van, with child seats arranged if needed.</p></div>
       </div>
     </div>
-    <div class="shot" role="img" aria-label="A royal pavilion on a pond at Gyeongbokgung Palace in Seoul under a clear sky" style="background-image:url('https://images.unsplash.com/photo-1666670750287-176e3218ce12?w=1600&q=85&fm=webp&fit=crop');background-position:60% center"></div>
-  </div>
-</section>
+  </section>
 
-<section id="stay">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Where to stay</p>
-      <h2>Family suites at Seoul's finest addresses</h2>
-      <p>For a month, space matters as much as service. These three offer suites or residences large enough for five, with a pool for hot June afternoons. We would request long stay rates and confirm June availability for each.</p>
+  <section class="slide" data-title="Where to stay">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Where to stay</p>
+        <h2>Family suites at Seoul's finest addresses</h2>
+        <p>For a month, space matters as much as service. Each offers suites large enough for five and a pool for warm June afternoons. We would request long stay rates and confirm June availability.</p>
+      </div>
+      <div class="hotels">
+        <div class="hotel"><div class="img" role="img" aria-label="Lotte World Tower rising above green trees in Jamsil" style="background-image:url('https://images.unsplash.com/photo-1662075434933-6ed176123190?w=1200&q=85&fm=webp&fit=crop')"></div><span class="eyebrow">Jamsil</span><h3>Signiel Seoul</h3><p>High in Lotte World Tower, with spacious suites and sweeping city views. Lotte World and its aquarium are steps away, a gift for younger travelers.</p></div>
+        <div class="hotel"><div class="img" role="img" aria-label="Gwanghwamun Gate under a bright blue sky in central Seoul" style="background-image:url('https://images.unsplash.com/photo-1719323934437-97f34a3a1d34?w=1200&q=85&fm=webp&fit=crop')"></div><span class="eyebrow">Gwanghwamun</span><h3>Four Seasons Seoul</h3><p>In the historic heart of the city, a short walk from Gyeongbokgung Palace, with an indoor pool and some of Seoul's best restaurants under one roof.</p></div>
+        <div class="hotel"><div class="img" role="img" aria-label="N Seoul Tower above the green slopes of Namsan" style="background-image:url('https://images.unsplash.com/photo-1627912814756-f2f9ab3d8cd1?w=1200&q=85&fm=webp&fit=crop');background-position:center 70%"></div><span class="eyebrow">Namsan</span><h3>Grand Hyatt Seoul</h3><p>On the green slopes of Namsan, with an outdoor pool in summer, generous suites and space to breathe above the city.</p></div>
+      </div>
     </div>
-    <div class="cards">
-      <div class="card"><span class="eyebrow">Jamsil</span><h3>Signiel Seoul</h3><p>High in Lotte World Tower, with residence style suites and sweeping city views. Lotte World and its aquarium are steps away, a gift for younger travellers.</p></div>
-      <div class="card"><span class="eyebrow">Gwanghwamun</span><h3>Four Seasons Seoul</h3><p>In the historic heart of the city, a short walk from Gyeongbokgung Palace, with an indoor pool and some of Seoul's best restaurants under one roof.</p></div>
-      <div class="card"><span class="eyebrow">Namsan</span><h3>Grand Hyatt Seoul</h3><p>On the green slopes of Namsan, with an outdoor pool in summer, generous suites and space to breathe above the city.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="month">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">The month</p>
-      <h2>Seoul as home, with a few chapters beyond</h2>
-      <p>A month allows a rhythm of full days and slow days. Seoul makes a wonderful base, and a few nights away show a different side of Korea.</p>
+  <section class="slide alt" data-title="The month">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">The month</p>
+        <h2>Seoul as home, with a few chapters beyond</h2>
+      </div>
+      <div class="chapters">
+        <div class="chap"><div class="img" role="img" aria-label="Turquoise water and black volcanic rock on the coast of Jeju" style="background-image:url('https://images.unsplash.com/photo-1654784229968-b57e492882b4?w=900&q=85&fm=webp&fit=crop')"></div><h3>Jeju</h3><p>Beaches, volcanic trails, tea fields and private villas on Korea's island.</p></div>
+        <div class="chap"><div class="img" role="img" aria-label="Haedong Yonggungsa temple on the coast of Busan" style="background-image:url('../images/w/busan-yonggungsa-1800.webp');background-position:72% center"></div><h3>Busan</h3><p>The coast, seafood markets and temples above the waves, under three hours by train.</p></div>
+        <div class="chap"><div class="img" role="img" aria-label="A royal pavilion beside the pond at Donggung Palace in Gyeongju" style="background-image:url('https://images.unsplash.com/photo-1717346255618-1fbc136cb8f9?w=900&q=85&fm=webp&fit=crop')"></div><h3>Gyeongju</h3><p>The thousand year old royal capital, with temples, tomb gardens and quiet countryside.</p></div>
+        <div class="chap"><div class="img" role="img" aria-label="Families cooling off in a clear mountain stream in a green valley" style="background-image:url('https://images.unsplash.com/photo-1593700174240-b19e461eae9e?w=900&q=85&fm=webp&fit=crop')"></div><h3>Gangwon</h3><p>Mountain valleys, clear streams and the east coast, a cool escape from the city in summer.</p></div>
+      </div>
+      <div class="note"><strong>June weather.</strong> Early June is warm and bright. The rainy season usually begins in the last week of June, so we plan the outdoor highlights first and keep wonderful indoor options ready for wet days.</div>
     </div>
-    <div class="chapters">
-      <div class="chap"><div class="img" role="img" aria-label="Women divers on the volcanic coast of Jeju" style="background-image:url('../images/w/haenyeo-1800.webp')"></div><h3>Jeju</h3><p>Beaches, volcanic trails, tea fields and private villas on Korea's island.</p></div>
-      <div class="chap"><div class="img" role="img" aria-label="Haedong Yonggungsa temple on the coast of Busan" style="background-image:url('../images/w/busan-yonggungsa-1800.webp');background-position:70% center"></div><h3>Busan</h3><p>The coast, seafood markets and temples above the waves, under three hours by train.</p></div>
-      <div class="chap"><div class="img" role="img" aria-label="A royal pavilion beside the pond at Donggung Palace in Gyeongju" style="background-image:url('https://images.unsplash.com/photo-1717346255618-1fbc136cb8f9?w=1200&q=85&fm=webp&fit=crop')"></div><h3>Gyeongju</h3><p>The thousand year old royal capital, with temples, tomb gardens and quiet countryside.</p></div>
-      <div class="chap"><div class="img" role="img" aria-label="The granite ridges of Seoraksan in Gangwon" style="background-image:url('../images/w/mountain-valley-1800.webp')"></div><h3>Gangwon</h3><p>Mountain air, hot springs and long walks, a cool retreat from the city in summer.</p></div>
-    </div>
-    <div class="note"><strong>June weather.</strong> Early June is warm and bright. The rainy season usually begins in the last week of June, so we plan the outdoor highlights first and keep wonderful indoor options ready for wet days.</div>
-  </div>
-</section>
+  </section>
 
-<section id="ideas">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Ideas for the family</p>
-      <h2>Moments we could plan together</h2>
+  <section class="slide" data-title="Wellness">
+    <div class="inner">
+      <div class="well">
+        <div>
+          <div class="head" style="margin-bottom:26px">
+            <p class="eyebrow">Wellness</p>
+            <h2>Rest, the Korean way</h2>
+            <p>Wellness is at the heart of every IEUM journey: moments of stillness woven between the busier days.</p>
+          </div>
+          <div class="list">
+            <div class="feature"><h3>A sound bath on traditional instruments</h3><p>A private session with Wacheongjae, whose deep, resonant geomungo, a string instrument played in Korea for over a thousand years, calms the body and quiets the mind. Arranged privately for your family.</p></div>
+            <div><h3>A night at a mountain temple</h3><p>A temple stay with tea, meditation and the morning bell.</p></div>
+            <div><h3>Hot springs and forest bathing</h3><p>Mineral springs and guided walks in Korea's healing forests.</p></div>
+            <div><h3>Korean spa and beauty rituals</h3><p>Skincare consultations, facials and the bathhouse traditions Korea is known for.</p></div>
+          </div>
+        </div>
+        <div class="gal">
+          <div class="t" role="img" aria-label="A musician playing the geomungo, a traditional Korean string instrument" style="background-image:url('../images/w/sound-geomungo-1800.webp')"></div>
+          <div class="s" role="img" aria-label="A rainbow bridge leading to a mountain temple" style="background-image:url('../images/w/temple-bridge-1800.webp')"></div>
+        </div>
+      </div>
     </div>
-    <div class="ideas">
-      <div><h3>The palaces in hanbok</h3><p>A private fitting, then Gyeongbokgung with a photographer to keep the day.</p></div>
-      <div><h3>Museums, privately guided</h3><p>Stories told for every age at places such as the National Museum of Korea.</p></div>
-      <div><h3>A night at the ballpark</h3><p>June is the heart of the baseball season, and a Korean game is a joyful, family evening.</p></div>
-      <div><h3>Cooking together</h3><p>A private class making kimchi, dumplings or a royal court dish.</p></div>
-      <div><h3>Korean beauty</h3><p>Skincare consultations and facials at the salons Seoul is known for.</p></div>
-      <div><h3>Tables worth the trip</h3><p>Korean barbecue, temple cuisine and the city's most sought after restaurants.</p></div>
-      <div><h3>A night at a mountain temple</h3><p>A temple stay with tea, meditation and the morning bell.</p></div>
-      <div><h3>Days made for children</h3><p>Theme parks, aquariums and hands on museums for any weather.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="next" class="next">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Next steps</p>
-      <h2>From today to June</h2>
+  <section class="slide alt" data-title="Ideas">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Ideas for the family</p>
+        <h2>Moments we could plan together</h2>
+      </div>
+      <div class="ideas">
+        <div><h3>The palaces in hanbok</h3><p>A private fitting, then Gyeongbokgung with a photographer to keep the day.</p></div>
+        <div><h3>Museums, privately guided</h3><p>Stories told for every age at places such as the National Museum of Korea.</p></div>
+        <div><h3>A night at the ballpark</h3><p>June is the heart of the baseball season, and a Korean game is a joyful family evening.</p></div>
+        <div><h3>Cooking together</h3><p>A private class making kimchi, dumplings or a royal court dish.</p></div>
+        <div><h3>Tables worth the trip</h3><p>Korean barbecue, temple cuisine and the city's most sought after restaurants.</p></div>
+        <div><h3>Days made for children</h3><p>Theme parks, aquariums and hands on museums for any weather.</p></div>
+      </div>
     </div>
-    <div class="steps">
-      <div class="step"><span class="n">01</span><h3>Today</h3><p>Who is travelling, the dates in June, and the shape of the month you would love.</p></div>
-      <div class="step"><span class="n">02</span><h3>Your proposal</h3><p>A tailored plan for the month and our fee, within a few days of this call.</p></div>
-      <div class="step"><span class="n">03</span><h3>Secure the essentials</h3><p>On your approval, we hold the first class seats and family suites before they are taken.</p></div>
-      <div class="step"><span class="n">04</span><h3>Plan the details</h3><p>Week by week, the experiences, tables and guides, refined with you until departure.</p></div>
+  </section>
+
+  <section class="slide next" data-title="Next steps">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Next steps</p>
+        <h2>From today to June</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3>Today</h3><p>Who is travelling, the dates in June, and the shape of the month you would love.</p></div>
+        <div class="step"><span class="n">02</span><h3>Your proposal</h3><p>A tailored plan for the month and our fee, within a few days of this call.</p></div>
+        <div class="step"><span class="n">03</span><h3>Secure the essentials</h3><p>On your approval, we hold the first class seats and family suites before they are taken.</p></div>
+        <div class="step"><span class="n">04</span><h3>Plan the details</h3><p>Week by week, the experiences, tables and guides, refined with you until departure.</p></div>
+      </div>
+      <p class="contact"><a href="mailto:contact@ie-um.com">contact@ie-um.com</a> &nbsp;&middot;&nbsp; <a href="https://ie-um.com">ie-um.com</a></p>
+      <img class="mark" src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge">
     </div>
-    <p class="contact"><a href="mailto:contact@ie-um.com">contact@ie-um.com</a> &nbsp;&middot;&nbsp; <a href="https://ie-um.com">ie-um.com</a></p>
-  </div>
-</section>
+    <p class="credit">사진 출처 &copy;한국관광공사 &middot; Unsplash</p>
+  </section>
 
-<footer>
-  <img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge"><br>
-  IEUM Concierge &middot; Seoul &amp; New York
-  <p class="credit">사진 출처 &copy;한국관광공사 &middot; Unsplash</p>
-</footer>
+</main>
 
+<div class="ctrl">
+  <span class="count" id="count">01 / 10</span>
+  <button type="button" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button>
+  <button type="button" id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+</div>
+<div class="progress" id="bar"></div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=[].slice.call(deck.querySelectorAll('.slide'));
+  var tabs=document.getElementById('tabs');
+  var count=document.getElementById('count'), bar=document.getElementById('bar');
+  var prev=document.getElementById('prev'), next=document.getElementById('next');
+  var cur=0, lock=false;
+  function pad(n){ return (n<10?'0':'')+n; }
+  slides.forEach(function(s,i){
+    var b=document.createElement('button'); b.type='button'; b.textContent=s.getAttribute('data-title');
+    b.addEventListener('click',function(){ go(i); }); tabs.appendChild(b);
+  });
+  var tabBtns=[].slice.call(tabs.children);
+  function update(i){
+    cur=i;
+    count.textContent=pad(i+1)+' / '+pad(slides.length);
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    prev.disabled=i===0; next.disabled=i===slides.length-1;
+    tabBtns.forEach(function(b,k){ b.classList.toggle('on',k===i); });
+  }
+  function go(i){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    deck.scrollTo({left:i*deck.clientWidth,behavior:'smooth'});
+    update(i);
+  }
+  deck.addEventListener('scroll',function(){
+    var i=Math.round(deck.scrollLeft/deck.clientWidth);
+    if(i!==cur) update(i);
+  },{passive:true});
+  prev.addEventListener('click',function(){ go(cur-1); });
+  next.addEventListener('click',function(){ go(cur+1); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); go(cur+1); }
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); go(cur-1); }
+    if(e.key==='Home'){ go(0); } if(e.key==='End'){ go(slides.length-1); }
+  });
+  /* mouse wheel: scroll inside a slide first, then move to the next slide */
+  deck.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)) return; /* trackpad sideways swipe is native */
+    var s=slides[cur], atBottom=s.scrollTop+s.clientHeight>=s.scrollHeight-2, atTop=s.scrollTop<=0;
+    if((e.deltaY>0&&!atBottom)||(e.deltaY<0&&!atTop)) return;
+    e.preventDefault();
+    if(lock||Math.abs(e.deltaY)<12) return;
+    lock=true; go(cur+(e.deltaY>0?1:-1)); setTimeout(function(){ lock=false; },900);
+  },{passive:false});
+  window.addEventListener('resize',function(){ deck.scrollTo({left:cur*deck.clientWidth}); });
+  update(0);
+})();
+</script>
 </body>
 </html>
