@@ -536,6 +536,7 @@
 (function () {
   var PIXEL_ID = '1700290421749654';
   var GA4_ID   = 'G-56H0V5KFFT';
+  var CLARITY_ID = 'yu77wejnzx';
   var KEY      = 'ieum-consent-v1';
   var state    = { analytics: false, marketing: false };
 
@@ -544,6 +545,16 @@
   }
   function write(c) {
     try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {}
+  }
+
+  function startClarity() {
+    if (!CLARITY_ID || window.clarity) return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", CLARITY_ID);
+    window.clarity('consent');
   }
 
   function startAnalytics() {
@@ -587,7 +598,7 @@
 
   function apply(c) {
     state = c;
-    if (c.analytics) startAnalytics();
+    if (c.analytics) { startAnalytics(); startClarity(); }
     if (c.marketing) startMarketing();
   }
   function commit(c) { write(c); clearFor(c); apply(c); closeAll(); }
@@ -596,6 +607,58 @@
     get: function () { return state; },
     reopen: function () { openPanel(); }
   };
+
+
+  /* Funnel tracking. One call reaches GA4, Clarity and the Meta Pixel, and only
+     the tools the visitor has consented to are loaded, so nothing fires without consent. */
+  var FB_STANDARD = { generate_lead: 'Lead', book_consultation: 'Schedule' };
+  var once = {};
+  window.ieumTrack = function (name, params, onlyOnce) {
+    if (onlyOnce) { if (once[name]) return; once[name] = 1; }
+    params = params || {};
+    params.page_path = location.pathname;
+    try { if (window.gtag) window.gtag('event', name, params); } catch (e) {}
+    try { if (window.clarity) { window.clarity('event', name); } } catch (e) {}
+    try {
+      if (window.fbq) {
+        var std = FB_STANDARD[name];
+        var id = name + '-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
+        if (std) window.fbq('track', std, params, { eventID: id });
+        else window.fbq('trackCustom', name, params);
+      }
+    } catch (e) {}
+  };
+
+  function wireFunnel() {
+    var form = document.getElementById('enquiry');
+    if (form) {
+      form.addEventListener('focusin', function () { window.ieumTrack('form_start', {}, true); });
+      var seen = false;
+      var look = function () {
+        if (seen) return;
+        var r = form.getBoundingClientRect();
+        if (r.top < (window.innerHeight || 800) && r.bottom > 0) {
+          seen = true;
+          window.ieumTrack('form_view', {}, true);
+          window.removeEventListener('scroll', look);
+        }
+      };
+      window.addEventListener('scroll', look, { passive: true });
+      look();
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      var label = (a.textContent || '').trim().slice(0, 60);
+      if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
+      else if (h.indexOf('cal.com') !== -1) window.ieumTrack('cta_click', { cta: 'book_call', link_text: label });
+      else if (h.indexOf('mailto:') === 0) window.ieumTrack('cta_click', { cta: 'email', link_text: label });
+      else if (h.indexOf('instagram.com') !== -1) window.ieumTrack('cta_click', { cta: 'instagram', link_text: label });
+    }, true);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wireFunnel);
+  else wireFunnel();
 
   var bar = null, veil = null;
 
