@@ -420,6 +420,19 @@
   .call-link{font-family:var(--utility);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);border-bottom:1px solid rgba(246,244,239,.4);padding-bottom:4px;transition:border-color .4s}
   .call-link:hover,.call-link:focus-visible{border-color:var(--ivory)}
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
+  #reviews{padding:110px 0;background:var(--paper)}
+  #reviews .rv-head{text-align:center;max-width:640px;margin:0 auto 64px}
+  #reviews .rv-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:16px}
+  .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;max-width:1100px;margin:0 auto}
+  .rv{margin:0;display:flex;flex-direction:column;border-top:1px solid var(--hairline);padding-top:30px}
+  .rv-stars{color:var(--jade);font-size:.8rem;letter-spacing:.3em;margin-bottom:18px}
+  .rv blockquote{margin:0;font-family:var(--display);font-style:italic;font-weight:300;font-size:1.28rem;line-height:1.55;color:var(--ink);flex:1}
+  .rv figcaption{margin-top:24px;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--stone)}
+  .rv figcaption b{font-weight:400;color:var(--ink)}
+  .rv-more{text-align:center;margin-top:60px}
+  .rv-more a{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(63,107,92,.35);padding-bottom:3px}
+  .rv-more a:hover{border-color:var(--jade)}
+  @media (max-width:900px){#reviews{padding:72px 0}.rv-grid{grid-template-columns:1fr;gap:40px}#reviews .rv-head{margin-bottom:44px}.rv blockquote{font-size:1.15rem}}
 </style>
 </head>
 <body>
@@ -567,6 +580,33 @@
       <div><span class="n">iii.</span><h3>Refinement</h3><p>You tell us what you love and what you would change, and we rebuild around it, usually in a round or two.</p></div>
       <div><span class="n">iv.</span><h3>Your journey</h3><p>Every reservation, driver and experience secured, a briefing each evening, and one contact reachable throughout.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="reviews" aria-label="Reviews from IEUM travellers">
+  <div class="wrap">
+    <div class="rv-head">
+      <p class="eyebrow">Reviews</p>
+      <h2>Hear it from our travellers</h2>
+    </div>
+    <div class="rv-grid">
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
+        <figcaption><b>Amal</b> &middot; Honeymoon &middot; August 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
+        <figcaption><b>Ioannis</b> &middot; Three weeks for two &middot; June 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
+        <figcaption><b>Indigo</b> &middot; Wellness with a friend &middot; May 2026</figcaption>
+      </figure>
+    </div>
+    <p class="rv-more"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read all reviews on Trustpilot &rsaquo;</a></p>
   </div>
 </section>
 
