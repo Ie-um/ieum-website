@@ -395,6 +395,31 @@
   .sec-cta{text-align:center;margin-top:56px}
   .sec-cta a{display:inline-block;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--jade);border:1px solid rgba(64,104,91,.45);padding:15px 30px;transition:background .35s,color .35s}
   .sec-cta a:hover{background:var(--jade);color:var(--paper)}
+  #contact{background:var(--jade-deep);color:var(--ivory);padding:96px 0}
+  #contact .eyebrow{color:#A9C3B7}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start;text-align:left}
+  .contact-info h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin:18px 0 24px;color:var(--ivory);font-weight:300}
+  .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
+  .contact-lines{margin-top:40px;display:grid;gap:20px}
+  .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);transition:border-color .4s}
+  .contact-lines a:hover{border-color:var(--ivory)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .field{display:grid;gap:8px}
+  .field.full{grid-column:1/-1}
+  label{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#A9C3B7}
+  input,select,textarea{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none}
+  select option{color:var(--ink)}
+  textarea{resize:vertical;min-height:80px}
+  input:focus,select:focus,textarea:focus{border-color:var(--ivory)}
+  form button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 42px;cursor:pointer;transition:background .4s,color .4s;margin-top:8px}
+  form button:hover,form button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
+  .sent{grid-column:1/-1;color:#C9D5CD;font-size:.95rem;line-height:1.8;display:none}
+  .sent.on{display:block}
+  .form-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;margin-top:8px}
+  .form-actions button{margin-top:0}
+  .call-link{font-family:var(--utility);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);border-bottom:1px solid rgba(246,244,239,.4);padding-bottom:4px;transition:border-color .4s}
+  .call-link:hover,.call-link:focus-visible{border-color:var(--ivory)}
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -421,7 +446,7 @@
     </span>
     <a href="/#themes">Experiences</a>
     <a href="faq">FAQ</a>
-    <a class="cta" href="/#contact">Contact</a>
+    <a class="cta" href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -449,7 +474,7 @@
       </div>
       <div class="pj-shot" role="img" aria-label="A restored hanok with tiled roofs and wooden doors" data-bg="images/w/about-sangchonjae"></div>
     </div>
-    <p class="sec-cta reveal"><a href="/#contact">Plan your journey</a></p>
+    <p class="sec-cta reveal"><a href="#contact">Plan your journey</a></p>
   </div>
 </section>
 
@@ -466,7 +491,7 @@
       <div class="pcard"><div class="pimg" role="img" aria-label="A calm facial massage in a spa treatment room" data-bgu="https://images.unsplash.com/photo-1706795033728-9232ef548a16?w=900&h=1125&q=80&fm=jpg&fit=crop"></div><span class="n">iii.</span><h3>Beauty</h3><p>Hanbang facials, dermatology clinics for non invasive care and the styling studios behind Korea's best known faces. See our <a href="guides/luxury-shopping-in-seoul">Seoul shopping guide</a>.</p></div>
       <div class="pcard"><div class="pimg" role="img" aria-label="A traditional Korean table set with brass bowls and side dishes" data-bg="images/w/pj-table"></div><span class="n">iv.</span><h3>Cuisine</h3><p>Tables that do not take online reservations, royal cuisine classes, market mornings and restaurants booked months ahead.</p></div>
     </div>
-    <p class="sec-cta reveal"><a href="/#contact">Plan your journey</a></p>
+    <p class="sec-cta reveal"><a href="#contact">Plan your journey</a></p>
   </div>
 </section>
 
@@ -483,7 +508,7 @@
       <a class="pcard" href="journeys/group-journeys"><div class="pimg" role="img" aria-label="Friends in hanbok together at Gyeongbokgung Palace" data-bgu="https://images.unsplash.com/photo-1698880754311-64351d62db07?w=1100&q=80&fm=jpg&fit=crop"></div><span class="n">iii.</span><h3>Group Journeys</h3><p>Friends, reunions and private groups, on seasonal or themed routes across Korea, with an optional week in Japan.</p><span class="more">Explore group journeys</span></a>
     </div>
     <p class="audience reveal">We work most often with travelers from Europe, the United States, and Latin America. Everything is delivered in English and Korean, with French and Spanish speaking guides arranged on request.</p>
-    <p class="sec-cta reveal"><a href="/#contact">Plan your journey</a></p>
+    <p class="sec-cta reveal"><a href="#contact">Plan your journey</a></p>
   </div>
 </section>
 
@@ -526,7 +551,7 @@
         <p>One point of contact in Korea, reachable throughout your stay.</p>
       </div>
     </div>
-    <p class="sec-cta reveal"><a href="/#contact">Plan your journey</a></p>
+    <p class="sec-cta reveal"><a href="#contact">Plan your journey</a></p>
   </div>
 </section>
 
@@ -545,12 +570,39 @@
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <p class="eyebrow">Begin</p>
-    <h2>Tell us about the trip you have in mind</h2>
-    <p>Every journey starts with a conversation. Tell us a little about what you are imagining, and we will take it from there.</p>
-    <a href="/#contact" class="cta-btn">Book a Consultation</a>
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Begin</p>
+      <h2>Tell us about the trip you have in mind</h2>
+      <p>Share a few details and we will write back personally, usually within a day, with first ideas for your journey. Prefer to talk it through? Book a 30 minute call at a time that suits you.</p>
+      <div class="contact-lines">
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+        <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram &middot; @ieumconcierge</a>
+      </div>
+    </div>
+    <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
+      <input type="hidden" name="journey" value="Private Journey">
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field full"><label for="f-interest">I'm interested in</label>
+        <select id="f-interest" name="interest">
+          <option>Wellness and restoration</option>
+          <option>Culture, craft and food</option>
+          <option>Family travel</option>
+          <option>A milestone or celebration</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
+      <div class="form-actions">
+        <button type="submit">Send an Enquiry</button>
+        <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
+      </div>
+      <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+    </form>
   </div>
 </section>
 
@@ -851,6 +903,30 @@
   window.addEventListener('resize',onScroll);
   window.addEventListener('load',check);
   check();
+})();
+</script>
+<script>
+(function () {
+  var f = document.getElementById('enquiry');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    f.querySelector('button[type=submit]').disabled = true;
+    var j = f.querySelector('[name=journey]');
+    fetch(f.action, {method:'POST', headers:{Accept:'application/json'}, body:new FormData(f)})
+      .then(function (r) { if (!r.ok) throw new Error('formspree ' + r.status); done(); })
+      .catch(function () {
+        /* Never lose an enquiry: if the background send fails, post the form the ordinary way. */
+        if (window.ieumTrack) window.ieumTrack('form_error', { form_location: 'private_journeys' });
+        HTMLFormElement.prototype.submit.call(f);
+      });
+    function done() {
+      if (window.ieumTrack) window.ieumTrack('generate_lead', { form_location: 'private_journeys', journey: j ? j.value : '' });
+      f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
+      document.getElementById('sent').classList.add('on');
+    }
+  });
 })();
 </script>
 </body>
