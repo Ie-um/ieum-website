@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Private Journeys | Bespoke Luxury Travel Concierge in Korea | IEUM Concierge</title>
@@ -431,14 +430,6 @@
   .rv blockquote{margin:0;font-size:.85rem;color:#5A5A52;line-height:1.75;flex:1}
   .rv figcaption{margin-top:18px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
   @media (max-width:900px){.rv-grid{grid-template-columns:1fr}.rv{padding:34px 24px}}
-  /* fold and unfold */
-  .js .fold:not(.open){display:none !important}
-  .fold-btn{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
-  .fold-btn:hover{border-color:var(--jade);background:var(--paper)}
-  .fold-btn .sign{font-size:1rem;line-height:1;color:var(--jade)}
-  .no-js .fold-btn,html:not(.js) .fold-btn{display:none}
-  .fold-sum{margin-top:18px;color:#4A4A43;font-size:.98rem;max-width:62ch}
-  .section-head .fold-btn{margin-top:28px}
   @media (max-width:900px){
     .rv-grid{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:2px;margin-right:-6vw;padding-right:6vw}
     .rv-grid::-webkit-scrollbar{display:none}
@@ -573,9 +564,8 @@
       <p class="eyebrow">Included</p>
       <h2>What every private journey includes</h2>
       <p>The foundation of every itinerary we design, before we add anything specific to you.</p>
-      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-includes" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
     </div>
-    <div class="offerings-grid reveal fold" id="fold-includes">
+    <div class="offerings-grid reveal">
       <div class="offering">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M15.3 8.7l-2.1 4.5-4.5 2.1 2.1-4.5z"/></svg>
         <h3>Itinerary Planning &amp; Booking</h3>
@@ -616,9 +606,8 @@
     <div class="section-head reveal">
       <p class="eyebrow">The Process</p>
       <h2>How your journey comes together</h2>
-      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-process" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
     </div>
-    <div class="steps4 reveal fold" id="fold-process">
+    <div class="steps4 reveal">
       <div><span class="n">i.</span><h3>A conversation</h3><p>A short call about the trip you have in mind, who is traveling, and what you would rather avoid.</p></div>
       <div><span class="n">ii.</span><h3>A designed itinerary</h3><p>Your journey day by day, as a private page with the reasoning behind the pacing and photographs of each place.</p></div>
       <div><span class="n">iii.</span><h3>Refinement</h3><p>You tell us what you love and what you would change, and we rebuild around it, usually in a round or two.</p></div>
@@ -983,26 +972,6 @@
       f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
-  });
-})();
-</script>
-<script>
-/* Fold and unfold long sections. The text stays in the page for search engines and AI crawlers. */
-(function(){
-  document.querySelectorAll('.fold-btn').forEach(function(btn){
-    var box=document.getElementById(btn.getAttribute('aria-controls'));
-    if(!box) return;
-    var more=btn.getAttribute('data-more')||'Read more', less=btn.getAttribute('data-less')||'Close';
-    btn.addEventListener('click',function(){
-      var open=!box.classList.contains('open');
-      box.classList.toggle('open',open);
-      btn.setAttribute('aria-expanded',open?'true':'false');
-      btn.querySelector('.label').textContent=open?less:more;
-      btn.querySelector('.sign').textContent=open?'\u2212':'+';
-      var sec=btn.closest('section'); if(sec) sec.classList.toggle('is-open',open);
-      if(open){ box.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in','visible','shown');}); window.dispatchEvent(new Event('scroll')); if(window.ieumTrack) window.ieumTrack('section_unfold',{section:btn.getAttribute('aria-controls')}); }
-      else { var t=(sec||btn).getBoundingClientRect().top; if(t<0) (sec||btn).scrollIntoView({block:'start'}); }
-    });
   });
 })();
 </script>
