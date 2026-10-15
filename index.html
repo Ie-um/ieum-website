@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IEUM Concierge | Luxury Korea Travel Concierge for Private Wellness Journeys</title>
@@ -172,7 +173,7 @@
   .reveal.in{opacity:1;transform:none}
 
   /* about */
-  #about{background:var(--paper)}
+  #about{background:var(--ivory)}
   #why{background:var(--paper)}
   .why-list{max-width:920px;margin:0 auto;border-top:1px solid var(--hairline)}
   .why-row{display:grid;grid-template-columns:110px 1fr 108px;gap:36px;align-items:center;padding:52px 0;border-bottom:1px solid var(--hairline);transition:padding .4s}
@@ -372,7 +373,7 @@
     .insp{scroll-snap-align:start}
     .insp-nav{display:none}
   }
-  #reviews{padding:110px 0;background:var(--paper)}
+  #reviews{padding:110px 0;background:var(--ivory)}
   #reviews .rv-head{text-align:center;max-width:640px;margin:0 auto 64px}
   #reviews .rv-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:16px}
   .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;max-width:1100px;margin:0 auto}
@@ -385,6 +386,24 @@
   .rv-more a{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(63,107,92,.35);padding-bottom:3px}
   .rv-more a:hover{border-color:var(--jade)}
   @media (max-width:900px){#reviews{padding:72px 0}.rv-grid{grid-template-columns:1fr;gap:40px}#reviews .rv-head{margin-bottom:44px}.rv blockquote{font-size:1.15rem}}
+  /* fold and unfold */
+  .js .fold:not(.open){display:none !important}
+  .fold-btn{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
+  .fold-btn:hover{border-color:var(--jade);background:var(--paper)}
+  .fold-btn .sign{font-size:1rem;line-height:1;color:var(--jade)}
+  .no-js .fold-btn,html:not(.js) .fold-btn{display:none}
+  .fold-sum{margin-top:18px;color:#4A4A43;font-size:.98rem;max-width:62ch}
+  .section-head .fold-btn{margin-top:28px}
+  @media (max-width:900px){
+    .rv-grid{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:2px;margin-right:-6vw;padding-right:6vw}
+    .rv-grid::-webkit-scrollbar{display:none}
+    .rv-grid .rv{flex:0 0 84%;scroll-snap-align:start}
+  }
+  .hero-lede{max-width:46ch;margin:22px auto 0;font-size:.92rem;line-height:1.7;opacity:.88;font-weight:300}
+  @media (max-width:700px){.hero-lede{font-size:.82rem;max-width:34ch}}
+  #about:not(.is-open) .ph{min-height:380px}
+  .theme-label .fold-btn{margin-top:20px}
+  #instagram{background:var(--ivory)}
 </style>
 </head>
 <body>
@@ -424,59 +443,11 @@
     <div class="hero-kr" aria-hidden="true"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt=""></div>
     <h1><span class="h1-kicker">Luxury travel concierge for Korea</span><span class="h1-display">Korea, connected.</span></h1>
     <p class="hero-sub">Wellness &middot; Culture &middot; Beauty<br>Europe &middot; United States &middot; Latin America</p>
+    <p class="hero-lede">IEUM Concierge is a private luxury travel concierge for Korea, designing bespoke wellness and culture journeys for guests from the US, Europe and Latin America, from New York and Seoul.</p>
     <a href="#contact" class="hero-cta">Book a Consultation</a>
   </div>
   <p class="hero-note">Scroll</p>
 </header>
-
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="ph warm reveal" role="img" aria-label="Sangchonjae hanok stay" style="background-size:cover;background-position:center" data-bg="https://ie-um.com/images/w/about-sangchonjae"></div>
-    <div class="about-copy reveal">
-      <p class="eyebrow">About</p>
-      <h2>The connection between you and the real Korea</h2>
-      <p>IEUM Concierge is a luxury travel concierge for Korea, based between Seoul and New York. We plan, book, and run private wellness, cultural, and culinary journeys end to end, across Seoul, Jeju, Busan, Gangwon, and Gyeongju, for travellers from Europe, the United States, and Latin America, with 24 hour concierge support throughout.</p>
-      <p>Ieum, 이음, means connection. To Korea's people, culture, and nature, and to the life you return to. Wellness sits at the centre of every journey we design, woven through Korea's culture, beauty, and cuisine, whatever shape the trip takes: a family holiday, a milestone celebration, or time alone.</p>
-      <p>The result is a true vacation, the kind you do not need another vacation to recover from. No researching. No mapping out routes. No comparing options or chasing reservations. Every day is planned around you and handled for you, from the driver waiting at arrivals to the table held weeks in advance. You come home rested, refreshed, and rejuvenated.</p>
-      <p>One trusted point of contact. A network of vetted partners, from serene mountain temples to Seoul's most sought-after addresses. Every itinerary personally tested before it is ever recommended.</p>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Difference</p>
-      <h2>Why clients choose IEUM</h2>
-    </div>
-    <div class="why-list">
-      <div class="why-row reveal">
-        <span class="why-num">01</span>
-        <div class="why-copy">
-          <h3>Access</h3>
-          <p>The tables Koreans themselves queue for and book months in advance, the chef's counters from Culinary Class Wars, the ateliers of the makeup artists trusted by Korea's biggest stars: access secured through relationships built over years, not chance.</p>
-        </div>
-        <div class="why-photo ph" role="img" aria-label="Dancheong-painted Korean temple roof at night" style="background-size:cover;background-position:center" data-bgu="https://images.unsplash.com/photo-1762237344809-9a31098c71dd?auto=format&amp;fit=crop&amp;w=400&amp;q=80"></div>
-      </div>
-      <div class="why-row reveal">
-        <span class="why-num">02</span>
-        <div class="why-copy">
-          <h3>Beyond the Obvious</h3>
-          <p>Not only Seoul. We design and run journeys across the whole of Korea, in Jeju, Busan, Gyeongju, Sokcho, and the smaller places between them, with the same care in every one. Curated for what's genuinely worth your time, not what's easiest to book.</p>
-        </div>
-        <div class="why-photo ph" role="img" aria-label="Dol hareubang, the iconic stone grandfather statue of Jeju Island" style="background-image:url('https://cdn.pixabay.com/photo/2015/04/16/11/21/dol-hareubang-725475_1280.jpg');background-size:cover;background-position:center"></div>
-      </div>
-      <div class="why-row reveal">
-        <span class="why-num">03</span>
-        <div class="why-copy">
-          <h3>Made Entirely Around You</h3>
-          <p>Every itinerary is built around your life, never a template. Traveling with children, or with a dog who comes everywhere you do. Dietary restrictions we confirm with each kitchen before you sit down. Accessibility needs handled quietly in advance. And throughout, the standard you expect: a private car and driver, doors opened where reservations are not usually taken, and the discretion to move through a country unnoticed.</p>
-        </div>
-        <div class="why-photo ph" role="img" aria-label="Colorful lotus lanterns at a Korean temple stay" style="background-size:cover;background-position:center" data-bgu="https://images.unsplash.com/photo-1681796282108-01344325b081?auto=format&amp;fit=crop&amp;w=400&amp;q=80"></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="services">
   <div class="wrap">
@@ -560,6 +531,87 @@
   </div>
 </section>
 
+<section id="reviews" aria-label="Reviews from IEUM guests">
+  <div class="wrap">
+    <div class="rv-head">
+      <p class="eyebrow">In their words</p>
+      <h2>Hear it from our guests</h2>
+    </div>
+    <div class="rv-grid">
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
+        <figcaption><b>Amal</b> &middot; Honeymoon &middot; August 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
+        <figcaption><b>Ioannis</b> &middot; Three weeks for two &middot; June 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
+        <figcaption><b>Indigo</b> &middot; Wellness with a friend &middot; May 2026</figcaption>
+      </figure>
+    </div>
+    <p class="rv-more"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read every guest review on Trustpilot &rsaquo;</a></p>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Difference</p>
+      <h2>Why guests choose IEUM</h2>
+      <p class="fold-sum">Access few others can open, the whole of Korea beyond Seoul, and every journey made entirely around you.</p>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-why" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
+    </div>
+    <div class="why-list fold" id="fold-why">
+      <div class="why-row reveal">
+        <span class="why-num">01</span>
+        <div class="why-copy">
+          <h3>Access</h3>
+          <p>The tables Koreans themselves queue for and book months in advance, the chef's counters from Culinary Class Wars, the ateliers of the makeup artists trusted by Korea's biggest stars: access secured through relationships built over years, not chance.</p>
+        </div>
+        <div class="why-photo ph" role="img" aria-label="Dancheong-painted Korean temple roof at night" style="background-size:cover;background-position:center" data-bgu="https://images.unsplash.com/photo-1762237344809-9a31098c71dd?auto=format&amp;fit=crop&amp;w=400&amp;q=80"></div>
+      </div>
+      <div class="why-row reveal">
+        <span class="why-num">02</span>
+        <div class="why-copy">
+          <h3>Beyond the Obvious</h3>
+          <p>Not only Seoul. We design and run journeys across the whole of Korea, in Jeju, Busan, Gyeongju, Sokcho, and the smaller places between them, with the same care in every one. Curated for what's genuinely worth your time, not what's easiest to book.</p>
+        </div>
+        <div class="why-photo ph" role="img" aria-label="Dol hareubang, the iconic stone grandfather statue of Jeju Island" style="background-image:url('https://cdn.pixabay.com/photo/2015/04/16/11/21/dol-hareubang-725475_1280.jpg');background-size:cover;background-position:center"></div>
+      </div>
+      <div class="why-row reveal">
+        <span class="why-num">03</span>
+        <div class="why-copy">
+          <h3>Made Entirely Around You</h3>
+          <p>Every itinerary is built around your life, never a template. Traveling with children, or with a dog who comes everywhere you do. Dietary restrictions we confirm with each kitchen before you sit down. Accessibility needs handled quietly in advance. And throughout, the standard you expect: a private car and driver, doors opened where reservations are not usually taken, and the discretion to move through a country unnoticed.</p>
+        </div>
+        <div class="why-photo ph" role="img" aria-label="Colorful lotus lanterns at a Korean temple stay" style="background-size:cover;background-position:center" data-bgu="https://images.unsplash.com/photo-1681796282108-01344325b081?auto=format&amp;fit=crop&amp;w=400&amp;q=80"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="ph warm reveal" role="img" aria-label="Sangchonjae hanok stay" style="background-size:cover;background-position:center" data-bg="https://ie-um.com/images/w/about-sangchonjae"></div>
+    <div class="about-copy reveal">
+      <p class="eyebrow">About</p>
+      <h2>The connection between you and the real Korea</h2>
+      <p>IEUM Concierge is a luxury travel concierge for Korea, based between Seoul and New York. We plan, book, and run private wellness, cultural, and culinary journeys end to end, across Seoul, Jeju, Busan, Gangwon, and Gyeongju, for guests from Europe, the United States, and Latin America, with 24 hour concierge support throughout.</p>
+      <div class="fold" id="fold-about">
+        <p>Ieum, 이음, means connection. To Korea's people, culture, and nature, and to the life you return to. Wellness sits at the centre of every journey we design, woven through Korea's culture, beauty, and cuisine, whatever shape the trip takes: a family holiday, a milestone celebration, or time alone.</p>
+        <p>The result is a true vacation, the kind you do not need another vacation to recover from. No researching. No mapping out routes. No comparing options or chasing reservations. Every day is planned around you and handled for you, from the driver waiting at arrivals to the table held weeks in advance. You come home rested, refreshed, and rejuvenated.</p>
+        <p>One trusted point of contact. A network of vetted partners, from serene mountain temples to Seoul's most sought-after addresses. Every itinerary personally tested before it is ever recommended.</p>
+      </div>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-about" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
+    </div>
+  </div>
+</section>
+
 <section id="themes">
   <div class="wrap">
     <div class="section-head reveal">
@@ -572,8 +624,9 @@
         <p class="eyebrow">Wellness</p>
         <h3>Stillness, far from the city</h3>
         <p class="theme-sub">Korean wellness travel across the country, from temple stays and hot spring towns to mountain hiking in Seoraksan.</p>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-1" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
       </div>
-      <div class="exp-grid">
+      <div class="exp-grid fold" id="fold-theme-1">
         <div class="exp">
           <div class="ph deep" role="img" aria-label="A stone bodhisattva under fresh snow at Woljeongsa temple in Pyeongchang" style="background-size:cover;background-position:65% center" data-bg="https://ie-um.com/images/w/wellness-temple-winter"></div>
           <h4>Temple Stay in the Mountains</h4>
@@ -597,8 +650,9 @@
         <p class="eyebrow">Culture</p>
         <h3>Traditions, kept alive</h3>
         <p class="theme-sub">Korean cultural experiences, from hanbok at the palaces to artisan workshops and private guided visits.</p>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-2" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
       </div>
-      <div class="exp-grid">
+      <div class="exp-grid fold" id="fold-theme-2">
         <div class="exp">
           <div class="ph warm" role="img" aria-label="Korean royal cuisine table" style="background-size:cover;background-position:center" data-bg="https://ie-um.com/images/w/royal-cuisine"></div>
           <h4>Royal Cuisine Cooking Class</h4>
@@ -622,8 +676,9 @@
         <p class="eyebrow">Beauty</p>
         <h3>Rejuvenation, refined</h3>
         <p class="theme-sub">Korean beauty experiences, from hanbang facials and dermatology clinics to lash and styling studios.</p>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-3" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
       </div>
-      <div class="exp-grid">
+      <div class="exp-grid fold" id="fold-theme-3">
         <div class="exp">
           <div class="ph mist" role="img" aria-label="Facial skincare treatment" style="background-size:cover;background-position:center" data-bgu="https://images.unsplash.com/photo-1731514771613-991a02407132?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"></div>
           <h4>Non-Invasive Treatments</h4>
@@ -655,33 +710,6 @@
   </div>
 </section>
 
-<section id="reviews" aria-label="Reviews from IEUM travellers">
-  <div class="wrap">
-    <div class="rv-head">
-      <p class="eyebrow">Reviews</p>
-      <h2>Hear it from our travellers</h2>
-    </div>
-    <div class="rv-grid">
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
-        <figcaption><b>Amal</b> &middot; Honeymoon &middot; August 2026</figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
-        <figcaption><b>Ioannis</b> &middot; Three weeks for two &middot; June 2026</figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
-        <figcaption><b>Indigo</b> &middot; Wellness with a friend &middot; May 2026</figcaption>
-      </figure>
-    </div>
-    <p class="rv-more"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read all reviews on Trustpilot &rsaquo;</a></p>
-  </div>
-</section>
-
 <section id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info reveal">
@@ -697,7 +725,7 @@
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
-      <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field"><label for="f-party">Guests</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
       <div class="field full"><label for="f-interest">I'm interested in</label>
         <select id="f-interest" name="interest">
           <option>A private journey</option>
@@ -807,7 +835,7 @@
 
     const notes = [
       f.dates.value ? `Travel window: ${f.dates.value}` : '',
-      f.party.value ? `Travelers: ${f.party.value}` : '',
+      f.party.value ? `Guests: ${f.party.value}` : '',
       f.interest.value ? `Interested in: ${f.interest.value}` : '',
       f.message.value ? `Notes: ${f.message.value}` : ''
     ].filter(Boolean).join(' | ');
@@ -1188,6 +1216,26 @@
   window.addEventListener('resize',onScroll);
   window.addEventListener('load',check);
   check();
+})();
+</script>
+<script>
+/* Fold and unfold long sections. The text stays in the page for search engines and AI crawlers. */
+(function(){
+  document.querySelectorAll('.fold-btn').forEach(function(btn){
+    var box=document.getElementById(btn.getAttribute('aria-controls'));
+    if(!box) return;
+    var more=btn.getAttribute('data-more')||'Read more', less=btn.getAttribute('data-less')||'Close';
+    btn.addEventListener('click',function(){
+      var open=!box.classList.contains('open');
+      box.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.querySelector('.label').textContent=open?less:more;
+      btn.querySelector('.sign').textContent=open?'\u2212':'+';
+      var sec=btn.closest('section'); if(sec) sec.classList.toggle('is-open',open);
+      if(open){ box.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in','visible','shown');}); window.dispatchEvent(new Event('scroll')); if(window.ieumTrack) window.ieumTrack('section_unfold',{section:btn.getAttribute('aria-controls')}); }
+      else { var t=(sec||btn).getBoundingClientRect().top; if(t<0) (sec||btn).scrollIntoView({block:'start'}); }
+    });
+  });
 })();
 </script>
 </body>

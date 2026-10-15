@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Private Journeys | Bespoke Luxury Travel Concierge in Korea | IEUM Concierge</title>
@@ -236,7 +237,8 @@
   .prose strong{font-weight:400;color:var(--ink)}
 
   /* ---------- offerings grid ---------- */
-  #includes{background:var(--ivory)}
+  #includes{background:var(--paper)}
+  #process{background:var(--ivory)}
   #themes{background:var(--ivory)}
   .theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--hairline);max-width:1100px;margin:0 auto}
   .theme-grid.pair{grid-template-columns:repeat(2,1fr);max-width:900px}
@@ -429,6 +431,19 @@
   .rv blockquote{margin:0;font-size:.85rem;color:#5A5A52;line-height:1.75;flex:1}
   .rv figcaption{margin-top:18px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade)}
   @media (max-width:900px){.rv-grid{grid-template-columns:1fr}.rv{padding:34px 24px}}
+  /* fold and unfold */
+  .js .fold:not(.open){display:none !important}
+  .fold-btn{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
+  .fold-btn:hover{border-color:var(--jade);background:var(--paper)}
+  .fold-btn .sign{font-size:1rem;line-height:1;color:var(--jade)}
+  .no-js .fold-btn,html:not(.js) .fold-btn{display:none}
+  .fold-sum{margin-top:18px;color:#4A4A43;font-size:.98rem;max-width:62ch}
+  .section-head .fold-btn{margin-top:28px}
+  @media (max-width:900px){
+    .rv-grid{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:2px;margin-right:-6vw;padding-right:6vw}
+    .rv-grid::-webkit-scrollbar{display:none}
+    .rv-grid .rv{flex:0 0 84%;scroll-snap-align:start}
+  }
 </style>
 </head>
 <body>
@@ -516,8 +531,39 @@
       <a class="pcard" href="journeys/milestone-journeys"><div class="pimg" role="img" aria-label="Fireworks bursting over the Han River and the Seoul skyline at night" style="background-position:center 40%" data-bg="images/w/milestone-han-fireworks"></div><span class="n">ii.</span><h3>Milestone Journeys</h3><p>Proposals, anniversaries, honeymoons, birthdays and bachelor and bachelorette weekends, staged with care.</p><span class="more">Explore milestone journeys</span></a>
       <a class="pcard" href="journeys/group-journeys"><div class="pimg" role="img" aria-label="Friends in hanbok together at Gyeongbokgung Palace" data-bgu="https://images.unsplash.com/photo-1698880754311-64351d62db07?w=1100&q=80&fm=jpg&fit=crop"></div><span class="n">iii.</span><h3>Group Journeys</h3><p>Friends, reunions and private groups, on seasonal or themed routes across Korea, with an optional week in Japan.</p><span class="more">Explore group journeys</span></a>
     </div>
-    <p class="audience reveal">We work most often with travelers from Europe, the United States, and Latin America. Everything is delivered in English and Korean, with French and Spanish speaking guides arranged on request.</p>
+    <p class="audience reveal">We work most often with guests from Europe, the United States, and Latin America. Everything is delivered in English and Korean, with French and Spanish speaking guides arranged on request.</p>
     <p class="sec-cta reveal"><a href="#contact">Plan your journey</a></p>
+  </div>
+</section>
+
+<section id="reviews" aria-label="Reviews from IEUM guests">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">In their words</p>
+      <h2>Hear it from our guests</h2>
+      <p>Words from guests we have looked after, shared on Trustpilot.</p>
+    </div>
+    <div class="rv-grid reveal">
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>Best Korean experience curator ever</h3>
+        <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
+        <figcaption>Amal &middot; Honeymoon &middot; August 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>A unique perspective on Korea</h3>
+        <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
+        <figcaption>Ioannis &middot; Three weeks for two &middot; June 2026</figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>I really wanted to book a traditional headspa experience</h3>
+        <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
+        <figcaption>Indigo &middot; Wellness with a friend &middot; May 2026</figcaption>
+      </figure>
+    </div>
+    <p class="sec-cta reveal"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read every guest review on Trustpilot</a></p>
   </div>
 </section>
 
@@ -527,8 +573,9 @@
       <p class="eyebrow">Included</p>
       <h2>What every private journey includes</h2>
       <p>The foundation of every itinerary we design, before we add anything specific to you.</p>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-includes" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
     </div>
-    <div class="offerings-grid reveal">
+    <div class="offerings-grid reveal fold" id="fold-includes">
       <div class="offering">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M15.3 8.7l-2.1 4.5-4.5 2.1 2.1-4.5z"/></svg>
         <h3>Itinerary Planning &amp; Booking</h3>
@@ -569,44 +616,14 @@
     <div class="section-head reveal">
       <p class="eyebrow">The Process</p>
       <h2>How your journey comes together</h2>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-process" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
     </div>
-    <div class="steps4 reveal">
+    <div class="steps4 reveal fold" id="fold-process">
       <div><span class="n">i.</span><h3>A conversation</h3><p>A short call about the trip you have in mind, who is traveling, and what you would rather avoid.</p></div>
       <div><span class="n">ii.</span><h3>A designed itinerary</h3><p>Your journey day by day, as a private page with the reasoning behind the pacing and photographs of each place.</p></div>
       <div><span class="n">iii.</span><h3>Refinement</h3><p>You tell us what you love and what you would change, and we rebuild around it, usually in a round or two.</p></div>
       <div><span class="n">iv.</span><h3>Your journey</h3><p>Every reservation, driver and experience secured, a briefing each evening, and one contact reachable throughout.</p></div>
     </div>
-  </div>
-</section>
-
-<section id="reviews" aria-label="Reviews from IEUM travellers">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Reviews</p>
-      <h2>Hear it from our travellers</h2>
-      <p>Words from guests we have looked after, shared on Trustpilot.</p>
-    </div>
-    <div class="rv-grid reveal">
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>Best Korean experience curator ever</h3>
-        <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
-        <figcaption>Amal &middot; Honeymoon &middot; August 2026</figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>A unique perspective on Korea</h3>
-        <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
-        <figcaption>Ioannis &middot; Three weeks for two &middot; June 2026</figcaption>
-      </figure>
-      <figure class="rv">
-        <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>I really wanted to book a traditional headspa experience</h3>
-        <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
-        <figcaption>Indigo &middot; Wellness with a friend &middot; May 2026</figcaption>
-      </figure>
-    </div>
-    <p class="sec-cta reveal"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read all reviews on Trustpilot</a></p>
   </div>
 </section>
 
@@ -626,7 +643,7 @@
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
-      <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field"><label for="f-party">Guests</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
       <div class="field full"><label for="f-interest">I'm interested in</label>
         <select id="f-interest" name="interest">
           <option>Wellness and restoration</option>
@@ -966,6 +983,26 @@
       f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
+  });
+})();
+</script>
+<script>
+/* Fold and unfold long sections. The text stays in the page for search engines and AI crawlers. */
+(function(){
+  document.querySelectorAll('.fold-btn').forEach(function(btn){
+    var box=document.getElementById(btn.getAttribute('aria-controls'));
+    if(!box) return;
+    var more=btn.getAttribute('data-more')||'Read more', less=btn.getAttribute('data-less')||'Close';
+    btn.addEventListener('click',function(){
+      var open=!box.classList.contains('open');
+      box.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.querySelector('.label').textContent=open?less:more;
+      btn.querySelector('.sign').textContent=open?'\u2212':'+';
+      var sec=btn.closest('section'); if(sec) sec.classList.toggle('is-open',open);
+      if(open){ box.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in','visible','shown');}); window.dispatchEvent(new Event('scroll')); if(window.ieumTrack) window.ieumTrack('section_unfold',{section:btn.getAttribute('aria-controls')}); }
+      else { var t=(sec||btn).getBoundingClientRect().top; if(t<0) (sec||btn).scrollIntoView({block:'start'}); }
+    });
   });
 })();
 </script>
