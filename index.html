@@ -388,10 +388,15 @@
   @media (max-width:900px){#reviews{padding:72px 0}.rv-grid{grid-template-columns:1fr;gap:40px}#reviews .rv-head{margin-bottom:44px}.rv blockquote{font-size:1.15rem}}
   /* fold and unfold */
   .js .fold:not(.open){display:none !important}
-  .fold-btn{margin-top:26px;display:inline-flex;align-items:center;gap:12px;background:none;border:1px solid var(--hairline);color:var(--ink);font-family:var(--utility);font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;padding:11px 20px;cursor:pointer;transition:border-color .4s,background .4s}
-  .fold-btn:hover{border-color:var(--jade);background:var(--paper)}
-  .fold-btn .sign{font-size:1rem;line-height:1;color:var(--jade)}
-  .no-js .fold-btn,html:not(.js) .fold-btn{display:none}
+  .fold-btn{margin-top:30px;display:inline-flex;align-items:center;gap:16px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--ink);font-family:var(--display);font-style:italic;font-weight:300;font-size:1.12rem;letter-spacing:.02em}
+  .fold-btn .sign{position:relative;width:38px;height:38px;border:1px solid rgba(64,104,91,.45);border-radius:50%;flex:0 0 38px;transition:background .45s,border-color .45s,transform .6s cubic-bezier(.2,.6,.2,1)}
+  .fold-btn .sign::before,.fold-btn .sign::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--jade);transform:translate(-50%,-50%);transition:background .45s}
+  .fold-btn .sign::after{transform:translate(-50%,-50%) rotate(90deg)}
+  .fold-btn:hover .sign,.fold-btn:focus-visible .sign{background:var(--jade);border-color:var(--jade)}
+  .fold-btn:hover .sign::before,.fold-btn:hover .sign::after,.fold-btn:focus-visible .sign::before,.fold-btn:focus-visible .sign::after{background:var(--paper)}
+  .fold-btn[aria-expanded="true"] .sign{transform:rotate(45deg)}
+  .fold-btn .label{border-bottom:1px solid transparent;transition:border-color .4s}
+  .fold-btn:hover .label{border-color:rgba(64,104,91,.4)}
   .fold-sum{margin-top:18px;color:#4A4A43;font-size:.98rem;max-width:62ch}
   .section-head .fold-btn{margin-top:28px}
   @media (max-width:900px){
@@ -552,7 +557,6 @@
         <figcaption><b>Indigo</b> &middot; Wellness with a friend &middot; May 2026</figcaption>
       </figure>
     </div>
-    <p class="rv-more"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read every guest review on Trustpilot &rsaquo;</a></p>
   </div>
 </section>
 
@@ -562,7 +566,7 @@
       <p class="eyebrow">Difference</p>
       <h2>Why guests choose IEUM</h2>
       <p class="fold-sum">Access few others can open, the whole of Korea beyond Seoul, and every journey made entirely around you.</p>
-      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-why" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-why" data-more="Discover more" data-less="Close"><span class="label">Discover more</span><span class="sign" aria-hidden="true"></span></button>
     </div>
     <div class="why-list fold" id="fold-why">
       <div class="why-row reveal">
@@ -605,7 +609,7 @@
         <p>The result is a true vacation, the kind you do not need another vacation to recover from. No researching. No mapping out routes. No comparing options or chasing reservations. Every day is planned around you and handled for you, from the driver waiting at arrivals to the table held weeks in advance. You come home rested, refreshed, and rejuvenated.</p>
         <p>One trusted point of contact. A network of vetted partners, from serene mountain temples to Seoul's most sought-after addresses. Every itinerary personally tested before it is ever recommended.</p>
       </div>
-      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-about" data-more="Read more" data-less="Close"><span class="label">Read more</span><span class="sign" aria-hidden="true">+</span></button>
+      <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-about" data-more="Discover more" data-less="Close"><span class="label">Discover more</span><span class="sign" aria-hidden="true"></span></button>
     </div>
   </div>
 </section>
@@ -622,7 +626,7 @@
         <p class="eyebrow">Wellness</p>
         <h3>Stillness, far from the city</h3>
         <p class="theme-sub">Korean wellness travel across the country, from temple stays and hot spring towns to mountain hiking in Seoraksan.</p>
-        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-1" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-1" data-more="View the experiences" data-less="Close"><span class="label">View the experiences</span><span class="sign" aria-hidden="true"></span></button>
       </div>
       <div class="exp-grid fold" id="fold-theme-1">
         <div class="exp">
@@ -648,7 +652,7 @@
         <p class="eyebrow">Culture</p>
         <h3>Traditions, kept alive</h3>
         <p class="theme-sub">Korean cultural experiences, from hanbok at the palaces to artisan workshops and private guided visits.</p>
-        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-2" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-2" data-more="View the experiences" data-less="Close"><span class="label">View the experiences</span><span class="sign" aria-hidden="true"></span></button>
       </div>
       <div class="exp-grid fold" id="fold-theme-2">
         <div class="exp">
@@ -674,7 +678,7 @@
         <p class="eyebrow">Beauty</p>
         <h3>Rejuvenation, refined</h3>
         <p class="theme-sub">Korean beauty experiences, from hanbang facials and dermatology clinics to lash and styling studios.</p>
-        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-3" data-more="See experiences" data-less="Close"><span class="label">See experiences</span><span class="sign" aria-hidden="true">+</span></button>
+        <button type="button" class="fold-btn" aria-expanded="false" aria-controls="fold-theme-3" data-more="View the experiences" data-less="Close"><span class="label">View the experiences</span><span class="sign" aria-hidden="true"></span></button>
       </div>
       <div class="exp-grid fold" id="fold-theme-3">
         <div class="exp">
@@ -1228,7 +1232,6 @@
       box.classList.toggle('open',open);
       btn.setAttribute('aria-expanded',open?'true':'false');
       btn.querySelector('.label').textContent=open?less:more;
-      btn.querySelector('.sign').textContent=open?'\u2212':'+';
       var sec=btn.closest('section'); if(sec) sec.classList.toggle('is-open',open);
       if(open){ box.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in','visible','shown');}); window.dispatchEvent(new Event('scroll')); if(window.ieumTrack) window.ieumTrack('section_unfold',{section:btn.getAttribute('aria-controls')}); }
       else { var t=(sec||btn).getBoundingClientRect().top; if(t<0) (sec||btn).scrollIntoView({block:'start'}); }
