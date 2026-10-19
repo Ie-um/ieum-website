@@ -245,6 +245,31 @@
     .cc-btn{flex:1 1 auto;text-align:center}
     .cc-panel{padding:28px 24px}
   }
+  #contact{background:var(--jade-deep);color:var(--ivory);padding:96px 0}
+  #contact .eyebrow{color:#A9C3B7}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start;text-align:left}
+  .contact-info h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin:18px 0 24px;color:var(--ivory);font-weight:300}
+  .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
+  .contact-lines{margin-top:40px;display:grid;gap:20px}
+  .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);transition:border-color .4s}
+  .contact-lines a:hover{border-color:var(--ivory)}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .field{display:grid;gap:8px}
+  .field.full{grid-column:1/-1}
+  label{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#A9C3B7}
+  input,select,textarea{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none}
+  select option{color:var(--ink)}
+  textarea{resize:vertical;min-height:80px}
+  input:focus,select:focus,textarea:focus{border-color:var(--ivory)}
+  form button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 42px;cursor:pointer;transition:background .4s,color .4s;margin-top:8px}
+  form button:hover,form button:focus-visible{background:var(--ivory);color:var(--jade-deep)}
+  .sent{grid-column:1/-1;color:#C9D5CD;font-size:.95rem;line-height:1.8;display:none}
+  .sent.on{display:block}
+  .form-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;margin-top:8px}
+  .form-actions button{margin-top:0}
+  .call-link{font-family:var(--utility);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);border-bottom:1px solid rgba(246,244,239,.4);padding-bottom:4px;transition:border-color .4s}
+  .call-link:hover,.call-link:focus-visible{border-color:var(--ivory)}
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -271,7 +296,7 @@
     </span>
     <a href="../#themes">Experiences</a>
     <a href="../faq">FAQ</a>
-    <a class="cta" href="../#contact">Contact</a>
+    <a class="cta" href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -303,12 +328,30 @@
   </div>
 </section>
 
-<section class="cta-band">
-  <div class="wrap">
-    <p class="eyebrow">Travel With IEUM</p>
-    <h2>Access, arranged quietly</h2>
-    <p>Every itinerary is designed around the traveler, and every recommendation is tested before it is made.</p>
-    <a href="../private-journeys" class="cta-btn">Explore Private Journeys</a>
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Travel With IEUM</p>
+      <h2>Access, arranged quietly</h2>
+      <p>Every itinerary is designed around the traveler, and every recommendation is tested before it is made. Tell us a little about your trip and we will reply personally, usually within a day.</p>
+      <div class="contact-lines">
+        <a href="../private-journeys">Explore Private Journeys</a>
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+      </div>
+    </div>
+    <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
+      <input type="hidden" name="journey" value="Guide: Experiences in Seoul">
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-party">Guests</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
+      <div class="form-actions">
+        <button type="submit">Send an Enquiry</button>
+        <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
+      </div>
+      <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+    </form>
   </div>
 </section>
 
@@ -575,6 +618,30 @@
       if (g.consentRequired) { showBar(); }
       else { commit({ analytics: true, marketing: true }); }
     });
+})();
+</script>
+<script>
+(function () {
+  var f = document.getElementById('enquiry');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    f.querySelector('button[type=submit]').disabled = true;
+    var j = f.querySelector('[name=journey]');
+    fetch(f.action, {method:'POST', headers:{Accept:'application/json'}, body:new FormData(f)})
+      .then(function (r) { if (!r.ok) throw new Error('formspree ' + r.status); done(); })
+      .catch(function () {
+        /* Never lose an enquiry: if the background send fails, post the form the ordinary way. */
+        if (window.ieumTrack) window.ieumTrack('form_error', { form_location: 'guide' });
+        HTMLFormElement.prototype.submit.call(f);
+      });
+    function done() {
+      if (window.ieumTrack) window.ieumTrack('generate_lead', { form_location: 'guide', journey: j ? j.value : '' });
+      f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
+      document.getElementById('sent').classList.add('on');
+    }
+  });
 })();
 </script>
 </body>
