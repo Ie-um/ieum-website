@@ -118,6 +118,13 @@
     .day{padding:52px 0}
     .daynav a{min-width:0;flex:1 1 28%;padding:11px 8px}
   }
+  .plan{margin-top:22px;padding:18px 22px;background:rgba(63,107,92,.06);border-left:2px solid var(--jade-deep);border-radius:0}
+  .plan h4{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade-deep);margin:0 0 12px;font-weight:500}
+  .plan ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .plan li{display:grid;grid-template-columns:96px 1fr;gap:12px;font-size:.86rem;line-height:1.6}
+  .plan li b{font-weight:500;color:var(--jade-deep);white-space:nowrap}
+  .plan .tip{margin:12px 0 0;font-size:.82rem;font-style:italic;color:var(--jade-deep)}
+  @media (max-width:600px){.plan li{grid-template-columns:1fr;gap:2px}}
 </style>
 </head>
 <body>
@@ -251,7 +258,7 @@
         <time>Morning</time>
         <div>
           <h3>Private Hanbok Fitting</h3>
-          <p>Your driver brings the family to a hanbok house beside the palace, where each of you is fitted for traditional Korean dress, the colours chosen together. The hanbok are yours for three hours.</p>
+          <p>After the changing of the guard, a short walk brings the family to a hanbok house beside the palace, where each of you is fitted for traditional Korean dress, the colours chosen together. The hanbok are yours for the rest of the morning.</p>
         </div>
         <img class="shot top" src="images/hanbok-family.jpg" alt="A family of four in traditional hanbok at a Korean palace">
       </div>
@@ -260,7 +267,20 @@
         <time>Late Morning</time>
         <div>
           <h3>Gyeongbokgung Palace</h3>
-          <p>In hanbok, through Korea's grandest palace, dressed as part of the scene. You arrive for the changing of the guard at ten, and afterwards have the grounds at the quietest hour of a December morning.</p>
+          <p>In hanbok, through Korea's grandest palace, dressed as part of the scene. The changing of the guard comes first, at ten, and then, dressed in hanbok, you have the grounds at the quietest hour of a December morning.</p>
+          <div class="plan">
+            <h4>The morning, hour by hour</h4>
+            <ul>
+              <li><b>9:40</b><span>Your driver sets the family down at Gwanghwamun. Watching the ceremony in the square is free.</span></li>
+              <li><b>10:00 to 10:20</b><span>The changing of the guard (경복궁 수문장 교대의식).</span></li>
+              <li><b>10:30</b><span>A ten minute walk to the hanbok house for your 10:30 booking. Fitting and hair take about 45 minutes.</span></li>
+              <li><b>11:15 to 12:15</b><span>Photographs in the palace. Entry is free when wearing hanbok.</span></li>
+              <li><b>12:15 to 13:15</b><span>The palace grounds in hanbok, leaving through Gwanghwamun in time for the guard on duty ceremony at one (광화문 파수의식), if you would like to see it.</span></li>
+              <li><b>13:30</b><span>Hanbok returned, within the four hour rental from 10:30.</span></li>
+              <li><b>14:00</b><span>A late lunch.</span></li>
+            </ul>
+            <p class="tip">Where to stand: directly in front of Heungnyemun Gate to take in the whole procession at once, or beside the east ticket office for a closer view, right beside the guards.</p>
+          </div>
         </div>
         <img class="shot" src="https://images.pexels.com/photos/12176008/pexels-photo-12176008.jpeg?auto=compress&cs=tinysrgb&w=800" alt="A woman in hanbok at Gyeongbokgung Palace in Seoul">
       </div>
