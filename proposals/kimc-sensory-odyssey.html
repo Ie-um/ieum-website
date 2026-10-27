@@ -151,6 +151,20 @@
   .credits{background:var(--night);color:#77736A;font-size:.62rem;letter-spacing:.06em;text-align:center;padding:22px 5vw 30px;line-height:1.8}
   .credits a{border-bottom:1px solid #55524B}
 
+  .stat{margin-top:30px;padding-top:22px;border-top:1px solid var(--hair);display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline}
+  .sense.dark .stat{border-top-color:rgba(201,196,182,.25)}
+  .stat strong{font-family:var(--serif);font-weight:300;font-size:2.3rem;line-height:1;color:var(--jade)}
+  .sense.dark .stat strong{color:#9DC0B2}
+  .stat span{font-size:.84rem;line-height:1.55}
+  .stat a{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);grid-column:2;border-bottom:1px solid var(--hair);justify-self:start}
+  .whynow{background:var(--jade-deep);color:var(--ivory);padding:110px 0}
+  .whynow .eyebrow{color:#A9C3B7}
+  .whynow h2{font-size:clamp(2rem,3.6vw,3rem);margin:16px 0 56px;max-width:22ch}
+  .whynow .row{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:1px solid rgba(246,244,239,.2);padding-top:36px}
+  .whynow strong{display:block;font-family:var(--serif);font-weight:300;font-size:3rem;line-height:1;margin-bottom:12px}
+  .whynow p{font-size:.86rem;color:#C9D5CD;line-height:1.6}
+  .whynow cite{display:block;margin-top:10px;font-style:normal;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8FAA9E}
+  @media (max-width:980px){.whynow .row{grid-template-columns:1fr 1fr}}
   @media (max-width:980px){
     .letter .grid,.sense .grid,.roles .cols{grid-template-columns:1fr}
     .sense.flip .grid .txt{order:0}
@@ -188,6 +202,7 @@
       <p class="lead">Your Culinary Odyssey opened doors that rarely open: Master Kisoondo's jars in Damyang, the monastics, the ceramicists, a table set by fifty five years of practice.</p>
       <p>We would like to propose the next chapter. In New York, the most sought after luxury is no longer only a reservation. It is a ritual: the bathhouse, the sound session, the scent that brings you back to a place. Korea holds older and deeper versions of every one of them, and almost no one is bringing travellers to them as a single, considered journey.</p>
       <p>The Sensory Odyssey keeps the table you have built at its heart, and wraps it in Korea's other senses: the sound of the geomungo, the scents of pine and mugwort, the weight of clay in the hand, and the stillness of a mountain temple. Your access to Korea's food masters, joined with ours to its makers of sound, scent and rest.</p>
+      <p>And it can begin at home. With your new Manhattan store opening in December, the same senses can welcome New Yorkers through its doors long before anyone boards a plane.</p>
       <p class="sig">Doha Yoon, IEUM Concierge</p>
     </div>
   </div>
@@ -201,11 +216,24 @@
     </div>
     <ol class="reveal">
       <li><span class="n">I</span><p class="ko">소리</p><p class="en">Sound</p><p class="who">The geomungo sound bath</p></li>
-      <li><span class="n">II</span><p class="ko">향</p><p class="en">Scent</p><p class="who">Korea's native notes</p></li>
+      <li><span class="n">II</span><p class="ko">향</p><p class="en">Scent</p><p class="who">Tea and Korean perfume</p></li>
       <li><span class="n">III</span><p class="ko">촉</p><p class="en">Touch</p><p class="who">Moon jar and onggi</p></li>
-      <li><span class="n">IV</span><p class="ko">맛</p><p class="en">Taste</p><p class="who k">Kim'C Market's table</p></li>
+      <li><span class="n">IV</span><p class="ko">맛</p><p class="en">Taste</p><p class="who k">Sachal eumsik</p></li>
       <li><span class="n">V</span><p class="ko">쉼</p><p class="en">Stillness</p><p class="who">Temple, tea and heat</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="whynow">
+  <div class="wrap">
+    <p class="eyebrow reveal">Why now</p>
+    <h2 class="reveal">Wellness is the new luxury, and Korea is where it is heading</h2>
+    <div class="row reveal">
+      <div><strong>$1.3T</strong><p>Global wellness tourism forecast for 2025, the fastest growing part of the wellness economy.</p><cite><a href="https://globalwellnessinstitute.org/global-wellness-institute-blog/2022/01/11/industry-research-new-data-on-wellness-tourism-projected-to-hit-817-billion-this-year-1-3-trillion-in-2025/" target="_blank" rel="noopener">Global Wellness Institute</a></cite></div>
+      <div><strong>+72%</strong><p>Korean perfume exports, January to May 2026. The United States is now the largest buyer.</p><cite><a href="https://www.seoulz.com/korean-perfume-brands-are-going-global/" target="_blank" rel="noopener">Korea Customs Service, via Seoulz</a></cite></div>
+      <div><strong>55,515</strong><p>Foreign guests at Korean temple stays in 2025, a record, up 5.1% on 2024.</p><cite><a href="https://www.koreaherald.com/article/10681554" target="_blank" rel="noopener">Korea Herald</a></cite></div>
+      <div><strong>1&#9733;</strong><p>Balwoo Gongyang became the world's first Michelin starred temple food restaurant. Temple food is now a national intangible heritage, bound for UNESCO.</p><cite><a href="https://www.aap.com.au/aapreleases/cision20251126ae31947" target="_blank" rel="noopener">Cultural Corps of Korean Buddhism</a></cite></div>
+    </div>
   </div>
 </section>
 
@@ -232,12 +260,18 @@
     <div class="txt reveal">
       <p class="eyebrow">II &nbsp;·&nbsp; Scent</p>
       <p class="ko">향</p>
-      <h2>Bottle the <em>air of Korea</em></h2>
-      <p>A private workshop with an independent Seoul perfumer, composing a personal scent from notes that grow nowhere else in quite the same way: red pine after rain, wild mugwort, yuja from the southern coast, roasted green tea, Korean fir, and the hand rolled incense of the temples.</p>
-      <p>Each guest leaves with a bottle of their own, and a memory that returns every time it is opened in New York.</p>
-      <div class="notes"><span>Red pine</span><span>Mugwort</span><span>Yuja</span><span>Green tea</span><span>Temple incense</span></div>
+      <h2>From the tea leaf <em>to the bottle</em></h2>
+      <p>Scent in Korea begins with tea. In Hwagae, Hadong, where Korea's first tea trees were planted twelve centuries ago, guests take darye, the Korean way of tea, with a tea master: the steam of roasted green tea, the earth of the old gardens, the quiet of the room.</p>
+      <p>Then to Seoul, and the new generation of Korean perfume houses that bottle those memories. Heritage led houses such as CHWI build each scent around a Korean place, a rainy bamboo forest or a hidden temple, with caps shaped like Joseon palanquins. In a private session, each guest composes a scent of their own from Korea's native notes, and carries the journey home.</p>
+      <div class="notes"><span>Darye</span><span>Roasted green tea</span><span>Bamboo after rain</span><span>Red pine</span><span>Temple incense</span></div>
+      <div class="stat"><strong>+72%</strong><span>Korean perfume exports in the first five months of 2026. The US is now the top market, and Nonfiction opened its first New York store this May.</span><a href="https://www.seoulz.com/korean-perfume-brands-are-going-global/" target="_blank" rel="noopener">Source</a></div>
+      <div class="stat"><strong>+20%</strong><span>Tea drink purchases by customers in their 20s at Starbucks Korea in 2025, as tea tastings and "teamakase" fill Seoul's diaries.</span><a href="https://e.vnexpress.net/news/life/trend/south-korean-youth-swap-coffee-for-tea-amid-growing-health-concerns-5049551.html" target="_blank" rel="noopener">Source</a></div>
     </div>
-    <div class="single reveal"><img src="https://images.unsplash.com/photo-1662511501856-1c8166f87af7?w=1400&q=80&fm=jpg&fit=crop" alt="Bundles of hand rolled incense sticks in a wooden box" loading="lazy"></div>
+    <div class="mosaic reveal">
+      <figure class="tall"><img src="../images/w/kto-maeam-tea-1800.webp" alt="A tea room in a traditional house at the Maeam Tea Museum in Hadong" loading="lazy"></figure>
+      <figure class="sq"><img src="../images/w/kto-ssanggye-teafield-1000.webp" alt="The first tea garden of Korea beside Ssanggyesa temple in Hadong" loading="lazy"></figure>
+      <figure class="sq"><img src="../images/w/kto-hadong-tea-hall-1000.webp" alt="Low tables set for a tea ceremony in a wooden hall in Hadong" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
@@ -247,7 +281,7 @@
       <p class="eyebrow">III &nbsp;·&nbsp; Touch</p>
       <p class="ko">촉</p>
       <h2>The shape of <em>an empty jar</em></h2>
-      <p>The moon jar, dalhangari, is made from two bowls joined at the waist, and is prized for the slight imperfection where they meet. Guests throw and shape their own with a ceramicist, learning a form that has held its quiet place in Korean homes for three hundred years.</p>
+      <p>The moon jar, dalhangari, is made from two bowls joined at the waist, and is prized for the slight imperfection where they meet. Guests shape their own with a porcelain master, the workshop our partners at 열두달에피소드 (ep.12) have hosted in Seoul, learning a form that has held its quiet place in Korean homes for three hundred years.</p>
       <p>Then to the onggi makers, whose breathing earthenware is the reason Korean fermentation works at all. Porous clay lets the jang breathe as it ages. It is the thread that leads straight back to your fermentation masters, and turns two workshops into one story.</p>
       <div class="notes"><span>Dalhangari</span><span>Onggi</span><span>From clay to jang</span></div>
     </div>
@@ -271,14 +305,15 @@
     <div class="txt reveal">
       <p class="eyebrow">IV &nbsp;·&nbsp; Taste</p>
       <p class="ko">맛</p>
-      <h2>Your table, <em>at the heart of it</em></h2>
-      <p>This is your territory, and we would never presume to redesign it. The jang masters, royal court cuisine, sachal eumsik with the monastics, the markets at dawn: every taste chapter stays with Kim'C Market and your relationships.</p>
-      <p>What changes is everything around it. Guests arrive at the table having heard the geomungo, shaped the jar the sauce will age in, and carried the scent of the temple in with them. The meal means more because the senses around it have been woken.</p>
+      <h2>The temple table, <em>sachal eumsik</em></h2>
+      <p>We would centre the taste of this journey on Korean temple food: plant based, cooked without garlic or onion, built on jang aged for years in the temple's own jars. It is the most natural bridge between your fermentation masters and the wellness traveller, and it speaks directly to the vegan and plant forward diners of New York.</p>
+      <p>Cooking with the monastics, a meal at a mountain temple, and a night at a Michelin starred temple table in Seoul, with the jang masters you already know at the heart of it. Your relationships lead; we shape the days around them.</p>
+      <div class="stat"><strong>1&#9733;</strong><span>Balwoo Gongyang is the world's first Michelin starred temple food restaurant, and Korean temple food is now a national intangible heritage on its way to UNESCO.</span><a href="https://www.aap.com.au/aapreleases/cision20251126ae31947" target="_blank" rel="noopener">Source</a></div>
     </div>
     <div class="mosaic reveal">
-      <figure class="wide"><img src="../images/w/tc-spread-1800.webp" alt="A full temple meal laid out on a wooden table, seen from above" loading="lazy"></figure>
-      <figure class="sq"><img src="../images/w/royal-cuisine-1000.webp" alt="Dishes of Korean royal court cuisine" loading="lazy"></figure>
-      <figure class="sq"><img src="../images/w/winter-meju-1000.webp" alt="A maker tying blocks of meju in a traditional fermentation room" loading="lazy"></figure>
+      <figure class="wide"><img src="../images/w/kto-temple-food-spread-1800.webp" alt="A temple food table of seasonal plant dishes seen from above" loading="lazy"></figure>
+      <figure class="sq"><img src="../images/w/kto-temple-food-lotus-1000.webp" alt="Temple food arranged on a lotus shaped plate" loading="lazy"></figure>
+      <figure class="sq"><img src="../images/w/kto-temple-food-bowl-1000.webp" alt="A bowl of temple food on a dark lacquered tray" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -289,14 +324,14 @@
       <p class="eyebrow">V &nbsp;·&nbsp; Stillness</p>
       <p class="ko">쉼</p>
       <h2>And then, <em>nothing at all</em></h2>
-      <p>A night at a mountain temple: the drum before dawn, the silent monastic breakfast from four wooden bowls, tea with a monk. Tea taken on the slopes where Korean tea has grown for twelve centuries. And the hanjeungmak, Korea's pine fired stone kiln, where monks once healed the sick with heat.</p>
-      <p>The chapter that New York's bathhouses are only beginning to imitate, in the places where it began.</p>
-      <div class="notes"><span>Temple stay</span><span>Darye tea</span><span>Hanjeungmak</span><span>Hanbang</span></div>
+      <p>A night at a mountain temple: the drum before dawn, 108 bows, the silent monastic breakfast from four wooden bowls, tea with a monk. And the hanjeungmak, Korea's pine fired stone kiln, where monks once healed the sick with heat.</p>
+      <p>The ritual that New York's bathhouses are only beginning to imitate, in the places where it began.</p>
+      <div class="notes"><span>Temple stay</span><span>108 bows</span><span>Hanjeungmak</span><span>Hanbang</span></div>
+      <div class="stat"><strong>55,515</strong><span>Foreign guests stayed at Korean temples in 2025, the highest number on record.</span><a href="https://www.koreaherald.com/article/10681554" target="_blank" rel="noopener">Source</a></div>
     </div>
     <div class="mosaic reveal">
-      <figure class="tall"><img src="../images/w/wellness-temple-winter-1800.webp" alt="A stone bodhisattva under fresh snow at Woljeongsa temple" loading="lazy"></figure>
-      <figure class="sq"><img src="../images/w/tea-morning-1000.webp" alt="Tea pickers along curving rows of green tea in morning mist" loading="lazy"></figure>
-      <figure class="sq"><img src="../images/w/tc-tea-1000.webp" alt="Tea and small temple sweets on a low wooden table" loading="lazy"></figure>
+      <figure class="wide"><img src="../images/w/kto-baekyangsa-pond-1800.webp" alt="Baekyangsa temple and its mountain reflected in a still pond" loading="lazy"></figure>
+      <figure class="wide"><img src="../images/w/kto-guinsa-valley-1800.webp" alt="The halls of Guinsa temple rising through a forested valley" loading="lazy" style="object-position:center 40%"></figure>
     </div>
   </div>
 </section>
@@ -310,11 +345,11 @@
     </div>
     <div class="track reveal">
       <div class="mv"><span class="d">Day 1</span><h3>Arrive and listen</h3><p>Seoul. A welcome dinner, then the geomungo sound bath to close the journey's first night.</p><span class="tag">IEUM</span></div>
-      <div class="mv"><span class="d">Day 2</span><h3>The air of Korea</h3><p>The perfumer's workshop, a hanok tea house, the old city at dusk.</p><span class="tag">IEUM</span></div>
+      <div class="mv"><span class="d">Day 2</span><h3>Tea to scent</h3><p>A Korean perfume house in Seoul, composing a scent of your own, and a hanok tea house at dusk.</p><span class="tag">IEUM</span></div>
       <div class="mv"><span class="d">Day 3</span><h3>The empty jar</h3><p>A day in the studio with a ceramicist, shaping a moon jar.</p><span class="tag">IEUM</span></div>
-      <div class="mv"><span class="d">Day 4</span><h3>Clay to jang</h3><p>South to the onggi makers, then to the jars of a fermentation master.</p><span class="tag k">Together</span></div>
-      <div class="mv"><span class="d">Day 5</span><h3>The master's table</h3><p>Cooking and eating with the food masters of the southwest.</p><span class="tag k">Kim'C Market</span></div>
-      <div class="mv"><span class="d">Day 6</span><h3>The temple</h3><p>Sachal eumsik with the monastics, and a night in the mountains.</p><span class="tag k">Together</span></div>
+      <div class="mv"><span class="d">Day 4</span><h3>Clay to jang</h3><p>South to the onggi makers, then to the jars and the table of a fermentation master.</p><span class="tag k">Together</span></div>
+      <div class="mv"><span class="d">Day 5</span><h3>The first tea</h3><p>Hadong: darye with a tea master in Korea's oldest tea gardens.</p><span class="tag">IEUM</span></div>
+      <div class="mv"><span class="d">Day 6</span><h3>The temple table</h3><p>Sachal eumsik with the monastics, and a night in a mountain temple.</p><span class="tag k">Together</span></div>
       <div class="mv"><span class="d">Day 7</span><h3>Heat and silence</h3><p>Darye tea, the pine fired kiln, and a quiet return to Seoul.</p><span class="tag">IEUM</span></div>
     </div>
   </div>
@@ -354,12 +389,12 @@
   <div class="wrap">
     <div class="head reveal">
       <p class="eyebrow">Three ways to begin</p>
-      <h2>Start small, or start together</h2>
+      <h2>Start in New York, then go to Korea</h2>
     </div>
     <div class="cards">
-      <div class="way reveal"><span class="n">i.</span><h3>A sensory day</h3><p>Add one IEUM chapter, the geomungo sound bath or the moon jar studio, to your next Culinary Odyssey. The simplest way to see how your guests respond.</p><p class="when">Your next departure</p></div>
-      <div class="way reveal"><span class="n">ii.</span><h3>The Sensory Odyssey</h3><p>A co-created, co-branded journey of seven to eight days, designed together, with Kim'C Market's table at its heart and IEUM running the ground.</p><p class="when">Spring or autumn 2027</p></div>
-      <div class="way reveal"><span class="n">iii.</span><h3>A New York evening</h3><p>A preview in New York: a geomungo sound session, a Kim'C Market tasting and the scents of the journey, for the guests most likely to travel.</p><p class="when">Before the trip goes on sale</p></div>
+      <div class="way reveal"><span class="n">i.</span><h3>Your opening, in all five senses</h3><p>For the new Manhattan store: an opening evening with a geomungo sound session, darye tea and a temple food tasting from your pantry. A reason for New York to walk in, and to come back.</p><p class="when">December 2026</p></div>
+      <div class="way reveal"><span class="n">ii.</span><h3>A sensory day</h3><p>Add one IEUM chapter, the geomungo sound bath or the moon jar studio, to your next Culinary Odyssey. The simplest way to see how your guests respond.</p><p class="when">Your next departure</p></div>
+      <div class="way reveal"><span class="n">iii.</span><h3>The Sensory Odyssey</h3><p>A co-created, co-branded journey of seven to eight days, with sachal eumsik at its heart, your masters at the table and IEUM running the ground.</p><p class="when">Spring or autumn 2027</p></div>
     </div>
   </div>
 </section>
@@ -377,7 +412,7 @@
   </div>
 </section>
 
-<p class="credits">Proposed partners and chapters are a starting point, to be shaped and confirmed together. Sound ritual photographs: Wacheongjae at RAUM Social Wellness, Seoul, September 2026. Moon jar: hojusaram, <a href="https://commons.wikimedia.org/wiki/File:Korea-Joseon-Moon_jar-01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, CC BY-SA 2.0. Other photographs: ⓒ한국관광공사 and Unsplash.</p>
+<p class="credits">Proposed partners and chapters are a starting point, to be shaped and confirmed together. Sound ritual photographs: Wacheongjae at RAUM Social Wellness, Seoul, September 2026. Moon jar: hojusaram, <a href="https://commons.wikimedia.org/wiki/File:Korea-Joseon-Moon_jar-01.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, CC BY-SA 2.0. Tea, temple food and temple photographs: ⓒ한국관광공사 (전형준, 김지호, 프레임스튜디오, 알렉스분도, 김윤중, 이효직), Korea Open Government License Type 1. Other photographs: ⓒ한국관광공사 and Unsplash. CHWI is named for illustration; no partnership is implied.</p>
 
 <script>
 (function(){
