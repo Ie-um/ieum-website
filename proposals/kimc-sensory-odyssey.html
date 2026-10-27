@@ -164,6 +164,13 @@
   .whynow strong{display:block;font-family:var(--serif);font-weight:300;font-size:3rem;line-height:1;margin-bottom:12px}
   .whynow p{font-size:.86rem;color:#C9D5CD;line-height:1.6}
   .whynow cite{display:block;margin-top:10px;font-style:normal;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8FAA9E}
+  .doha{background:var(--paper);padding:110px 0}
+  .doha-grid{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:center;max-width:860px}
+  .doha-grid img{width:220px;aspect-ratio:4/5;object-fit:cover;object-position:center 18%}
+  .doha h2{font-size:clamp(1.9rem,3vw,2.5rem);margin:14px 0 18px}
+  .doha h2 em{font-style:italic;color:var(--jade)}
+  .doha p{font-size:.98rem;color:#45463F;margin-bottom:12px;max-width:56ch}
+  @media (max-width:700px){.doha-grid{grid-template-columns:1fr;gap:28px}.doha-grid img{width:180px}}
   @media (max-width:980px){.whynow .row{grid-template-columns:1fr 1fr}}
   @media (max-width:980px){
     .letter .grid,.sense .grid,.roles .cols{grid-template-columns:1fr}
@@ -219,7 +226,7 @@
       <li><span class="n">II</span><p class="ko">향</p><p class="en">Scent</p><p class="who">Tea and Korean perfume</p></li>
       <li><span class="n">III</span><p class="ko">촉</p><p class="en">Touch</p><p class="who">Moon jar and onggi</p></li>
       <li><span class="n">IV</span><p class="ko">맛</p><p class="en">Taste</p><p class="who k">Sachal eumsik</p></li>
-      <li><span class="n">V</span><p class="ko">쉼</p><p class="en">Stillness</p><p class="who">Temple, tea and heat</p></li>
+      <li><span class="n">V</span><p class="ko">쉼</p><p class="en">Stillness</p><p class="who">Temple stay and hanbang</p></li>
     </ol>
   </div>
 </section>
@@ -229,10 +236,10 @@
     <p class="eyebrow reveal">Why now</p>
     <h2 class="reveal">Wellness is the new luxury, and Korea is where it is heading</h2>
     <div class="row reveal">
-      <div><strong>3 in 4</strong><p>Affluent travellers in the US, UK, France, China and the Gulf want unusual, niche wellness experiences; 84% expect wellness tailored to their goals.</p><cite><a href="https://www.hospitalitynet.org/news/4125566.html" target="_blank" rel="noopener">ILTM, Altiant and Hyatt, 2025</a></cite></div>
-      <div><strong>+41%</strong><p>More spent per trip by international wellness travellers than by the typical international tourist.</p><cite><a href="https://globalwellnessinstitute.org/press-room/statistics-and-facts/a-decade-of-wellness-tourism/" target="_blank" rel="noopener">Global Wellness Institute, 2022 data</a></cite></div>
-      <div><strong>15&times;</strong><p>Foreign patients choosing traditional Korean medicine, from about 2,500 in 2021 to more than 37,000 in 2025.</p><cite><a href="https://asianews.network/?p=302435" target="_blank" rel="noopener">Ministry of Health and Welfare, via Asia News Network</a></cite></div>
-      <div><strong>55,515</strong><p>Foreign guests at Korean temple stays in 2025, a record, up 5.1% on 2024.</p><cite><a href="https://www.koreaherald.com/article/10681554" target="_blank" rel="noopener">Korea Herald</a></cite></div>
+      <div><strong>$6.8T</strong><p>The global wellness economy in 2024, up 7.9% in a year and on course for $9.8 trillion by 2029.</p><cite><a href="https://globalwellnessinstitute.org/industry-research/2025-global-wellness-economy-monitor/" target="_blank" rel="noopener">Global Wellness Institute, 2025</a></cite></div>
+      <div><strong>3 in 4</strong><p>Affluent travellers in the US, UK, France, China and the Gulf want unusual, niche wellness experiences.</p><cite><a href="https://www.hospitalitynet.org/news/4125566.html" target="_blank" rel="noopener">ILTM, Altiant and Hyatt, 2025</a></cite></div>
+      <div><strong>43%</strong><p>Of foreign bookings at Korean medicine clinics in the first half of 2026 came from Americans.</p><cite><a href="https://sports.khan.co.kr/article/202607150304003" target="_blank" rel="noopener">Creatrip, H1 2026</a></cite></div>
+      <div><strong>+462%</strong><p>Growth in private Korean bathhouse scrub bookings by foreign visitors, first half of 2026.</p><cite><a href="https://sports.khan.co.kr/article/202607150304003" target="_blank" rel="noopener">Creatrip, H1 2026</a></cite></div>
     </div>
   </div>
 </section>
@@ -323,11 +330,12 @@
     <div class="txt reveal">
       <p class="eyebrow">V &nbsp;·&nbsp; Stillness</p>
       <p class="ko">쉼</p>
-      <h2>And then, <em>nothing at all</em></h2>
-      <p>A night at a mountain temple: the drum before dawn, 108 bows, the silent monastic breakfast from four wooden bowls, tea with a monk. And the hanjeungmak, Korea's pine fired stone kiln, where monks once healed the sick with heat.</p>
-      <p>The ritual that New York's bathhouses are only beginning to imitate, in the places where it began.</p>
-      <div class="notes"><span>Temple stay</span><span>108 bows</span><span>Hanjeungmak</span><span>Hanbang</span></div>
-      <div class="stat"><strong>55,515</strong><span>Foreign guests stayed at Korean temples in 2025, the highest number on record.</span><a href="https://www.koreaherald.com/article/10681554" target="_blank" rel="noopener">Source</a></div>
+      <h2>Rest, <em>the Korean way</em></h2>
+      <p>A night at a mountain temple: the drum before dawn, 108 bows, the silent monastic breakfast from four wooden bowls, tea with a monk.</p>
+      <p>Then a private hanbang consultation in Seoul. A licensed doctor of Korean medicine reads the pulse, prescribes a herbal tonic for each guest, and follows with acupuncture and a warm herbal compress. Medicine as old as the temple, and just as quiet.</p>
+      <div class="notes"><span>Temple stay</span><span>108 bows</span><span>Pulse reading</span><span>Herbal tonic</span><span>Acupuncture</span></div>
+      <div class="stat"><strong>55,515</strong><span>Foreign guests at Korean temple stays in 2025, the highest number on record.</span><a href="https://www.heraldk.com/article/2026011722175507367" target="_blank" rel="noopener">Source</a></div>
+      <div class="stat"><strong>+193%</strong><span>Spend per foreign visitor at Korean medicine clinics in the first half of 2026, with Americans making up 43% of bookings.</span><a href="https://sports.khan.co.kr/article/202607150304003" target="_blank" rel="noopener">Source</a></div>
     </div>
     <div class="mosaic reveal">
       <figure class="wide"><img src="../images/w/kto-baekyangsa-pond-1800.webp" alt="Baekyangsa temple and its mountain reflected in a still pond" loading="lazy"></figure>
@@ -361,16 +369,15 @@
   </div>
 </section>
 
-<section class="sense" id="doha" style="background:var(--paper)">
-  <div class="wrap grid">
-    <div class="txt reveal">
+<section class="doha" id="doha">
+  <div class="wrap doha-grid reveal">
+    <img src="../images/w/doha-portrait-800.webp" alt="Portrait of Doha Yoon, founder of IEUM Concierge" loading="lazy">
+    <div>
       <p class="eyebrow">Who you would be working with</p>
-      <h2>A luxury launch, <em>from both sides</em></h2>
-      <p>Before founding IEUM, Doha Yoon led the launch of Balmain Beauty, a luxury fragrance house from The Estée Lauder Companies, across five regions: positioning, partnerships, retail and launch moments in one of the most demanding categories in luxury.</p>
-      <p>She spent five years in Paris and holds a Master in Management from HEC Paris, consistently ranked among Europe's leading business schools.</p>
-      <p>IEUM brings that same discipline to Korea: the story, the opening moment and the experience, built on relationships with the makers, masters and hosts behind each chapter of this journey.</p>
+      <h2>Doha Yoon, <em>founder</em></h2>
+      <p>A luxury marketer who launched Balmain Beauty's fragrance house across five regions at The Estée Lauder Companies. Years in Paris and New York, partnering with the world's leading luxury retailers, agencies and creators.</p>
+      <p>Now bringing that launch discipline to Korea: the story, the opening night, and the experience behind it.</p>
     </div>
-    <div class="single reveal"><img src="../images/w/doha-portrait-1400.webp" srcset="../images/w/doha-portrait-800.webp 800w, ../images/w/doha-portrait-1400.webp 1400w" sizes="(max-width:980px) 90vw, 520px" alt="Portrait of Doha Yoon, founder of IEUM Concierge" loading="lazy" style="object-position:center 20%"></div>
   </div>
 </section>
 
