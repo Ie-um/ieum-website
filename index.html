@@ -771,10 +771,10 @@
   if (heroVideo) {
     const heroSource = document.createElement('source');
     const small = window.innerWidth <= 900;
-    heroVideo.poster = 'https://images.pexels.com/videos/6120136/pexels-photo-6120136.jpeg?auto=compress&cs=tinysrgb&w=' + (small ? 900 : 1920);
+    heroVideo.poster = 'https://images.pexels.com/videos/30001162/snow-30001162.jpeg?auto=compress&cs=tinysrgb&w=' + (small ? 900 : 1920);
     heroSource.src = small
-      ? 'https://videos.pexels.com/video-files/6120136/6120136-hd_1366_720_24fps.mp4'
-      : 'https://videos.pexels.com/video-files/6120136/6120136-hd_2048_1080_24fps.mp4';
+      ? 'https://videos.pexels.com/video-files/30001162/12871957_1280_720_30fps.mp4'
+      : 'https://videos.pexels.com/video-files/30001162/12871958_1920_1080_30fps.mp4';
     heroSource.type = 'video/mp4';
     heroVideo.appendChild(heroSource);
     heroVideo.load();
