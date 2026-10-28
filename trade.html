@@ -184,6 +184,29 @@
     .ways .cards,.roles .why{grid-template-columns:1fr}
     .sense,.letter,.moves,.roles,.ways{padding:90px 0}
   }
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;padding:56px 0;border-top:1px solid var(--hair)}
+  .spec:first-of-type{border-top:0}
+  .spec.flip .si{order:2}
+  .spec .si{aspect-ratio:4/3;overflow:hidden}
+  .spec .si img{width:100%;height:100%;object-fit:cover}
+  .spec .n{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--jade)}
+  .spec h3{font-size:clamp(1.9rem,3vw,2.5rem);margin:6px 0 14px}
+  .spec .best{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade);margin-bottom:12px}
+  .spec p{color:#4A4B44;font-size:.96rem;max-width:52ch}
+  .spec ul{list-style:none;margin:18px 0 0;display:grid;gap:8px}
+  .spec li{font-size:.9rem;color:#45463F;padding-left:18px;position:relative}
+  .spec li::before{content:'';position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--jade)}
+  .spec a.more{display:inline-block;margin-top:20px;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(246,244,239,.22)}
+  .vs div{padding:34px 38px}
+  .vs div+div{border-left:1px solid rgba(246,244,239,.22);background:rgba(246,244,239,.05)}
+  .vs h3{font-size:1.5rem;margin-bottom:18px}
+  .vs ul{list-style:none;display:grid;gap:12px}
+  .vs li{font-size:.92rem;color:#C9D5CD;padding-bottom:12px;border-bottom:1px solid rgba(246,244,239,.12)}
+  .vs div+div li{color:var(--ivory)}
+  .also{margin-top:46px;font-size:.92rem;color:#55564E}
+  .also a{color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35)}
+  @media (max-width:980px){.spec,.vs{grid-template-columns:1fr}.spec.flip .si{order:0}.vs div+div{border-left:0;border-top:1px solid rgba(246,244,239,.22)}}
 </style>
 <style>
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -242,14 +265,47 @@
 
 <section class="sec" style="background:var(--ivory)">
   <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Signature journeys</p><h2>Starting points, never templates</h2><p>Every journey is built from scratch around your client. These show the range.</p></div>
-    <div class="cards3 reveal">
-      <a class="card3" href="journeys/wellness-retreat" target="_blank"><img src="images/w/raum-player-1000.webp" alt="A geomungo sound bath in a candlelit hall" loading="lazy"><div><h3>Wellness Retreat</h3><p>A sound bath on Korean string instruments, a night in a mountain temple, a doctor of Korean medicine and a pine fired sweat kiln.</p><span>View the journey</span></div></a>
-      <a class="card3" href="journeys/winter-retreat" target="_blank"><img src="images/w/winter-hero-1000.webp" alt="A snow covered temple pavilion at Baekyangsa at sunrise" loading="lazy"><div><h3>Winter Retreat</h3><p>Snow in the mountains of Gangwon, hot springs and warm ondol floors, Christmas lights in Seoul and the bell at midnight.</p><span>View the journey</span></div></a>
-      <a class="card3" href="journeys/temple-cuisine" target="_blank"><img src="images/w/kto-temple-food-spread-1000.webp" alt="A temple food table of seasonal plant dishes" loading="lazy"><div><h3>Temple Cuisine</h3><p>Cooking and eating with the monastics: sachal eumsik, Korea's thousand year old plant based kitchen.</p><span>View the journey</span></div></a>
-      <a class="card3" href="journeys/family-travel" target="_blank"><img src="https://images.pexels.com/photos/32073492/pexels-photo-32073492/free-photo-of-family-in-traditional-korean-hanbok-walking-in-seoul.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A family in hanbok walking hand in hand with their child through a Seoul palace in spring" loading="lazy"><div><h3>Family Journeys</h3><p>Paced for children and grandparents: palaces in hanbok, private museum guides, indoor parks and dietary needs handled in advance.</p><span>View the journey</span></div></a>
-      <a class="card3" href="journeys/milestone-journeys" target="_blank"><img src="images/w/milestone-han-fireworks-1000.webp" alt="Fireworks over the Han River in Seoul" loading="lazy"><div><h3>Milestones</h3><p>Honeymoons, anniversaries, proposals and milestone birthdays, with private hanok stays and the tables Seoul queues for.</p><span>View the journey</span></div></a>
-      <a class="card3" href="corporate-events" target="_blank"><img src="images/w/pj-table-1000.webp" alt="A private dining table set in Korea" loading="lazy"><div><h3>Groups and incentives</h3><p>Small groups, incentive trips and client dinners in Seoul, Busan and Jeju, with venues, transport and translation on the ground.</p><span>View the page</span></div></a>
+    <div class="head reveal"><p class="eyebrow">Our specialties</p><h2>Best for clients who want more than a tour</h2><p>We focus on four kinds of journey, and build every one from scratch around your client.</p></div>
+
+    <div class="spec reveal">
+      <div class="si"><img src="images/w/raum-player-1000.webp" alt="A geomungo sound bath in a candlelit hall" loading="lazy"></div>
+      <div><span class="n">i.</span><h3>Wellness, at the core</h3><p class="best">Best for clients who want to come home rested</p><p>Korea's own rituals of rest, which almost no one else offers as a journey.</p>
+        <ul><li>A sound bath played live on the geomungo, Korea's oldest string instrument</li><li>A night at a mountain temple, with dawn chanting and tea with a monk</li><li>A private consultation with a doctor of Korean medicine, and the pine fired sweat kiln</li></ul>
+        <a class="more" href="journeys/wellness-retreat" target="_blank">The Wellness Retreat</a></div>
+    </div>
+
+    <div class="spec flip reveal">
+      <div class="si"><img src="images/w/kto-temple-food-spread-1000.webp" alt="A temple food table of seasonal plant dishes" loading="lazy"></div>
+      <div><span class="n">ii.</span><h3>Plant based, by tradition</h3><p class="best">Best for vegan, vegetarian and food led clients</p><p>Korean temple food has been plant based for over a thousand years, and it is now national intangible heritage.</p>
+        <ul><li>Cooking and eating with the monastics at mountain temples</li><li>Jang, the fermented sauces at the heart of Korean food, with the masters who make them</li><li>Restaurants that take bookings only in Korean, and dietary needs confirmed with every kitchen</li></ul>
+        <a class="more" href="journeys/temple-cuisine" target="_blank">The Temple Cuisine journey</a></div>
+    </div>
+
+    <div class="spec reveal">
+      <div class="si"><img src="https://images.pexels.com/photos/32073492/pexels-photo-32073492/free-photo-of-family-in-traditional-korean-hanbok-walking-in-seoul.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A family in hanbok walking hand in hand with their child through a Seoul palace" loading="lazy"></div>
+      <div><span class="n">iii.</span><h3>Families, three generations</h3><p class="best">Best for families travelling with children or grandparents</p><p>Days paced around the youngest and the oldest, with every logistic handled before you land.</p>
+        <ul><li>Palaces in hanbok with a private photographer</li><li>Private museum guides, and indoor days for any weather</li><li>One driver throughout, with allergies, mobility and rest planned in advance</li></ul>
+        <a class="more" href="journeys/family-travel" target="_blank">Family Journeys</a></div>
+    </div>
+
+    <div class="spec flip reveal">
+      <div class="si"><img src="images/w/milestone-han-fireworks-1000.webp" alt="Fireworks over the Han River in Seoul" loading="lazy"></div>
+      <div><span class="n">iv.</span><h3>Milestones, made private</h3><p class="best">Best for proposals, honeymoons and anniversaries</p><p>The moments clients will remember for the rest of their lives, arranged quietly and down to the minute.</p>
+        <ul><li>Proposals staged in a private hanok or a palace garden</li><li>Honeymoons pairing Seoul's best tables with a private hanok in the mountains</li><li>Milestone birthdays and anniversaries, with a photographer on request</li></ul>
+        <a class="more" href="journeys/milestone-journeys" target="_blank">Milestone Journeys</a></div>
+    </div>
+
+    <p class="also reveal">We also design <a href="journeys/winter-retreat" target="_blank">winter journeys</a>, from snow in Gangwon to New Year in Seoul, and <a href="corporate-events" target="_blank">small group and incentive trips</a>.</p>
+  </div>
+</section>
+
+<section class="roles">
+  <div class="wrap">
+    <p class="eyebrow reveal">Why not a tour company</p>
+    <h2 class="reveal">A private journey, not a package</h2>
+    <div class="vs reveal">
+      <div><h3>A typical Korea tour</h3><ul><li>A coach and a group of strangers</li><li>A fixed itinerary, sold to everyone</li><li>Palaces, markets and shopping stops</li><li>A guide working from a script</li><li>Help that ends when the bus does</li></ul></div>
+      <div><h3>An IEUM journey</h3><ul><li>A private driver for your clients alone</li><li>Designed from scratch around one family or couple</li><li>Temples, Korean medicine, tea masters and chefs' tables</li><li>A personal interpreter and introductions to masters</li><li>24 hour concierge in Korea, from arrival to departure</li></ul></div>
     </div>
   </div>
 </section>
