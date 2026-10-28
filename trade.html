@@ -207,6 +207,10 @@
   .also{margin-top:46px;font-size:.92rem;color:#55564E}
   .also a{color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35)}
   @media (max-width:980px){.spec,.vs{grid-template-columns:1fr}.spec.flip .si{order:0}.vs div+div{border-left:0;border-top:1px solid rgba(246,244,239,.22)}}
+  .sig .siglogo{display:block;height:46px;width:auto;margin:0 auto 18px;opacity:.95}
+  .sig span{display:block}
+  .copied{display:block;font-style:normal;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#CFC8B8;margin-top:14px;opacity:0;transition:opacity .4s}
+  .copied.on{opacity:1}
 </style>
 <style>
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -253,10 +257,10 @@
   <div class="wrap grid">
     <div class="reveal">
       <p class="eyebrow">Why IEUM</p>
-      <h2 style="margin-top:18px">Korea is the request you keep hearing. <em>We make it easy to say yes.</em></h2>
+      <h2 style="margin-top:18px">Korea is the request you keep hearing. <em>Wellness is how we answer it.</em></h2>
     </div>
     <div class="reveal">
-      <p class="lead">IEUM is a private concierge for Korea, based between Seoul and New York. We design, book and run bespoke journeys for your clients, with wellness at the centre and culture, cuisine and beauty woven through.</p>
+      <p class="lead">IEUM is a private wellness concierge for Korea, based between Seoul and New York. Every journey we design is built around rest, the Korean way: a night at a mountain temple, a sound bath played live on the geomungo, a consultation with a doctor of Korean medicine, tea poured by a master. Culture, cuisine and beauty are woven around it.</p>
       <p>Korea rewards local knowledge more than almost anywhere: restaurants that take bookings only in Korean, temples that open to guests through personal introductions, masters who teach by invitation. We hold those relationships, and we put them to work for your clients.</p>
       <p>You stay your client's advisor from first call to homecoming. We work behind you: one point of contact for you, a private driver and interpreter for them, and 24 hour support in Korea throughout.</p>
     </div>
@@ -268,7 +272,7 @@
     <div class="head reveal"><p class="eyebrow">Our specialties</p><h2>Best for clients who want more than a tour</h2><p>We focus on four kinds of journey, and build every one from scratch around your client.</p></div>
 
     <div class="spec reveal">
-      <div class="si"><img src="images/w/raum-player-1000.webp" alt="A geomungo sound bath in a candlelit hall" loading="lazy"></div>
+      <div class="si"><img src="https://images.unsplash.com/photo-1597554031118-c5852b661724?w=1200&h=900&q=80&fm=jpg&fit=crop" alt="A quiet hanok room with a round moon window and white linen, Seoul" loading="lazy"></div>
       <div><span class="n">i.</span><h3>Wellness, at the core</h3><p class="best">Best for clients who want to come home rested</p><p>Korea's own rituals of rest, which almost no one else offers as a journey.</p>
         <ul><li>A sound bath played live on the geomungo, Korea's oldest string instrument</li><li>A night at a mountain temple, with dawn chanting and tea with a monk</li><li>A private consultation with a doctor of Korean medicine, and the pine fired sweat kiln</li></ul>
         <a class="more" href="journeys/wellness-retreat" target="_blank">The Wellness Retreat</a></div>
@@ -289,24 +293,13 @@
     </div>
 
     <div class="spec flip reveal">
-      <div class="si"><img src="images/w/milestone-han-fireworks-1000.webp" alt="Fireworks over the Han River in Seoul" loading="lazy"></div>
+      <div class="si"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&h=900&q=80&fm=jpg&fit=crop" alt="A diamond halo ring resting on a black jewellery box" loading="lazy"></div>
       <div><span class="n">iv.</span><h3>Milestones, made private</h3><p class="best">Best for proposals, honeymoons and anniversaries</p><p>The moments clients will remember for the rest of their lives, arranged quietly and down to the minute.</p>
         <ul><li>Proposals staged in a private hanok or a palace garden</li><li>Honeymoons pairing Seoul's best tables with a private hanok in the mountains</li><li>Milestone birthdays and anniversaries, with a photographer on request</li></ul>
         <a class="more" href="journeys/milestone-journeys" target="_blank">Milestone Journeys</a></div>
     </div>
 
     <p class="also reveal">We also design <a href="journeys/winter-retreat" target="_blank">winter journeys</a>, from snow in Gangwon to New Year in Seoul, and <a href="corporate-events" target="_blank">small group and incentive trips</a>.</p>
-  </div>
-</section>
-
-<section class="roles">
-  <div class="wrap">
-    <p class="eyebrow reveal">Why not a tour company</p>
-    <h2 class="reveal">A private journey, not a package</h2>
-    <div class="vs reveal">
-      <div><h3>A typical Korea tour</h3><ul><li>A coach and a group of strangers</li><li>A fixed itinerary, sold to everyone</li><li>Palaces, markets and shopping stops</li><li>A guide working from a script</li><li>Help that ends when the bus does</li></ul></div>
-      <div><h3>An IEUM journey</h3><ul><li>A private driver for your clients alone</li><li>Designed from scratch around one family or couple</li><li>Temples, Korean medicine, tea masters and chefs' tables</li><li>A personal interpreter and introductions to masters</li><li>24 hour concierge in Korea, from arrival to departure</li></ul></div>
-    </div>
   </div>
 </section>
 
@@ -352,9 +345,9 @@
     <p>Twenty minutes is enough to see whether we are the right partner for your clients.</p>
     <div class="btns">
       <a class="btn" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a call</a>
-      <a class="btn" href="mailto:contact@ie-um.com?subject=Advisor%20partnership">Email Doha</a>
+      <!--email_off--><a class="btn" id="mailbtn" href="mailto:contact@ie-um.com?subject=Advisor%20partnership">Email Doha</a><!--/email_off-->
     </div>
-    <p class="sig">IEUM Concierge<span>Seoul &amp; New York &nbsp;·&nbsp; ie-um.com &nbsp;·&nbsp; contact@ie-um.com</span></p>
+    <div class="sig"><img src="https://ie-um.com/images/logo/ieum-logo-cream.svg" alt="IEUM Concierge" class="siglogo"><!--email_off--><span>Seoul &amp; New York &nbsp;·&nbsp; ie-um.com &nbsp;·&nbsp; <a href="mailto:contact@ie-um.com" style="color:inherit">contact@ie-um.com</a></span><!--/email_off--><em class="copied" id="copied">Address copied: contact@ie-um.com</em></div>
   </div>
 </section>
 
@@ -367,6 +360,9 @@
   els.forEach(function(el){io.observe(el);});
   setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},2500);
 })();
+</script>
+<script>
+(function(){var b=document.getElementById('mailbtn'),c=document.getElementById('copied');if(!b)return;b.addEventListener('click',function(){try{navigator.clipboard.writeText('contact@ie-um.com')}catch(e){}c.classList.add('on');setTimeout(function(){c.classList.remove('on')},6000);});})();
 </script>
 </body>
 </html>
