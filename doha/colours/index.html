@@ -17,14 +17,20 @@ p.sub{color:#5A5A5A;font-size:14px;margin:0}
 .frame{height:420px;overflow:hidden;position:relative}
 .frame iframe{border:0;width:200%;height:840px;transform:scale(.5);transform-origin:0 0;pointer-events:none}
 .note{padding:12px 18px;font-size:13px;color:#5A5A5A;border-top:1px solid #E4E2DE}
-</style></head><body>
-<header><h1>Accent colour options</h1><p class="sub">Each preview is the real page with only the accent changed. Open any one to scroll the full page in that colour.</p></header>
+.gh{font-family:Newsreader,serif;font-weight:300;font-size:30px;max-width:1500px;margin:30px auto 0;padding:0 40px}.photo{display:flex;align-items:center;gap:8px;margin:14px 0 10px}.photo span{width:34px;height:34px;border-radius:50%;border:1px solid #ddd}.photo em{font-style:normal;font-size:12px;color:#5A5A5A;margin-left:8px}</style></head><body>
+<header><h1>Accent colour options</h1><div class="photo"><span style="background:#C6D4DD"></span><span style="background:#A3ACB1"></span><span style="background:#C8B0AE"></span><span style="background:#D597A6"></span><em>Tones from your portrait: blue-grey backdrop, shadow, skin, lips</em></div><p class="sub">Each preview is the real page with only the accent changed. Open any one to scroll the full page in that colour.</p></header>
 <div class="grid" id="g"></div>
 <script>
-var C=[['bordeaux','Bordeaux','#7A2E35','Couture house, wine label. Warm and confident. (Live now)'],
-['forest','Deep forest','#2F4A3A','Quiet luxury, very Aman. Calm and assured.'],
-['bronze','Antique bronze','#8A6A3F','Editorial and warm, like a fine jewellery house.'],
-['navy','Ink navy','#1F2A44','The most understated. Reads serious and senior.'],
-['plum','Aubergine','#4E2A45','Rich and unusual, between bordeaux and navy.']];
-document.getElementById('g').innerHTML=C.map(function(c){return '<div class="card"><div class="top"><div class="sw"><span class="dot" style="background:'+c[2]+'"></span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div></div><a href="../?accent='+c[0]+'" target="_blank">Open full page</a></div><div class="frame"><iframe src="../?accent='+c[0]+'" loading="lazy" title="'+c[1]+' preview"></iframe></div><p class="note">'+c[3]+'</p></div>'}).join('');
+var G=[['Wine',[['bordeaux','Bordeaux','#7A2E35','The current live colour. Warm red wine, confident.'],
+['rosewood','Rosewood','#8A3B4A','Softer and rosier, echoes the pink of your lips in the portrait. The most feminine and approachable.'],
+['garnet','Garnet','#6E1F33','Deeper, jewel-like red. Couture and evening.'],
+['claret','Claret','#5C1A2B','The darkest wine, almost black cherry. Very quiet luxury.'],
+['mulberry','Mulberry','#6B2D4A','A cooler wine with a hint of violet, ties into the blue-grey backdrop.']]],
+['Blue and navy',[['slate','Slate blue','#3D5468','Your photo backdrop, deepened. The most harmonious with the portrait.'],
+['steel','Steel navy','#2B3F55','A touch darker and crisper than slate. Senior and composed.'],
+['dusk','Dusk blue','#4F6680','Lighter and softer, almost powdery. Calm and modern.'],
+['prussian','Prussian','#1F3A52','A deep blue with a green undertone, like old ink. Distinctive.'],
+['midnight','Midnight','#1C2A3D','Near black navy. Maximum restraint, reads very senior.']]]];
+var C=[];
+var card=(function(c){return '<div class="card"><div class="top"><div class="sw"><span class="dot" style="background:'+c[2]+'"></span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div></div><a href="../?accent='+c[0]+'" target="_blank">Open full page</a></div><div class="frame"><iframe src="../?accent='+c[0]+'" loading="lazy" title="'+c[1]+' preview"></iframe></div><p class="note">'+c[3]+'</p></div>'});document.getElementById('g').outerHTML=G.map(function(g){return '<h2 class="gh">'+g[0]+'</h2><div class="grid">'+g[1].map(card).join('')+'</div>'}).join('');
 </script></body></html>
