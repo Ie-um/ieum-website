@@ -176,11 +176,11 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
 .hero h1.anim .w{display:inline-block;opacity:0;transform:translateY(.45em);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
 .hero h1.anim .w:nth-child(1){animation-delay:.05s}.hero h1.anim .w:nth-child(2){animation-delay:.13s}.hero h1.anim .w:nth-child(3){animation-delay:.21s}.hero h1.anim .w:nth-child(4){animation-delay:.29s}
 .hero h1.anim em .w:nth-child(1){animation-delay:.5s}.hero h1.anim em .w:nth-child(2){animation-delay:.6s}
-.hero h1.anim em{background:linear-gradient(100deg,var(--accent) 0%,var(--accent) 40%,#9AA6FF 50%,var(--accent) 60%,var(--accent) 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 2.2s ease 1.3s forwards}
-.hero h1.anim em .w{-webkit-text-fill-color:transparent}
+.hero h1.anim em{position:relative;display:inline-block;white-space:nowrap}
+.hero h1.anim em::after{content:'';position:absolute;left:0;right:.18em;bottom:.02em;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:draw 1s cubic-bezier(.6,.1,.2,1) 1.25s forwards}
 @keyframes rise{to{opacity:1;transform:none}}
-@keyframes sheen{to{background-position:0 0}}
-@media (prefers-reduced-motion:reduce){.hero h1.anim .w{opacity:1;transform:none;animation:none}.hero h1.anim em{animation:none}}
+@keyframes draw{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.hero h1.anim .w{opacity:1;transform:none;animation:none}.hero h1.anim em::after{animation:none;transform:none}}
 </style>
 </head>
 <body>
