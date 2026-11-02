@@ -21,6 +21,13 @@ p.sub{color:#5A5A5A;font-size:14px;margin:0}
 <header><h1>Accent colour options</h1><div class="photo"><span style="background:#C6D4DD"></span><span style="background:#A3ACB1"></span><span style="background:#C8B0AE"></span><span style="background:#D597A6"></span><em>Tones from your portrait: blue-grey backdrop, shadow, skin, lips</em></div><p class="sub">Each preview is the real page with only the accent changed. Open any one to scroll the full page in that colour.</p></header>
 <div class="grid" id="g"></div>
 <script>
+var G0=['Between vibrant and steel navy',[['cobalt','Cobalt (for reference)','#2F3FD6','The vibrant blue you did not like. Shown for comparison.'],
+['deepcobalt','Deep cobalt','#2A3F9E','Cobalt pulled darker. Still clearly blue and lively, but no longer software-bright.'],
+['lapis','Lapis','#26519A','A rich, jewel-toned blue. Pops on ivory while staying elegant.'],
+['sapphire','Sapphire','#1F4E8C','Slightly deeper than lapis with a cooler cast. Polished and confident.'],
+['royal','Royal navy','#233F7A','The closest to steel navy, with noticeably more colour. Sharp and senior.'],
+['marine','Marine','#1D4F7A','A blue with a hint of teal that echoes your photo backdrop. Fresh and composed.'],
+['steel','Steel navy (for reference)','#2B3F55','The one you liked but found too muted.']]];
 var G=[['Wine',[['bordeaux','Bordeaux','#7A2E35','The current live colour. Warm red wine, confident.'],
 ['rosewood','Rosewood','#8A3B4A','Softer and rosier, echoes the pink of your lips in the portrait. The most feminine and approachable.'],
 ['garnet','Garnet','#6E1F33','Deeper, jewel-like red. Couture and evening.'],
@@ -32,5 +39,5 @@ var G=[['Wine',[['bordeaux','Bordeaux','#7A2E35','The current live colour. Warm 
 ['prussian','Prussian','#1F3A52','A deep blue with a green undertone, like old ink. Distinctive.'],
 ['midnight','Midnight','#1C2A3D','Near black navy. Maximum restraint, reads very senior.']]]];
 var C=[];
-var card=(function(c){return '<div class="card"><div class="top"><div class="sw"><span class="dot" style="background:'+c[2]+'"></span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div></div><a href="../?accent='+c[0]+'" target="_blank">Open full page</a></div><div class="frame"><iframe src="../?accent='+c[0]+'" loading="lazy" title="'+c[1]+' preview"></iframe></div><p class="note">'+c[3]+'</p></div>'});document.getElementById('g').outerHTML=G.map(function(g){return '<h2 class="gh">'+g[0]+'</h2><div class="grid">'+g[1].map(card).join('')+'</div>'}).join('');
+var card=(function(c){return '<div class="card"><div class="top"><div class="sw"><span class="dot" style="background:'+c[2]+'"></span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div></div><a href="../?accent='+c[0]+'" target="_blank">Open full page</a></div><div class="frame"><iframe src="../?accent='+c[0]+'" loading="lazy" title="'+c[1]+' preview"></iframe></div><p class="note">'+c[3]+'</p></div>'});document.getElementById('g').outerHTML=[G0].concat(G).map(function(g){return '<h2 class="gh">'+g[0]+'</h2><div class="grid">'+g[1].map(card).join('')+'</div>'}).join('');
 </script></body></html>
