@@ -66,7 +66,7 @@ section.work{padding:120px 0 40px}
 .sechead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px}
 .sechead h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.6vw,48px)}
 .case{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
-.case:nth-of-type(even) .media{order:2}
+.case:nth-of-type(even) .mcol{order:2}
 .media{aspect-ratio:4/3;overflow:hidden;background:var(--stone);position:relative}
 .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .case:hover .media img{transform:scale(1.035)}
@@ -89,7 +89,7 @@ section.work{padding:120px 0 40px}
 section.earlier{padding:80px 0 40px}
 .list{border-top:1px solid var(--ink)}
 .list details{border-bottom:1px solid var(--line)}
-.list summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:150px 1.2fr 1.4fr 120px 32px;gap:24px;align-items:baseline;padding:24px 0}
+.list summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:120px 110px 1.2fr 1.4fr 32px;gap:24px;align-items:baseline;padding:24px 0}
 .list summary::-webkit-details-marker{display:none}
 .list .yr{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums}
 .list .co{font-family:var(--serif);font-size:22px;line-height:1.2}
@@ -100,9 +100,9 @@ section.earlier{padding:80px 0 40px}
 .list .pm:after{transform:rotate(90deg)}
 .list details[open] .pm:after{transform:rotate(0)}
 .list summary:hover .co{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
-.list .body{display:grid;grid-template-columns:150px 1.2fr 1.4fr 120px 32px;gap:24px;padding:0 0 28px}
-.list .body > div{grid-column:3}
-.list .body .eimg{grid-column:2;margin:0}
+.list .body{display:grid;grid-template-columns:120px 110px 1.2fr 1.4fr 32px;gap:24px;padding:0 0 28px}
+.list .body > div{grid-column:4}
+.list .body .eimg{grid-column:3;margin:0}
 .list .body .eimg img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--stone);animation:fadein .6s ease}
 .list .body .eimg figcaption{font-size:10px;letter-spacing:.06em;color:var(--mute);margin-top:6px}
 .list .body > div{animation:fadein .6s ease}
@@ -145,34 +145,34 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   .proof{grid-template-columns:1fr;gap:18px}
   .proof > div{display:flex;align-items:baseline;gap:16px}.proof p{margin-top:0}
   .range .wrap{grid-template-columns:repeat(2,1fr)}.range .edu{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid #3A3A3A;padding-top:20px}
-  .case:nth-of-type(even) .media{order:0}
+  .case:nth-of-type(even) .mcol{order:0}
   .result .n{font-size:48px}
   .beats div{grid-template-columns:1fr;gap:2px}
   .list summary,.list .body{grid-template-columns:1fr 24px;gap:6px 16px}
-  .list .lg{display:none}
+  .list .lg{display:none!important}
   .list .yr{grid-column:1}.list .co{grid-column:1}.list .one{grid-column:1}.list .pm{grid-column:2;grid-row:1}
   .list .body > div,.list .body .eimg{grid-column:1}
   .compare{left:10px;bottom:10px}
 }
 
 /* accent + logos + headline motion */
-.list .lg{display:flex;justify-content:flex-end;align-items:center;height:100%;align-self:center}
+.logorow{display:flex;align-items:center;gap:22px;height:40px;margin-bottom:22px}
+.logorow img{width:auto;height:30px;filter:grayscale(1) brightness(0);opacity:.85}
+.logorow .b2{height:40px}
+.logorow .b3{height:30px}
+.logorow .b4{height:32px}
+.logorow img+img{padding-left:22px;border-left:1px solid var(--line)}
+.list .lg{display:flex;justify-content:flex-start;align-items:center;height:100%;align-self:center}
 .list .lg img{max-height:26px;max-width:96px;width:auto;filter:grayscale(1) brightness(0);opacity:.55;transition:opacity .3s}
 .list summary:hover .lg img,.list details[open] .lg img{opacity:.9}
-.media .badge{position:absolute;left:16px;top:16px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.94);padding:12px 16px;border-radius:2px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-.media .badge img{width:auto;height:22px;object-fit:contain;transition:none;transform:none!important}
-.media .badge .b2{height:30px}
-.media .badge .b3{height:22px}
-.media .badge .b4{height:24px}
-.media .badge img+img{padding-left:14px;border-left:1px solid #DDD}
 
-:root{--accent:#2F3FD6}
+:root{--accent:#7A2E35}
 .hero h1 em,.about h2 em,footer h2 em{color:var(--accent)}
 .proof .n small{color:var(--accent)}
 .result .n{color:var(--accent)}
 .proof{border-top-color:var(--accent)}
 .bar nav a.pill{background:var(--accent)}
-.bar nav a.pill:hover{background:#1F2CA8}
+.bar nav a.pill:hover{background:#5E2128}
 .btn.solid{background:var(--accent);border-color:var(--accent)}
 .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .press a:hover,.list .body a:hover{border-color:var(--accent);color:var(--accent)}
@@ -237,7 +237,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   <div class="sechead rv"><h2>Selected work</h2><p class="eyebrow">2023 to now</p></div>
 
   <article class="case rv">
-    <div class="media"><img src="images/balmain.jpg" alt="Balmain Paris Carbone fragrance campaign visual" loading="lazy"><span class="cap">Image: Balmain Beauty</span><span class="badge"><img class="b1" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Balmain_logo.svg" alt="Balmain logo" loading="lazy"><img class="b2" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy"></span></div>
+    <div class="mcol"><div class="logorow"><img class="b1" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Balmain_logo.svg" alt="Balmain logo" loading="lazy"><img class="b2" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy"></div><div class="media"><img src="images/balmain.jpg" alt="Balmain Paris Carbone fragrance campaign visual" loading="lazy"><span class="cap">Image: Balmain Beauty</span></div></div>
     <div>
       <p class="meta">Mar 2024 to present &nbsp;·&nbsp; New York</p>
       <h3>Balmain Beauty</h3>
@@ -259,7 +259,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   </article>
 
   <article class="case rv">
-    <div class="media"><img src="images/tiktok.jpg" alt="TikTok shopping ad formats shown on three phone screens" loading="lazy"><span class="cap">Image: TikTok</span><span class="badge"><img class="b3" src="images/logos/tiktok.svg" alt="TikTok logo" loading="lazy"></span></div>
+    <div class="mcol"><div class="logorow"><img class="b3" src="images/logos/tiktok.svg" alt="TikTok logo" loading="lazy"></div><div class="media"><img src="images/tiktok.jpg" alt="TikTok shopping ad formats shown on three phone screens" loading="lazy"><span class="cap">Image: TikTok</span></div></div>
     <div>
       <p class="meta">Mar 2023 to Feb 2024 &nbsp;·&nbsp; Paris</p>
       <h3>TikTok</h3>
@@ -275,7 +275,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   </article>
 
   <article class="case rv">
-    <div class="media"><a href="https://ie-um.com" target="_blank" rel="noopener"><img src="images/ieum.jpg" alt="IEUM Concierge website homepage: Korea, connected" loading="lazy"></a><span class="badge"><img class="b4" src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge logo" loading="lazy"></span></div>
+    <div class="mcol"><div class="logorow"><img class="b4" src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge logo" loading="lazy"></div><div class="media"><a href="https://ie-um.com" target="_blank" rel="noopener"><img src="images/ieum.jpg" alt="IEUM Concierge website homepage: Korea, connected" loading="lazy"></a></div></div>
     <div>
       <p class="meta">Aug 2026 to present &nbsp;·&nbsp; Seoul &amp; New York</p>
       <h3>IEUM</h3>
@@ -295,27 +295,27 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   <div class="sechead rv"><h2>Earlier</h2><p class="eyebrow">2015 to 2022</p></div>
   <div class="list rv">
     <details>
-      <summary><span class="yr">2022</span><span class="co">Pernod Ricard<small>Global Marketing Transformation &amp; Brand Planning · Paris</small></span><span class="one">Cut non-working A&amp;P spend by 7%</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Pernod_Ricard_logo_2019.svg" alt="Pernod Ricard logo" loading="lazy"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2022</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Pernod_Ricard_logo_2019.svg" alt="Pernod Ricard logo" loading="lazy"></span><span class="co">Pernod Ricard<small>Global Marketing Transformation &amp; Brand Planning · Paris</small></span><span class="one">Cut non-working A&amp;P spend by 7%</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/pernod-ricard.jpg" alt="Pernod Ricard logo above its portfolio of spirits and wine brands" loading="lazy"><figcaption>Image: Pernod Ricard</figcaption></figure><div><p>Improved corporate level marketing efficiency at Pernod Ricard headquarters, including building the global agency roster.</p><p class="tags">External agencies · Stakeholder management · Brand planning</p></div></div>
     </details>
     <details>
-      <summary><span class="yr">2021</span><span class="co">Kilian Paris &amp; Frederic Malle<small>Assistant Marketing Manager · The Estée Lauder Companies</small></span><span class="one">Scaled competitor social insights across EMEA markets</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2021</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy"></span><span class="co">Kilian Paris &amp; Frederic Malle<small>Assistant Marketing Manager · The Estée Lauder Companies</small></span><span class="one">Scaled competitor social insights across EMEA markets</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/kilian-frederic-malle.jpg" alt="Kilian Old Fashioned and Frederic Malle Hope fragrance bottles in sunlight" loading="lazy"><figcaption>Image: Kilian Paris, Frederic Malle</figcaption></figure><div><p>Built competitor social marketing strategy insights for Kilian Paris and Editions de Parfums Frederic Malle, then scaled the insights across EMEA markets.</p><p class="tags">Content strategy · Consumer marketing</p></div></div>
     </details>
     <details>
-      <summary><span class="yr">2019 to 2020</span><span class="co">UOK<small>Assistant Product Manager · Gwangju</small></span><span class="one">Unlocked multimillion dollar government investment</span><span class="lg"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2019 to 2020</span><span class="lg"></span><span class="co">UOK<small>Assistant Product Manager · Gwangju</small></span><span class="one">Unlocked multimillion dollar government investment</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/uok.jpg" alt="Mixed reality cognitive rehabilitation system with touchscreen and tabletop display" loading="lazy"><figcaption>Image: UOK</figcaption></figure><div><p>Built the product roadmap and launch pitch for a mixed reality cognitive rehabilitation system for therapists and patients.</p><p class="tags">Product management · B2B · User research · UI/UX</p><a href="https://www.uokdc.com" target="_blank" rel="noopener">uokdc.com →</a></div></div>
     </details>
     <details>
-      <summary><span class="yr">2019</span><span class="co">Jarasum International Jazz Festival<small>Project Manager · Gapyeong</small></span><span class="one">Ran operations for 129 artists over three days</span><span class="lg"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2019</span><span class="lg"></span><span class="co">Jarasum International Jazz Festival<small>Project Manager · Gapyeong</small></span><span class="one">Ran operations for 129 artists over three days</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/jarasum.jpg" alt="Jazz quartet performing on the Jarasum Jazz Festival stage, black and white" loading="lazy"><figcaption>Image: Jarasum Jazz Festival</figcaption></figure><div><p>Managed artists and event operations for the 16th edition of one of Korea's largest jazz festivals.</p><p class="tags">Event management · Artist management</p><a href="https://jarasumjazz.com/the16th-history" target="_blank" rel="noopener">The 2019 festival →</a></div></div>
     </details>
     <details>
-      <summary><span class="yr">2016</span><span class="co">CJ Olive Young<small>Sales Specialist, part time · Seoul</small></span><span class="one">Ranked top seller for a full year</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Olive_Young_Logo.svg" alt="CJ Olive Young logo" loading="lazy"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2016</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Olive_Young_Logo.svg" alt="CJ Olive Young logo" loading="lazy"></span><span class="co">CJ Olive Young<small>Sales Specialist, part time · Seoul</small></span><span class="one">Ranked top seller for a full year</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/oliveyoung.jpg" alt="Olive Young Town flagship store front in Seoul" loading="lazy"><figcaption>Image: CJ Olive Young</figcaption></figure><div><p>Advised customers on skincare and makeup at Korea's leading health and beauty retailer.</p><p class="tags">Retail sales · Customer experience</p></div></div>
     </details>
     <details>
-      <summary><span class="yr">2015</span><span class="co">Amorepacific<small>Product Development Assistant · Seoul</small></span><span class="one">Drew about 10,000 runners to the Seoul Love Marathon</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/AMOREPACIFIC_logo.svg" alt="Amorepacific logo" loading="lazy"></span><span class="pm"></span></summary>
+      <summary><span class="yr">2015</span><span class="lg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/AMOREPACIFIC_logo.svg" alt="Amorepacific logo" loading="lazy"></span><span class="co">Amorepacific<small>Product Development Assistant · Seoul</small></span><span class="one">Drew about 10,000 runners to the Seoul Love Marathon</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/amorepacific.jpg" alt="2015 Pink Ribbon Love Marathon participants at the start line in Seoul" loading="lazy"><figcaption>Image: Amorepacific</figcaption></figure><div><p>Developed special campaigns and activations for the Pink Ribbon Campaign's 15th anniversary, including the Seoul Love Marathon.</p><p class="tags">Cause marketing · Campaign development · Activations</p><a href="https://www.apgroup.com/int/ko/news/news-2015-10-18.html" target="_blank" rel="noopener">The campaign story →</a></div></div>
     </details>
   </div>
