@@ -56,7 +56,10 @@ img{display:block;max-width:100%}
 .range .wrap{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:24px;padding-top:34px;padding-bottom:34px;align-items:center}
 .range .n{font-family:var(--serif);font-size:40px;font-weight:300;line-height:1}
 .range p{font-size:12px;color:#B9B6B0;margin-top:6px;line-height:1.45}
-.range .edu{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#D9D6D0;text-align:right;line-height:1.9}
+.range .edu{border-left:1px solid #3A3A3A;padding-left:28px;display:grid;grid-template-columns:auto;row-gap:2px}
+.range .edu .lab{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8C8984;margin-bottom:8px}
+.range .edu b{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2;color:var(--paper)}
+.range .edu em{font-style:normal;font-size:12px;color:#B9B6B0;margin-bottom:10px}
 
 /* selected work */
 section.work{padding:120px 0 40px}
@@ -141,7 +144,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   .hero .portrait{order:-1;aspect-ratio:1/1}
   .proof{grid-template-columns:1fr;gap:18px}
   .proof > div{display:flex;align-items:baseline;gap:16px}.proof p{margin-top:0}
-  .range .wrap{grid-template-columns:repeat(2,1fr)}.range .edu{grid-column:1/-1;text-align:left}
+  .range .wrap{grid-template-columns:repeat(2,1fr)}.range .edu{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid #3A3A3A;padding-top:20px}
   .case:nth-of-type(even) .media{order:0}
   .result .n{font-size:48px}
   .beats div{grid-template-columns:1fr;gap:2px}
@@ -187,7 +190,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   <div><div class="n">6</div><p>Regions led<br>EMEA, NOAM, APAC, UK&amp;I, LATAM, Travel Retail</p></div>
   <div><div class="n">6</div><p>Industries<br>Beauty, tech, spirits, healthcare, live music, travel</p></div>
   <div><div class="n">4</div><p>Languages<br>English, Korean, French, Japanese</p></div>
-  <div class="edu">HEC Paris<br>Kyung Hee University</div>
+  <div class="edu"><span class="lab">Education</span><b>HEC Paris</b><em>Master in Business</em><b>Kyung Hee University</b><em>Bachelor of Arts</em></div>
 </div></div>
 
 <section class="work" id="work"><div class="wrap">
