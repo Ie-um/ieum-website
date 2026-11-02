@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Accent colour options | Doha Yoon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&family=Inter:wght@400;500&display=swap">
+<style>
+body{margin:0;background:#EFEDE9;font-family:Inter,sans-serif;color:#121212}
+header{padding:40px 40px 10px;max-width:1500px;margin:0 auto}
+h1{font-family:Newsreader,serif;font-weight:300;font-size:40px;margin:0 0 6px}
+p.sub{color:#5A5A5A;font-size:14px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(640px,1fr));gap:28px;padding:28px 40px 60px;max-width:1500px;margin:0 auto}
+.card{background:#fff;border:1px solid #E4E2DE}
+.top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #E4E2DE}
+.sw{display:flex;align-items:center;gap:12px}
+.dot{width:28px;height:28px;border-radius:50%}
+.sw b{font-family:Newsreader,serif;font-weight:400;font-size:22px}
+.sw small{display:block;font-size:11px;color:#8C8C8C;letter-spacing:.08em}
+.top a{font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:#121212;border:1px solid #121212;border-radius:999px;padding:8px 14px}
+.frame{height:420px;overflow:hidden;position:relative}
+.frame iframe{border:0;width:200%;height:840px;transform:scale(.5);transform-origin:0 0;pointer-events:none}
+.note{padding:12px 18px;font-size:13px;color:#5A5A5A;border-top:1px solid #E4E2DE}
+</style></head><body>
+<header><h1>Accent colour options</h1><p class="sub">Each preview is the real page with only the accent changed. Open any one to scroll the full page in that colour.</p></header>
+<div class="grid" id="g"></div>
+<script>
+var C=[['bordeaux','Bordeaux','#7A2E35','Couture house, wine label. Warm and confident. (Live now)'],
+['forest','Deep forest','#2F4A3A','Quiet luxury, very Aman. Calm and assured.'],
+['bronze','Antique bronze','#8A6A3F','Editorial and warm, like a fine jewellery house.'],
+['navy','Ink navy','#1F2A44','The most understated. Reads serious and senior.'],
+['plum','Aubergine','#4E2A45','Rich and unusual, between bordeaux and navy.']];
+document.getElementById('g').innerHTML=C.map(function(c){return '<div class="card"><div class="top"><div class="sw"><span class="dot" style="background:'+c[2]+'"></span><div><b>'+c[1]+'</b><small>'+c[2]+'</small></div></div><a href="../?accent='+c[0]+'" target="_blank">Open full page</a></div><div class="frame"><iframe src="../?accent='+c[0]+'" loading="lazy" title="'+c[1]+' preview"></iframe></div><p class="note">'+c[3]+'</p></div>'}).join('');
+</script></body></html>
