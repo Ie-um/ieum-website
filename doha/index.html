@@ -4,256 +4,314 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Doha Yoon | Product Marketer</title>
-<meta name="description" content="Doha Yoon, product marketer with a holistic view of growth. Projects across beauty, tech, spirits, healthcare, live music and travel.">
+<meta name="description" content="Doha Yoon, product marketer. Marketing Manager at The Estée Lauder Companies and founder of IEUM. Beauty, tech and spirits across Seoul, Paris and New York.">
+<link rel="canonical" href="https://doha.ie-um.com/">
 <meta property="og:title" content="Doha Yoon | Product Marketer">
 <meta property="og:description" content="Product marketer with a holistic view of growth.">
 <meta property="og:image" content="https://doha.ie-um.com/images/hero.jpg">
-<link rel="canonical" href="https://doha.ie-um.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500&display=swap">
 <style>
-body{margin:0;background:#FFFFFF}
-a{color:#121212}a:hover{color:#5A5A5A}
+:root{--ink:#121212;--soft:#5A5A5A;--mute:#8C8C8C;--line:#E4E2DE;--paper:#FAF9F7;--stone:#EFEDE9;--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(250,249,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.bar.on{border-color:var(--line)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font-family:var(--serif);font-size:20px;letter-spacing:.1em;text-decoration:none}
+.bar nav{display:flex;gap:32px;align-items:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--soft)}
+.bar nav a:hover{color:var(--ink)}
+.bar nav a.pill{color:var(--paper);background:var(--ink);padding:10px 18px;border-radius:999px}
+.bar nav a.pill:hover{background:#333;color:var(--paper)}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:end}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.6vw,76px);line-height:1.02;letter-spacing:-.01em;margin:22px 0 26px}
+.hero h1 em{font-style:italic}
+.hero .lede{font-size:17px;color:#3A3A3A;max-width:560px}
+.hero .lede b{font-weight:500;color:var(--ink)}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:48px 0 40px;padding-top:28px;border-top:1px solid var(--ink)}
+.proof .n{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.2vw,58px);line-height:1}
+.proof .n small{font-size:.45em;vertical-align:.9em;margin-left:2px}
+.proof p{font-size:13px;color:var(--soft);margin-top:10px;line-height:1.5}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border:1px solid var(--ink);border-radius:999px;transition:background .25s,color .25s}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.portrait{aspect-ratio:4/5;overflow:hidden;background:var(--stone)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
+
+/* range strip */
+.range{background:var(--ink);color:var(--paper)}
+.range .wrap{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:24px;padding-top:34px;padding-bottom:34px;align-items:center}
+.range .n{font-family:var(--serif);font-size:40px;font-weight:300;line-height:1}
+.range p{font-size:12px;color:#B9B6B0;margin-top:6px;line-height:1.45}
+.range .edu{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#D9D6D0;text-align:right;line-height:1.9}
+
+/* selected work */
+section.work{padding:120px 0 40px}
+.sechead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:56px}
+.sechead h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,3.6vw,48px)}
+.case{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.case:nth-of-type(even) .media{order:2}
+.media{aspect-ratio:4/3;overflow:hidden;background:var(--stone);position:relative}
+.media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.case:hover .media img{transform:scale(1.035)}
+.media .cap{position:absolute;right:12px;bottom:10px;font-size:10px;letter-spacing:.08em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.case .meta{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.case h3{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.1;margin:12px 0 4px}
+.case .role{font-size:15px;color:var(--soft)}
+.result{display:flex;align-items:baseline;gap:18px;margin:30px 0 26px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.result .n{font-family:var(--serif);font-weight:300;font-size:64px;line-height:.9;white-space:nowrap}
+.result p{font-size:14px;color:#3A3A3A;line-height:1.45}
+.beats{display:grid;gap:14px}
+.beats div{display:grid;grid-template-columns:120px 1fr;gap:16px;font-size:15px;line-height:1.55}
+.beats span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+.tags{margin-top:22px;font-size:13px;color:var(--mute)}
+.press{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px}
+.press a{text-decoration:none;border-bottom:1px solid #C9C6C0;padding-bottom:1px}
+.press a:hover{border-color:var(--ink)}
+
+/* earlier */
+section.earlier{padding:80px 0 40px}
+.list{border-top:1px solid var(--ink)}
+.list details{border-bottom:1px solid var(--line)}
+.list summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:150px 1.2fr 1.4fr 32px;gap:24px;align-items:baseline;padding:24px 0}
+.list summary::-webkit-details-marker{display:none}
+.list .yr{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums}
+.list .co{font-family:var(--serif);font-size:22px;line-height:1.2}
+.list .co small{display:block;font-family:var(--sans);font-size:13px;color:var(--soft);margin-top:4px}
+.list .one{font-size:14px;color:#3A3A3A}
+.list .pm{justify-self:end;width:22px;height:22px;position:relative}
+.list .pm:before,.list .pm:after{content:'';position:absolute;left:4px;right:4px;top:10px;height:1px;background:var(--ink);transition:transform .3s}
+.list .pm:after{transform:rotate(90deg)}
+.list details[open] .pm:after{transform:rotate(0)}
+.list summary:hover .co{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.list .body{display:grid;grid-template-columns:150px 1.2fr 1.4fr 32px;gap:24px;padding:0 0 28px}
+.list .body > div{grid-column:3}
+.list .body .eimg{grid-column:2;margin:0}
+.list .body .eimg img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--stone);animation:fadein .6s ease}
+.list .body .eimg figcaption{font-size:10px;letter-spacing:.06em;color:var(--mute);margin-top:6px}
+.list .body > div{animation:fadein .6s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.list .body p{font-size:14px;color:#3A3A3A}
+.list .body .tags{margin-top:10px}
+.list .body a{font-size:13px;display:inline-block;margin-top:10px}
+
+/* about */
+section.about{padding:120px 0}
+.about .grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:72px;align-items:center}
+.about .ph{aspect-ratio:4/5;overflow:hidden;background:var(--stone)}
+.about .ph img{width:100%;height:100%;object-fit:cover}
+.about h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3vw,42px);line-height:1.15;margin:18px 0 26px}
+.about h2 em{font-style:italic}
+.about p{font-size:16px;color:#3A3A3A;margin-bottom:16px;max-width:600px}
+.langs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.langs span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--soft)}
+
+/* contact */
+footer{background:var(--stone);padding:100px 0 60px}
+footer h2{font-family:var(--serif);font-weight:300;font-size:clamp(48px,7vw,104px);line-height:1}
+footer h2 em{font-style:italic}
+footer .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;justify-content:space-between}
+
+/* compare pill */
+.compare{position:fixed;left:20px;bottom:20px;z-index:30;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 16px;font-size:12px;display:flex;align-items:center;gap:10px;box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.compare a{text-decoration:none;background:var(--ink);color:#fff;border-radius:999px;padding:6px 12px}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .wrap{padding:0 20px}
+  .bar nav{gap:18px}.bar nav .hide-m{display:none}
+  .hero{padding:24px 0 56px}
+  .hero .grid,.case,.about .grid{grid-template-columns:1fr;gap:32px}
+  .hero .portrait{order:-1;aspect-ratio:1/1}
+  .proof{grid-template-columns:1fr;gap:18px}
+  .proof > div{display:flex;align-items:baseline;gap:16px}.proof p{margin-top:0}
+  .range .wrap{grid-template-columns:repeat(2,1fr)}.range .edu{grid-column:1/-1;text-align:left}
+  .case:nth-of-type(even) .media{order:0}
+  .result .n{font-size:48px}
+  .beats div{grid-template-columns:1fr;gap:2px}
+  .list summary,.list .body{grid-template-columns:1fr 24px;gap:6px 16px}
+  .list .yr{grid-column:1}.list .co{grid-column:1}.list .one{grid-column:1}.list .pm{grid-column:2;grid-row:1}
+  .list .body > div,.list .body .eimg{grid-column:1}
+  .compare{left:10px;bottom:10px}
+}
 </style>
-<style>html{scroll-behavior:smooth} img{max-width:100%} @media (max-width:700px){h1{font-size:44px !important} #wheel{display:none} nav[aria-label="Years"]{display:none} header,section,footer{padding-left:16px !important;padding-right:16px !important} #top>div>div:first-child{padding:40px 24px !important}}</style>
 </head>
 <body>
-<div style="width: 100%; min-height: 100vh; background: #FFFFFF; color: #121212; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.5">
 
-  <header style="max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 28px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
-    <a href="#top" style="font-family: 'Newsreader', serif; font-size: 22px; letter-spacing: 0.08em; text-decoration: none">DOHA YOON</a>
-    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">
-      <a href="#work" style="text-decoration: none">Projects</a>
-      <a href="#about" style="text-decoration: none">About</a>
-      <a href="#contact" style="text-decoration: none">Contact</a>
-    </nav>
-  </header>
+<div class="bar" id="bar"><div class="wrap">
+  <a class="logo" href="#top">DOHA YOON</a>
+  <nav aria-label="Main">
+    <a class="hide-m" href="#work">Work</a>
+    <a class="hide-m" href="#earlier">Earlier</a>
+    <a class="hide-m" href="#about">About</a>
+    <!--email_off--><a class="pill" href="mailto:doha.yoon.llap@gmail.com">Get in touch</a><!--/email_off-->
+  </nav>
+</div></div>
 
-  <section id="top" style="max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 0 40px">
-    <div style="width: 100%; background: #E9EBEE; display: flex; flex-wrap: wrap; align-items: stretch; overflow: hidden">
-      <div style="flex: 1 1 480px; box-sizing: border-box; padding: 72px 56px; display: flex; flex-direction: column; justify-content: flex-end; min-height: 360px">
-        <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 400; font-size: 64px; line-height: 1.05; color: #121212">Product marketer with a holistic view of growth.</h1>
-        <p style="margin: 24px 0 0; font-size: 17px; color: #3D3D3D; max-width: 520px">From development to market to consumer, driving growth in fast moving categories.</p>
+<header class="hero" id="top"><div class="wrap grid">
+  <div>
+    <p class="eyebrow">Product &amp; brand marketer &nbsp;·&nbsp; New York</p>
+    <h1>Product marketer with a <em>holistic view</em> of growth.</h1>
+    <p class="lede"><b>Marketing Manager at The Estée Lauder Companies</b> and founder of IEUM. I take products from development to market to consumer across beauty, tech and spirits, in Seoul, Paris and New York.</p>
+    <div class="proof">
+      <div><div class="n">500<small>%</small></div><p>YoY category sales growth, Balmain Beauty fragrance</p></div>
+      <div><div class="n">$M+</div><p>Advertising revenue driven, TikTok Ads EMEA</p></div>
+      <div><div class="n">1<small>mo</small></div><p>From launch to first client, IEUM</p></div>
+    </div>
+    <div class="cta">
+      <!--email_off--><a class="btn solid" href="mailto:doha.yoon.llap@gmail.com">Email me</a><!--/email_off-->
+      <a class="btn" href="https://www.linkedin.com/in/doha-yoon/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="portrait"><img src="images/hero.jpg" alt="Doha Yoon in a white suit, seated on a wooden chair"></div>
+</div></header>
+
+<div class="range"><div class="wrap">
+  <div><div class="n">3</div><p>Countries lived<br>Korea, France, US</p></div>
+  <div><div class="n">6</div><p>Regions led<br>EMEA, NOAM, APAC, UK&amp;I, LATAM, Travel Retail</p></div>
+  <div><div class="n">6</div><p>Industries<br>Beauty, tech, spirits, healthcare, live music, travel</p></div>
+  <div><div class="n">4</div><p>Languages<br>English, Korean, French, Japanese</p></div>
+  <div class="edu">HEC Paris<br>Kyung Hee University</div>
+</div></div>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="sechead rv"><h2>Selected work</h2><p class="eyebrow">2023 to now</p></div>
+
+  <article class="case rv">
+    <div class="media"><img src="images/balmain.jpg" alt="Balmain Paris Carbone fragrance campaign visual" loading="lazy"><span class="cap">Image: Balmain Beauty</span></div>
+    <div>
+      <p class="meta">Mar 2024 to present &nbsp;·&nbsp; New York</p>
+      <h3>Balmain Beauty</h3>
+      <p class="role">Marketing Manager, The Estée Lauder Companies</p>
+      <div class="result"><div class="n">+500%</div><p>Year on year category sales growth, from month 3 to month 12 after launch</p></div>
+      <div class="beats">
+        <div><span>The brief</span><p>Take Balmain Beauty into ultra luxury and prestige fragrance.</p></div>
+        <div><span>What I did</span><p>Launched the Les Éternels collection and Destin across five regions, leading concept, packaging, pricing and the retail launch.</p></div>
       </div>
-      <div style="flex: 1 1 380px; height: 720px">
-        <img src="images/hero.jpg" alt="Doha Yoon in a white suit, seated on a wooden chair" style="width: 100%; height: 100%; object-fit: cover; object-position: center 10%; display: block">
+      <p class="tags">Product development · Positioning · Pricing &amp; packaging · Retail launch · Integrated campaigns</p>
+      <div class="press">
+        <a href="https://www.vogue.com/article/les-eternels-de-balmain-interview" target="_blank" rel="noopener">Vogue</a>
+        <a href="https://wwd.com/beauty-industry-news/fragrance/balmain-beauty-enters-prestige-fragrance-category-destin-1238616680/" target="_blank" rel="noopener">WWD: Destin</a>
+        <a href="https://hypebae.com/2026/3/balmain-beauty-destin-de-balmain-soho-new-york-city-nyc-event-pop-up-exclusive-fragrance" target="_blank" rel="noopener">Hypebae</a>
+        <a href="https://wwd.com/fashion-news/fashion-scoops/balmain-front-row-afterparty-spring-2015-paris-1236647767/" target="_blank" rel="noopener">WWD: Front row</a>
+        <a href="https://www.balmainbeauty.com" target="_blank" rel="noopener">balmainbeauty.com</a>
       </div>
     </div>
-  </section>
+  </article>
 
-  <section id="work" style="max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 112px 40px 0">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 24px">
-      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 400; font-size: 44px">Projects</h2>
-      <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">Seoul · Paris · New York</p>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
-
-      <nav aria-label="Years" style="flex: 0 0 200px; position: sticky; top: 80px; height: 440px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent)">
-        <div id="wheel" style="display: flex; flex-direction: column; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)"></div>
-      </nav>
-
-      <div role="list" style="flex: 999 1 560px; min-width: 0">
-
-        <article id="row-0" data-row="0" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <a href="https://ie-um.com" style="flex: 1 1 380px; height: 420px; display: block; overflow: hidden">
-            <img src="images/ieum.jpg" alt="IEUM Concierge website homepage: Korea, connected" style="width: 100%; height: 100%; object-fit: cover; display: block">
-          </a>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Aug 2026 to Present</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">IEUM</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Founder · Luxury Korean travel concierge</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Founded a luxury travel concierge connecting international travelers with Korea's wellness and cultural experiences, leading acquisition with GEO (generative engine optimization). Landed the first client within one month of launch.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Positioning / Content / Partnerships / AI workflows</p>
-            <p style="margin: 0; font-size: 15px"><a href="https://ie-um.com">Visit ie-um.com →</a></p>
-          </div>
-        </article>
-
-        <article id="row-1" data-row="1" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden">
-            <img src="images/balmain.jpg" alt="Balmain Paris Carbone fragrance campaign visual" style="width: 100%; height: 100%; object-fit: cover; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #FFFFFF">Image: Balmain Beauty</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Mar 2024 to Present</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">Estée Lauder Companies · Balmain Beauty</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Marketing Manager · New York</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Launched Balmain Beauty's Les Éternels ultra luxury collection and Destin prestige fragrance across five regions, from concept, packaging and pricing to retail. Drove 500% category sales growth.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Product development / Positioning &amp; messaging / Pricing &amp; packaging / Retail launch / Integrated campaigns</p>
-            <p style="margin: 0; font-size: 15px; line-height: 1.8"><a href="https://www.vogue.com/article/les-eternels-de-balmain-interview">Vogue: Les Éternels de Balmain →</a><br><a href="https://wwd.com/beauty-industry-news/fragrance/balmain-beauty-enters-prestige-fragrance-category-destin-1238616680/">WWD: Balmain Beauty enters prestige fragrance with Destin →</a><br><a href="https://hypebae.com/2026/3/balmain-beauty-destin-de-balmain-soho-new-york-city-nyc-event-pop-up-exclusive-fragrance">Hypebae: Balmain Beauty SoHo pop up →</a><br><a href="https://wwd.com/fashion-news/fashion-scoops/balmain-front-row-afterparty-spring-2015-paris-1236647767/">WWD: Beauty Hits Balmain’s Front Row and After Party →</a><br><a href="https://www.balmainbeauty.com">Visit balmainbeauty.com →</a></p>
-          </div>
-        </article>
-
-        <article id="row-2" data-row="2" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden; background: #000000; display: flex; align-items: center; justify-content: center">
-            <img src="images/tiktok.jpg" alt="TikTok shopping ad formats shown on three phone screens" style="width: 100%; height: 100%; object-fit: contain; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #D0D0D0">Image: TikTok</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Mar 2023 to Feb 2024</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">TikTok</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Assistant Product Marketing Manager · Paris</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Led positioning, sales enablement and product optimization for TikTok Ads products across EMEA, including the Video Shopping Ads rollout. Drove multimillion dollar advertising revenue.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Product marketing / Positioning / Sales enablement / Product optimization</p>
-            <p style="margin: 0; font-size: 15px"><a href="https://ads.tiktok.com/business/en-US/blog/tiktok-world-shopping-ads">TikTok: Video Shopping Ads roll out →</a></p>
-          </div>
-        </article>
-
-        <article id="row-3" data-row="3" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
-            <img src="images/pernod-ricard.jpg" alt="Pernod Ricard logo above its portfolio of spirits and wine brands" style="width: 100%; height: 100%; object-fit: contain; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #5A5A5A">Image: Pernod Ricard</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Jan 2022 to Jul 2022</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">Pernod Ricard</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Assistant Global Marketing Transformation &amp; Brand Planning Strategy Manager · Paris</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Improved corporate level marketing efficiency at Pernod Ricard headquarters, including building the global agency roster. Reduced non-working A&amp;P spend by 7%.</p>
-            <p style="margin: 0; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">External agencies / Stakeholder management / Brand planning</p>
-          </div>
-        </article>
-
-        <article id="row-4" data-row="4" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden">
-            <img src="images/kilian-frederic-malle.jpg" alt="Kilian Old Fashioned and Frederic Malle Hope fragrance bottles in sunlight" style="width: 100%; height: 100%; object-fit: cover; object-position: 40% center; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.6)">Image: Kilian Paris, Frederic Malle</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Jul 2021 to Dec 2021</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">Estée Lauder Companies · Kilian Paris &amp; Frederic Malle</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Assistant Marketing Manager</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Built competitor social marketing strategy insights for Kilian Paris and Editions de Parfums Frederic Malle. Scaled the insights across regions.</p>
-            <p style="margin: 0; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Content strategy / Consumer marketing</p>
-          </div>
-        </article>
-
-        <article id="row-5" data-row="5" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; background: #F4F4F4; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative">
-            <img src="images/uok.jpg" alt="Mixed reality cognitive rehabilitation system with touchscreen and tabletop display" style="max-width: 82%; max-height: 82%; object-fit: contain">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #5A5A5A">Image: UOK</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Sep 2019 to Aug 2020</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">UOK</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Assistant Product Manager · Gwangju</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Built the product roadmap and launch pitch for a mixed reality cognitive rehabilitation system for therapists and patients. Unlocked multimillion dollar government investment.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Product management / B2B / User research / UI/UX</p>
-            <p style="margin: 0; font-size: 15px"><a href="https://www.uokdc.com">Visit uokdc.com →</a></p>
-          </div>
-        </article>
-
-        <article id="row-6" data-row="6" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden">
-            <img src="images/jarasum.jpg" alt="Jazz quartet performing on the Jarasum Jazz Festival stage, black and white" style="width: 100%; height: 100%; object-fit: cover; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #FFFFFF">Image: Jarasum Jazz Festival</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Jul 2019 to Oct 2019</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">Jarasum International Jazz Festival</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Project Manager · Gapyeong</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Managed artists and event operations for the 16th edition of one of Korea's largest jazz festivals. The festival hosted 129 artists from 31 bands across three days.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Event management / Artist management</p>
-            <p style="margin: 0; font-size: 15px"><a href="https://jarasumjazz.com/the16th-history">See the 2019 festival →</a></p>
-          </div>
-        </article>
-
-        <article id="row-7" data-row="7" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden">
-            <img src="images/oliveyoung.jpg" alt="Olive Young Town flagship store front in Seoul" style="width: 100%; height: 100%; object-fit: cover; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.6)">Image: CJ Olive Young</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Jan 2016 to Dec 2016</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">CJ OLIVE YOUNG</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Sales Specialist · Part time · Seoul</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Advised customers on skincare and makeup at Korea's leading health and beauty retailer. Named top selling sales specialist of the month for five consecutive months.</p>
-            <p style="margin: 0; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Retail sales / Customer experience</p>
-          </div>
-        </article>
-
-        <article id="row-8" data-row="8" role="listitem" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; border-top: 1px solid #121212; border-bottom: 1px solid #121212; padding: 48px 0">
-          <figure style="flex: 1 1 380px; height: 420px; margin: 0; position: relative; overflow: hidden">
-            <img src="images/amorepacific.jpg" alt="2015 Pink Ribbon Love Marathon participants at the start line in Seoul" style="width: 100%; height: 100%; object-fit: cover; object-position: center 85%; display: block">
-            <figcaption style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.6)">Image: Amorepacific</figcaption>
-          </figure>
-          <div style="flex: 1 1 280px; min-width: 0">
-            <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; color: #5A5A5A">Aug 2015 to Oct 2015</p>
-            <h3 style="margin: 0; font-size: 24px; font-weight: 600">AMOREPACIFIC</h3>
-            <p style="margin: 6px 0 16px; font-size: 15px; color: #5A5A5A">Product Development Assistant · Seoul</p>
-            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6">Developed special campaigns and activations for the Pink Ribbon Campaign’s 15th anniversary. The Seoul Love Marathon drew about 10,000 participants.</p>
-            <p style="margin: 0 0 20px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase">Cause marketing / Campaign development / Activations</p>
-            <p style="margin: 0; font-size: 15px"><a href="https://www.apgroup.com/int/ko/news/news-2015-10-18.html">Read the campaign story →</a></p>
-          </div>
-        </article>
-
+  <article class="case rv">
+    <div class="media"><img src="images/tiktok.jpg" alt="TikTok shopping ad formats shown on three phone screens" loading="lazy"><span class="cap">Image: TikTok</span></div>
+    <div>
+      <p class="meta">Mar 2023 to Feb 2024 &nbsp;·&nbsp; Paris</p>
+      <h3>TikTok</h3>
+      <p class="role">Assistant Product Marketing Manager, TikTok Ads EMEA</p>
+      <div class="result"><div class="n">$M+</div><p>Multimillion dollar advertising revenue across EMEA</p></div>
+      <div class="beats">
+        <div><span>The brief</span><p>Bring TikTok Ads products to advertisers across EMEA, including the Video Shopping Ads rollout.</p></div>
+        <div><span>What I did</span><p>Led positioning, sales enablement and product optimization with product and sales teams.</p></div>
       </div>
+      <p class="tags">Product marketing · Positioning · Sales enablement · Product optimization</p>
+      <div class="press"><a href="https://ads.tiktok.com/business/en-US/blog/tiktok-world-shopping-ads" target="_blank" rel="noopener">TikTok: Video Shopping Ads rollout</a></div>
     </div>
-  </section>
+  </article>
 
-  <section id="about" style="max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 112px 40px 0; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
-    <div style="flex: 0 1 300px">
-      <img src="images/about.jpg" alt="Doha Yoon smiling, seated in a white suit" style="width: 100%; height: auto; display: block">
+  <article class="case rv">
+    <div class="media"><a href="https://ie-um.com" target="_blank" rel="noopener"><img src="images/ieum.jpg" alt="IEUM Concierge website homepage: Korea, connected" loading="lazy"></a></div>
+    <div>
+      <p class="meta">Aug 2026 to present &nbsp;·&nbsp; Seoul &amp; New York</p>
+      <h3>IEUM</h3>
+      <p class="role">Founder, luxury Korean travel concierge</p>
+      <div class="result"><div class="n">1 month</div><p>From launch to the first client</p></div>
+      <div class="beats">
+        <div><span>The brief</span><p>Connect international travellers with Korea's wellness and cultural experiences.</p></div>
+        <div><span>What I did</span><p>Built the brand, content and partnerships, and led acquisition through GEO (generative engine optimization) and AI workflows.</p></div>
+      </div>
+      <p class="tags">Positioning · Content · Partnerships · AI workflows</p>
+      <div class="press"><a href="https://ie-um.com" target="_blank" rel="noopener">ie-um.com</a></div>
     </div>
-    <div style="flex: 1 1 420px; min-width: 0; align-self: center">
-      <h2 style="margin: 0 0 24px; font-family: 'Newsreader', serif; font-weight: 400; font-size: 44px">About</h2>
-      <p style="margin: 0 0 16px; font-size: 18px; line-height: 1.6">I was the first in my family to live abroad, to earn a higher education degree and to speak a foreign language. That path took me from Seoul to Paris to New York, building without a roadmap.</p>
-      <p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6">Today I take products from development to market and to the consumer, from launching Balmain Beauty's fragrance categories at Estée Lauder Companies to founding IEUM, a luxury Korean travel concierge.</p>
-      <p style="margin: 0 0 32px; font-size: 18px; line-height: 1.6; font-style: italic; color: #3D3D3D">Off duty, you'll find me in a New York jazz bar or planning a slow wellness escape back in Korea.</p>
-      <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">HEC Paris · Kyung Hee University</p>
-    </div>
-    <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 32px; border-top: 1px solid #121212; padding-top: 40px; margin-top: 16px">
-      <div style="flex: 1 1 200px">
-        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 56px; line-height: 1">3</p>
-        <p style="margin: 12px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">Countries lived: Korea, France, US</p>
-      </div>
-      <div style="flex: 1 1 200px">
-        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 56px; line-height: 1">6</p>
-        <p style="margin: 12px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">Regions: EMEA, NOAM, APAC, UK&amp;I, LATAM, Travel Retail</p>
-      </div>
-      <div style="flex: 1 1 200px">
-        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 56px; line-height: 1">6</p>
-        <p style="margin: 12px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">Industries: beauty, tech, spirits, healthcare, live music, travel</p>
-      </div>
-      <div style="flex: 1 1 200px">
-        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 56px; line-height: 1">4</p>
-        <p style="margin: 12px 0 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #5A5A5A">Languages: English, Korean, French, Japanese</p>
-      </div>
-    </div>
-  </section>
+  </article>
+</div></section>
 
-  <footer id="contact" style="max-width: 1360px; margin: 0 auto; box-sizing: border-box; padding: 112px 40px 64px">
-    <div style="border-top: 1px solid #121212; padding-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 24px">
-      <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 40px">Let's talk.</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">
-        <a href="https://www.linkedin.com/in/doha-yoon/">LinkedIn</a>
-        <!--email_off--><a href="mailto:doha.yoon.llap@gmail.com">Email</a><!--/email_off-->
-      </div>
-    </div>
-  </footer>
+<section class="earlier" id="earlier"><div class="wrap">
+  <div class="sechead rv"><h2>Earlier</h2><p class="eyebrow">2015 to 2022</p></div>
+  <div class="list rv">
+    <details>
+      <summary><span class="yr">2022</span><span class="co">Pernod Ricard<small>Global Marketing Transformation &amp; Brand Planning · Paris</small></span><span class="one">Reduced non-working A&amp;P spend by 7%</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/pernod-ricard.jpg" alt="Pernod Ricard logo above its portfolio of spirits and wine brands" loading="lazy"><figcaption>Image: Pernod Ricard</figcaption></figure><div><p>Improved corporate level marketing efficiency at Pernod Ricard headquarters, including building the global agency roster.</p><p class="tags">External agencies · Stakeholder management · Brand planning</p></div></div>
+    </details>
+    <details>
+      <summary><span class="yr">2021</span><span class="co">Kilian Paris &amp; Frederic Malle<small>Assistant Marketing Manager · The Estée Lauder Companies</small></span><span class="one">Competitor social strategy, scaled across regions</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/kilian-frederic-malle.jpg" alt="Kilian Old Fashioned and Frederic Malle Hope fragrance bottles in sunlight" loading="lazy"><figcaption>Image: Kilian Paris, Frederic Malle</figcaption></figure><div><p>Built competitor social marketing strategy insights for Kilian Paris and Editions de Parfums Frederic Malle, then scaled the insights across regions.</p><p class="tags">Content strategy · Consumer marketing</p></div></div>
+    </details>
+    <details>
+      <summary><span class="yr">2019 to 2020</span><span class="co">UOK<small>Assistant Product Manager · Gwangju</small></span><span class="one">Unlocked multimillion dollar government investment</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/uok.jpg" alt="Mixed reality cognitive rehabilitation system with touchscreen and tabletop display" loading="lazy"><figcaption>Image: UOK</figcaption></figure><div><p>Built the product roadmap and launch pitch for a mixed reality cognitive rehabilitation system for therapists and patients.</p><p class="tags">Product management · B2B · User research · UI/UX</p><a href="https://www.uokdc.com" target="_blank" rel="noopener">uokdc.com →</a></div></div>
+    </details>
+    <details>
+      <summary><span class="yr">2019</span><span class="co">Jarasum International Jazz Festival<small>Project Manager · Gapyeong</small></span><span class="one">129 artists, 31 bands, three days</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/jarasum.jpg" alt="Jazz quartet performing on the Jarasum Jazz Festival stage, black and white" loading="lazy"><figcaption>Image: Jarasum Jazz Festival</figcaption></figure><div><p>Managed artists and event operations for the 16th edition of one of Korea's largest jazz festivals.</p><p class="tags">Event management · Artist management</p><a href="https://jarasumjazz.com/the16th-history" target="_blank" rel="noopener">The 2019 festival →</a></div></div>
+    </details>
+    <details>
+      <summary><span class="yr">2016</span><span class="co">CJ Olive Young<small>Sales Specialist, part time · Seoul</small></span><span class="one">Top selling specialist five months running</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/oliveyoung.jpg" alt="Olive Young Town flagship store front in Seoul" loading="lazy"><figcaption>Image: CJ Olive Young</figcaption></figure><div><p>Advised customers on skincare and makeup at Korea's leading health and beauty retailer.</p><p class="tags">Retail sales · Customer experience</p></div></div>
+    </details>
+    <details>
+      <summary><span class="yr">2015</span><span class="co">Amorepacific<small>Product Development Assistant · Seoul</small></span><span class="one">Pink Ribbon 15th anniversary, about 10,000 runners</span><span class="pm"></span></summary>
+      <div class="body"><figure class="eimg"><img src="images/amorepacific.jpg" alt="2015 Pink Ribbon Love Marathon participants at the start line in Seoul" loading="lazy"><figcaption>Image: Amorepacific</figcaption></figure><div><p>Developed special campaigns and activations for the Pink Ribbon Campaign's 15th anniversary, including the Seoul Love Marathon.</p><p class="tags">Cause marketing · Campaign development · Activations</p><a href="https://www.apgroup.com/int/ko/news/news-2015-10-18.html" target="_blank" rel="noopener">The campaign story →</a></div></div>
+    </details>
+  </div>
+</div></section>
 
-</div>
+<section class="about" id="about"><div class="wrap grid">
+  <div class="ph rv"><img src="images/about.jpg" alt="Doha Yoon smiling, seated in a white suit" loading="lazy"></div>
+  <div class="rv">
+    <p class="eyebrow">About</p>
+    <h2>Seoul to Paris to New York, <em>building without a roadmap.</em></h2>
+    <p>I was the first in my family to live abroad, to earn a higher education degree and to speak a foreign language.</p>
+    <p>Today I take products from development to market and to the consumer, from launching Balmain Beauty's fragrance categories at The Estée Lauder Companies to founding IEUM, a luxury Korean travel concierge.</p>
+    <p>Off duty, you'll find me in a New York jazz bar or planning a slow wellness escape back in Korea.</p>
+    <div class="langs"><span>English</span><span>Korean</span><span>French</span><span>Japanese</span></div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <div class="row">
+    <h2>Let's <em>talk.</em></h2>
+    <div class="cta">
+      <!--email_off--><a class="btn solid" href="mailto:doha.yoon.llap@gmail.com">Email me</a><!--/email_off-->
+      <a class="btn" href="https://www.linkedin.com/in/doha-yoon/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="small"><span>Doha Yoon · New York</span><span>doha.ie-um.com</span></div>
+</div></footer>
+
+
 <script>
 (function(){
-var YEARS=['2026','2024','2023','2022','2021','2019','2016','2015'];
-var ROW_TO_YEAR=[0,1,2,3,4,5,5,6,7], YEAR_TO_ROW=[0,1,2,3,4,5,7,8];
-var ITEM_H=88, WHEEL_H=440, active=-1;
-var wheel=document.getElementById('wheel');
-var btns=YEARS.map(function(y,i){
-  var b=document.createElement('button'); b.type='button'; b.textContent=y;
-  b.setAttribute('aria-label','Jump to '+y);
-  b.style.cssText="height:88px;flex:none;border:0;background:transparent;padding:0;cursor:pointer;text-align:left;font-family:'Newsreader',serif;line-height:88px;transition:font-size .4s ease,color .4s ease";
-  b.onclick=function(){var el=document.getElementById('row-'+YEAR_TO_ROW[i]); if(el) el.scrollIntoView({behavior:'smooth',block:'center'}); set(i);};
-  wheel.appendChild(b); return b;});
-function set(a){ if(a===active) return; active=a;
-  wheel.style.transform='translateY('+(WHEEL_H/2-ITEM_H/2-a*ITEM_H)+'px)';
-  btns.forEach(function(b,i){var d=Math.abs(i-a); b.style.fontSize=(d===0?72:d===1?40:28)+'px'; b.style.color=d===0?'#121212':d===1?'#6B6B6B':'#9A9A9A';});}
-function onScroll(){var rows=document.querySelectorAll('[data-row]'), mid=innerHeight/2, best=0, bd=1e9;
-  for(var i=0;i<rows.length;i++){var r=rows[i].getBoundingClientRect(), d=Math.abs((r.top+r.bottom)/2-mid); if(d<bd){bd=d;best=i;}}
-  set(ROW_TO_YEAR[best]||0);}
-addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+  var bar=document.getElementById('bar');
+  addEventListener('scroll',function(){bar.classList.toggle('on',scrollY>10)},{passive:true});
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},2500);
 })();
 </script>
-<div style="position:fixed;left:20px;bottom:20px;z-index:30;background:#fff;border:1px solid #E4E2DE;border-radius:999px;padding:8px 8px 8px 16px;font:12px Inter,sans-serif;display:flex;align-items:center;gap:10px;box-shadow:0 6px 24px rgba(0,0,0,.08)">Original layout <a href="v2/" style="text-decoration:none;background:#121212;color:#fff;border-radius:999px;padding:6px 12px">See new layout</a></div>
 </body>
 </html>
