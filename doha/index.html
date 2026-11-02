@@ -153,6 +153,34 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   .list .body > div,.list .body .eimg{grid-column:1}
   .compare{left:10px;bottom:10px}
 }
+
+/* accent + logos + headline motion */
+:root{--accent:#2F3FD6}
+.hero h1 em,.about h2 em,footer h2 em{color:var(--accent)}
+.proof .n small{color:var(--accent)}
+.result .n{color:var(--accent)}
+.proof{border-top-color:var(--accent)}
+.bar nav a.pill{background:var(--accent)}
+.bar nav a.pill:hover{background:#1F2CA8}
+.btn.solid{background:var(--accent);border-color:var(--accent)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.press a:hover,.list .body a:hover{border-color:var(--accent);color:var(--accent)}
+.list details[open] .co{color:var(--accent)}
+.logos{display:flex;align-items:center;gap:14px;margin:18px 0 6px;height:28px}
+.clogo{height:22px;width:auto;filter:grayscale(1) brightness(0);opacity:.82}
+.clogo.tall{height:28px}
+.clogo.sq{height:24px}
+.clogo.ieum{height:26px}
+.logos .x{font-size:13px;color:var(--mute)}
+.elogo{display:block;height:15px;width:auto;margin-bottom:8px;filter:grayscale(1) brightness(0);opacity:.7}
+.hero h1.anim .w{display:inline-block;opacity:0;transform:translateY(.45em);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1.anim .w:nth-child(1){animation-delay:.05s}.hero h1.anim .w:nth-child(2){animation-delay:.13s}.hero h1.anim .w:nth-child(3){animation-delay:.21s}.hero h1.anim .w:nth-child(4){animation-delay:.29s}
+.hero h1.anim em .w:nth-child(1){animation-delay:.5s}.hero h1.anim em .w:nth-child(2){animation-delay:.6s}
+.hero h1.anim em{background:linear-gradient(100deg,var(--accent) 0%,var(--accent) 40%,#9AA6FF 50%,var(--accent) 60%,var(--accent) 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 2.2s ease 1.3s forwards}
+.hero h1.anim em .w{-webkit-text-fill-color:transparent}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes sheen{to{background-position:0 0}}
+@media (prefers-reduced-motion:reduce){.hero h1.anim .w{opacity:1;transform:none;animation:none}.hero h1.anim em{animation:none}}
 </style>
 </head>
 <body>
@@ -170,7 +198,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
 <header class="hero" id="top"><div class="wrap grid">
   <div>
     <p class="eyebrow">Product marketer &nbsp;·&nbsp; New York</p>
-    <h1>I make complex products <em>feel desirable.</em></h1>
+    <h1 class="anim" aria-label="I make complex products feel desirable."><span class="w">I</span> <span class="w">make</span> <span class="w">complex</span> <span class="w">products</span> <em><span class="w">feel</span> <span class="w">desirable.</span></em></h1>
     <p class="lede">Product marketer with a <b>luxury storyteller's craft</b>: positioning and launches at TikTok Ads, The Estée Lauder Companies and my own company, IEUM, across Seoul, Paris and New York.</p>
     <div class="proof">
       <div><div class="n">500<small>%</small></div><p>YoY category sales growth, Balmain Beauty fragrance</p></div>
@@ -200,7 +228,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
     <div class="media"><img src="images/balmain.jpg" alt="Balmain Paris Carbone fragrance campaign visual" loading="lazy"><span class="cap">Image: Balmain Beauty</span></div>
     <div>
       <p class="meta">Mar 2024 to present &nbsp;·&nbsp; New York</p>
-      <h3>Balmain Beauty</h3>
+      <div class="logos"><img class="clogo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Balmain_logo.svg" alt="Balmain logo" loading="lazy"><span class="x">×</span><img class="clogo tall" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy"></div><h3>Balmain Beauty</h3>
       <p class="role">Marketing Manager, The Estée Lauder Companies</p>
       <div class="result"><div class="n">+500%</div><p>Year on year category sales growth, from month 3 to month 12 after launch</p></div>
       <div class="beats">
@@ -222,7 +250,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
     <div class="media"><img src="images/tiktok.jpg" alt="TikTok shopping ad formats shown on three phone screens" loading="lazy"><span class="cap">Image: TikTok</span></div>
     <div>
       <p class="meta">Mar 2023 to Feb 2024 &nbsp;·&nbsp; Paris</p>
-      <h3>TikTok</h3>
+      <div class="logos"><img class="clogo sq" src="images/logos/tiktok.svg" alt="TikTok logo" loading="lazy"></div><h3>TikTok</h3>
       <p class="role">Assistant Product Marketing Manager, TikTok Ads EMEA</p>
       <div class="result"><div class="n">$M+</div><p>Multimillion dollar advertising revenue across EMEA</p></div>
       <div class="beats">
@@ -238,7 +266,7 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
     <div class="media"><a href="https://ie-um.com" target="_blank" rel="noopener"><img src="images/ieum.jpg" alt="IEUM Concierge website homepage: Korea, connected" loading="lazy"></a></div>
     <div>
       <p class="meta">Aug 2026 to present &nbsp;·&nbsp; Seoul &amp; New York</p>
-      <h3>IEUM</h3>
+      <div class="logos"><img class="clogo ieum" src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge logo" loading="lazy"></div><h3>IEUM</h3>
       <p class="role">Founder, luxury Korean travel concierge</p>
       <div class="result"><div class="n">1 month</div><p>From launch to the first client</p></div>
       <div class="beats">
@@ -255,11 +283,11 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
   <div class="sechead rv"><h2>Earlier</h2><p class="eyebrow">2015 to 2022</p></div>
   <div class="list rv">
     <details>
-      <summary><span class="yr">2022</span><span class="co">Pernod Ricard<small>Global Marketing Transformation &amp; Brand Planning · Paris</small></span><span class="one">Cut non-working A&amp;P spend by 7%</span><span class="pm"></span></summary>
+      <summary><span class="yr">2022</span><span class="co"><img class="elogo" src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Pernod_Ricard_logo_2019.svg" alt="Pernod Ricard logo" loading="lazy">Pernod Ricard<small>Global Marketing Transformation &amp; Brand Planning · Paris</small></span><span class="one">Cut non-working A&amp;P spend by 7%</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/pernod-ricard.jpg" alt="Pernod Ricard logo above its portfolio of spirits and wine brands" loading="lazy"><figcaption>Image: Pernod Ricard</figcaption></figure><div><p>Improved corporate level marketing efficiency at Pernod Ricard headquarters, including building the global agency roster.</p><p class="tags">External agencies · Stakeholder management · Brand planning</p></div></div>
     </details>
     <details>
-      <summary><span class="yr">2021</span><span class="co">Kilian Paris &amp; Frederic Malle<small>Assistant Marketing Manager · The Estée Lauder Companies</small></span><span class="one">Scaled competitor social insights across EMEA markets</span><span class="pm"></span></summary>
+      <summary><span class="yr">2021</span><span class="co"><img class="elogo" src="https://upload.wikimedia.org/wikipedia/commons/0/03/Est%C3%A9e_Lauder_Companies_logo.svg" alt="The Estée Lauder Companies logo" loading="lazy">Kilian Paris &amp; Frederic Malle<small>Assistant Marketing Manager · The Estée Lauder Companies</small></span><span class="one">Scaled competitor social insights across EMEA markets</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/kilian-frederic-malle.jpg" alt="Kilian Old Fashioned and Frederic Malle Hope fragrance bottles in sunlight" loading="lazy"><figcaption>Image: Kilian Paris, Frederic Malle</figcaption></figure><div><p>Built competitor social marketing strategy insights for Kilian Paris and Editions de Parfums Frederic Malle, then scaled the insights across EMEA markets.</p><p class="tags">Content strategy · Consumer marketing</p></div></div>
     </details>
     <details>
@@ -271,11 +299,11 @@ footer .small{margin-top:64px;font-size:12px;color:var(--mute);display:flex;just
       <div class="body"><figure class="eimg"><img src="images/jarasum.jpg" alt="Jazz quartet performing on the Jarasum Jazz Festival stage, black and white" loading="lazy"><figcaption>Image: Jarasum Jazz Festival</figcaption></figure><div><p>Managed artists and event operations for the 16th edition of one of Korea's largest jazz festivals.</p><p class="tags">Event management · Artist management</p><a href="https://jarasumjazz.com/the16th-history" target="_blank" rel="noopener">The 2019 festival →</a></div></div>
     </details>
     <details>
-      <summary><span class="yr">2016</span><span class="co">CJ Olive Young<small>Sales Specialist, part time · Seoul</small></span><span class="one">Ranked top seller for a full year</span><span class="pm"></span></summary>
+      <summary><span class="yr">2016</span><span class="co"><img class="elogo" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Olive_Young_Logo.svg" alt="CJ Olive Young logo" loading="lazy">CJ Olive Young<small>Sales Specialist, part time · Seoul</small></span><span class="one">Ranked top seller for a full year</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/oliveyoung.jpg" alt="Olive Young Town flagship store front in Seoul" loading="lazy"><figcaption>Image: CJ Olive Young</figcaption></figure><div><p>Advised customers on skincare and makeup at Korea's leading health and beauty retailer.</p><p class="tags">Retail sales · Customer experience</p></div></div>
     </details>
     <details>
-      <summary><span class="yr">2015</span><span class="co">Amorepacific<small>Product Development Assistant · Seoul</small></span><span class="one">Drew about 10,000 runners to the Seoul Love Marathon</span><span class="pm"></span></summary>
+      <summary><span class="yr">2015</span><span class="co"><img class="elogo" src="https://upload.wikimedia.org/wikipedia/commons/f/f5/AMOREPACIFIC_logo.svg" alt="Amorepacific logo" loading="lazy">Amorepacific<small>Product Development Assistant · Seoul</small></span><span class="one">Drew about 10,000 runners to the Seoul Love Marathon</span><span class="pm"></span></summary>
       <div class="body"><figure class="eimg"><img src="images/amorepacific.jpg" alt="2015 Pink Ribbon Love Marathon participants at the start line in Seoul" loading="lazy"><figcaption>Image: Amorepacific</figcaption></figure><div><p>Developed special campaigns and activations for the Pink Ribbon Campaign's 15th anniversary, including the Seoul Love Marathon.</p><p class="tags">Cause marketing · Campaign development · Activations</p><a href="https://www.apgroup.com/int/ko/news/news-2015-10-18.html" target="_blank" rel="noopener">The campaign story →</a></div></div>
     </details>
   </div>
