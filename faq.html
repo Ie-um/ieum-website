@@ -342,6 +342,7 @@
   #contact .contact-lines{margin-top:40px;display:grid;gap:20px}
   #contact .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);transition:border-color .4s}
   #contact .contact-lines a:hover{border-color:var(--ivory)}
+  #contact form .contact-lines{grid-column:1/-1;margin-top:28px}
   #contact form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   #contact .field{display:grid;gap:8px}
   #contact .field.full{grid-column:1/-1}
@@ -484,9 +485,6 @@
       <p class="eyebrow">Still Have Questions</p>
       <h2>We're glad to talk it through</h2>
       <p>Ask us anything about Korea or about travelling with IEUM, and we will reply personally, usually within a day.</p>
-      <div class="contact-lines">
-        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
-      </div>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <input type="hidden" name="journey" value="FAQ question">
@@ -498,6 +496,9 @@
         <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
       </div>
       <p class="sent" id="sent">Thank you. Your question is with us and we will reply personally, usually within a day.</p>
+      <div class="contact-lines">
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+      </div>
     </form>
   </div>
 </section>

@@ -402,6 +402,7 @@
   .contact-info h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin:18px 0 24px;color:var(--ivory);font-weight:300}
   .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
   .contact-lines{margin-top:40px;display:grid;gap:20px}
+  form .contact-lines{grid-column:1/-1;margin-top:28px}
   .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);transition:border-color .4s}
   .contact-lines a:hover{border-color:var(--ivory)}
   form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -621,10 +622,6 @@
       <p class="eyebrow">Begin</p>
       <h2>Tell us about the trip you have in mind</h2>
       <p>Share a few details and we will write back personally, usually within a day, with first ideas for your journey. Prefer to talk it through? Book a 30 minute call at a time that suits you.</p>
-      <div class="contact-lines">
-        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
-        <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram &middot; @ieumconcierge</a>
-      </div>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <input type="hidden" name="journey" value="Private Journey">
@@ -647,6 +644,10 @@
         <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
       </div>
       <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+      <div class="contact-lines">
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+        <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram &middot; @ieumconcierge</a>
+      </div>
     </form>
   </div>
 </section>

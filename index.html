@@ -240,6 +240,7 @@
   .contact-info h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin:20px 0 26px}
   .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
   .contact-lines{margin-top:44px;display:grid;gap:22px}
+  form .contact-lines{grid-column:1/-1;margin-top:28px}
   .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;transition:border-color .4s}
   .contact-lines a:hover{border-color:var(--ivory)}
   form{display:grid;grid-template-columns:1fr 1fr;gap:26px}
@@ -728,10 +729,6 @@
       <p class="eyebrow">Contact</p>
       <h2>Begin your journey</h2>
       <p>Tell us a little about the trip you have in mind, then book your complimentary 30-minute consultation.</p>
-      <div class="contact-lines">
-        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
-        <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram · @ieumconcierge</a>
-      </div>
     </div>
     <form id="enquiry" class="reveal" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -748,6 +745,10 @@
       </div>
       <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
       <button type="submit">Send my enquiry</button>
+      <div class="contact-lines">
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+        <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram · @ieumconcierge</a>
+      </div>
     </form>
   </div>
 </section>

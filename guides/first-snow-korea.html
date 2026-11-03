@@ -332,6 +332,15 @@
   .photo-pair .photo{margin:0}
   .photo-pair .photo img{aspect-ratio:1/1;object-fit:cover;height:auto}
   a.inline{color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35)}
+  .snow-cta{margin:34px 0 6px;padding:30px 32px;background:var(--jade-deep);color:var(--ivory);display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+  .snow-cta-ey{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:#A9C3B7;margin:0 0 10px}
+  .snow-cta h3{font-size:1.6rem;font-weight:400;margin:0 0 10px;color:var(--ivory)}
+  .snow-cta p{color:#C9D5CD;font-size:.9rem;margin:0;max-width:46ch}
+  .snow-cta-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .snow-cta-btn{display:inline-block;padding:15px 30px;border:1px solid var(--ivory);color:var(--ivory);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap;transition:background .4s,color .4s}
+  .snow-cta-btn:hover{background:var(--ivory);color:var(--jade-deep)}
+  .snow-cta-link{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#C9D5CD;border-bottom:1px solid rgba(246,244,239,.3);padding-bottom:3px}
+  @media (max-width:760px){.snow-cta{grid-template-columns:1fr;padding:26px 22px}}
   table.climate{width:100%;border-collapse:collapse;margin:26px 0 8px;font-size:.92rem;color:#4A4A43}
   table.climate caption{text-align:left;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);padding-bottom:10px}
   table.climate th,table.climate td{padding:12px 10px;border-bottom:1px solid var(--hairline);text-align:left;font-weight:300}
@@ -345,6 +354,7 @@
   .contact-info h2{font-size:clamp(1.8rem,3.2vw,2.5rem);margin:18px 0 24px;color:var(--ivory);font-weight:300}
   .contact-info p{color:#C9D5CD;font-size:.92rem;max-width:40ch}
   .contact-lines{margin-top:40px;display:grid;gap:20px}
+  form .contact-lines{grid-column:1/-1;margin-top:28px}
   .contact-lines a{display:block;border-bottom:1px solid rgba(246,244,239,.25);padding-bottom:10px;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);transition:border-color .4s}
   .contact-lines a:hover{border-color:var(--ivory)}
   form{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -434,6 +444,17 @@
           </tbody>
         </table>
         <p class="grp-hint">Average dates: Korea Meteorological Administration, 1991 to 2020 normals. Expected dates are an unofficial estimate, not a forecast.</p>
+        <aside class="snow-cta" aria-label="Plan a winter trip">
+          <div>
+            <p class="snow-cta-ey">Seoul's first snow is expected around 28 November</p>
+            <h3>Be in Korea when it falls</h3>
+            <p>Tell us your dates and we will shape a private winter journey around the season: snow on the temple roofs, a hot spring at dusk, and Seoul at its quietest.</p>
+          </div>
+          <div class="snow-cta-actions">
+            <a class="snow-cta-btn" href="#contact">Plan my winter trip</a>
+            <a class="snow-cta-link" href="../journeys/winter-retreat">See the Winter Retreat</a>
+          </div>
+        </aside>
       </div>
 
       <div class="grp" id="2026">
@@ -491,10 +512,6 @@
       <p class="eyebrow">Travel With IEUM</p>
       <h2>Plan a private winter in Korea</h2>
       <p>Snow in the mountains, hot springs, a kimjang table and the bell at midnight, arranged end to end with a concierge beside you throughout. Tell us a little about your trip and we will reply personally, usually within a day.</p>
-      <div class="contact-lines">
-        <a href="../journeys/winter-retreat">Explore the Winter Retreat</a>
-        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
-      </div>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <input type="hidden" name="journey" value="Guide: First snow in Korea">
@@ -508,6 +525,10 @@
         <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
       </div>
       <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+      <div class="contact-lines">
+        <a href="../journeys/winter-retreat">Explore the Winter Retreat</a>
+        <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
+      </div>
     </form>
   </div>
 </section>
