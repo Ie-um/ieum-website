@@ -44,6 +44,17 @@
   body{background:var(--paper);color:var(--ink);font-family:var(--utility);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
   ::selection{background:var(--jade);color:var(--paper)}
 
+  .wfaq{padding:110px 0 90px;background:var(--paper)}
+  .wfaq .wrap{max-width:820px}
+  .wfaq h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:28px}
+  .wfaq details.entry{border-bottom:1px solid var(--hairline)}
+  .wfaq details.entry > summary{list-style:none;cursor:pointer;display:block;padding:22px 40px 22px 0;position:relative;outline:none}
+  .wfaq details.entry > summary::-webkit-details-marker{display:none}
+  .wfaq details.entry > summary h3{margin:0;font-size:1.25rem;font-weight:400;transition:color .3s}
+  .wfaq details.entry > summary::after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--jade);font-weight:300}
+  .wfaq details.entry[open] > summary::after{content:'\2212'}
+  .wfaq details.entry > summary:hover h3{color:var(--jade)}
+  .wfaq details.entry p{padding:0 0 24px;font-size:.95rem;color:#4A4A43;line-height:1.8;max-width:64ch}
   .wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
   .eyebrow{font-family:var(--utility);font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;color:var(--jade);font-weight:400}
   h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.15}
@@ -262,6 +273,62 @@
   a.inline{color:var(--jade);border-bottom:1px solid rgba(63,107,92,.35);padding-bottom:1px}
   a.inline:hover{border-color:var(--jade)}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes a wellness retreat in Korea different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is built on rituals that grew up in Korea and are still part of daily life there: a sound bath played live on the geomungo and gayageum, a night at a working mountain temple, the pine fired hanjeungmak sweat kiln, a consultation with a licensed doctor of Korean medicine, forest healing walks and darye, the Korean way of tea. You will not find this combination anywhere else."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a wellness retreat in Korea be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We suggest at least five nights, so the days can move slowly: two or three in the mountains or the countryside for the temple, the kiln and the forests, and one or two in Seoul for Korean medicine, a spa or a health checkup. Every journey is private, so we shape the length around your dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time for a wellness retreat in Korea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every season works, each in its own way. Winter is the most rewarding, when the kilns are at their warmest and the temples are quiet under snow. Spring brings the first tea of the year in Hadong, autumn the colour in the mountains, and summer the cool of the bamboo forests and the coast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I do a temple stay if I do not speak Korean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Templestay, Korea's national programme, welcomes international guests at many temples, and we arrange a private interpreter throughout, so you can follow the dawn service, the formal monastic meal and the conversation over tea with a monk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Korean medicine practised by licensed doctors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hanbang, Korean medicine, is practised by licensed doctors who train for six years, alongside modern medicine. We book a private consultation with a licensed doctor of Korean medicine and an interpreter beside you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I combine a wellness retreat with a health checkup in Seoul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Many guests give one day in Seoul to an executive health checkup at a leading university hospital. We help you choose the programme, book the date, explain the preparation and arrange a medical interpreter or the hospital's international coordinator, then keep the rest of the day free to recover."
+      }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -538,6 +605,18 @@
           <div><dt>An executive health checkup</dt><dd>A full screening in Seoul with an interpreter beside you.</dd></div>
         </dl>
     </div>
+  </div>
+</section>
+
+<section class="wfaq" id="faq">
+  <div class="wrap">
+    <h2>Ask the common questions</h2>
+    <details class="entry"><summary><h3>What makes a wellness retreat in Korea different?</h3></summary><p>It is built on rituals that grew up in Korea and are still part of daily life there: a sound bath played live on the geomungo and gayageum, a night at a working mountain temple, the pine fired hanjeungmak sweat kiln, a consultation with a licensed doctor of Korean medicine, forest healing walks and darye, the Korean way of tea. You will not find this combination anywhere else.</p></details>
+    <details class="entry"><summary><h3>How long should a wellness retreat in Korea be?</h3></summary><p>We suggest at least five nights, so the days can move slowly: two or three in the mountains or the countryside for the temple, the kiln and the forests, and one or two in Seoul for Korean medicine, a spa or a health checkup. Every journey is private, so we shape the length around your dates.</p></details>
+    <details class="entry"><summary><h3>When is the best time for a wellness retreat in Korea?</h3></summary><p>Every season works, each in its own way. Winter is the most rewarding, when the kilns are at their warmest and the temples are quiet under snow. Spring brings the first tea of the year in Hadong, autumn the colour in the mountains, and summer the cool of the bamboo forests and the coast.</p></details>
+    <details class="entry"><summary><h3>Can I do a temple stay if I do not speak Korean?</h3></summary><p>Yes. Templestay, Korea&#x27;s national programme, welcomes international guests at many temples, and we arrange a private interpreter throughout, so you can follow the dawn service, the formal monastic meal and the conversation over tea with a monk.</p></details>
+    <details class="entry"><summary><h3>Is Korean medicine practised by licensed doctors?</h3></summary><p>Yes. Hanbang, Korean medicine, is practised by licensed doctors who train for six years, alongside modern medicine. We book a private consultation with a licensed doctor of Korean medicine and an interpreter beside you.</p></details>
+    <details class="entry"><summary><h3>Can I combine a wellness retreat with a health checkup in Seoul?</h3></summary><p>Yes. Many guests give one day in Seoul to an executive health checkup at a leading university hospital. We help you choose the programme, book the date, explain the preparation and arrange a medical interpreter or the hospital&#x27;s international coordinator, then keep the rest of the day free to recover.</p></details>
   </div>
 </section>
 
