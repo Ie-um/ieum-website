@@ -383,6 +383,25 @@
   .rv blockquote{margin:0;font-family:var(--display);font-style:italic;font-weight:300;font-size:1.28rem;line-height:1.55;color:var(--ink);flex:1}
   .rv figcaption{margin-top:24px;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--stone)}
   .rv figcaption b{font-weight:400;color:var(--ink)}
+  .rv-link{display:flex;color:inherit;text-decoration:none}
+  .rv-link .rv{flex:1;transition:border-color .4s}
+  .rv-link:hover .rv,.rv-link:focus-visible .rv{border-top-color:var(--jade)}
+  .rv-link:hover blockquote{color:#3A3B34}
+  #quick{background:var(--jade-deep);color:var(--ivory);padding:84px 0}
+  #quick .q-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:center;max-width:1100px;margin:0 auto}
+  #quick .eyebrow{color:#A9C3B7}
+  #quick h2{font-size:clamp(1.8rem,3vw,2.4rem);margin:14px 0 16px;color:var(--ivory)}
+  #quick .q-head p:last-child{font-size:.9rem;color:rgba(246,244,239,.78);max-width:34ch}
+  #quick form{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px 28px}
+  #quick .q-field{display:grid;gap:8px}
+  #quick .q-full{grid-column:1/-1}
+  #quick label{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#A9C3B7}
+  #quick input{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;border-radius:0;-webkit-appearance:none;color-scheme:dark}
+  #quick input::placeholder{color:rgba(246,244,239,.4)}
+  #quick input:focus{border-color:var(--ivory)}
+  #quick button{grid-column:1/-1;justify-self:start;background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 44px;cursor:pointer;transition:background .4s,color .4s}
+  #quick button:hover{background:var(--ivory);color:var(--jade-deep)}
+  @media (max-width:900px){#quick{padding:64px 0}#quick .q-grid{grid-template-columns:1fr;gap:36px}#quick form{grid-template-columns:1fr}}
   .rv-more{text-align:center;margin-top:60px}
   .rv-more a{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(63,107,92,.35);padding-bottom:3px}
   .rv-more a:hover{border-color:var(--jade)}
@@ -554,24 +573,45 @@
       <h2>Hear it from our guests</h2>
     </div>
     <div class="rv-grid">
-      <figure class="rv">
+      <a class="rv-link" href="https://www.trustpilot.com/reviews/6ab1a1d469fcaaa205cd8aac" target="_blank" rel="noopener" aria-label="Read Amal's review on Trustpilot"><figure class="rv">
         <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most and all the rest of the experiences were highly elevated and special."</blockquote>
         <figcaption><b>Amal</b> &middot; Honeymoon &middot; August 2026</figcaption>
-      </figure>
-      <figure class="rv">
+      </figure></a>
+      <a class="rv-link" href="https://www.trustpilot.com/reviews/6abeb7d88c419e31d6e2a1d0" target="_blank" rel="noopener" aria-label="Read Ioannis's review on Trustpilot"><figure class="rv">
         <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered (temple stay, in-season hiking routes, mountain retreat) and helped us quickly put together a wonderful itinerary. You really do get a unique perspective on Korea."</blockquote>
         <figcaption><b>Ioannis</b> &middot; Three weeks for two &middot; June 2026</figcaption>
-      </figure>
-      <figure class="rv">
+      </figure></a>
+      <a class="rv-link" href="https://www.trustpilot.com/reviews/6aba6c94096d49bfca731325" target="_blank" rel="noopener" aria-label="Read Indigo's review on Trustpilot"><figure class="rv">
         <div class="rv-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <blockquote>"I felt overwhelmed by all the options and was nervous about getting scammed... She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."</blockquote>
         <figcaption><b>Indigo</b> &middot; Wellness with a friend &middot; May 2026</figcaption>
-      </figure>
+      </figure></a>
     </div>
+    <p class="rv-more"><a href="https://www.trustpilot.com/review/ie-um.com" target="_blank" rel="noopener">Read on Trustpilot ›</a></p>
   </div>
 </section>
+
+<section id="quick" aria-label="Send a short enquiry">
+  <div class="wrap q-grid">
+    <div class="q-head">
+      <p class="eyebrow">Begin here</p>
+      <h2>Start with a short note</h2>
+      <p>A few lines are enough. We reply personally and suggest a time for your complimentary consultation.</p>
+    </div>
+    <form id="quick-enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
+      <input type="hidden" name="form_location" value="home_quick">
+      <input type="hidden" name="interest" value="Not sure yet">
+      <div class="q-field"><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name" required></div>
+      <div class="q-field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="q-field"><label for="q-dates">Travel window</label><input id="q-dates" name="dates" type="month"></div>
+      <div class="q-field q-full"><label for="q-msg">What are you dreaming of?</label><input id="q-msg" name="message" type="text" placeholder="A honeymoon in spring, temples and hot springs"></div>
+      <button type="submit">Send my note</button>
+    </form>
+  </div>
+</section>
+
 
 <section id="why">
   <div class="wrap">
@@ -876,6 +916,32 @@
         HTMLFormElement.prototype.submit.call(f);
       });
   });
+
+  // short enquiry after the reviews: same Formspree inbox and the same Cal.com step as the main form
+  (function () {
+    var q = document.getElementById('quick-enquiry');
+    if (!q) return;
+    q.addEventListener('focusin', function () { if (window.ieumTrack) window.ieumTrack('form_start', { form_location: 'home_quick' }, true); });
+    q.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!q.reportValidity()) return;
+      var btn = q.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      var notes = [q.dates.value ? 'Travel window: ' + q.dates.value : '', q.message.value ? 'Notes: ' + q.message.value : ''].filter(Boolean).join(' | ');
+      fetch(q.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(q) })
+        .then(function (r) {
+          if (!r.ok) throw new Error('formspree ' + r.status);
+          if (window.ieumTrack) window.ieumTrack('generate_lead', { form_location: 'home_quick', interest: 'Not sure yet' });
+          if (btn) btn.disabled = false;
+          if (window.ieumTrack) window.ieumTrack('cal_open', { source: 'quick_form' });
+          Cal('modal', { calLink: 'ie-um/30min', config: { name: q.name.value, email: q.email.value, notes: notes, layout: 'month_view' } });
+        })
+        .catch(function () {
+          if (window.ieumTrack) window.ieumTrack('form_error', { form_location: 'home_quick' });
+          HTMLFormElement.prototype.submit.call(q);
+        });
+    });
+  })();
 </script>
 <script type="text/javascript">
   (function (C, A, L) {
