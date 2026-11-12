@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hotel Concierge Teams · Your Partner Beyond the Hotel | IEUM Concierge</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="IEUM Concierge for hotel concierge teams in Seoul: private wellness journeys and trips beyond Seoul, designed and run for your guests at no cost to the hotel.">
+<meta property="og:title" content="IEUM Concierge for Hotel Concierge Teams">
+<meta property="og:description" content="Your partner beyond the hotel. Private wellness journeys and trips beyond Seoul, designed and run for your guests.">
+<meta property="og:image" content="https://ie-um.com/images/raum-hall.jpg">
+<link rel="icon" type="image/svg+xml" href="https://ie-um.com/images/logo/ieum-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
+<style>
+  :root{--ivory:#F6F4EF;--paper:#FCFBF8;--ink:#23241F;--stone:#8B8577;--jade:#40685B;--jade-deep:#2C463E;--night:#151614;--hair:rgba(35,36,31,.12);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--kr:'Noto Serif KR',serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,90vw);margin:0 auto}
+  .eyebrow{font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--stone)}
+  h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.12}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.2s ease,transform 1.2s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* top bar */
+  .bar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px 4vw;color:var(--ivory);mix-blend-mode:difference;pointer-events:none}
+  .bar img{height:22px;filter:invert(1)}
+  .bar span{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase}
+
+  /* hero */
+  .hero{position:relative;height:100vh;min-height:620px;background:var(--night) center/cover no-repeat;color:var(--ivory);display:flex;align-items:flex-end}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,16,14,.25) 0%,rgba(15,16,14,.15) 40%,rgba(15,16,14,.82) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:12vh}
+  .hero .for{font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:#CFC8B8;margin-bottom:26px}
+  .hero h1{font-size:clamp(3.2rem,9vw,7.6rem);letter-spacing:.01em}
+  .hero h1 em{font-style:italic;font-weight:300}
+  .hero .kr{font-family:var(--kr);font-weight:200;font-size:clamp(1rem,1.6vw,1.25rem);letter-spacing:.5em;margin-top:22px;color:#E4DED0}
+  .hero .scroll{position:absolute;right:4vw;bottom:6vh;z-index:1;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:#CFC8B8;writing-mode:vertical-rl}
+
+  /* letter */
+  .letter{padding:150px 0 130px;background:var(--paper)}
+  .letter .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:8vw;align-items:start}
+  .letter h2{font-size:clamp(2.1rem,4vw,3.3rem)}
+  .letter h2 em{font-style:italic;color:var(--jade)}
+  .letter p{font-size:1.02rem;color:#45463F;margin-bottom:22px;max-width:60ch}
+  .letter p.lead{font-family:var(--serif);font-size:clamp(1.35rem,2vw,1.6rem);line-height:1.5;color:var(--ink)}
+  .letter .sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;margin-top:34px}
+
+  /* senses index */
+  .index{background:var(--ivory);padding:110px 0}
+  .index ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--hair)}
+  .index li{padding:34px 18px 0 0;border-right:1px solid var(--hair);margin-right:18px}
+  .index li:last-child{border-right:0}
+  .index .n{font-size:.62rem;letter-spacing:.3em;color:var(--stone)}
+  .index .ko{font-family:var(--kr);font-weight:200;font-size:2.6rem;margin:12px 0 4px;color:var(--jade-deep)}
+  .index .en{font-family:var(--serif);font-size:1.35rem}
+  .index .who{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-top:10px}
+  .index .who.k{color:var(--jade)}
+  .index .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:46px;gap:40px}
+  .index .head h2{font-size:clamp(2rem,3.6vw,3rem);max-width:16ch}
+  .index .head p{max-width:46ch;color:#55564E;font-size:.95rem}
+
+  /* sense chapters */
+  .sense{padding:140px 0;position:relative}
+  .sense.dark{background:var(--night);color:var(--ivory)}
+  .sense.dark p{color:#C9C4B6}
+  .sense.dark .eyebrow{color:#9C968A}
+  .sense .grid{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+  .sense.flip .grid .txt{order:2}
+  .sense .ko{font-family:var(--kr);font-weight:200;font-size:clamp(4rem,9vw,7.5rem);line-height:1;color:var(--jade);opacity:.9}
+  .sense.dark .ko{color:#7FA597}
+  .sense h2{font-size:clamp(2.2rem,4.2vw,3.5rem);margin:18px 0 26px}
+  .sense h2 em{font-style:italic}
+  .sense p{font-size:1rem;color:#4A4B44;margin-bottom:18px;max-width:52ch}
+  .sense .notes{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+  .sense .notes span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid currentColor;padding:8px 14px;opacity:.75}
+  .sense .proof{margin-top:30px;padding-top:22px;border-top:1px solid rgba(201,196,182,.3);font-family:var(--serif);font-style:italic;font-size:1.12rem}
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
+  .mosaic figure{overflow:hidden;background:#ddd}
+  .mosaic figure img{width:100%;height:100%;object-fit:cover;transition:transform 2.4s ease}
+  .mosaic figure:hover img{transform:scale(1.04)}
+  .mosaic .tall{grid-row:span 2;aspect-ratio:3/4.4}
+  .mosaic .sq{aspect-ratio:1/1}
+  .mosaic .wide{grid-column:span 2;aspect-ratio:16/9}
+  .single{aspect-ratio:4/5;overflow:hidden}
+  .single img{width:100%;height:100%;object-fit:cover}
+  figcaption{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-top:10px}
+
+  /* bridge band */
+  .bridge{position:relative;height:78vh;min-height:480px;background:center/cover no-repeat;display:flex;align-items:center;color:var(--ivory)}
+  .bridge::after{content:'';position:absolute;inset:0;background:rgba(15,16,14,.45)}
+  .bridge .wrap{position:relative;z-index:1;text-align:center}
+  .bridge blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.35;max-width:24ch;margin:0 auto}
+  .bridge cite{display:block;margin-top:24px;font-style:normal;font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;color:#DCD5C6}
+
+  /* movements */
+  .moves{padding:140px 0;background:var(--paper)}
+  .moves .head{text-align:center;margin-bottom:80px}
+  .moves .head h2{font-size:clamp(2.2rem,4vw,3.3rem);margin-top:16px}
+  .moves .head p{max-width:52ch;margin:18px auto 0;color:#55564E}
+  .track{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border-top:1px solid var(--ink)}
+  .mv{padding:26px 16px 0 0;position:relative}
+  .mv::before{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .mv .d{font-size:.6rem;letter-spacing:.3em;color:var(--stone)}
+  .mv h3{font-size:1.3rem;margin:10px 0 8px}
+  .mv p{font-size:.8rem;color:#55564E;line-height:1.6}
+  .mv .tag{display:inline-block;margin-top:12px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--jade)}
+  .mv .tag.k{color:#9A6B3F}
+
+  /* roles */
+  .roles{background:var(--jade-deep);color:var(--ivory);padding:140px 0}
+  .roles .eyebrow{color:#A9C3B7}
+  .roles h2{font-size:clamp(2.2rem,4vw,3.3rem);margin:16px 0 60px;max-width:20ch}
+  .roles .cols{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+  .roles h3{font-size:1.7rem;margin-bottom:22px;font-style:italic}
+  .roles ul{list-style:none}
+  .roles li{padding:16px 0;border-bottom:1px solid rgba(246,244,239,.16);color:#D7E0D9;font-size:.95rem}
+  .roles li b{font-weight:400;color:var(--ivory)}
+  .roles .why{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;border-top:1px solid rgba(246,244,239,.2);padding-top:40px}
+  .roles .why div{font-size:.9rem;color:#C9D5CD}
+  .roles .why strong{display:block;font-family:var(--serif);font-weight:300;font-size:2.4rem;color:var(--ivory);line-height:1.1;margin-bottom:8px}
+
+  /* ways */
+  .ways{padding:140px 0;background:var(--ivory)}
+  .ways .head{max-width:640px;margin-bottom:70px}
+  .ways .head h2{font-size:clamp(2.2rem,4vw,3.3rem);margin-top:16px}
+  .ways .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .way{background:var(--paper);padding:44px 36px 40px;border:1px solid var(--hair);transition:transform .6s ease,box-shadow .6s ease}
+  .way:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(35,36,31,.08)}
+  .way .n{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--jade)}
+  .way h3{font-size:1.75rem;margin:14px 0 14px}
+  .way p{font-size:.92rem;color:#55564E}
+  .way .when{margin-top:22px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--stone)}
+
+  /* close */
+  .close{position:relative;background:var(--night) center/cover no-repeat;color:var(--ivory);padding:170px 0 120px;text-align:center}
+  .close::after{content:'';position:absolute;inset:0;background:rgba(15,16,14,.62)}
+  .close .wrap{position:relative;z-index:1}
+  .close h2{font-size:clamp(2.6rem,5.6vw,4.6rem)}
+  .close h2 em{font-style:italic}
+  .close p{max-width:46ch;margin:24px auto 44px;color:#D4CEC0}
+  .close .btns{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+  .close a.btn{border:1px solid var(--ivory);padding:17px 40px;font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;transition:background .5s,color .5s}
+  .close a.btn:hover{background:var(--ivory);color:var(--night)}
+  .close .sig{margin-top:80px;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#E7E1D3}
+  .close .sig span{display:block;font-family:var(--sans);font-style:normal;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:#A9A293;margin-top:8px}
+  .credits{background:var(--night);color:#77736A;font-size:.62rem;letter-spacing:.06em;text-align:center;padding:22px 5vw 30px;line-height:1.8}
+  .credits a{border-bottom:1px solid #55524B}
+
+  .stat{margin-top:30px;padding-top:22px;border-top:1px solid var(--hair);display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline}
+  .sense.dark .stat{border-top-color:rgba(201,196,182,.25)}
+  .stat strong{font-family:var(--serif);font-weight:300;font-size:2.3rem;line-height:1;color:var(--jade)}
+  .sense.dark .stat strong{color:#9DC0B2}
+  .stat span{font-size:.84rem;line-height:1.55}
+  .stat a{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);grid-column:2;border-bottom:1px solid var(--hair);justify-self:start}
+  .whynow{background:var(--jade-deep);color:var(--ivory);padding:110px 0}
+  .whynow .eyebrow{color:#A9C3B7}
+  .whynow h2{font-size:clamp(2rem,3.6vw,3rem);margin:16px 0 56px;max-width:22ch}
+  .whynow .row{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-top:1px solid rgba(246,244,239,.2);padding-top:36px}
+  .whynow strong{display:block;font-family:var(--serif);font-weight:300;font-size:3rem;line-height:1;margin-bottom:12px}
+  .whynow p{font-size:.86rem;color:#C9D5CD;line-height:1.6}
+  .whynow cite{display:block;margin-top:10px;font-style:normal;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#8FAA9E}
+  .doha{background:var(--paper);padding:110px 0}
+  .doha-grid{display:grid;grid-template-columns:220px 1fr;gap:56px;align-items:center;max-width:860px}
+  .doha-grid img{width:220px;aspect-ratio:4/5;object-fit:cover;object-position:center 18%}
+  .doha h2{font-size:clamp(1.9rem,3vw,2.5rem);margin:14px 0 18px}
+  .doha h2 em{font-style:italic;color:var(--jade)}
+  .doha p{font-size:.98rem;color:#45463F;margin-bottom:12px;max-width:56ch}
+  @media (max-width:700px){.doha-grid{grid-template-columns:1fr;gap:28px}.doha-grid img{width:180px}}
+  @media (max-width:980px){.whynow .row{grid-template-columns:1fr 1fr}}
+  @media (max-width:980px){
+    .letter .grid,.sense .grid,.roles .cols{grid-template-columns:1fr}
+    .sense.flip .grid .txt{order:0}
+    .index ol{grid-template-columns:1fr 1fr}
+    .index li{border-right:0;margin-right:0;border-bottom:1px solid var(--hair);padding-bottom:20px}
+    .index .head{flex-direction:column;align-items:start}
+    .track{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--ink);margin-left:6px}
+    .mv{padding:0 0 34px 26px}
+    .mv::before{top:6px;left:-5px}
+    .ways .cards,.roles .why{grid-template-columns:1fr}
+    .sense,.letter,.moves,.roles,.ways{padding:90px 0}
+  }
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;padding:56px 0;border-top:1px solid var(--hair)}
+  .spec:first-of-type{border-top:0}
+  .spec.flip .si{order:2}
+  .spec .si{aspect-ratio:4/3;overflow:hidden}
+  .spec .si img{width:100%;height:100%;object-fit:cover}
+  .spec .n{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--jade)}
+  .spec h3{font-size:clamp(1.9rem,3vw,2.5rem);margin:6px 0 14px}
+  .spec .best{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade);margin-bottom:12px}
+  .spec p{color:#4A4B44;font-size:.96rem;max-width:52ch}
+  .spec ul{list-style:none;margin:18px 0 0;display:grid;gap:8px}
+  .spec li{font-size:.9rem;color:#45463F;padding-left:18px;position:relative}
+  .spec li::before{content:'';position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--jade)}
+  .spec a.more{display:inline-block;margin-top:20px;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35);padding-bottom:3px}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(246,244,239,.22)}
+  .vs div{padding:34px 38px}
+  .vs div+div{border-left:1px solid rgba(246,244,239,.22);background:rgba(246,244,239,.05)}
+  .vs h3{font-size:1.5rem;margin-bottom:18px}
+  .vs ul{list-style:none;display:grid;gap:12px}
+  .vs li{font-size:.92rem;color:#C9D5CD;padding-bottom:12px;border-bottom:1px solid rgba(246,244,239,.12)}
+  .vs div+div li{color:var(--ivory)}
+  .also{margin-top:46px;font-size:.92rem;color:#55564E}
+  .also a{color:var(--jade);border-bottom:1px solid rgba(64,104,91,.35)}
+  @media (max-width:980px){.spec,.vs{grid-template-columns:1fr}.spec.flip .si{order:0}.vs div+div{border-left:0;border-top:1px solid rgba(246,244,239,.22)}}
+  .sig .siglogo{display:block;height:46px;width:auto;margin:0 auto 18px;opacity:.95}
+  .sig span{display:block}
+  .copied{display:block;font-style:normal;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#CFC8B8;margin-top:14px;opacity:0;transition:opacity .4s}
+  .copied.on{opacity:1}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--hair)}
+  .pillars div{padding:34px 30px 10px 0;border-bottom:1px solid var(--hair)}
+  .pillars div+div{padding-left:30px;border-left:1px solid var(--hair)}
+  .pillars h3{font-size:1.5rem;margin-bottom:10px}
+  .pillars p{font-size:.92rem;color:#55564E}
+  .asks{columns:2;column-gap:60px;margin-top:8px}
+  .asks p{break-inside:avoid;padding:16px 0;border-bottom:1px solid var(--hair);font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.45;color:var(--ink)}
+  .asks p span{display:block;font-family:var(--sans);font-style:normal;font-size:.8rem;letter-spacing:.02em;color:#6A6B62;margin-top:6px}
+  .dark{background:var(--jade-deep);color:var(--ivory)}
+  .dark .head h2{color:var(--ivory)}.dark .head p{color:#C9D5CD}.dark .eyebrow{color:#A9C3B7}
+  @media (max-width:980px){.pillars{grid-template-columns:1fr}.pillars div+div{padding-left:0;border-left:0}.asks{columns:1}}
+</style>
+<style>
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .card3{background:var(--paper);border:1px solid var(--hair);overflow:hidden;display:block;transition:transform .6s ease,box-shadow .6s ease}
+  .card3:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(35,36,31,.08)}
+  .card3 img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .card3 div{padding:26px 26px 30px}
+  .card3 h3{font-size:1.5rem;margin-bottom:8px}
+  .card3 p{font-size:.88rem;color:#55564E}
+  .card3 span{display:inline-block;margin-top:14px;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--jade)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);margin-top:20px}
+  .step{padding:26px 22px 0 0}
+  .step .n{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--jade)}
+  .step h3{font-size:1.35rem;margin:8px 0}
+  .step p{font-size:.86rem;color:#55564E}
+  .terms{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:10px}
+  .terms div{border-top:1px solid rgba(246,244,239,.25);padding-top:22px}
+  .terms strong{display:block;font-family:var(--serif);font-weight:300;font-size:2.2rem;line-height:1.1;margin-bottom:10px;color:var(--ivory)}
+  .terms p{font-size:.9rem;color:#C9D5CD}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .quotes blockquote{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.5}
+  .quotes cite{display:block;margin-top:14px;font-style:normal;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+  .sec{padding:130px 0}
+  .sec .head{max-width:640px;margin-bottom:60px}
+  .sec .head h2{font-size:clamp(2.1rem,3.8vw,3.1rem);margin-top:16px}
+  .sec .head p{margin-top:16px;color:#55564E}
+  @media (max-width:980px){.cards3,.steps,.terms,.quotes{grid-template-columns:1fr}.step{padding:22px 0}.sec{padding:90px 0}}
+</style>
+</head>
+<body>
+
+<div class="bar"><img src="https://ie-um.com/images/logo/ieum-logo-forest.svg" alt="IEUM Concierge"><span>For hotel concierge teams</span></div>
+
+<header class="hero" style="background-image:url('images/w/xmas-changdeok-pine-1800.webp')">
+  <div class="wrap">
+    <p class="for">IEUM Concierge &nbsp;·&nbsp; For hotel concierge teams</p>
+    <h1>Your partner<br><em>beyond the hotel</em></h1>
+    <p class="kr">이음 · 연결</p>
+  </div>
+  <span class="scroll">Scroll</span>
+</header>
+
+<section class="letter">
+  <div class="wrap grid">
+    <div class="reveal">
+      <p class="eyebrow">Why we are writing</p>
+      <h2 style="margin-top:18px">Our guests already stay with you. <em>We would like to work beside your desk.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="lead">IEUM is a private travel concierge for Korea, between Seoul and New York. Guests travelling with us this winter are staying at Park Hyatt Seoul, and it made us ask a simple question: why not work with the hotel directly?</p>
+      <p>Your concierge team looks after the stay. Some requests reach further: three nights in the mountains of Gangwon, a temple stay, a week through Gyeongju and Jeju, a proposal in a private hanok. These take days to design and someone on the ground to run. That is the work we do, and only that.</p>
+      <p>When such a request reaches your desk, pass it to us. We design it, arrange it and stay with the guest throughout, then return them to you rested. There is no fee to the hotel and nothing for your team to administer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--ivory)">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">The division</p><h2>You keep the stay. <em>We take what lies beyond it.</em></h2><p>A clear line, so your team always knows what to hand over and what stays with the hotel.</p></div>
+    <div class="pillars reveal">
+      <div><h3>Stays with you</h3><p>The room, the spa, your restaurants, tables and tickets in the city, cars to the airport. We never rebook what your desk already does well, and we plan every journey around the guest's stay with you.</p></div>
+      <div><h3>Comes to us</h3><p>Journeys of a day or more beyond Seoul, wellness programs, temple stays, private cultural access, celebrations, and full itineraries for guests who ask before they arrive or wish to stay on in Korea.</p></div>
+      <div><h3>Returns to you</h3><p>The guest, and a short note to your desk on what they did and loved. When they extend their time in Seoul, we send them back to your hotel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">What to send us</p><h2>The requests <em>that take more than a booking</em></h2><p>Korea passed its annual record for visitors in October 2026, and more of them now ask for the country beyond the capital.</p></div>
+    <div class="asks reveal">
+      <p>"We have three free days. Where should we go outside Seoul?"<span>Gangwon, Gyeongju, Jeju or Busan, with a private driver, an interpreter and stays chosen one by one.</span></p>
+      <p>"I want to do something restorative while I am here."<span>A Korean medicine consultation, a live geomungo sound bath, a hot spring, a night in a mountain temple.</span></p>
+      <p>"We are vegan. Where can we really eat?"<span>Temple cuisine with monastic chefs, and kitchens briefed in Korean before the guest sits down.</span></p>
+      <p>"I am planning to propose."<span>A private hanok courtyard, a photographer at a discreet distance, and every detail held in confidence.</span></p>
+      <p>"We are travelling with our parents and the children."<span>Days paced for three generations, one driver throughout, mobility and diet considered from the start.</span></p>
+      <p>"Can someone plan the whole week for us?"<span>A journey written day by day before they land, with your hotel at its center.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--ivory)">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Our journeys</p><h2>Not the Korea <em>every visitor is shown</em></h2><p>Each journey begins from a blank page and takes its shape from the guest.</p></div>
+
+    <div class="spec reveal">
+      <div class="si"><img src="images/w/wellness-mountain-winter-1800.webp" alt="Snow covered mountain ridges in Gangwon in winter light" loading="lazy"></div>
+      <div><span class="n">i.</span><h3>Beyond Seoul</h3><p class="best">For guests with two days or more to spare</p><p>The mountains of Gangwon, the old capital of Gyeongju, the coast of Jeju, each at an unhurried pace.</p>
+        <ul><li>A private driver and an interpreter throughout</li><li>Hanok stays, hot springs and tables chosen one by one</li><li>Planned to begin and end at your hotel door</li></ul>
+        <a class="more" href="journeys/winter-retreat" target="_blank">The Winter Retreat</a></div>
+    </div>
+
+    <div class="spec flip reveal">
+      <div class="si"><img src="images/w/moune-pool-1800.webp" alt="A private outdoor pool lit by lanterns beneath a tree, in a forested valley" loading="lazy"></div>
+      <div><span class="n">ii.</span><h3>Wellness, the Korean way</h3><p class="best">For guests who wish to return restored</p><p>Rest as Korea has practiced it for centuries, and as few places can offer it.</p>
+        <ul><li>A sound bath played live on the geomungo, Korea's oldest string instrument</li><li>A night in a mountain temple, waking to the dawn chant</li><li>An hour with a doctor of Korean medicine, then the warmth of a pine fired kiln</li></ul>
+        <a class="more" href="journeys/wellness-retreat" target="_blank">The Wellness Retreat</a></div>
+    </div>
+
+    <div class="spec reveal">
+      <div class="si"><img src="images/w/kto-temple-food-spread-1000.webp" alt="A temple food table of seasonal plant dishes" loading="lazy"></div>
+      <div><span class="n">iii.</span><h3>Temple food and the Korean table</h3><p class="best">For vegan, vegetarian and food led guests</p><p>For more than a thousand years, Korea's temple kitchens have cooked only from the field and the mountain.</p>
+        <ul><li>Cooking beside a monastic chef, in the temple where she cooks</li><li>Jang, the fermented heart of Korean food, with the families who still make it</li><li>Every kitchen briefed on the guest's diet, in Korean, in advance</li></ul>
+        <a class="more" href="journeys/temple-cuisine" target="_blank">The Temple Food journey</a></div>
+    </div>
+
+    <div class="spec flip reveal">
+      <div class="si"><img src="images/w/xmas-gyeonghoeru-1800.webp" alt="Gyeonghoeru pavilion at Gyeongbokgung Palace framed by pines under snow" loading="lazy"></div>
+      <div><span class="n">iv.</span><h3>Milestones and families</h3><p class="best">For proposals, honeymoons and three generations</p><p>The days guests will remember longest, arranged in confidence and paced to the people travelling.</p>
+        <ul><li>The palaces in hanbok, with a photographer who keeps a discreet distance</li><li>A proposal in a private hanok courtyard</li><li>A personal shopper for an afternoon in Cheongdam or Hannam</li></ul>
+        <a class="more" href="journeys/milestone-journeys" target="_blank">Milestone Journeys</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Working together</p><h2>Four steps, <em>one message from your desk</em></h2></div>
+    <div class="steps reveal">
+      <div class="step"><span class="n">i.</span><h3>Send the request</h3><p>A message or an email with the guest's dates and what they asked for, shared with their consent. Nothing else is needed from your team.</p></div>
+      <div class="step"><span class="n">ii.</span><h3>We speak with the guest</h3><p>We reply the same day, listen, and write a proposal day by day with a clear price. Your desk is copied if you wish.</p></div>
+      <div class="step"><span class="n">iii.</span><h3>We arrange and run it</h3><p>Drivers, guides, interpreters, temples, tables and treatments, each confirmed in writing, with someone reachable in Korea at every hour.</p></div>
+      <div class="step"><span class="n">iv.</span><h3>We bring them back</h3><p>The guest returns to your door, and your desk receives a short note on how it went.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">The terms</p><h2>Simple, and at no cost to the hotel</h2><p>We ask for the introduction and nothing more.</p></div>
+    <div class="terms reveal">
+      <div><strong>No fee</strong><p>Nothing is charged to the hotel or to your team. The guest contracts with IEUM and pays us directly, so there is no invoicing or liability for you to carry.</p></div>
+      <div><strong>Your guest, always</strong><p>We do not offer rooms in Seoul, and we never move a guest from your hotel. Where your policy provides for a referral arrangement, we follow it.</p></div>
+      <div><strong>One contact</strong><p>Your desk speaks to the founder directly. IEUM Concierge LLC is registered in New York, and our drivers in Korea are licensed and work under written contract.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--ivory)">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">In their words</p><h2>From recent guests</h2></div>
+    <div class="quotes reveal">
+      <blockquote>"It is extremely well curated and I was happy and satisfied from start to finish. I enjoyed Korean traditional sound bath the most."<cite>Amal · Honeymoon · August 2026</cite></blockquote>
+      <blockquote>"IEUM guided us effortlessly through our wishlist, suggested some great ideas we hadn't considered and helped us quickly put together a wonderful itinerary."<cite>Ioannis · Three weeks for two · June 2026</cite></blockquote>
+      <blockquote>"She handled the entire booking and gave us all the details beforehand, making it a completely seamless experience."<cite>Indigo · Wellness with a friend · May 2026</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="doha" id="doha">
+  <div class="wrap doha-grid reveal">
+    <img src="images/w/doha-portrait-800.webp" alt="Portrait of Doha Yoon, founder of IEUM Concierge" loading="lazy">
+    <div>
+      <p class="eyebrow">Your contact</p>
+      <h2>Doha Yoon, <em>founder</em></h2>
+      <p>A luxury marketer who launched Balmain Beauty's fragrance house across five regions at The Estée Lauder Companies, after years in Paris and New York alongside the world's leading luxury retailers, agencies and creators.</p>
+      <p>Now the single point of contact for your concierge team, from the first message to the guest's return to your door.</p>
+    </div>
+  </div>
+</section>
+
+<section class="close" style="background-image:url('images/w/raum-hall-1800.webp')">
+  <div class="wrap reveal">
+    <p class="eyebrow" style="color:#CFC8B8">Begin</p>
+    <h2>Send us the <em>next request beyond your desk</em></h2>
+    <p>We would be glad to meet your concierge team and walk them through a journey in person.</p>
+    <div class="btns">
+      <a class="btn" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Arrange a call</a>
+      <!--email_off--><a class="btn" id="mailbtn" href="mailto:contact@ie-um.com?subject=Hotel%20partnership">Write to us</a><!--/email_off-->
+    </div>
+    <div class="sig"><img src="https://ie-um.com/images/logo/ieum-logo-cream.svg" alt="IEUM Concierge" class="siglogo"><!--email_off--><span>Seoul &amp; New York &nbsp;·&nbsp; ie-um.com &nbsp;·&nbsp; <a href="mailto:contact@ie-um.com" style="color:inherit">contact@ie-um.com</a></span><!--/email_off--><em class="copied" id="copied">Address copied: contact@ie-um.com</em></div>
+  </div>
+</section>
+
+<p class="credits">Photographs: Wacheongjae at RAUM Social Wellness, Seoul; Moune; ⓒ한국관광공사, Korea Open Government License Type 1.</p>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},2500);
+})();
+</script>
+<script>
+(function(){var b=document.getElementById('mailbtn'),c=document.getElementById('copied');if(!b)return;b.addEventListener('click',function(){try{navigator.clipboard.writeText('contact@ie-um.com')}catch(e){}c.classList.add('on');setTimeout(function(){c.classList.remove('on')},6000);});})();
+</script>
+</body>
+</html>
