@@ -459,6 +459,19 @@
     window.clarity('consent');
   }
 
+  /* Google Tag Manager, loaded with analytics consent only. */
+  var GTM_ID = 'GTM-MFVSSFKM';
+  function startGTM() {
+    if (!GTM_ID || window.ieumGTM) return;
+    window.ieumGTM = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(s);
+  }
+
   function startAnalytics() {
     if (!GA4_ID || window.gtag) return;
     var s = document.createElement('script');
@@ -500,7 +513,7 @@
 
   function apply(c) {
     state = c;
-    if (c.analytics) { startAnalytics(); startClarity(); }
+    if (c.analytics) { startAnalytics(); startGTM(); startClarity(); }
     if (c.marketing) startMarketing();
   }
   function commit(c) { write(c); clearFor(c); apply(c); closeAll(); }
