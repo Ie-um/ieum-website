@@ -417,7 +417,8 @@
   @media (max-width:900px){
     .rv-grid{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:2px;margin-right:-6vw;padding-right:6vw}
     .rv-grid::-webkit-scrollbar{display:none}
-    .rv-grid .rv{flex:0 0 84%;scroll-snap-align:start}
+    .rv-grid .rv-link{flex:0 0 84%;scroll-snap-align:start;padding-right:22px}
+    .rv-grid .rv{flex:1;min-width:0}
   }
   .hero-lede{max-width:46ch;margin:22px auto 0;font-size:.92rem;line-height:1.7;opacity:.88;font-weight:300}
   @media (max-width:700px){.hero-lede{font-size:.82rem;max-width:34ch}}
