@@ -256,7 +256,7 @@
   #contact .field{display:grid;gap:8px}
   #contact .field.full{grid-column:1/-1}
   #contact label{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#A9C3B7}
-  #contact input,#contact textarea{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none}
+  #contact input,#contact select,#contact textarea{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;transition:border-color .4s;border-radius:0;-webkit-appearance:none}
   #contact textarea{resize:vertical;min-height:80px}
   #contact input:focus,#contact textarea:focus{border-color:var(--ivory)}
   #contact form button{background:transparent;border:1px solid var(--ivory);color:var(--ivory);font-family:var(--utility);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;padding:16px 42px;cursor:pointer;transition:background .4s,color .4s}
@@ -267,6 +267,9 @@
   #contact .call-link{font-family:var(--utility);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);border-bottom:1px solid rgba(246,244,239,.4);padding-bottom:4px;transition:border-color .4s}
   #contact .call-link:hover,#contact .call-link:focus-visible{border-color:var(--ivory)}
   @media (max-width:860px){#contact .contact-grid{grid-template-columns:1fr;gap:48px}#contact form{grid-template-columns:1fr}}
+  #contact select option{color:#23241F}
+  .mbar{display:none}
+  @media (max-width:900px){.mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:45;background:#2C463E;color:#F6F4EF;text-align:center;padding:16px 20px calc(16px + env(safe-area-inset-bottom));font-family:'Jost',Helvetica,Arial,sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.32em;text-transform:uppercase;transform:translateY(110%);transition:transform .45s ease;box-shadow:0 -6px 20px rgba(0,0,0,.12)}.mbar.on{transform:none}}
 </style>
 </head>
 <body>
@@ -462,6 +465,7 @@
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
       <div class="field"><label for="f-dates">Event dates</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-budget">Budget (optional)</label><select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under USD 25,000</option><option>USD 25,000 to 75,000</option><option>USD 75,000 to 150,000</option><option>Over USD 150,000</option></select></div>
       <div class="field"><label for="f-party">Group size</label><input id="f-party" name="party" type="text" placeholder="e.g. 20"></div>
       <div class="field"><label for="f-event">Type of event</label><input id="f-event" name="event" type="text" placeholder="e.g. client dinner, retreat"></div>
       <div class="field full"><label for="f-message">What the event needs to achieve</label><textarea id="f-message" name="message"></textarea></div>
@@ -477,11 +481,13 @@
   </div>
 </section>
 
+<a class="mbar" href="#contact">Plan my journey</a>
+
 <footer>
   <span class="fthread" aria-hidden="true"></span>
   <span class="mark"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge"></span>
   IEUM Concierge &middot; Seoul &amp; New York &middot; &copy; 2026
-  <div class="guides-link"><a href="guides/">Guides</a> &nbsp;&middot;&nbsp; <a href="cookie-policy">Cookies</a></div>
+  <div class="guides-link"><a href="guides/">Guides</a> &nbsp;&middot;&nbsp; <a href="cookie-policy">Cookies</a> &nbsp;&middot;&nbsp; <a href="trade">For travel advisers</a></div>
   <div class="biz-info">
     <span>IEUM Concierge LLC, New York</span>
   </div>
@@ -778,6 +784,10 @@
     }
   });
 })();
+</script>
+<script>
+/* Slim enquiry bar on phones: appears after the first screen, hides once the form is in view. */
+(function(){var b=document.querySelector('.mbar'),c=document.getElementById('contact');if(!b||!c)return;function u(){var r=c.getBoundingClientRect(),h=window.innerHeight;b.classList.toggle('on',window.scrollY>h*0.6&&!(r.top<h&&r.bottom>0));}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
 </script>
 </body>
 </html>
