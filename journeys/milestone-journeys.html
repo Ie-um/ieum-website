@@ -242,6 +242,8 @@
   .sent.on{display:block}
   footer .photo-credit{margin-top:20px;font-size:.55rem;letter-spacing:.04em;text-transform:none;color:#5F7A6E}
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
+  .mbar{display:none}
+  @media (max-width:900px){.mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:45;background:#2C463E;color:#F6F4EF;text-align:center;padding:16px 20px calc(16px + env(safe-area-inset-bottom));font-family:'Jost',Helvetica,Arial,sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.32em;text-transform:uppercase;transform:translateY(110%);transition:transform .45s ease;box-shadow:0 -6px 20px rgba(0,0,0,.12)}.mbar.on{transform:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -364,8 +366,8 @@
       <input type="hidden" name="journey" value="Milestone Journey">
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-dates">Travel window</label><input id="f-dates" name="dates" type="month"></div>
-      <div class="field"><label for="f-party">Travelers</label><input id="f-party" name="party" type="text" placeholder="e.g. 2"></div>
+      <div class="field"><label for="f-dates">Travel dates</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-budget">Budget per person (optional)</label><select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under USD 2,500</option><option>USD 2,500 to 5,000</option><option>USD 5,000 to 10,000</option><option>Over USD 10,000</option></select></div>
       <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
       <button type="submit">Send an Enquiry</button>
       <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
@@ -377,11 +379,13 @@
   </div>
 </section>
 
+<a class="mbar" href="#contact">Plan my journey</a>
+
 <footer>
   <span class="fthread" aria-hidden="true"></span>
   <span class="mark"><img src="https://ie-um.com/images/logo/ieum-mark-cream.svg" alt="IEUM Concierge"></span>
   IEUM Concierge &middot; Seoul &amp; New York &middot; &copy; 2026
-  <div class="guides-link"><a href="../guides/">Guides</a> &nbsp;&middot;&nbsp; <a href="../cookie-policy">Cookies</a></div>
+  <div class="guides-link"><a href="../guides/">Guides</a> &nbsp;&middot;&nbsp; <a href="../cookie-policy">Cookies</a> &nbsp;&middot;&nbsp; <a href="../trade">For travel advisers</a></div>
   <div class="biz-info">
     <span>IEUM Concierge LLC, New York</span>
   </div>
@@ -711,6 +715,10 @@
   window.addEventListener('load',check);
   check();
 })();
+</script>
+<script>
+/* Slim enquiry bar on phones: appears after the first screen, hides once the form is in view. */
+(function(){var b=document.querySelector('.mbar'),c=document.getElementById('contact');if(!b||!c)return;function u(){var r=c.getBoundingClientRect(),h=window.innerHeight;b.classList.toggle('on',window.scrollY>h*0.6&&!(r.top<h&&r.bottom>0));}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u);u();})();
 </script>
 </body>
 </html>
