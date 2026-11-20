@@ -392,6 +392,8 @@
   .answer{border-left:2px solid var(--jade);padding:6px 0 6px 26px;margin:0 0 56px}
   .answer .answer-q{font-family:var(--display);font-weight:400;font-size:1.4rem;line-height:1.3;margin:0 0 12px;color:var(--ink)}
   .answer p{font-size:.98rem;line-height:1.8;color:#3A3B34;max-width:64ch}
+  /* Phone menu: a blurred nav would trap the fixed full-screen menu inside the bar */
+  @media (max-width:900px){nav,nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgba(252,251,248,.98)}}
 </style>
 </head>
 <body>

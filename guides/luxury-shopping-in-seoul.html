@@ -383,6 +383,8 @@
   .call-link{font-family:var(--utility);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);border-bottom:1px solid rgba(246,244,239,.4);padding-bottom:4px;transition:border-color .4s}
   .call-link:hover,.call-link:focus-visible{border-color:var(--ivory)}
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
+  /* Phone menu: a blurred nav would trap the fixed full-screen menu inside the bar */
+  @media (max-width:900px){nav,nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgba(252,251,248,.98)}}
 </style>
 </head>
 <body>
