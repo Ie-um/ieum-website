@@ -265,6 +265,20 @@
   @media (max-width:900px){.mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:45;background:#2C463E;color:#F6F4EF;text-align:center;padding:16px 20px calc(16px + env(safe-area-inset-bottom));font-family:'Jost',Helvetica,Arial,sans-serif;font-size:.7rem;font-weight:400;letter-spacing:.32em;text-transform:uppercase;transform:translateY(110%);transition:transform .45s ease;box-shadow:0 -6px 20px rgba(0,0,0,.12)}.mbar.on{transform:none}}
   /* Phone menu: a blurred nav would trap the fixed full-screen menu inside the bar */
   @media (max-width:900px){nav,nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgba(252,251,248,.98)}}
+  .form-note{grid-column:1/-1;margin:-6px 0 0;font-size:.78rem;letter-spacing:.04em;color:rgba(246,244,239,.62);font-style:italic}
+  #contact select{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;border-radius:0}
+  #contact select option{color:#23241F}
+  .wfaq{padding:100px 0 80px;background:var(--paper)}
+  .wfaq .wrap{max-width:820px}
+  .wfaq h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:28px}
+  .wfaq details.entry{border-bottom:1px solid var(--hairline)}
+  .wfaq details.entry > summary{list-style:none;cursor:pointer;display:block;padding:22px 40px 22px 0;position:relative;outline:none}
+  .wfaq details.entry > summary::-webkit-details-marker{display:none}
+  .wfaq details.entry > summary h3{margin:0;font-size:1.25rem;font-weight:400;transition:color .3s}
+  .wfaq details.entry > summary::after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--jade);font-weight:300}
+  .wfaq details.entry[open] > summary::after{content:'\2212'}
+  .wfaq details.entry > summary:hover h3{color:var(--jade)}
+  .wfaq details.entry p{padding:0 0 24px;font-size:.95rem;color:#4A4A43;line-height:1.8;max-width:64ch}
 </style>
 <script type="application/ld+json">
 {
@@ -353,6 +367,22 @@
     "name": "Korea in December 2026",
     "url": "https://ie-um.com/guides/korea-in-december"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is each journey shaped and quoted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every journey is composed around you, so no two are alike. After a first conversation, we prepare a private proposal with every detail and its cost, shaped to your dates, your pace and the experiences you wish for."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -479,22 +509,31 @@
   </div>
 </section>
 
+<section class="wfaq" id="faq">
+  <div class="wrap">
+    <h2>Ask the common questions</h2>
+    <details class="entry"><summary><h3>How is each journey shaped and quoted?</h3></summary><p>Every journey is composed around you, so no two are alike. After a first conversation, we prepare a private proposal with every detail and its cost, shaped to your dates, your pace and the experiences you wish for.</p></details>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info">
-      <p class="eyebrow">Enquire</p>
-      <h2>Spend the winter somewhere warm at heart</h2>
-      <p>Tell us a little about what you have in mind and we will write back personally.</p>
+      <p class="eyebrow">Begin</p>
+      <h2>Begin a conversation</h2>
+      <p>Share as much or as little as you wish. A member of our team will reply personally, usually within a day.</p>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <input type="hidden" name="journey" value="Winter Retreat">
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-dates">Travel dates</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-dates">When you wish to travel</label><input id="f-dates" name="dates" type="text" placeholder="For example, late December" required></div>
+      <div class="field full"><label for="f-msg">Your note</label><textarea id="f-msg" name="message" required placeholder="The journey you have in mind, who is travelling, anything that matters to you"></textarea></div>
+      <div class="field"><label for="f-journey">Journey (optional)</label><select id="f-journey" name="interest"><option>Open to ideas</option><option>Private Journey</option><option>Wellness Retreat</option><option selected>Winter Retreat</option><option>Temple Food</option><option>Sound and Craft</option><option>Autumn Foliage</option><option>Family Journey</option><option>Milestone Journey</option><option>Group Journey</option></select></div>
       <div class="field"><label for="f-budget">Budget per person (optional)</label><select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under USD 2,500</option><option>USD 2,500 to 5,000</option><option>USD 5,000 to 10,000</option><option>Over USD 10,000</option></select></div>
-      <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
-      <button type="submit">Send an Enquiry</button>
-      <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+      <button type="submit">Send your note</button>
+      <p class="form-note">Simply a conversation, at your pace.</p>
+      <p class="sent" id="sent">Thank you. Your note is with us, and we will be in touch personally.</p>
       <div class="contact-lines">
         <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
         <a href="https://www.instagram.com/ieumconcierge/" target="_blank" rel="noopener">Instagram &middot; @ieumconcierge</a>
@@ -503,7 +542,7 @@
   </div>
 </section>
 
-<a class="mbar" href="#contact">Plan my journey</a>
+<a class="mbar" href="#contact">Begin a conversation</a>
 
 <footer>
   <span class="fthread" aria-hidden="true"></span>
@@ -691,7 +730,8 @@
       if (!a) return;
       var h = a.getAttribute('href') || '';
       var label = (a.textContent || '').trim().slice(0, 60);
-      if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
+      if (a.getAttribute('data-cta')) window.ieumTrack('cta_click', { cta: a.getAttribute('data-cta'), link_text: label });
+      else if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
       else if (h.indexOf('cal.com') !== -1) window.ieumTrack('cta_click', { cta: 'book_call', link_text: label });
       else if (h.indexOf('mailto:') === 0) window.ieumTrack('cta_click', { cta: 'email', link_text: label });
       else if (h.indexOf('instagram.com') !== -1) window.ieumTrack('cta_click', { cta: 'instagram', link_text: label });
@@ -802,7 +842,7 @@
       });
     function done() {
       if (window.ieumTrack) window.ieumTrack('generate_lead', { form_location: 'journey', journey: j ? j.value : '' });
-      f.querySelectorAll('.field, button').forEach(function (el) { el.style.display = 'none'; });
+      f.querySelectorAll('.field, button, .form-note').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
   });
