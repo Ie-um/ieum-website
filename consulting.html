@@ -230,6 +230,9 @@
   }
   /* Phone menu: a blurred nav would trap the fixed full-screen menu inside the bar */
   @media (max-width:900px){nav,nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgba(252,251,248,.98)}}
+
+  @media (min-width:901px) and (max-width:1240px){.navlinks{gap:26px!important}}
+  @media (max-width:900px){.subnav-j{display:none!important}}
 </style>
 </head>
 <body>
@@ -245,7 +248,20 @@
   </button>
   <div class="navlinks" id="navlinks">
     <a href="/#about">About</a>
-    <a href="/#why">Difference</a>
+    <span class="has-sub">
+      <a href="/#inspired">Journeys</a>
+      <span class="subnav subnav-j">
+        <a href="journeys/wellness-retreat">Wellness Retreat</a>
+        <a href="journeys/temple-cuisine">Plant-Based Culinary</a>
+        <a href="journeys/sound-and-craft">Restorative Sound</a>
+        <a href="journeys/winter-retreat">Winter Retreat</a>
+        <a href="journeys/family-travel">Family Journeys</a>
+        <a href="journeys/milestone-journeys">Milestone Journeys</a>
+        <a href="journeys/group-journeys">Group Journeys</a>
+      </span>
+    </span>
+    <a href="/#themes">Experiences</a>
+    <a href="guides/">Guides</a>
     <span class="has-sub">
       <a href="/#services">Services</a>
       <span class="subnav">
@@ -254,7 +270,6 @@
         <a href="consulting" class="current">Consulting</a>
       </span>
     </span>
-    <a href="/#themes">Experiences</a>
     <a href="faq">FAQ</a>
     <a class="cta" href="/#contact">Contact</a>
   </div>
