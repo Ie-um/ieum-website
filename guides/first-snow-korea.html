@@ -391,6 +391,24 @@
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;gap:48px}form{grid-template-columns:1fr}}
   /* Phone menu: a blurred nav would trap the fixed full-screen menu inside the bar */
   @media (max-width:900px){nav,nav.solid{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgba(252,251,248,.98)}}
+  .form-note{grid-column:1/-1;margin:-6px 0 0;font-size:.78rem;letter-spacing:.04em;color:rgba(246,244,239,.62);font-style:italic}
+  #contact select{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;border-radius:0}
+  #contact select option{color:#23241F}
+  .snow-card{margin:30px 0 10px;padding:28px 30px;background:var(--ivory);border:1px solid var(--hairline);display:grid;grid-template-columns:1fr auto;gap:18px 28px;align-items:center}
+  .snow-card h3{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0 0 8px;color:var(--ink)}
+  .snow-card p{margin:0;font-size:.92rem;color:#4A4A43;line-height:1.7}
+  .snow-card-btn{display:inline-block;padding:14px 28px;border:1px solid var(--jade);background:var(--jade);color:var(--ivory);font-family:var(--utility);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .4s,color .4s}
+  .snow-card-btn:hover,.snow-card-btn:focus-visible{background:transparent;color:var(--jade)}
+  .snow-form{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px;align-items:end;margin-top:6px}
+  .snow-form[hidden]{display:none}
+  .sf-field{display:grid;gap:6px}
+  .sf-field label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+  .sf-field input{background:transparent;border:0;border-bottom:1px solid rgba(35,36,31,.3);font-family:var(--utility);font-weight:300;font-size:.95rem;color:var(--ink);padding:8px 2px;outline:none;border-radius:0}
+  .sf-field input:focus{border-color:var(--jade)}
+  .snow-form .snow-card-btn{justify-self:start}
+  .sf-sent{grid-column:1/-1;display:none;font-size:.92rem;color:var(--jade)}
+  .sf-sent.on{display:block}
+  @media (max-width:700px){.snow-card{grid-template-columns:1fr;padding:24px 22px}.snow-form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -465,6 +483,21 @@
             <tr><th scope="row">Busan</th><td>23 Dec</td><td>7 Feb 2026</td><td>Around 27 Dec, if at all</td></tr>
           </tbody>
         </table>
+        <aside class="snow-card" id="snow-card" aria-label="Follow the first snow">
+          <div class="snow-card-txt">
+            <h3>Follow the first snow</h3>
+            <p>Share when you wish to travel, and we will find where the snow is falling.</p>
+          </div>
+          <button type="button" class="snow-card-btn" id="snow-card-btn" aria-expanded="false" aria-controls="snow-form">Begin planning</button>
+          <form class="snow-form" id="snow-form" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate hidden>
+            <input type="hidden" name="journey" value="Guide: First snow, planning card">
+            <div class="sf-field"><label for="sf-name">Name</label><input id="sf-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="sf-field"><label for="sf-email">Email</label><input id="sf-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="sf-field"><label for="sf-dates">When you wish to travel</label><input id="sf-dates" name="dates" type="text" placeholder="For example, late December" required></div>
+            <button type="submit" class="snow-card-btn">Send your note</button>
+            <p class="sf-sent" id="sf-sent">Thank you. Your note is with us, and we will be in touch personally.</p>
+          </form>
+        </aside>
         <p class="grp-hint">Average dates: Korea Meteorological Administration, 1991 to 2020 normals. Seoul 2026: Korea Meteorological Administration observation, 8 November. Seoraksan 2026: Seoraksan National Park Office, 29 October. Gwangju 2026: Gwangju Regional Meteorological Administration observation, 19 November. Other 2026 dates are an unofficial estimate, not a forecast, and we replace each one as the city records its first snow.</p>
         <p class="body">Visiting in December? See what is on in <a class="inline" href="christmas-in-seoul">Christmas in Seoul 2026</a>: the light shows, Christmas markets, The Nutcracker and hotel Christmas cakes.</p>
         <aside class="snow-cta" aria-label="Plan a winter trip">
@@ -525,10 +558,10 @@
         <h2>Ask the common questions</h2>
         <details class="entry"><summary><h3>When does Seoul usually get its first snow?</h3></summary><p>Around 20 November. That is the Korea Meteorological Administration's average first snow date for Seoul, based on its 1991 to 2020 climate normals. Last winter it came on 4 December 2025, two weeks late, and the winter before on 26 November 2024.</p></details>
         <details class="entry"><summary><h3>When was Seoul's first snow in 2026?</h3></summary><p>On 8 November 2026. The Korea Meteorological Administration recorded snow pellets at the Seoul weather station in Songwol-dong between 9:20 and 10:40 in the morning. That is 12 days earlier than the 20 November average, 26 days earlier than last winter's 4 December, and the sixth earliest first snow in Seoul since 1973. Nothing settled, so most people in the city did not see it.</p></details>
-        <details class="entry"><summary><h3>Where can I see snow in Korea in November?</h3></summary><p>In the mountains. The high peaks of Seoraksan in Gangwon usually see their first snow in late October, the uplands of Hallasan on Jeju from mid November, and the Gangwon ski resorts open in late November on machine made and natural snow.</p></details>
+        <details class="entry"><summary><h3>Where can I see snow in Korea in November?</h3></summary><p>In the mountains. The high peaks of Seoraksan in Gangwon usually see their first snow in late October, the uplands of Hallasan on Jeju from mid November, and the Gangwon ski resorts open in late November on machine made and natural snow. <a class="inline" href="#contact" data-cta="faq_snow">Let us find the snow for you &rarr;</a></p></details>
         <details class="entry"><summary><h3>Does first snow mean there will be snow on the ground?</h3></summary><p>Not necessarily. Korea's official first snow is the first time an observer at the city's weather station sees snow or sleet fall, even for a few minutes. For snow that settles in Seoul, plan for mid December to February.</p></details>
         <details class="entry"><summary><h3>Does it snow in Busan?</h3></summary><p>Rarely. Busan's average first snow date is 23 December, among the latest of Korea's cities, and in some winters it barely snows at all. For snow, go north to Gangwon or up into the mountains.</p></details>
-        <details class="entry"><summary><h3>Does it snow in Jeju?</h3></summary><p>On the coast, rarely. Jeju City averages its first snow around 10 December and many winters bring only a few flurries. The uplands of Hallasan are different: the mountain often turns white from mid November and holds snow through the winter, so Jeju can give you a snowy mountain and a mild coast on the same day.</p></details>
+        <details class="entry"><summary><h3>Does it snow in Jeju?</h3></summary><p>On the coast, rarely. Jeju City averages its first snow around 10 December and many winters bring only a few flurries. The uplands of Hallasan are different: the mountain often turns white from mid November and holds snow through the winter, so Jeju can give you a snowy mountain and a mild coast on the same day. <a class="inline" href="#contact" data-cta="faq_snow">Let us find the snow for you &rarr;</a></p></details>
       </div>
 
       <p class="grp-hint">Sources: Korea Meteorological Administration climate normals (1991 to 2020) and winter reports, its seasonal outlook for autumn 2026, and its first snow observation for Seoul on 8 November 2026, via <a class="inline" href="https://www.weather.go.kr/w/index.do" rel="noopener">KMA Weather Nuri</a>.</p>
@@ -540,22 +573,24 @@
 <section id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info">
-      <p class="eyebrow">Travel With IEUM</p>
-      <h2>Plan a private winter in Korea</h2>
-      <p>Snow in the mountains, hot springs, a kimjang table and the bell at midnight, arranged end to end with a concierge beside you throughout. Tell us a little about your trip and we will reply personally, usually within a day.</p>
+      <p class="eyebrow">Begin</p>
+      <h2>Begin a conversation</h2>
+      <p>Share as much or as little as you wish. A member of our team will reply personally, usually within a day.</p>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
       <input type="hidden" name="journey" value="Guide: First snow in Korea">
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-dates">Travel dates</label><input id="f-dates" name="dates" type="month"></div>
+      <div class="field"><label for="f-dates">When you wish to travel</label><input id="f-dates" name="dates" type="text" placeholder="For example, late December" required></div>
+      <div class="field full"><label for="f-msg">Your note</label><textarea id="f-msg" name="message" required placeholder="The journey you have in mind, who is travelling, anything that matters to you"></textarea></div>
+      <div class="field"><label for="f-journey">Journey (optional)</label><select id="f-journey" name="interest"><option>Open to ideas</option><option>Private Journey</option><option>Wellness Retreat</option><option>Winter Retreat</option><option>Temple Food</option><option>Sound and Craft</option><option>Autumn Foliage</option><option>Family Journey</option><option>Milestone Journey</option><option>Group Journey</option></select></div>
       <div class="field"><label for="f-budget">Budget per person (optional)</label><select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under USD 2,500</option><option>USD 2,500 to 5,000</option><option>USD 5,000 to 10,000</option><option>Over USD 10,000</option></select></div>
-      <div class="field full"><label for="f-msg">Anything else</label><textarea id="f-msg" name="message"></textarea></div>
       <div class="form-actions">
-        <button type="submit">Send an Enquiry</button>
-        <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
+        <button type="submit">Send your note</button>
+        <a class="call-link" href="https://cal.com/ie-um/30min?utm_source=site&amp;utm_medium=guide&amp;utm_campaign=first_snow" target="_blank" rel="noopener">Book a 30 minute call</a>
       </div>
-      <p class="sent" id="sent">Thank you. Your enquiry is with us and we will reply personally, usually within a day.</p>
+      <p class="form-note">Simply a conversation, at your pace.</p>
+      <p class="sent" id="sent">Thank you. Your note is with us, and we will be in touch personally.</p>
       <div class="contact-lines">
         <a href="../journeys/winter-retreat">Explore the Winter Retreat</a>
         <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
@@ -750,7 +785,8 @@
       if (!a) return;
       var h = a.getAttribute('href') || '';
       var label = (a.textContent || '').trim().slice(0, 60);
-      if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
+      if (a.getAttribute('data-cta')) window.ieumTrack('cta_click', { cta: a.getAttribute('data-cta'), link_text: label });
+      else if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
       else if (h.indexOf('cal.com') !== -1) window.ieumTrack('cta_click', { cta: 'book_call', link_text: label });
       else if (h.indexOf('mailto:') === 0) window.ieumTrack('cta_click', { cta: 'email', link_text: label });
       else if (h.indexOf('instagram.com') !== -1) window.ieumTrack('cta_click', { cta: 'instagram', link_text: label });
@@ -864,6 +900,32 @@
       f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
+  });
+})();
+</script>
+<script>
+/* First snow planning card: opens a short form, sent through Formspree like the main form. */
+(function(){
+  var b=document.getElementById('snow-card-btn'), f=document.getElementById('snow-form');
+  if(!b||!f) return;
+  var t=function(n,p,o){ if(window.ieumTrack) window.ieumTrack(n,p||{},o); };
+  b.addEventListener('click',function(){
+    t('cta_click',{cta:'snow_card',link_text:'Begin planning'});
+    f.hidden=false; b.setAttribute('aria-expanded','true'); b.style.display='none';
+    t('form_view',{form_location:'snow_card'},true);
+    var n=document.getElementById('sf-name'); if(n) n.focus();
+  });
+  f.addEventListener('focusin',function(){ t('form_start',{form_location:'snow_card'},true); });
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.reportValidity()) return;
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true;
+    fetch(f.action,{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+      .then(function(r){ if(!r.ok) throw new Error('formspree '+r.status);
+        t('generate_lead',{form_location:'snow_card',journey:'Guide: First snow, planning card'});
+        f.querySelectorAll('.sf-field, button').forEach(function(el){ el.style.display='none'; });
+        document.getElementById('sf-sent').classList.add('on'); })
+      .catch(function(){ t('form_error',{form_location:'snow_card'}); HTMLFormElement.prototype.submit.call(f); });
   });
 })();
 </script>
