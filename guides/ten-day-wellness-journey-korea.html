@@ -394,6 +394,22 @@
   .form-note{grid-column:1/-1;margin:-6px 0 0;font-size:.78rem;letter-spacing:.04em;color:rgba(246,244,239,.62);font-style:italic}
   #contact select{background:transparent;border:0;border-bottom:1px solid rgba(246,244,239,.35);color:var(--ivory);font-family:var(--utility);font-weight:300;font-size:.95rem;padding:10px 2px;outline:none;border-radius:0}
   #contact select option{color:#23241F}
+
+  @media (min-width:901px) and (max-width:1240px){.navlinks{gap:26px!important}}
+  @media (max-width:900px){.subnav-j{display:none!important}}
+
+  .mp{position:absolute;left:0;top:100%;z-index:40;margin-top:6px;width:290px;max-width:calc(100vw - 40px);background:#FCFBF8;color:#23241F;border:1px solid rgba(35,36,31,.12);box-shadow:0 18px 44px rgba(0,0,0,.22);padding:14px 14px 8px;text-align:left}
+  .mp[hidden]{display:none}
+  .mp-head{display:flex;align-items:center;justify-content:space-between;font-size:.78rem;letter-spacing:.24em;margin-bottom:8px}
+  #contact .mp button,.snow-card .mp button,form .mp button{all:unset;box-sizing:border-box;cursor:pointer;color:#23241F;font-family:inherit;text-align:center}
+  #contact .mp .mp-y,.snow-card .mp .mp-y,form .mp .mp-y{font-size:1.25rem;padding:2px 12px;line-height:1}
+  #contact .mp .mp-m,.snow-card .mp .mp-m,form .mp .mp-m{padding:11px 0;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent}
+  #contact .mp .mp-m:hover,.snow-card .mp .mp-m:hover,form .mp .mp-m:hover{border-color:rgba(35,36,31,.25);background:none;color:#23241F}
+  #contact .mp .mp-m.on,.snow-card .mp .mp-m.on,form .mp .mp-m.on{background:#1F3A2E;color:#FCFBF8}
+  #contact .mp button:disabled,.snow-card .mp button:disabled,form .mp button:disabled{opacity:.25;cursor:default;border-color:transparent}
+  .mp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+  #contact .mp .mp-flex,.snow-card .mp .mp-flex,form .mp .mp-flex{display:block;width:100%;margin-top:8px;border-top:1px solid rgba(35,36,31,.1);padding:11px 0 6px;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;opacity:.7}
+  input[name=dates]{cursor:pointer}
 </style>
 </head>
 <body>
@@ -409,7 +425,20 @@
   </button>
   <div class="navlinks" id="navlinks">
     <a href="../#about">About</a>
-    <a href="../#why">Difference</a>
+    <span class="has-sub">
+      <a href="../#inspired">Journeys</a>
+      <span class="subnav subnav-j">
+        <a href="../journeys/wellness-retreat">Wellness Retreat</a>
+        <a href="../journeys/temple-cuisine">Plant-Based Culinary</a>
+        <a href="../journeys/sound-and-craft">Restorative Sound</a>
+        <a href="../journeys/winter-retreat">Winter Retreat</a>
+        <a href="../journeys/family-travel">Family Journeys</a>
+        <a href="../journeys/milestone-journeys">Milestone Journeys</a>
+        <a href="../journeys/group-journeys">Group Journeys</a>
+      </span>
+    </span>
+    <a href="../#themes">Experiences</a>
+    <a href="./">Guides</a>
     <span class="has-sub">
       <a href="../#services">Services</a>
       <span class="subnav">
@@ -418,9 +447,8 @@
         <a href="../consulting">Consulting</a>
       </span>
     </span>
-    <a href="../#themes">Experiences</a>
     <a href="../faq">FAQ</a>
-    <a class="cta" href="#contact">Contact</a>
+    <a class="cta" href="../#contact">Contact</a>
   </div>
 </nav>
 
@@ -506,7 +534,7 @@
 <section id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info">
-      <p class="eyebrow">Begin</p>
+      <p class="eyebrow">Contact</p>
       <h2>Begin a conversation</h2>
       <p>Share as much or as little as you wish. A member of our team will reply personally, usually within a day.</p>
     </div>
@@ -514,9 +542,9 @@
       <input type="hidden" name="journey" value="Guide: Ten day wellness journey">
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="f-dates">When you wish to travel</label><input id="f-dates" name="dates" type="text" placeholder="For example, late December" required></div>
-      <div class="field full"><label for="f-msg">Your note</label><textarea id="f-msg" name="message" required placeholder="The journey you have in mind, who is travelling, anything that matters to you"></textarea></div>
-      <div class="field"><label for="f-journey">Journey (optional)</label><select id="f-journey" name="interest"><option>Open to ideas</option><option>Private Journey</option><option>Wellness Retreat</option><option>Winter Retreat</option><option>Temple Food</option><option>Sound and Craft</option><option>Autumn Foliage</option><option>Family Journey</option><option>Milestone Journey</option><option>Group Journey</option></select></div>
+      <div class="field"><label for="f-dates">When you wish to travel</label><input id="f-dates" name="dates" type="text" placeholder="Choose a month" required></div>
+      <div class="field full"><label for="f-msg">Your note (optional)</label><textarea id="f-msg" name="message" placeholder="The journey you have in mind, who is travelling, anything that matters to you"></textarea></div>
+      <div class="field"><label for="f-journey">What draws you (optional)</label><select id="f-journey" name="interest"><option selected>Open to ideas</option><option>Wellness and rest</option><option>Food and heritage</option><option>Culture and craft</option><option>Beauty</option><option>A family journey</option><option>A celebration</option><option>A group or company</option></select></div>
       <div class="field"><label for="f-budget">Budget per person (optional)</label><select id="f-budget" name="budget"><option value="">Prefer not to say</option><option>Under USD 2,500</option><option>USD 2,500 to 5,000</option><option>USD 5,000 to 10,000</option><option>Over USD 10,000</option></select></div>
       <div class="form-actions">
         <button type="submit">Send your note</button>
@@ -833,6 +861,36 @@
       f.querySelectorAll('.field, .form-actions').forEach(function (el) { el.style.display = 'none'; });
       document.getElementById('sent').classList.add('on');
     }
+  });
+})();
+</script>
+<script>
+(function(){
+  var M=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.querySelectorAll('input[name=dates]').forEach(function(inp){
+    inp.setAttribute('inputmode','none');inp.setAttribute('autocomplete','off');inp.setAttribute('aria-haspopup','dialog');
+    var wrap=inp.parentNode;wrap.style.position='relative';
+    var now=new Date(),y0=now.getFullYear(),m0=now.getMonth(),y=y0;
+    var p=document.createElement('div');p.className='mp';p.hidden=true;p.setAttribute('role','dialog');p.setAttribute('aria-label','Choose a month');
+    wrap.appendChild(p);
+    function draw(){
+      var h='<div class="mp-head"><button type="button" class="mp-y" data-d="-1" aria-label="Previous year"'+(y<=y0?' disabled':'')+'>&lsaquo;</button><span>'+y+'</span><button type="button" class="mp-y" data-d="1" aria-label="Next year"'+(y>=y0+2?' disabled':'')+'>&rsaquo;</button></div><div class="mp-grid">';
+      M.forEach(function(n,i){var v=n+' '+y;h+='<button type="button" class="mp-m'+(inp.value===v?' on':'')+'" data-v="'+v+'" aria-label="'+v+'"'+((y===y0&&i<m0)?' disabled':'')+'>'+n.slice(0,3)+'</button>';});
+      p.innerHTML=h+'</div><button type="button" class="mp-flex" data-v="Not yet decided">Not yet decided</button>';
+    }
+    function open(){if(!p.hidden)return;var m=/(\d{4})$/.exec(inp.value);y=m?Math.max(y0,+m[1]):y0;draw();p.hidden=false;}
+    function close(){p.hidden=true;p.innerHTML='';}
+    inp.addEventListener('focus',open);inp.addEventListener('click',open);
+    inp.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Tab')close();});
+    p.addEventListener('mousedown',function(e){e.preventDefault();});
+    p.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b||b.disabled)return;
+      if(b.getAttribute('data-d')){y+=+b.getAttribute('data-d');draw();return;}
+      inp.value=b.getAttribute('data-v');
+      inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));
+      close();
+    });
+    document.addEventListener('click',function(e){if(e.target!==inp&&!p.contains(e.target))close();});
   });
 })();
 </script>
