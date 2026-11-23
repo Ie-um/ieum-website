@@ -457,8 +457,8 @@
 <section id="contact">
   <div class="wrap contact-grid">
     <div class="contact-info">
-      <p class="eyebrow">Enquire</p>
-      <h2>Planning something in Korea</h2>
+      <p class="eyebrow">Begin</p>
+      <h2>Begin a conversation</h2>
       <p>Tell us the group, the dates, and what the event needs to achieve, and we will come back with options.</p>
     </div>
     <form id="enquiry" action="https://formspree.io/f/xnjeaaow" method="POST" novalidate>
@@ -472,10 +472,10 @@
       <div class="field"><label for="f-event">Type of event</label><input id="f-event" name="event" type="text" placeholder="e.g. client dinner, retreat"></div>
       <div class="field full"><label for="f-message">What the event needs to achieve</label><textarea id="f-message" name="message"></textarea></div>
       <div class="form-actions">
-        <button type="submit">Send my enquiry</button>
-        <a class="call-link" href="https://cal.com/ie-um/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
+        <button type="submit">Send your note</button>
+        <a class="call-link" href="https://cal.com/ie-um/30min?utm_source=site&amp;utm_medium=service&amp;utm_campaign=corporate_events" target="_blank" rel="noopener">Book a 30 minute call</a>
       </div>
-      <p class="sent" id="sent">Thank you. Your enquiry is with us and we will come back personally with options, usually within a day.</p>
+      <p class="sent" id="sent">Thank you. Your note is with us, and we will be in touch personally.</p>
       <div class="contact-lines">
         <a href="mailto:contact@ie-um.com">contact@ie-um.com</a>
       </div>
@@ -483,7 +483,7 @@
   </div>
 </section>
 
-<a class="mbar" href="#contact">Plan my journey</a>
+<a class="mbar" href="#contact">Begin a conversation</a>
 
 <footer>
   <span class="fthread" aria-hidden="true"></span>
@@ -671,7 +671,8 @@
       if (!a) return;
       var h = a.getAttribute('href') || '';
       var label = (a.textContent || '').trim().slice(0, 60);
-      if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
+      if (a.getAttribute('data-cta')) window.ieumTrack('cta_click', { cta: a.getAttribute('data-cta'), link_text: label });
+      else if (h.indexOf('#contact') !== -1 || h.indexOf('#enquiry') !== -1) window.ieumTrack('cta_click', { cta: 'enquire', link_text: label });
       else if (h.indexOf('cal.com') !== -1) window.ieumTrack('cta_click', { cta: 'book_call', link_text: label });
       else if (h.indexOf('mailto:') === 0) window.ieumTrack('cta_click', { cta: 'email', link_text: label });
       else if (h.indexOf('instagram.com') !== -1) window.ieumTrack('cta_click', { cta: 'instagram', link_text: label });
