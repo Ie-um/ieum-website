@@ -174,6 +174,15 @@
   .phrase .ko{font-family:'Noto Serif KR',serif;font-size:1.3rem;font-weight:200;letter-spacing:.04em;margin:8px 0 4px}
   .phrase p{font-size:.84rem;color:#5A5A52}
   @media (max-width:860px){.apps,.pack{grid-template-columns:1fr}.ph{height:190px}}
+  .wide{width:100%;height:360px;object-fit:cover;display:block;margin:6px 0 8px}
+  .wide-cap{font-size:.72rem;letter-spacing:.06em;color:var(--stone);margin-bottom:10px}
+  .bio{margin:18px 0 0;padding:20px 22px;background:rgba(63,107,92,.06);border-left:2px solid var(--jade-deep)}
+  .bio h4{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--jade-deep);font-weight:500;margin-bottom:10px}
+  .bio p{font-size:.88rem;color:#4A4A43;margin-bottom:10px}
+  .bio ul{list-style:none;display:grid;gap:7px}
+  .bio li{font-size:.85rem;color:#4A4A43;padding-left:16px;position:relative}
+  .bio li:before{content:'';position:absolute;left:0;top:.75em;width:7px;height:1px;background:var(--jade)}
+  @media (max-width:860px){.wide{height:220px}}
 </style>
 </head>
 <body>
@@ -248,10 +257,10 @@
       </div>
       <div class="who"><div><b>Your driver</b><span>Park Hyatt main entrance. Time confirmed the evening before</span></div><div><b>Through the day</b><span>On call throughout Myeongdong, so a warm car is never far</span></div><div><b>Tickets</b><span>Namsan Tower tickets for four, held for you</span></div></div>
       <div class="moment no-shot">
-        <time>Morning</time>
+        <time>10:30</time>
         <div>
           <h3>Up to Namsan Tower</h3>
-          <p>Your driver brings you up the mountain road, close to the tower. Go early, while the air is clearest.</p>
+          <p>Your driver brings you up the mountain road, close to the tower, at about half past ten, once the morning has warmed a little.</p>
         </div>
       </div>
       <span class="rlabel">Lunch &middot; Bibimbap</span>
@@ -271,7 +280,8 @@
         <time>Afternoon</time>
         <div>
           <h3>Myeongdong, and Glasses for Your Daughter</h3>
-          <p>Myeongdong is a few minutes down the hill. The optician appointment sits in the afternoon, and lenses are cut and fitted within about half an hour.</p>
+          <p>Myeongdong is a few minutes down the hill. Your daughter's eye examination and frame fitting are at <b>Davich Optical, Myeongdong</b> (다비치안경 명동점), part of Korea's largest eyewear chain, so the choice of frames is wide, and English is spoken.</p>
+          <p><b>One request before you fly:</b> please send us your daughter's current prescription. How quickly lenses can be made depends on it, so we will check in advance whether hers can be ready the same day or need a little more time.</p>
         </div>
       </div>
       <span class="rlabel">Late Afternoon &middot; Animal Cafe</span>
@@ -300,6 +310,7 @@
           </div>
         </article>
       </div>
+      <div class="optional"><b>If you would like, after dinner:</b> the Seoul Lantern Festival (서울빛초롱축제) along the Cheonggyecheon stream, from 11 December to 31 January, lit each evening from 6pm to 11pm and free to walk. It runs from Cheonggye Plaza to Samil Bridge, about ten minutes by car from Myeongdong, and your driver can take you there and back to the hotel.</div>
       <p class="note">Everything today sits within a few streets of one another. If the cold or the crowds become too much at any point, message your driver and he will come to you.</p>
     </div>
   </section>
@@ -309,7 +320,7 @@
       <div class="day-head">
         <span class="eyebrow">Sunday 20 December &middot; Day Two</span>
         <h2>Hanbok, the Palace, and an Afternoon at Your Pace</h2>
-        <p>Your companion guide is with you through the morning and lunch.</p>
+        <p>Your companion guide is with you through the morning, and walks you to lunch.</p>
       </div>
       <div class="who"><div><b>Your companion guide</b><span>Meeting place and time confirmed the evening before</span></div><div><b>Getting there</b><span>By taxi from the hotel straight to the hanbok studio, about 30 minutes</span></div><div><b>Getting back</b><span>Whenever you are ready, your guide calls a taxi to the hotel</span></div></div>
       <div class="moment">
@@ -334,8 +345,9 @@
           <p>An hour inside the palace with your photographer. Entry is free in hanbok.</p>
         </div>
       </div>
-      <div class="optional"><b>If the children would like more, and to warm up,</b> two museums sit inside the palace grounds and cost nothing to enter. The <b>National Palace Museum</b> (국립고궁박물관) holds the royal carriages, seals and robes, a natural next step after the palace itself. The <b>Children's Museum</b> at the National Folk Museum (국립민속박물관 어린이박물관) is hands on and made for their age, with entry by timed booking, so tell us if you would like it. Both are entirely optional.</div>
+      <div class="optional"><b>If the family would like to warm up,</b> the <b>National Palace Museum</b> (국립고궁박물관) sits inside the palace grounds and costs nothing to enter. It holds the royal carriages, seals and robes, a natural next step after the palace itself, and it is entirely optional. There is also a Children's Museum in the grounds, though it is designed for ages 4 to 10, so we have left it aside for Sydney and Dylan.</div>
       <span class="rlabel">Lunch &middot; Sotbap, choose one</span>
+      <p class="optional" style="margin:0 0 18px">Your companion guide walks you to whichever you choose. Lunch together with your guide, or as a family on your own, whichever you prefer on the day.</p>
       <div class="opts">
         <article class="rc">
           <div class="ph" data-src="images/guide/damsot.jpg">담솥 안국역점</div>
@@ -388,8 +400,8 @@
           <div class="ph" data-src="images/guide/modowoo.jpg">모도우 삼성점</div>
           <div class="rb">
             <h4>Modowoo, Samseong<small>모도우 삼성점</small></h4>
-            <p>Hanwoo grilled at the table in a private room, a short drive from the Park Hyatt.</p>
-            <dl><dt>Known for</dt><dd>The signature hanwoo course, with 1++ grade beef grilled and served in several courses</dd></dl>
+            <p>A set hanwoo course in a private room. Quiet and a little more formal, every course arrives in turn and the beef is grilled for you.</p>
+            <dl><dt>Known for</dt><dd>The signature hanwoo course, with 1++ grade beef grilled and served in several courses</dd><dt>Price guide</dt><dd>Dinner courses from about US$105 to US$125 per person</dd></dl>
             <span class="tag">We reserve for you</span>
             <a class="map" href="https://naver.me/xoH8ccKd" target="_blank" rel="noopener">Open in Naver Map &rsaquo;</a>
           </div>
@@ -398,14 +410,14 @@
           <div class="ph" data-src="images/guide/goseolwoo.jpg">고설우 삼성점</div>
           <div class="rb">
             <h4>Goseolwoo, Samseong<small>고설우 삼성점</small></h4>
-            <p>Hanwoo, grilled for you at the table, close to the hotel.</p>
-            <dl><dt>Known for</dt><dd>Hanwoo galbi on the bone, Seoul style bulgogi on a brass grill, and grilled yellow croaker</dd></dl>
+            <p>A relaxed, à la carte table, so each of you orders exactly what you like, with plenty beyond beef for the children.</p>
+            <dl><dt>Known for</dt><dd>Hanwoo galbi on the bone, Seoul style bulgogi on a brass grill, and grilled yellow croaker</dd><dt>Price guide</dt><dd>Galbi and hanwoo cuts from about US$30 to US$40 a portion, iron pot rice from about US$20</dd></dl>
             <span class="tag">We reserve for you</span>
             <a class="map" href="https://naver.me/5tfK9sNp" target="_blank" rel="noopener">Open in Naver Map &rsaquo;</a>
           </div>
         </article>
       </div>
-      <p class="note">Both dinner options are in Samseong, a short ride from the Park Hyatt, so the evening asks nothing of a tired family.</p>
+      <p class="note">Both are in Samseong, a short ride from the Park Hyatt, so the evening asks nothing of a tired family. Choose Modowoo for a quiet, set occasion, or Goseolwoo for an easy evening where everyone picks their own. Prices are a rough guide and may have changed.</p>
     </div>
   </section>
 
@@ -444,7 +456,7 @@
           <div class="rb">
             <h4>Donghwa Gook, Lotte World Mall<small>동화고옥 롯데월드몰점</small></h4>
             <p>A refined galbi house high in the mall, with windows over Seokchon Lake, and a short walk from the park with no coat needed.</p>
-            <dl><dt>Known for</dt><dd>Marinated galbi, aged and grilled over charcoal, served on brass</dd><dt>Two ways to dine</dt><dd>À la carte, or the Geumran galbi course (금란 갈비 코스), nine courses at ₩99,000 per person, in a private room overlooking Seokchon Lake. Tell us which you prefer and we will book it.</dd><dt>The course</dt><dd>Seasonal rice porridge, a signature platter of small bites, poached fish with vegetables, three colour pancakes, the house marinated galbi, iron pot rice, seasonal soup with side dishes, tea with small sweets, and seasonal fruit.</dd><dt>Please note</dt><dd>Some of the small plates and sweets are finished with walnuts. Mention your daughter's allergy when ordering.</dd></dl>
+            <dl><dt>Known for</dt><dd>Marinated galbi, aged and grilled over charcoal, served on brass</dd><dt>Two ways to dine</dt><dd>À la carte, or the Geumran galbi course (금란 갈비 코스), nine courses at about US$73 per person, in a private room overlooking Seokchon Lake. Tell us which you prefer and we will book it.</dd><dt>The course</dt><dd>Seasonal rice porridge, a signature platter of small bites, poached fish with vegetables, three colour pancakes, the house marinated galbi, iron pot rice, seasonal soup with side dishes, tea with small sweets, and seasonal fruit.</dd><dt>Please note</dt><dd>Some of the small plates and sweets are finished with walnuts. Mention your daughter's allergy when ordering.</dd></dl>
             <span class="tag">We reserve for you</span>
             <a class="map" href="https://naver.me/5xjpKvpp" target="_blank" rel="noopener">Open in Naver Map &rsaquo;</a>
           </div>
@@ -477,6 +489,18 @@
         <div>
           <h3>The National Museum of Korea</h3>
           <p>About two hours with your English speaking guide, at a pace set by the children.</p>
+          <div class="bio">
+            <h4>Your Museum Guide</h4>
+            <p>A museum educator who has spent more than a decade bringing Korean history and culture to life for young people, in English and Korean.</p>
+            <ul>
+              <li>Korean History Proficiency Test, Level 1, the highest grade</li>
+              <li>Certified instructor in history and experiential learning</li>
+              <li>Curator and educator in history, culture and science since 2016</li>
+              <li>Postgraduate study in cultural anthropology at Goldsmiths, University of London</li>
+              <li>Nine years directing an art and design foundation course accredited by University of the Arts London</li>
+              <li>Six years as a journalist, interviewer and interpreter at Monthly Design (월간디자인)</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="moment no-shot">
@@ -497,9 +521,12 @@
         <time>Evening</time>
         <div>
           <h3>COEX, the Starfield Library, and a Favourite Dinner</h3>
+          <p>This winter the Starfield Library holds a Christmas tree shaped as a Korean ink painting of mountains, with cranes and lanterns overhead. A quarter of an hour there before dinner is plenty, and the children will want the photograph.</p>
           <p>Tell us by the evening of the 21st which meal the family has loved most. We will book that restaurant again, or the same dish at a restaurant inside COEX, so the last night in Seoul is the one you would choose.</p>
         </div>
       </div>
+      <img class="wide" src="images/guide/coex-tree.jpg" alt="The Korean style Christmas tree inside the Starfield Library at COEX">
+      <p class="wide-cap">The Starfield Library at COEX, this winter.</p>
     </div>
   </section>
 
