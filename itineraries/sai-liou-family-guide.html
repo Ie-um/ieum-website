@@ -200,6 +200,12 @@
   .pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px}
   .pair img{width:100%;height:340px;object-fit:cover;display:block}
   @media (max-width:860px){.pair img{height:200px}}
+  .dayfold>summary{list-style:none;cursor:pointer;position:relative;padding-right:52px;margin-bottom:0}
+  .dayfold>summary::-webkit-details-marker{display:none}
+  .dayfold>summary:after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:2rem;font-weight:300;color:var(--jade)}
+  .dayfold[open]>summary:after{content:'\2212'}
+  .dayfold[open]>summary{margin-bottom:40px}
+  .day{padding:46px 0}
 </style>
 </head>
 <body>
@@ -248,7 +254,7 @@
         <p>Tap each to open.</p>
       </div>
       <details class="fold">
-        <summary><span class="eyebrow">Before You Fly</span><span class="ft">Three Apps to Download</span><span class="fs">Download these at home, where the connection is easiest.</span></summary>
+        <summary><span class="eyebrow">Before You Fly</span><span class="ft">Three Apps to Download</span></summary>
         <div class="fold-body">
       <div class="apps">
         <div><h3>Papago</h3><span class="for">To translate</span><p>Korea's own translation app, and more natural with Korean than most. Point the camera at a menu or a sign to read it in English, or speak into it in conversation.</p><p class="stores"><a href="https://apps.apple.com/app/naver-papago-ai-translator/id1147874819" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.naver.labs.translator" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
@@ -264,7 +270,7 @@
         </div>
       </details>
       <details class="fold">
-        <summary><span class="eyebrow">What to Pack</span><span class="ft">Dressing for Seoul in Late December</span><span class="fs">Dry, bright and properly cold, with a wind that makes it feel colder still.</span></summary>
+        <summary><span class="eyebrow">What to Pack</span><span class="ft">Dressing for Seoul in Late December</span></summary>
         <div class="fold-body">
       <div class="wx">
         <div><b>0 to 4&deg;C</b><span>Daytime, 32 to 39&deg;F</span></div>
@@ -287,10 +293,12 @@
 
 <section class="day textonly" id="d18">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Friday 18 December &middot; Arrival</span>
         <h2>Landing at Incheon</h2>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Your driver</b><span>In the arrivals hall, holding a card with your name</span></div><div><b>Flight</b><span>Air Canada AC63, landing 17:10</span></div><div><b>Then</b><span>To Park Hyatt Seoul, a little under an hour</span></div></div>
       <div class="moment no-shot">
         <time>17:10</time>
@@ -307,15 +315,19 @@
         </div>
       </div>
     </div>
+      </details>
+    </div>
   </section>
 
   <section class="day" id="d19">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Saturday 19 December &middot; Day One</span>
         <h2>Namsan and Myeongdong</h2>
         <p>Your driver is with you for the whole day.</p>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Your driver</b><span>Park Hyatt main entrance. Time confirmed the evening before</span></div><div><b>Through the day</b><span>On call throughout Myeongdong, so a warm car is never far</span></div><div><b>Tickets</b><span>Namsan Tower tickets for four, held for you</span></div></div>
       <div class="moment no-shot">
         <time>10:30</time>
@@ -374,17 +386,21 @@
       <div class="optional"><b>If you would like, after dinner:</b> the Seoul Lantern Festival (서울빛초롱축제) along the Cheonggyecheon stream, from 11 December to 31 January, lit each evening from 6pm to 11pm and free to walk. It runs from Cheonggye Plaza to Samil Bridge, about ten minutes by car from Myeongdong, and your driver can take you there and back to the hotel.</div>
       <div class="pair"><img src="images/guide/lantern-1.jpg" alt="Lanterns in traditional dress along the Cheonggyecheon stream at night"><img src="images/guide/lantern-2.jpg" alt="Lantern figures of Korean musicians at the Seoul Lantern Festival"></div>
       <p class="wide-cap">The Seoul Lantern Festival along Cheonggyecheon.</p>
-      <p class="note">Everything today sits within a few streets of one another. If the cold or the crowds become too much at any point, message your driver and he will come to you.</p>
+      
+    </div>
+      </details>
     </div>
   </section>
 
   <section class="day" id="d20">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Sunday 20 December &middot; Day Two</span>
         <h2>Hanbok, the Palace, and an Afternoon at Your Pace</h2>
         <p>Your companion guide is with you through the morning, and walks you to lunch.</p>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Your companion guide</b><span>Meeting place and time confirmed the evening before</span></div><div><b>Getting there</b><span>By taxi from the hotel straight to the hanbok studio, about 30 minutes</span></div><div><b>Getting back</b><span>Whenever you are ready, your guide calls a taxi to the hotel</span></div></div>
       <div class="moment">
         <time>10:00</time>
@@ -482,15 +498,19 @@
       </div>
       <p class="note">Both are in Samseong, about five minutes by taxi from the Park Hyatt, or a fifteen minute walk straight along the road, so the evening asks nothing of a tired family. Choose Modowoo for a quiet, set occasion, or Goseolwoo for an easy evening where everyone picks their own. Prices are a rough guide and may have changed.</p>
     </div>
+      </details>
+    </div>
   </section>
 
   <section class="day" id="d21">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Monday 21 December &middot; Day Three</span>
         <h2>Lotte World, All Indoors</h2>
         <p>A day for the children, entirely under one roof.</p>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Getting there</b><span>By taxi, about 15 minutes, or by subway: Line 2 from Samseong station, opposite the hotel, three stops to Jamsil, then underground into Lotte World</span></div><div><b>Opening</b><span>Lotte World opens at 10:00. Arriving at the gates helps the whole day</span></div><div><b>Tickets</b><span>Park passes and ice rink for four, held for you</span></div></div>
       <div class="moment no-shot">
         <time>11:00</time>
@@ -537,15 +557,19 @@
       </div>
       <p class="note">The indoor sports arcade and the children's cafe your friends recommended are in Lotte World Mall, a few minutes from the park gates, if there is energy left before dinner.</p>
     </div>
+      </details>
+    </div>
   </section>
 
   <section class="day" id="d22">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Tuesday 22 December &middot; Day Four</span>
         <h2>The Museum, the Market, and COEX</h2>
         <p>Your driver is with you for the whole day.</p>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Your driver</b><span>Park Hyatt main entrance. Time confirmed the evening before</span></div><div><b>Your museum guide, Sona</b><span>At the National Museum of Korea. Meeting point and time confirmed the evening before</span></div><div><b>Afternoon</b><span>Your facial in Gangnam, a short drive from the hotel</span></div></div>
       <div class="moment no-shot">
         <time>Morning</time>
@@ -592,15 +616,21 @@
       <img class="wide" src="images/guide/coex-tree.jpg" alt="The Korean style Christmas tree inside the Starfield Library at COEX">
       <p class="wide-cap">The Starfield Library at COEX, this winter.</p>
     </div>
+      </details>
+    </div>
   </section>
 
   <section class="day textonly" id="d23">
     <div class="wrap">
-      <div class="day-head">
+      <details class="dayfold">
+        <summary class="day-head">
         <span class="eyebrow">Wednesday 23 December &middot; Departure</span>
         <h2>On to Sapporo</h2>
-      </div>
+      </summary>
+        <div class="dayfold-body">
       <div class="who"><div><b>Your driver</b><span>Park Hyatt main entrance. Collection time confirmed with you</span></div><div><b>Flight</b><span>Korean Air KE769, departing 13:00</span></div><div><b>Arriving</b><span>Sapporo New Chitose, 15:45</span></div></div>
+    </div>
+      </details>
     </div>
   </section>
 
@@ -654,6 +684,11 @@
     img.onload=function(){el.style.backgroundImage='url('+el.getAttribute('data-src')+')';el.classList.add('has');};
     img.src=el.getAttribute('data-src');
   });
+</script>
+<script>
+  function openFold(id){var el=document.getElementById(id);if(!el)return;var d=el.querySelector('details');if(d)d.open=true;}
+  document.querySelectorAll('.daynav a').forEach(function(a){a.addEventListener('click',function(){openFold(a.getAttribute('href').slice(1));});});
+  if(location.hash)openFold(location.hash.slice(1));
 </script>
 </body>
 </html>
