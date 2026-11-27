@@ -185,6 +185,17 @@
   @media (max-width:860px){.wide{height:220px}}
   .stores{margin-top:14px;display:flex;gap:18px;flex-wrap:wrap}
   .apps .stores a{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--jade-deep);text-decoration:none;border-bottom:1px solid rgba(44,70,62,.35);padding-bottom:3px}
+  .fold{border-top:1px solid var(--hairline);max-width:960px;margin:0 auto}
+  .fold:last-of-type{border-bottom:1px solid var(--hairline)}
+  .fold summary{list-style:none;cursor:pointer;padding:26px 48px 26px 0;position:relative;display:grid;gap:6px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary:after{content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:1.8rem;color:var(--jade);font-weight:300;transition:transform .3s}
+  .fold[open] summary:after{content:'\2212'}
+  .fold .ft{font-family:var(--display);font-size:clamp(1.35rem,2.6vw,1.7rem);font-weight:300;line-height:1.2}
+  .fold .fs{font-family:var(--display);font-style:italic;color:#5A5A52;font-size:1rem}
+  .fold-body{padding:6px 0 40px}
+  #tips{padding:70px 0}
+  #tips .head{margin-bottom:30px}
 </style>
 </head>
 <body>
@@ -214,19 +225,63 @@
         <span>Two Adults, Two Children</span>
       </div>
       <nav class="daynav" aria-label="Jump to a section">
+        <a href="#tips"><span class="dn-date">Tips</span><span class="dn-label">Before you go</span></a>
         <a href="#d18"><span class="dn-date">18 Dec</span><span class="dn-label">Arrival</span></a>
         <a href="#d19"><span class="dn-date">19 Dec</span><span class="dn-label">Day One</span></a>
         <a href="#d20"><span class="dn-date">20 Dec</span><span class="dn-label">Day Two</span></a>
         <a href="#d21"><span class="dn-date">21 Dec</span><span class="dn-label">Day Three</span></a>
         <a href="#d22"><span class="dn-date">22 Dec</span><span class="dn-label">Day Four</span></a>
         <a href="#d23"><span class="dn-date">23 Dec</span><span class="dn-label">Departure</span></a>
-        <a href="#apps"><span class="dn-date">Apps</span><span class="dn-label">Before you fly</span></a>
-        <a href="#pack"><span class="dn-date">Packing</span><span class="dn-label">The weather</span></a>
       </nav>
     </div>
   </section>
 
-  <section class="day textonly" id="d18">
+    <section class="tips" id="tips">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Before You Go</span>
+        <h2>Tips for the Journey</h2>
+        <p>Tap each to open.</p>
+      </div>
+      <details class="fold">
+        <summary><span class="eyebrow">Before You Fly</span><span class="ft">Three Apps to Download</span><span class="fs">Download these at home, where the connection is easiest.</span></summary>
+        <div class="fold-body">
+      <div class="apps">
+        <div><h3>Papago</h3><span class="for">To translate</span><p>Korea's own translation app, and more natural with Korean than most. Point the camera at a menu or a sign to read it in English, or speak into it in conversation.</p><p class="stores"><a href="https://apps.apple.com/app/naver-papago-ai-translator/id1147874819" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.naver.labs.translator" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
+        <div><h3>Naver Map</h3><span class="for">To find your way</span><p>Google Maps gives only limited directions in Korea, so Naver Map is the one locals use. Set the language to English in the settings. Every restaurant link in this guide opens in it.</p><p class="stores"><a href="https://apps.apple.com/app/naver-map-navigation/id311867728" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.nhn.android.nmap" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
+        <div><h3>WhatsApp</h3><span class="for">To reach us</span><p>How you reach the local concierge in Seoul, at any hour, for anything at all. The number is shared with you before you fly.</p><p class="stores"><a href="https://apps.apple.com/app/whatsapp-messenger/id310633997" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
+      </div>
+      <div class="phrase">
+        <span class="eyebrow">One Phrase Worth Saving</span>
+        <p class="ko">제 딸이 견과류 알레르기가 있어요</p>
+        <p>"My daughter has a nut allergy." Show it when ordering. Pine nuts are jat (잣) in Korean.</p>
+      </div>
+    
+        </div>
+      </details>
+      <details class="fold">
+        <summary><span class="eyebrow">What to Pack</span><span class="ft">Dressing for Seoul in Late December</span><span class="fs">Dry, bright and properly cold, with a wind that makes it feel colder still.</span></summary>
+        <div class="fold-body">
+      <div class="wx">
+        <div><b>0 to 4&deg;C</b><span>Daytime, 32 to 39&deg;F</span></div>
+        <div><b>&minus;3 to &minus;7&deg;C</b><span>Night, 19 to 27&deg;F</span></div>
+        <div><b>About 17:15</b><span>Sunset</span></div>
+      </div>
+      <div class="pack">
+        <div><h3>A long padded coat</h3><p>Knee length if you have one, with a hood. It is what most of Seoul wears in winter, and it keeps the wind off your legs on the walk between doors.</p></div>
+        <div><h3>A thin warm base layer</h3><p>Thermal tops and leggings for everyone. Shops in Myeongdong sell them, should you need more on the first day.</p></div>
+        <div><h3>Layers that come off easily</h3><p>Indoors is warmly heated, the museum, the malls and the restaurants. A light knit under the coat is easier than one thick jumper.</p></div>
+        <div><h3>Hat, earmuffs, scarf, gloves</h3><p>The wind finds ears and hands first. Gloves that work with a phone screen are useful for maps and photographs.</p></div>
+        <div><h3>Warm shoes with good grip</h3><p>Waterproof boots or trainers with a firm sole, and wool socks. Paths can be icy in the shade, and the palace grounds are gravel.</p></div>
+        <div><h3>Small comforts</h3><p>Hand warmers, hot packs (핫팩), are sold in every convenience store. The air is dry, so lip balm and a rich moisturiser are worth the space.</p></div>
+      </div>
+    
+        </div>
+      </details>
+    </div>
+  </section>
+
+<section class="day textonly" id="d18">
     <div class="wrap">
       <div class="day-head">
         <span class="eyebrow">Friday 18 December &middot; Arrival</span>
@@ -313,6 +368,8 @@
         </article>
       </div>
       <div class="optional"><b>If you would like, after dinner:</b> the Seoul Lantern Festival (서울빛초롱축제) along the Cheonggyecheon stream, from 11 December to 31 January, lit each evening from 6pm to 11pm and free to walk. It runs from Cheonggye Plaza to Samil Bridge, about ten minutes by car from Myeongdong, and your driver can take you there and back to the hotel.</div>
+      <img class="wide" src="images/guide/lantern-festival.jpg" alt="Lanterns along the Cheonggyecheon stream during the Seoul Lantern Festival">
+      <p class="wide-cap">The Seoul Lantern Festival along Cheonggyecheon.</p>
       <p class="note">Everything today sits within a few streets of one another. If the cold or the crowds become too much at any point, message your driver and he will come to you.</p>
     </div>
   </section>
@@ -543,48 +600,7 @@
     </div>
   </section>
 
-  <section class="tips" id="apps">
-    <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">Before You Fly</span>
-        <h2>Three Apps to Download</h2>
-        <p>Download these at home, where the connection is easiest.</p>
-      </div>
-      <div class="apps">
-        <div><h3>Papago</h3><span class="for">To translate</span><p>Korea's own translation app, and more natural with Korean than most. Point the camera at a menu or a sign to read it in English, or speak into it in conversation.</p><p class="stores"><a href="https://apps.apple.com/app/naver-papago-ai-translator/id1147874819" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.naver.labs.translator" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
-        <div><h3>Naver Map</h3><span class="for">To find your way</span><p>Google Maps gives only limited directions in Korea, so Naver Map is the one locals use. Set the language to English in the settings. Every restaurant link in this guide opens in it.</p><p class="stores"><a href="https://apps.apple.com/app/naver-map-navigation/id311867728" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.nhn.android.nmap" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
-        <div><h3>WhatsApp</h3><span class="for">To reach us</span><p>How you reach the local concierge in Seoul, at any hour, for anything at all. The number is shared with you before you fly.</p><p class="stores"><a href="https://apps.apple.com/app/whatsapp-messenger/id310633997" target="_blank" rel="noopener">App Store &rsaquo;</a><a href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank" rel="noopener">Google Play &rsaquo;</a></p></div>
-      </div>
-      <div class="phrase">
-        <span class="eyebrow">One Phrase Worth Saving</span>
-        <p class="ko">제 딸이 견과류 알레르기가 있어요</p>
-        <p>"My daughter has a nut allergy." Show it when ordering. Pine nuts are jat (잣) in Korean.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="tips alt" id="pack">
-    <div class="wrap">
-      <div class="head">
-        <span class="eyebrow">What to Pack</span>
-        <h2>Dressing for Seoul in Late December</h2>
-        <p>Dry, bright and properly cold, with a wind that makes it feel colder still.</p>
-      </div>
-      <div class="wx">
-        <div><b>0 to 4&deg;C</b><span>Daytime, 32 to 39&deg;F</span></div>
-        <div><b>&minus;3 to &minus;7&deg;C</b><span>Night, 19 to 27&deg;F</span></div>
-        <div><b>About 17:15</b><span>Sunset</span></div>
-      </div>
-      <div class="pack">
-        <div><h3>A long padded coat</h3><p>Knee length if you have one, with a hood. It is what most of Seoul wears in winter, and it keeps the wind off your legs on the walk between doors.</p></div>
-        <div><h3>A thin warm base layer</h3><p>Thermal tops and leggings for everyone. Shops in Myeongdong sell them, should you need more on the first day.</p></div>
-        <div><h3>Layers that come off easily</h3><p>Indoors is warmly heated, the museum, the malls and the restaurants. A light knit under the coat is easier than one thick jumper.</p></div>
-        <div><h3>Hat, earmuffs, scarf, gloves</h3><p>The wind finds ears and hands first. Gloves that work with a phone screen are useful for maps and photographs.</p></div>
-        <div><h3>Warm shoes with good grip</h3><p>Waterproof boots or trainers with a firm sole, and wool socks. Paths can be icy in the shade, and the palace grounds are gravel.</p></div>
-        <div><h3>Small comforts</h3><p>Hand warmers, hot packs (핫팩), are sold in every convenience store. The air is dry, so lip balm and a rich moisturiser are worth the space.</p></div>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="closing">
     <div class="wrap">
